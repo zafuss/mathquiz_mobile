@@ -8,13 +8,13 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
         textStyle:
-            MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 20)),
+            MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 16)),
         alignment: Alignment.center,
       )),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           textStyle: MaterialStateProperty.all<TextStyle>(
-            TextStyle(color: Colors.white, fontSize: 20),
+            TextStyle(color: Colors.white, fontSize: 16),
           ),
           backgroundColor: MaterialStateProperty.all<Color>(
             ColorPalette.primaryColor,

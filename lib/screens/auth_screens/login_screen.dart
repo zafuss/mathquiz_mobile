@@ -14,6 +14,8 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final loginController = Get.put(LoginController());
     final _formKey = GlobalKey<FormState>();
+    final _emailController = TextEditingController();
+    final _passwordController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -77,6 +79,7 @@ class LoginScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 TextFormField(
+                                    controller: _emailController,
                                     textAlignVertical: TextAlignVertical.center,
                                     decoration: const InputDecoration(
                                         contentPadding: EdgeInsets.only(top: 0),
@@ -88,6 +91,7 @@ class LoginScreen extends StatelessWidget {
                                   height: kMinPadding / 2,
                                 ),
                                 TextFormField(
+                                    controller: _passwordController,
                                     obscureText: true,
                                     textAlignVertical: TextAlignVertical.center,
                                     decoration: const InputDecoration(

@@ -11,6 +11,10 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final registerController = Get.put(RegisterController());
     final _formKey = GlobalKey<FormState>();
+    final _emailController = TextEditingController();
+    final _fullNameController = TextEditingController();
+    final _passwordController = TextEditingController();
+    final _confirmPasswordController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -33,13 +37,17 @@ class RegisterScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w500),
                               textAlign: TextAlign.center,
                             ),
-                            const Icon(
-                              Icons.check_circle_outline_outlined,
-                              color: ColorPalette.primaryColor,
-                              size: 56,
+                            // Icon(
+                            //   Icons.check_circle_outline_outlined,
+                            //   color: ColorPalette.primaryColor,
+                            //   size: 56,
+                            // ),
+                            Image.asset(
+                              'assets/images/checked.gif',
+                              width: 115,
                             ),
-                            Obx(() => const Text(
-                                'Tự động chuyển về trang đăng nhập sau 3 giây'))
+                            const Text(
+                                'Tự động chuyển về trang đăng nhập sau 3 giây')
                           ],
                         ),
                       )
@@ -74,6 +82,21 @@ class RegisterScreen extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         TextFormField(
+                                            controller: _emailController,
+                                            textAlignVertical:
+                                                TextAlignVertical.center,
+                                            decoration: const InputDecoration(
+                                                contentPadding:
+                                                    EdgeInsets.only(top: 0),
+                                                prefixIcon: Icon(
+                                                  Icons.email_outlined,
+                                                ),
+                                                hintText: "Email")),
+                                        const SizedBox(
+                                          height: kMinPadding / 2,
+                                        ),
+                                        TextFormField(
+                                            controller: _fullNameController,
                                             textAlignVertical:
                                                 TextAlignVertical.center,
                                             decoration: const InputDecoration(
@@ -82,11 +105,12 @@ class RegisterScreen extends StatelessWidget {
                                                 prefixIcon: Icon(
                                                   Icons.person_2_outlined,
                                                 ),
-                                                hintText: "Email")),
+                                                hintText: "Họ và tên")),
                                         const SizedBox(
                                           height: kMinPadding / 2,
                                         ),
                                         TextFormField(
+                                            controller: _passwordController,
                                             obscureText: true,
                                             textAlignVertical:
                                                 TextAlignVertical.center,
@@ -101,6 +125,8 @@ class RegisterScreen extends StatelessWidget {
                                           height: kMinPadding / 2,
                                         ),
                                         TextFormField(
+                                            controller:
+                                                _confirmPasswordController,
                                             obscureText: true,
                                             textAlignVertical:
                                                 TextAlignVertical.center,
@@ -108,13 +134,13 @@ class RegisterScreen extends StatelessWidget {
                                                 contentPadding:
                                                     EdgeInsets.only(top: 0),
                                                 prefixIcon: Icon(
-                                                  Icons.key_outlined,
+                                                  Icons.lock_outline,
                                                 ),
                                                 hintText: "Xác nhận mật khẩu")),
                                       ],
                                     )),
                                 const SizedBox(
-                                  height: kMinPadding / 2,
+                                  height: kDefaultPadding,
                                 ),
                                 ElevatedButton(
                                     onPressed: () async {
