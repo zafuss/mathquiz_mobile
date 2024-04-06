@@ -138,7 +138,10 @@ class LoginScreen extends StatelessWidget {
                           height: kMinPadding / 2,
                         ),
                         ElevatedButton(
-                            onPressed: () {}, child: const Text('Đăng nhập')),
+                            onPressed: () {
+                              loginController.login();
+                            },
+                            child: const Text('Đăng nhập')),
                         TextButton(
                             onPressed: () {},
                             child: Row(
