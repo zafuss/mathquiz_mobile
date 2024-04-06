@@ -1,0 +1,19 @@
+import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_api_client.dart';
+import 'package:mathquiz_mobile/models/level.dart';
+import 'package:mathquiz_mobile/result_type.dart';
+
+class ChooseExamRepository {
+  final ChooseExamApiClient chooseExamApiClient = ChooseExamApiClient();
+  Future<Result<List<Level>?>> getLevels() async {
+    try {
+      // final loginSuccessDto = await authApiClient.login(
+      //   LoginDto(username: username, password: password),
+      // );
+      // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
+      var levelList = await chooseExamApiClient.getLevels();
+      return Success(levelList);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+}

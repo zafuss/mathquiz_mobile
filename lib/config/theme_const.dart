@@ -4,6 +4,7 @@ import 'package:mathquiz_mobile/config/color_const.dart';
 class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
+      textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 16)),
       colorScheme: ThemeData().colorScheme.copyWith(primary: Colors.black),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(

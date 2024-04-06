@@ -6,7 +6,7 @@ import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+  const ForgotPasswordScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,12 @@ class ForgotPasswordScreen extends StatelessWidget {
         children: [
           Image.asset('assets/images/bg_auth.png'),
           SafeArea(
-            child: Positioned(
-                child: IconButton(
+            child: IconButton(
               icon: const Icon(Icons.arrow_back_ios_new),
               onPressed: () {
                 Get.back();
               },
-            )),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),

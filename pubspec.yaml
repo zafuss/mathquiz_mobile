@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   get:
   shared_preferences:
+  equatable:
+  dio:
 
   
 

@@ -3,7 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
-import 'package:mathquiz_mobile/features/auth/sf/sf_controller.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
+import 'package:mathquiz_mobile/features/auth/data/sf/sf_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 import '../config/media_query_config.dart';
@@ -80,7 +81,9 @@ class CustomDrawer extends StatelessWidget {
                               height: 40,
                               width: 150,
                               child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.offAndToNamed(Routes.loginScreen);
+                                  },
                                   child: const Text('Đăng xuất')),
                             ),
                             TextButton(

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
-import 'package:mathquiz_mobile/features/auth/sf/sf_controller.dart';
+import 'package:mathquiz_mobile/features/auth/data/sf/sf_controller.dart';
 
 class LoginController extends GetxController {
   var isLogging = false.obs;

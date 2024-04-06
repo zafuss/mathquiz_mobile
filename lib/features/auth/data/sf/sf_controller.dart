@@ -17,6 +17,12 @@ class LocalDataController extends GetxController {
     prefs.setString(NAME_KEY, uid);
   }
 
+  Future<void> deleteUID() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientName.value = '';
+    prefs.remove(NAME_KEY);
+  }
+
   Future<String?> getUID(String name_key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 

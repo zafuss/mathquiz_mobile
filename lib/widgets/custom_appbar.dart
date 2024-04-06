@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/appbar/appbar_controller.dart';
-import 'package:mathquiz_mobile/features/auth/sf/sf_controller.dart';
+import 'package:mathquiz_mobile/features/auth/data/sf/sf_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -47,7 +48,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   left: -(screenWidth - diameter) /
                       2, // Đặt left theo giá trị của hình tròn
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () => Get.toNamed(Routes.chooseExamConditionScreen),
                     child: Container(
                       width: buttonWidth,
                       height: buttonHeight,
@@ -138,5 +139,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(500.0);
+  Size get preferredSize => const Size.fromHeight(500);
 }
