@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-List<Level> courtFromJson(String str) =>
+List<Level> levelFromJson(String str) =>
     List<Level>.from(json.decode(str).map((x) => Level.fromJson(x)));
 
 class Level extends Equatable {

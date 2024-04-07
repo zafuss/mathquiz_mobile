@@ -1,4 +1,6 @@
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_api_client.dart';
+import 'package:mathquiz_mobile/models/chapter.dart';
+import 'package:mathquiz_mobile/models/grade.dart';
 import 'package:mathquiz_mobile/models/level.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 
@@ -12,6 +14,32 @@ class ChooseExamRepository {
       // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
       var levelList = await chooseExamApiClient.getLevels();
       return Success(levelList);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+
+  Future<Result<List<Grade>?>> getGrades() async {
+    try {
+      // final loginSuccessDto = await authApiClient.login(
+      //   LoginDto(username: username, password: password),
+      // );
+      // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
+      var gradeList = await chooseExamApiClient.getGrades();
+      return Success(gradeList);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+
+  Future<Result<List<Chapter>?>> getChapters() async {
+    try {
+      // final loginSuccessDto = await authApiClient.login(
+      //   LoginDto(username: username, password: password),
+      // );
+      // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
+      var chapterList = await chooseExamApiClient.getChapters();
+      return Success(chapterList);
     } catch (e) {
       return Failure('$e');
     }

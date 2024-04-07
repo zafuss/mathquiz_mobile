@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 import 'package:mathquiz_mobile/widgets/custom_appbar.dart';
 import 'package:mathquiz_mobile/widgets/custom_drawer.dart';

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/level_controller.dart';
+import 'package:mathquiz_mobile/models/chapter.dart';
+import 'package:mathquiz_mobile/models/grade.dart';
 import 'package:mathquiz_mobile/models/level.dart';
 
 import '../config/demension_const.dart';
+import '../features/choose_exam/getx/grade_controller.dart';
 
 class ChooseExamConditionScreen extends StatelessWidget {
   const ChooseExamConditionScreen({super.key});
@@ -12,7 +16,8 @@ class ChooseExamConditionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final levelController = Get.put(LevelController());
-    final items = ['Cấp 1', 'Cấp 2', 'Cấp 3'];
+    final gradeController = Get.put(GradeController());
+    final chapterController = Get.put(ChapterController());
     return Scaffold(
       body: Stack(
         children: [
@@ -26,7 +31,7 @@ class ChooseExamConditionScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -47,25 +52,26 @@ class ChooseExamConditionScreen extends StatelessWidget {
                     ),
                   ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: kDefaultPadding * 2,
                 ),
-                Text('Cấp học'),
-                SizedBox(
+                const Text('Cấp học'),
+                const SizedBox(
                   height: 10,
                 ),
                 Obx(
                   () => levelController.isLoading.value
-                      ? Center(
+                      ? const Center(
                           child: CircularProgressIndicator(),
                         )
                       : DropdownButtonFormField<Level>(
                           itemHeight: null,
                           decoration: InputDecoration(
                             isCollapsed: true,
-                            constraints: BoxConstraints.expand(height: 30),
+                            constraints:
+                                const BoxConstraints.expand(height: 30),
                             filled: true,
-                            fillColor: Color.fromRGBO(251, 252, 253, 1),
+                            fillColor: const Color.fromRGBO(251, 252, 253, 1),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
                               borderSide: const BorderSide(
@@ -87,6 +93,9 @@ class ChooseExamConditionScreen extends StatelessWidget {
                           onChanged: (Level? newValue) {
                             // Handle dropdown value changes
                             print(newValue);
+                            levelController.handleOnChangedLevel(
+                                newValue, gradeController, chapterController);
+                            // gradeController.fetchGradesByLevelId(newValue!.id);
                           },
                           items: levelController.levelList
                               .map<DropdownMenuItem<Level>>((Level value) {
@@ -100,23 +109,24 @@ class ChooseExamConditionScreen extends StatelessWidget {
                           }).toList(),
                         ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: kMinPadding,
                 ),
-                Text('Lớp'),
-                SizedBox(
+                const Text('Lớp'),
+                const SizedBox(
                   height: 10,
                 ),
                 Obx(
-                  () => levelController.isLoading.value
-                      ? Center(
+                  () => gradeController.isLoading.value
+                      ? const Center(
                           child: CircularProgressIndicator(),
                         )
-                      : DropdownButtonFormField<Level>(
+                      : DropdownButtonFormField<Grade>(
                           itemHeight: null,
                           decoration: InputDecoration(
                             isCollapsed: true,
-                            constraints: BoxConstraints.expand(height: 30),
+                            constraints:
+                                const BoxConstraints.expand(height: 30),
                             filled: true,
                             fillColor:
                                 ColorPalette.primaryColor.withOpacity(0.3),
@@ -136,15 +146,17 @@ class ChooseExamConditionScreen extends StatelessWidget {
                             ),
                           ),
                           isExpanded: true,
-                          value: levelController
-                              .chosenLevel.value, // Default value
-                          onChanged: (Level? newValue) {
+                          value: gradeController
+                              .chosenGrade.value, // Default value
+                          onChanged: (Grade? newValue) {
+                            gradeController.handleOnChangedGrade(
+                                newValue, chapterController);
                             // Handle dropdown value changes
                             print(newValue);
                           },
-                          items: levelController.levelList
-                              .map<DropdownMenuItem<Level>>((Level value) {
-                            return DropdownMenuItem<Level>(
+                          items: gradeController.searchedGradeList
+                              .map<DropdownMenuItem<Grade>>((Grade value) {
+                            return DropdownMenuItem<Grade>(
                               value: value,
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
@@ -154,25 +166,26 @@ class ChooseExamConditionScreen extends StatelessWidget {
                           }).toList(),
                         ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: kMinPadding,
                 ),
-                Text('Chương'),
-                SizedBox(
+                const Text('Chương'),
+                const SizedBox(
                   height: 10,
                 ),
                 Obx(
-                  () => levelController.isLoading.value
-                      ? Center(
+                  () => chapterController.isLoading.value
+                      ? const Center(
                           child: CircularProgressIndicator(),
                         )
-                      : DropdownButtonFormField<Level>(
+                      : DropdownButtonFormField<Chapter>(
                           itemHeight: null,
                           decoration: InputDecoration(
                             isCollapsed: true,
-                            constraints: BoxConstraints.expand(height: 30),
+                            constraints:
+                                const BoxConstraints.expand(height: 30),
                             filled: true,
-                            fillColor: Color.fromRGBO(251, 252, 253, 1),
+                            fillColor: const Color.fromRGBO(251, 252, 253, 1),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
                               borderSide: const BorderSide(
@@ -189,15 +202,15 @@ class ChooseExamConditionScreen extends StatelessWidget {
                             ),
                           ),
                           isExpanded: true,
-                          value: levelController
-                              .chosenLevel.value, // Default value
-                          onChanged: (Level? newValue) {
+                          value: chapterController
+                              .chosenChapter.value, // Default value
+                          onChanged: (Chapter? newValue) {
                             // Handle dropdown value changes
                             print(newValue);
                           },
-                          items: levelController.levelList
-                              .map<DropdownMenuItem<Level>>((Level value) {
-                            return DropdownMenuItem<Level>(
+                          items: chapterController.searchedChapterList
+                              .map<DropdownMenuItem<Chapter>>((Chapter value) {
+                            return DropdownMenuItem<Chapter>(
                               value: value,
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
@@ -207,10 +220,10 @@ class ChooseExamConditionScreen extends StatelessWidget {
                           }).toList(),
                         ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: kMinPadding + 10,
                 ),
-                ElevatedButton(onPressed: () {}, child: Text('Tiếp tục'))
+                ElevatedButton(onPressed: () {}, child: const Text('Tiếp tục'))
               ],
             ),
           ),

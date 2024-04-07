@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
