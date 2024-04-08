@@ -266,7 +266,7 @@ class ChooseExamConditionScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: kMinPadding + 10,
+                  height: kDefaultPadding * 1.5 + 10,
                 ),
                 ElevatedButton(
                   onPressed: () {},
