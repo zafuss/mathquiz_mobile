@@ -168,6 +168,7 @@ class RegisterScreen extends StatelessWidget {
                               TextSpan(children: [
                                 TextSpan(
                                   text: "Bạn đã có tài khoản? ",
+                                  style: TextStyle(color: Colors.black),
                                 ),
                                 TextSpan(
                                   text: "Đăng nhập",

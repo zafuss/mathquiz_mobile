@@ -173,8 +173,8 @@ class LoginScreen extends StatelessWidget {
                     child: const Text.rich(
                       TextSpan(children: [
                         TextSpan(
-                          text: "Bạn chưa có tài khoản? ",
-                        ),
+                            text: "Bạn chưa có tài khoản? ",
+                            style: TextStyle(color: Colors.black)),
                         TextSpan(
                           text: "Đăng ký",
                           style: TextStyle(

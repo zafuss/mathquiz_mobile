@@ -6,6 +6,8 @@ import '../../../result_type.dart';
 
 class ChapterController extends GetxController {
   var isLoading = false.obs;
+  var isHasMultiMathType = false.obs;
+  var chosenMathType = 1.obs;
   RxList<Chapter> chapterList = <Chapter>[].obs;
   RxList<Chapter> searchedChapterList = <Chapter>[].obs;
   Rx<Chapter?> chosenChapter = Rx<Chapter?>(null);
@@ -35,5 +37,31 @@ class ChapterController extends GetxController {
     searchedChapterList.value =
         chapterList.where((element) => element.gradeId == gradeId).toList();
     chosenChapter.value = searchedChapterList[0];
+    for (var element in searchedChapterList) {
+      if (element.mathTypeId != null) {
+        isHasMultiMathType.value = true;
+        chosenMathType.value = 1;
+        fetchChapterByMathType(null, gradeId);
+        break;
+      }
+      isHasMultiMathType.value = false;
+    }
+    print(chosenMathType.value);
+  }
+
+  fetchChapterByMathType(int? mathTypeId, int gradeId) {
+    if (mathTypeId != null) {
+      chosenMathType.value = mathTypeId;
+    }
+    searchedChapterList.value = chapterList
+        .where((element) =>
+            element.mathTypeId == chosenMathType.value &&
+            element.gradeId == gradeId)
+        .toList();
+    if (searchedChapterList.isNotEmpty) {
+      chosenChapter.value = searchedChapterList[0];
+    } else {
+      chosenChapter.value = null;
+    }
   }
 }

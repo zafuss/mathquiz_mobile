@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
+import 'package:mathquiz_mobile/config/media_query_config.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/level_controller.dart';
-import 'package:mathquiz_mobile/models/chapter.dart';
-import 'package:mathquiz_mobile/models/grade.dart';
-import 'package:mathquiz_mobile/models/level.dart';
 
 import '../config/demension_const.dart';
 import '../features/choose_exam/getx/grade_controller.dart';
@@ -15,6 +13,7 @@ class ChooseExamConditionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     final levelController = Get.put(LevelController());
     final gradeController = Get.put(GradeController());
     final chapterController = Get.put(ChapterController());
@@ -59,55 +58,51 @@ class ChooseExamConditionScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Obx(
-                  () => levelController.isLoading.value
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : DropdownButtonFormField<Level>(
-                          itemHeight: null,
-                          decoration: InputDecoration(
-                            isCollapsed: true,
-                            constraints:
-                                const BoxConstraints.expand(height: 30),
-                            filled: true,
-                            fillColor: const Color.fromRGBO(251, 252, 253, 1),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 0,
-                              ),
+                GestureDetector(
+                  onTap: () {
+                    _showLevelDialog(context, levelController, gradeController,
+                        chapterController);
+                  },
+                  child: Container(
+                    // height:
+                    //     (SizeConfig.screenWidth! - kDefaultPadding * 2) / 2 -
+                    //         kDefaultPadding / 2,
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: const Color.fromRGBO(251, 252, 253, 1),
+                    ),
+                    child: Center(
+                      child: Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: kMinPadding / 2),
+                            child: Image.asset(
+                              'assets/images/level_icon.png',
+                              height: 50,
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 0,
+                          ),
+                          Expanded(
+                            child: Obx(
+                              () => Text(
+                                textAlign: TextAlign.center,
+                                levelController.chosenLevel.value?.name ??
+                                    'Chọn cấp',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),
-                          isExpanded: true,
-                          value: levelController
-                              .chosenLevel.value, // Default value
-                          onChanged: (Level? newValue) {
-                            // Handle dropdown value changes
-                            print(newValue);
-                            levelController.handleOnChangedLevel(
-                                newValue, gradeController, chapterController);
-                            // gradeController.fetchGradesByLevelId(newValue!.id);
-                          },
-                          items: levelController.levelList
-                              .map<DropdownMenuItem<Level>>((Level value) {
-                            return DropdownMenuItem<Level>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(value.name),
-                              ),
-                            );
-                          }).toList(),
-                        ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: kMinPadding,
@@ -116,55 +111,107 @@ class ChooseExamConditionScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Obx(
-                  () => gradeController.isLoading.value
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : DropdownButtonFormField<Grade>(
-                          itemHeight: null,
-                          decoration: InputDecoration(
-                            isCollapsed: true,
-                            constraints:
-                                const BoxConstraints.expand(height: 30),
-                            filled: true,
-                            fillColor:
-                                ColorPalette.primaryColor.withOpacity(0.3),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 0,
-                              ),
+                GestureDetector(
+                  onTap: () {
+                    _showGradeDialog(
+                        context, gradeController, chapterController);
+                  },
+                  child: Container(
+                    // height:
+                    //     (SizeConfig.screenWidth! - kDefaultPadding * 2) / 2 -
+                    //         kDefaultPadding / 2,
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: const Color.fromRGBO(251, 252, 253, 1),
+                    ),
+                    child: Center(
+                      child: Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: kMinPadding / 2),
+                            child: Image.asset(
+                              'assets/images/grade_icon.png',
+                              height: 50,
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 0,
+                          ),
+                          Expanded(
+                            child: Obx(
+                              () => Text(
+                                textAlign: TextAlign.center,
+                                gradeController.chosenGrade.value?.name ??
+                                    'Chọn lớp',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),
-                          isExpanded: true,
-                          value: gradeController
-                              .chosenGrade.value, // Default value
-                          onChanged: (Grade? newValue) {
-                            gradeController.handleOnChangedGrade(
-                                newValue, chapterController);
-                            // Handle dropdown value changes
-                            print(newValue);
-                          },
-                          items: gradeController.searchedGradeList
-                              .map<DropdownMenuItem<Grade>>((Grade value) {
-                            return DropdownMenuItem<Grade>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(value.name),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Obx(
+                  () => chapterController.isHasMultiMathType.value
+                      ? Row(
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () =>
+                                    chapterController.fetchChapterByMathType(1,
+                                        gradeController.chosenGrade.value!.id),
+                                child: Container(
+                                  color:
+                                      chapterController.chosenMathType.value ==
+                                              1
+                                          ? ColorPalette.primaryColor
+                                          : Colors.white,
+                                  height: 30,
+                                  child: Center(
+                                      child: Text(
+                                    'Đại số',
+                                    style: chapterController
+                                                .chosenMathType.value ==
+                                            1
+                                        ? const TextStyle(color: Colors.white)
+                                        : null,
+                                  )),
+                                ),
                               ),
-                            );
-                          }).toList(),
-                        ),
+                            ),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () =>
+                                    chapterController.fetchChapterByMathType(2,
+                                        gradeController.chosenGrade.value!.id),
+                                child: Container(
+                                  color:
+                                      chapterController.chosenMathType.value ==
+                                              2
+                                          ? ColorPalette.primaryColor
+                                          : Colors.white,
+                                  height: 30,
+                                  child: Center(
+                                      child: Text(
+                                    'Hình học',
+                                    style: chapterController
+                                                .chosenMathType.value ==
+                                            2
+                                        ? const TextStyle(color: Colors.white)
+                                        : null,
+                                  )),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : const SizedBox(),
                 ),
                 const SizedBox(
                   height: kMinPadding,
@@ -173,62 +220,137 @@ class ChooseExamConditionScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Obx(
-                  () => chapterController.isLoading.value
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : DropdownButtonFormField<Chapter>(
-                          itemHeight: null,
-                          decoration: InputDecoration(
-                            isCollapsed: true,
-                            constraints:
-                                const BoxConstraints.expand(height: 30),
-                            filled: true,
-                            fillColor: const Color.fromRGBO(251, 252, 253, 1),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 0,
-                              ),
+                GestureDetector(
+                  onTap: () {
+                    _showChapterDialog(context, chapterController);
+                  },
+                  child: Container(
+                    // height:
+                    //     (SizeConfig.screenWidth! - kDefaultPadding * 2) / 2 -
+                    //         kDefaultPadding / 2,
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: const Color.fromRGBO(251, 252, 253, 1),
+                    ),
+                    child: Center(
+                      child: Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: kMinPadding / 2),
+                            child: Image.asset(
+                              'assets/images/chapter_icon.png',
+                              height: 50,
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 0,
+                          ),
+                          Expanded(
+                            child: Obx(
+                              () => Text(
+                                textAlign: TextAlign.center,
+                                chapterController.chosenChapter.value?.name ??
+                                    'Chọn chương',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),
-                          isExpanded: true,
-                          value: chapterController
-                              .chosenChapter.value, // Default value
-                          onChanged: (Chapter? newValue) {
-                            // Handle dropdown value changes
-                            print(newValue);
-                          },
-                          items: chapterController.searchedChapterList
-                              .map<DropdownMenuItem<Chapter>>((Chapter value) {
-                            return DropdownMenuItem<Chapter>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(value.name),
-                              ),
-                            );
-                          }).toList(),
-                        ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: kMinPadding + 10,
                 ),
-                ElevatedButton(onPressed: () {}, child: const Text('Tiếp tục'))
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Tiếp tục'),
+                ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  void _showLevelDialog(BuildContext context, LevelController levelController,
+      GradeController gradeController, ChapterController chapterController) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Chọn cấp học'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: levelController.levelList
+                  .map((level) => ListTile(
+                      title: Text(level.name),
+                      onTap: () {
+                        levelController.handleOnChangedLevel(
+                            level, gradeController, chapterController);
+                        Get.back();
+                      }))
+                  .toList(),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showGradeDialog(BuildContext context, GradeController gradeController,
+      ChapterController chapterController) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Chọn lớp'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: gradeController.searchedGradeList
+                  .map((grade) => ListTile(
+                      title: Text(grade.name),
+                      onTap: () {
+                        gradeController.handleOnChangedGrade(
+                            grade, chapterController);
+                        Get.back();
+                      }))
+                  .toList(),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showChapterDialog(
+      BuildContext context, ChapterController chapterController) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Chọn chương'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: chapterController.searchedChapterList
+                  .map((chapter) => ListTile(
+                      title: Text(chapter.name),
+                      onTap: () => {
+                            chapterController.chosenChapter.value = chapter,
+                            Get.back()
+                          }))
+                  .toList(),
+            ),
+          ),
+        );
+      },
     );
   }
 }
