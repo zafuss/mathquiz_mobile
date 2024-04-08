@@ -4,9 +4,7 @@ import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/appbar/appbar_controller.dart';
-import 'package:mathquiz_mobile/features/auth/data/sf/sf_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key, required this.drawerController})
@@ -21,8 +19,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     final appBarController = Get.put(AppBarController());
     return Obx(
       () => appBarController.isLoading.value
-          ? Center(
-              child: const CircularProgressIndicator(),
+          ? const Center(
+              child: CircularProgressIndicator(),
             )
           : Stack(
               children: [
@@ -122,7 +120,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 ),
                                 Text(
                                   appBarController.clientName.value,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 40,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w600),
