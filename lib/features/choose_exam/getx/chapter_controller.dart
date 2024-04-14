@@ -36,7 +36,11 @@ class ChapterController extends GetxController {
   fetchChaptersByGradeId(int gradeId) {
     searchedChapterList.value =
         chapterList.where((element) => element.gradeId == gradeId).toList();
-    chosenChapter.value = searchedChapterList[0];
+    if (searchedChapterList.isNotEmpty) {
+      chosenChapter.value = searchedChapterList[0];
+    } else {
+      chosenChapter.value = null;
+    }
     for (var element in searchedChapterList) {
       if (element.mathTypeId != null) {
         isHasMultiMathType.value = true;
@@ -46,7 +50,6 @@ class ChapterController extends GetxController {
       }
       isHasMultiMathType.value = false;
     }
-    print(chosenMathType.value);
   }
 
   fetchChapterByMathType(int? mathTypeId, int gradeId) {

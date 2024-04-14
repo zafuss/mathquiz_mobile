@@ -156,7 +156,9 @@ class RegisterScreen extends StatelessWidget {
                                     child: registerController
                                             .isRegistering.value
                                         ? const Center(
-                                            child: CircularProgressIndicator(),
+                                            child: CircularProgressIndicator(
+                                              color: Colors.white,
+                                            ),
                                           )
                                         : const Text('Đăng ký')),
                               ],

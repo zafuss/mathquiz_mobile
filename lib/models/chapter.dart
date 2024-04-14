@@ -51,7 +51,7 @@ class Chapter extends Equatable {
       id: json['id'],
       name: json['name'],
       mathTypeId: json['mathTypeId'],
-      gradeId: json['levelId']);
+      gradeId: json['gradeId']);
   @override
   // TODO: implement props
   List<Object?> get props => [id, name, mathTypeId, gradeId];

@@ -142,7 +142,13 @@ class LoginScreen extends StatelessWidget {
                               await loginController.login(_emailController.text,
                                   _passwordController.text);
                             },
-                            child: const Text('Đăng nhập')),
+                            child: loginController.isLogging.value
+                                ? const Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                : const Text('Đăng nhập')),
                         TextButton(
                             onPressed: () {},
                             child: Row(
