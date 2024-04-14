@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
-import 'package:mathquiz_mobile/features/auth/register/auth/register_controller.dart';
+import 'package:mathquiz_mobile/features/auth/register/register_controller.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -12,7 +12,7 @@ class RegisterScreen extends StatelessWidget {
     final registerController = Get.put(RegisterController());
     final _formKey = GlobalKey<FormState>();
     final _emailController = TextEditingController();
-    final _fullNameController = TextEditingController();
+    // final _fullNameController = TextEditingController();
     final _passwordController = TextEditingController();
     final _confirmPasswordController = TextEditingController();
     return Scaffold(
@@ -95,20 +95,20 @@ class RegisterScreen extends StatelessWidget {
                                         const SizedBox(
                                           height: kMinPadding / 2,
                                         ),
-                                        TextFormField(
-                                            controller: _fullNameController,
-                                            textAlignVertical:
-                                                TextAlignVertical.center,
-                                            decoration: const InputDecoration(
-                                                contentPadding:
-                                                    EdgeInsets.only(top: 0),
-                                                prefixIcon: Icon(
-                                                  Icons.person_2_outlined,
-                                                ),
-                                                hintText: "Họ và tên")),
-                                        const SizedBox(
-                                          height: kMinPadding / 2,
-                                        ),
+                                        // TextFormField(
+                                        //     controller: _fullNameController,
+                                        //     textAlignVertical:
+                                        //         TextAlignVertical.center,
+                                        //     decoration: const InputDecoration(
+                                        //         contentPadding:
+                                        //             EdgeInsets.only(top: 0),
+                                        //         prefixIcon: Icon(
+                                        //           Icons.person_2_outlined,
+                                        //         ),
+                                        //         hintText: "Họ và tên")),
+                                        // const SizedBox(
+                                        //   height: kMinPadding / 2,
+                                        // ),
                                         TextFormField(
                                             controller: _passwordController,
                                             obscureText: true,
@@ -144,8 +144,10 @@ class RegisterScreen extends StatelessWidget {
                                 ),
                                 ElevatedButton(
                                     onPressed: () async {
-                                      registerController
-                                          .isRegisterSuccess.value = true;
+                                      await registerController.register(
+                                          _emailController.text,
+                                          _passwordController.text);
+
                                       await Future.delayed(
                                           const Duration(seconds: 3));
 

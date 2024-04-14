@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
-import 'package:mathquiz_mobile/features/auth/data/sf/sf_controller.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 import '../config/media_query_config.dart';

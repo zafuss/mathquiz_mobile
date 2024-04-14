@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:mathquiz_mobile/features/auth/data/sf/sf_controller.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 
 class AppBarController extends GetxController {
   var isLoading = false.obs;
