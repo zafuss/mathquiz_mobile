@@ -115,14 +115,16 @@ class ChooseExamConditionScreen extends StatelessWidget {
                         const SizedBox(
                           height: kMinPadding,
                         ),
-                        const Text('Lớp'),
+                        Obx(() => levelController.chosenLevel.value!.id == 4
+                            ? const Text('Môn')
+                            : const Text('Lớp')),
                         const SizedBox(
                           height: 10,
                         ),
                         GestureDetector(
                           onTap: () {
-                            _showGradeDialog(
-                                context, gradeController, chapterController);
+                            _showGradeDialog(context, gradeController,
+                                chapterController, levelController);
                           },
                           child: Container(
                             // height:
@@ -328,12 +330,14 @@ class ChooseExamConditionScreen extends StatelessWidget {
   }
 
   void _showGradeDialog(BuildContext context, GradeController gradeController,
-      ChapterController chapterController) {
+      ChapterController chapterController, LevelController levelController) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Chọn lớp'),
+          title: Obx(() => levelController.chosenLevel.value!.id == 4
+              ? const Text('Chọn môn')
+              : const Text('Chọn lớp')),
           content: SingleChildScrollView(
             child: ListBody(
               children: gradeController.searchedGradeList
