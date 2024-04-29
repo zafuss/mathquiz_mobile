@@ -31,6 +31,7 @@ class AppTheme {
       // inputDecorationTheme: const InputDecorationTheme(
       //   focusedBorder:
       // ),
+
       buttonTheme: ButtonThemeData(
         height: 53,
         minWidth: 293,

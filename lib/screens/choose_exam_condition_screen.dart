@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/media_query_config.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/level_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
 
 import '../config/demension_const.dart';
 import '../features/choose_exam/getx/grade_controller.dart';
@@ -17,6 +20,8 @@ class ChooseExamConditionScreen extends StatelessWidget {
     final levelController = Get.put(LevelController());
     final gradeController = Get.put(GradeController());
     final chapterController = Get.put(ChapterController());
+    final quizmatrixController = Get.put(QuizMatrixController());
+    final examController = Get.put(ExamController());
     return Scaffold(
       body: Stack(
         children: [
@@ -291,9 +296,28 @@ class ChooseExamConditionScreen extends StatelessWidget {
                         const SizedBox(
                           height: kDefaultPadding * 1.5 + 10,
                         ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Tiếp tục'),
+                        Obx(
+                          () => ElevatedButton(
+                            onPressed: () async {
+                              await quizmatrixController
+                                  .fetchQuizMatricesByChapterId(
+                                      chapterController
+                                          .chosenChapter.value!.id);
+                              await examController.fetchExams();
+                              await examController.fetchExamByQuizMatrixId(
+                                  quizmatrixController
+                                      .chosenQuizMatrix.value!.id);
+                              Get.toNamed(Routes.examStartScreen);
+                            },
+                            child: quizmatrixController.isLoading.value ||
+                                    examController.isLoading.value
+                                ? const Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                : Text('Tiếp tục'),
+                          ),
                         ),
                       ],
                     ),

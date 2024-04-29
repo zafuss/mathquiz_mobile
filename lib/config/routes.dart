@@ -9,6 +9,7 @@ class Routes {
   static String otpScreen = '/otpScreen';
   static String homeScreen = '/homeScreen';
   static String chooseExamConditionScreen = '/chooseExamConditonScreen';
+  static String examStartScreen = '/examStartScreen';
 }
 
 final getPages = [
@@ -23,4 +24,5 @@ final getPages = [
   GetPage(
       name: Routes.chooseExamConditionScreen,
       page: () => const ChooseExamConditionScreen()),
+  GetPage(name: Routes.examStartScreen, page: () => const ExamStartScreen()),
 ];

@@ -9,14 +9,14 @@ List<Level> levelFromJson(String str) {
 }
 
 class Level extends Equatable {
-  Level({required this.id, required this.name});
+  const Level({required this.id, required this.name});
   final int id;
   final String name;
 
   static List<Level> levelList = [
-    Level(id: 1, name: "Tiểu học"),
-    Level(id: 2, name: 'Trung học cơ sở'),
-    Level(id: 3, name: 'Trung học phổ thông')
+    const Level(id: 1, name: "Tiểu học"),
+    const Level(id: 2, name: 'Trung học cơ sở'),
+    const Level(id: 3, name: 'Trung học phổ thông')
   ];
 
   factory Level.fromJson(Map<String, dynamic> json) =>
