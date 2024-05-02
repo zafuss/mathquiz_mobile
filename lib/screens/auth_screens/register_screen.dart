@@ -12,7 +12,7 @@ class RegisterScreen extends StatelessWidget {
     final registerController = Get.put(RegisterController());
     final _formKey = GlobalKey<FormState>();
     final _emailController = TextEditingController();
-    // final _fullNameController = TextEditingController();
+    final _fullNameController = TextEditingController();
     final _passwordController = TextEditingController();
     final _confirmPasswordController = TextEditingController();
     return Scaffold(
@@ -95,6 +95,20 @@ class RegisterScreen extends StatelessWidget {
                                         const SizedBox(
                                           height: kMinPadding / 2,
                                         ),
+                                        TextFormField(
+                                            controller: _fullNameController,
+                                            textAlignVertical:
+                                                TextAlignVertical.center,
+                                            decoration: const InputDecoration(
+                                                contentPadding:
+                                                    EdgeInsets.only(top: 0),
+                                                prefixIcon: Icon(
+                                                  Icons.person,
+                                                ),
+                                                hintText: "Họ và tên")),
+                                        const SizedBox(
+                                          height: kMinPadding / 2,
+                                        ),
                                         // TextFormField(
                                         //     controller: _fullNameController,
                                         //     textAlignVertical:
@@ -146,7 +160,8 @@ class RegisterScreen extends StatelessWidget {
                                     onPressed: () async {
                                       await registerController.register(
                                           _emailController.text,
-                                          _passwordController.text);
+                                          _passwordController.text,
+                                          _fullNameController.text);
 
                                       await Future.delayed(
                                           const Duration(seconds: 3));

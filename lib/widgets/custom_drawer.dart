@@ -20,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     final LocalDataController localDataController =
-        Get.put(LocalDataController());
+        Get.find<LocalDataController>();
     // final screenHeight = MediaQuery.of(context).size.height;
     return Drawer(
       width: 0.85 * SizeConfig.screenWidth!,
@@ -50,7 +50,8 @@ class CustomDrawer extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          localDataController.clientName.value.toUpperCase(),
+                          localDataController.clientFullName.value
+                              .toUpperCase(),
                           style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -81,7 +82,12 @@ class CustomDrawer extends StatelessWidget {
                               height: 40,
                               width: 150,
                               child: ElevatedButton(
-                                  onPressed: () {
+                                  onPressed: () async {
+                                    await localDataController
+                                        .deleteClientEmail();
+                                    await localDataController
+                                        .deleteClientFullName();
+                                    await localDataController.deleteClientId();
                                     Get.offAndToNamed(Routes.loginScreen);
                                   },
                                   child: const Text('Đăng xuất')),

@@ -88,4 +88,28 @@ class ChooseExamApiClient {
       }
     }
   }
+
+  Future<void> addNewDefaultExam(QuizMatrix quizMatrix, String clientId) async {
+    try {
+      final body = {
+        "name": quizMatrix.name,
+        "timeStart": null,
+        "timeEnd": null,
+        "quizMatrixId": quizMatrix.id,
+        "clientId": clientId,
+        "numberOfQuiz": quizMatrix.numOfQuiz,
+        "numberOfCorrectAnswer": 0,
+        "duration": quizMatrix.defaultDuration,
+        "isCustomExam": false,
+      };
+      final response = await dio.post('exams/', data: body);
+      print(response);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(e.response!.data['message']);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
 }

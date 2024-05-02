@@ -8,10 +8,10 @@ class RegisterController extends GetxController {
   var isRegistering = false.obs;
   var isRegisterSuccess = false.obs;
   final authRepository = AuthRepository();
-  Future<void> register(String email, String password) async {
+  Future<void> register(String email, String password, String fullName) async {
     isRegistering.value = true;
-    final result =
-        await authRepository.register(email: email, password: password);
+    final result = await authRepository.register(
+        email: email, password: password, fullName: fullName);
     switch (result) {
       case Success():
         isRegistering.value = false;

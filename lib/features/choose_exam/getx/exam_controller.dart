@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_repository.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
+import 'package:mathquiz_mobile/models/quiz_matrix.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 
 import '../../../models/exam.dart';
@@ -9,7 +12,10 @@ class ExamController extends GetxController {
   var numOfUsed = 0.obs;
   RxList<Exam> examList = <Exam>[].obs;
   Rx<Exam?> chosenExam = Rx<Exam?>(null);
-  ChooseExamRepository chooseExamRepository = ChooseExamRepository();
+  final ChooseExamRepository chooseExamRepository = ChooseExamRepository();
+  final LocalDataController localDataController = LocalDataController();
+  final QuizMatrixController quizMatrixController =
+      Get.find<QuizMatrixController>();
 
   fetchExams() async {
     isLoading.value = true;
@@ -38,5 +44,13 @@ class ExamController extends GetxController {
         numOfUsed++;
       }
     }
+  }
+
+  addNewDefaultExam(QuizMatrix currentQuizMatrix) async {
+    isLoading.value = true;
+
+    final clientId = await localDataController.getClientId();
+    await chooseExamRepository.addNewDefaultExam(currentQuizMatrix, clientId!);
+    isLoading.value = false;
   }
 }

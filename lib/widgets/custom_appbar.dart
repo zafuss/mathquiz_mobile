@@ -1,15 +1,17 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/appbar/appbar_controller.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key, required this.drawerController})
-      : super(key: key);
+  CustomAppBar({Key? key, required this.drawerController}) : super(key: key);
   final CustomDrawerController drawerController;
+  final localDataController = Get.find<LocalDataController>();
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -118,12 +120,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                       color: ColorPalette.primaryColor,
                                       fontWeight: FontWeight.w600),
                                 ),
-                                Text(
-                                  appBarController.clientName.value,
+                                AutoSizeText(
+                                  localDataController.clientFullName(),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.fade,
                                   style: const TextStyle(
-                                      fontSize: 40,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600),
+                                    fontSize: 40,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ],
                             )

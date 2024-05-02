@@ -1,12 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/media_query_config.dart';
-import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
 
@@ -36,107 +32,115 @@ class ExamStartScreen extends StatelessWidget {
                 ? const Center(
                     child: CircularProgressIndicator(),
                   )
-                : Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Đề thi',
-                              style: TextStyle(
-                                  height: 1,
-                                  fontSize: 40,
-                                  color: ColorPalette.primaryColor,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              quizmatrixController
-                                      .chosenQuizMatrix.value!.name ??
-                                  'null',
-                              style: const TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
+                : SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: kDefaultPadding),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset(
-                                  'assets/images/num_of_quiz_icon.png',
-                                  width: 25,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Text(
-                                      '${quizmatrixController.chosenQuizMatrix.value!.numOfQuiz} câu'),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/time_icon.png',
-                                  width: 25,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Text(
-                                      '${quizmatrixController.chosenQuizMatrix.value!.defaultDuration} phút'),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/num_of_client_icon.png',
-                                  width: 25,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Text(
-                                      '${examController.numOfUsed} lượt thi'),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: kDefaultPadding),
-                        _buildExamIntroduction(),
-                        const SizedBox(height: kDefaultPadding),
-                        Column(
-                          children: [
-                            Obx(
-                              () => ElevatedButton(
-                                onPressed: () async {
-                                  await examController.fetchExams();
-                                  await examController.fetchExamByQuizMatrixId(
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Đề thi',
+                                      style: TextStyle(
+                                          height: 1,
+                                          fontSize: 40,
+                                          color: ColorPalette.primaryColor,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    Text(
                                       quizmatrixController
-                                          .chosenQuizMatrix.value!.id);
-                                  Get.toNamed(Routes.examStartScreen);
-                                },
-                                child: quizmatrixController.isLoading.value ||
-                                        examController.isLoading.value
-                                    ? const Center(
-                                        child: CircularProgressIndicator(),
-                                      )
-                                    : const Text('Bắt đầu làm bài'),
-                              ),
+                                              .chosenQuizMatrix.value!.name ??
+                                          'null',
+                                      style: const TextStyle(
+                                          fontSize: 30,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/num_of_quiz_icon.png',
+                                          width: 25,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: Text(
+                                              '${quizmatrixController.chosenQuizMatrix.value!.numOfQuiz} câu'),
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/time_icon.png',
+                                          width: 25,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: Text(
+                                              '${quizmatrixController.chosenQuizMatrix.value!.defaultDuration} phút'),
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/num_of_client_icon.png',
+                                          width: 25,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: Text(
+                                              '${examController.numOfUsed} lượt thi'),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: kDefaultPadding),
+                                _buildExamIntroduction(),
+                                const SizedBox(height: kDefaultPadding),
+                              ],
                             ),
-                            TextButton(
-                                onPressed: () {},
-                                child: const Text('Tuỳ chỉnh đề thi')),
-                          ],
-                        )
-                      ],
+                          ),
+                          Column(
+                            children: [
+                              Obx(
+                                () => ElevatedButton(
+                                  onPressed: () async {
+                                    await examController.addNewDefaultExam(
+                                        quizmatrixController
+                                            .chosenQuizMatrix.value!);
+                                  },
+                                  child: quizmatrixController.isLoading.value ||
+                                          examController.isLoading.value
+                                      ? const Center(
+                                          child: CircularProgressIndicator(),
+                                        )
+                                      : const Text('Bắt đầu làm bài'),
+                                ),
+                              ),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: const Text('Tuỳ chỉnh đề thi')),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
           ),

@@ -3,65 +3,61 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalDataController extends GetxController {
   var isLoading = false.obs;
-  var clientName = ''.obs;
-  static const NAME_KEY = 'Name';
+  var clientFullName = ''.obs;
+  var clientEmail = ''.obs;
+  var clientId = ''.obs;
 
-  void onInit() async {
-    clientName.value = (await getUID(NAME_KEY))!;
-    super.onInit();
+  Future<void> saveClientId(String id) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientId.value = id;
+    prefs.setString('clientId', id);
   }
 
-  Future<void> saveUID(String uid) async {
+  Future<void> saveClientFullName(String fullName) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    clientName.value = uid;
-    prefs.setString(NAME_KEY, uid);
+    clientFullName.value = fullName;
+    prefs.setString('clientFullName', fullName);
   }
 
-  Future<void> saveId(String id) async {
+  Future<void> saveClientEmail(String email) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    clientName.value = id;
-    prefs.setString('Id', id);
+    clientEmail.value = email;
+    prefs.setString('clientEmail', email);
   }
 
-  Future<void> saveEmail(String email) async {
+  Future<void> deleteClientId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    clientName.value = email;
-    prefs.setString('Email', email);
+    clientId.value = '';
+    prefs.remove('clientId');
   }
 
-  Future<void> deleteUID() async {
+  Future<void> deleteClientFullName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    clientName.value = '';
-    prefs.remove(NAME_KEY);
+    clientFullName.value = '';
+    prefs.remove('clientFullName');
   }
 
-  Future<void> deleteId() async {
+  Future<void> deleteClientEmail() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    clientName.value = '';
-    prefs.remove('Id');
+    clientEmail.value = '';
+    prefs.remove('clientEmail');
   }
 
-  Future<void> deleteEmail() async {
+  Future<String?> getClientId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    clientName.value = '';
-    prefs.remove('Email');
+
+    return prefs.getString('clientId');
   }
 
-  Future<String?> getUID(String name_key) async {
+  Future<String?> getClientFullName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    return prefs.getString(NAME_KEY);
+    return prefs.getString('clientFullName');
   }
 
-  Future<String?> getId(String name_key) async {
+  Future<String?> getClientEmail() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    return prefs.getString(NAME_KEY);
-  }
-
-  Future<String?> getEmail(String name_key) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    return prefs.getString(NAME_KEY);
+    return prefs.getString('clientEmail');
   }
 }

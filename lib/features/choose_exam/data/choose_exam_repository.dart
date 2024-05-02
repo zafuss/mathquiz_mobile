@@ -72,4 +72,14 @@ class ChooseExamRepository {
       return Failure('$e');
     }
   }
+
+  Future<Result<bool>>? addNewDefaultExam(
+      QuizMatrix quizMatrix, String clientId) async {
+    await chooseExamApiClient.addNewDefaultExam(quizMatrix, clientId);
+    try {
+      return Success(true);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
 }
