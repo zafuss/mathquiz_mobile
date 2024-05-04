@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'exam_detail.dart';
 
 class Exam extends Equatable {
-  final int id;
+  final String id;
   final String? name;
   final DateTime? timeStart;
   final DateTime? timeEnd;

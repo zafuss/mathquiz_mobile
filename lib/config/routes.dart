@@ -1,4 +1,5 @@
 import 'package:get/route_manager.dart';
+import 'package:mathquiz_mobile/screens/do_exam_screen.dart';
 import 'package:mathquiz_mobile/screens/screens.dart';
 
 class Routes {
@@ -10,6 +11,7 @@ class Routes {
   static String homeScreen = '/homeScreen';
   static String chooseExamConditionScreen = '/chooseExamConditonScreen';
   static String examStartScreen = '/examStartScreen';
+  static String doExamScreen = '/doExamScreen';
 }
 
 final getPages = [
@@ -25,4 +27,5 @@ final getPages = [
       name: Routes.chooseExamConditionScreen,
       page: () => const ChooseExamConditionScreen()),
   GetPage(name: Routes.examStartScreen, page: () => const ExamStartScreen()),
+  GetPage(name: Routes.doExamScreen, page: () => const DoExamScreen()),
 ];

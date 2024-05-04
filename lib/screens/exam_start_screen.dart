@@ -3,8 +3,11 @@ import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/media_query_config.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
+import 'package:mathquiz_mobile/features/do_exam/getx/exam_detail_controller.dart';
+import 'package:mathquiz_mobile/features/do_exam/getx/quiz_controller.dart';
 
 class ExamStartScreen extends StatelessWidget {
   const ExamStartScreen({super.key});
@@ -14,6 +17,8 @@ class ExamStartScreen extends StatelessWidget {
     SizeConfig().init(context);
     final quizmatrixController = Get.put(QuizMatrixController());
     final examController = Get.put(ExamController());
+    final examDetailController = Get.put(ExamDetailController());
+    final quizController = Get.put(QuizController());
     return Scaffold(
       body: Stack(
         children: [
@@ -28,7 +33,9 @@ class ExamStartScreen extends StatelessWidget {
           ),
           Obx(
             () => quizmatrixController.isLoading.value ||
-                    examController.isLoading.value
+                    examController.isLoading.value ||
+                    examDetailController.isLoading.value ||
+                    quizController.isLoading.value
                 ? const Center(
                     child: CircularProgressIndicator(),
                   )
@@ -74,7 +81,7 @@ class ExamStartScreen extends StatelessWidget {
                                       children: [
                                         Image.asset(
                                           'assets/images/num_of_quiz_icon.png',
-                                          width: 25,
+                                          width: 20,
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.all(5.0),
@@ -87,7 +94,7 @@ class ExamStartScreen extends StatelessWidget {
                                       children: [
                                         Image.asset(
                                           'assets/images/time_icon.png',
-                                          width: 25,
+                                          width: 18,
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.all(5.0),
@@ -100,11 +107,13 @@ class ExamStartScreen extends StatelessWidget {
                                       children: [
                                         Image.asset(
                                           'assets/images/num_of_client_icon.png',
-                                          width: 25,
+                                          width: 20,
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(5.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 5),
                                           child: Text(
+                                              overflow: TextOverflow.ellipsis,
                                               '${examController.numOfUsed} lượt thi'),
                                         )
                                       ],
@@ -125,6 +134,17 @@ class ExamStartScreen extends StatelessWidget {
                                     await examController.addNewDefaultExam(
                                         quizmatrixController
                                             .chosenQuizMatrix.value!);
+                                    await quizController
+                                        .fetchQuizsByQuizMatrixId(
+                                            quizmatrixController
+                                                .chosenQuizMatrix.value!.id);
+                                    await examDetailController.addExamDetails(
+                                        examController.currentExamId.value,
+                                        quizController.searchedQuizList);
+                                    await examDetailController
+                                        .fetchExamDetailsByExamId(
+                                            examController.currentExamId.value);
+                                    Get.toNamed(Routes.doExamScreen);
                                   },
                                   child: quizmatrixController.isLoading.value ||
                                           examController.isLoading.value

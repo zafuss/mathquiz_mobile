@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:mathquiz_mobile/models/quiz_matrix.dart';
 
 class Quiz extends Equatable {
   final int id;
@@ -8,7 +7,7 @@ class Quiz extends Equatable {
   final String? image;
   final String? imageSolution;
   // Difficulty? difficulty;
-  final QuizMatrix? quizMatrix;
+  final int? quizMatrixId;
 
   const Quiz({
     required this.id,
@@ -16,7 +15,7 @@ class Quiz extends Equatable {
     this.solution,
     this.image,
     this.imageSolution,
-    this.quizMatrix,
+    this.quizMatrixId,
   });
 
   factory Quiz.fromJson(Map<String, dynamic> json) => Quiz(
@@ -25,10 +24,10 @@ class Quiz extends Equatable {
       solution: json['solution'],
       image: json['image'],
       imageSolution: json['imageSolution'],
-      quizMatrix: json['quizMatrix']);
+      quizMatrixId: json['quizMatrixId']);
 
   @override
   // TODO: implement props
   List<Object?> get props =>
-      [id, statement, solution, image, imageSolution, quizMatrix, quizMatrix];
+      [id, statement, solution, image, imageSolution, quizMatrixId];
 }

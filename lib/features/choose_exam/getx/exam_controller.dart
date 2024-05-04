@@ -8,6 +8,7 @@ import 'package:mathquiz_mobile/result_type.dart';
 import '../../../models/exam.dart';
 
 class ExamController extends GetxController {
+  var currentExamId = ''.obs;
   var isLoading = false.obs;
   var numOfUsed = 0.obs;
   RxList<Exam> examList = <Exam>[].obs;
@@ -50,7 +51,10 @@ class ExamController extends GetxController {
     isLoading.value = true;
 
     final clientId = await localDataController.getClientId();
-    await chooseExamRepository.addNewDefaultExam(currentQuizMatrix, clientId!);
+    currentExamId.value =
+        'exam${currentQuizMatrix.id}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
+    await chooseExamRepository.addNewDefaultExam(
+        currentQuizMatrix, clientId!, currentExamId.value);
     isLoading.value = false;
   }
 }

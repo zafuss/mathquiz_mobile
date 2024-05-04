@@ -74,8 +74,8 @@ class ChooseExamRepository {
   }
 
   Future<Result<bool>>? addNewDefaultExam(
-      QuizMatrix quizMatrix, String clientId) async {
-    await chooseExamApiClient.addNewDefaultExam(quizMatrix, clientId);
+      QuizMatrix quizMatrix, String clientId, String examId) async {
+    await chooseExamApiClient.addNewDefaultExam(quizMatrix, clientId, examId);
     try {
       return Success(true);
     } catch (e) {

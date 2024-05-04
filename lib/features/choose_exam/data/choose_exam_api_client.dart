@@ -89,9 +89,11 @@ class ChooseExamApiClient {
     }
   }
 
-  Future<void> addNewDefaultExam(QuizMatrix quizMatrix, String clientId) async {
+  Future<void> addNewDefaultExam(
+      QuizMatrix quizMatrix, String clientId, String examId) async {
     try {
       final body = {
+        "id": examId,
         "name": quizMatrix.name,
         "timeStart": null,
         "timeEnd": null,
