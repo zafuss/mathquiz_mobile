@@ -42,4 +42,13 @@ class ExamDetailController extends GetxController {
     await fetchExamDetailsByExamId(examId);
     isLoading.value = false;
   }
+
+  updateExamDetails(List<ExamDetail> examDetailList) async {
+    isLoading.value = true;
+    for (var examDetail in examDetailList) {
+      await doExamRepository.updateExamDetail(examDetail);
+    }
+
+    isLoading.value = false;
+  }
 }

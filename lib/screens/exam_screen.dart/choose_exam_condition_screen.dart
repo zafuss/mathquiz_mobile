@@ -8,8 +8,8 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/level_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
 
-import '../config/demension_const.dart';
-import '../features/choose_exam/getx/grade_controller.dart';
+import '../../config/demension_const.dart';
+import '../../features/choose_exam/getx/grade_controller.dart';
 
 class ChooseExamConditionScreen extends StatelessWidget {
   const ChooseExamConditionScreen({super.key});

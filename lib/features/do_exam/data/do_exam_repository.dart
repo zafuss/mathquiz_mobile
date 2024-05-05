@@ -42,4 +42,13 @@ class DoExamRepository {
       return Failure('$e');
     }
   }
+
+  Future<Result<bool>>? updateExamDetail(ExamDetail examDetail) async {
+    await doExamApiClient.updateExamDetail(examDetail);
+    try {
+      return Success(true);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
 }

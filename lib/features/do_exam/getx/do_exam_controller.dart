@@ -5,6 +5,7 @@ import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
 import 'package:mathquiz_mobile/models/quiz_option.dart';
 
+import '../../../models/result.dart';
 import '../../choose_exam/getx/exam_controller.dart';
 import 'exam_detail_controller.dart';
 import 'quiz_controller.dart';
@@ -12,6 +13,7 @@ import 'quiz_option_controller.dart';
 
 class DoExamController extends GetxController {
   var isLoading = false.obs;
+  var isGettingResult = false.obs;
   var isLastQuiz = false.obs;
   var currentQuizIndex = 0.obs;
   var examDetailList = <ExamDetail>[].obs;
@@ -20,6 +22,7 @@ class DoExamController extends GetxController {
 
   late Timer _timer;
   late Rxn<Quiz> currentQuiz = Rxn<Quiz>();
+  late Rxn<Result> result = Rxn<Result>();
   late Rxn<ExamDetail> currentExamDetail = Rxn<ExamDetail>();
   late RxList<QuizOption> currentQuizOptions = <QuizOption>[].obs;
 
@@ -120,5 +123,32 @@ class DoExamController extends GetxController {
         selectedOption: quizOptionId);
     examDetailList[currentQuizIndex.value] = newExamDetail;
     currentExamDetail.value = examDetailList[currentQuizIndex.value];
+  }
+
+  saveNewExamDetailList() async {
+    isGettingResult.value = true;
+    await examDetailController.updateExamDetails(examDetailList);
+    await calculateScore();
+    isGettingResult.value = false;
+  }
+
+  calculateScore() async {
+    int totalQuiz = examController.chosenExam.value!.numberOfQuiz!;
+    int correctAnswers = 0;
+    for (var examDetail in examDetailList) {
+      var quizOption = quizOptionList.firstWhereOrNull(
+          (element) => element.id == examDetail.selectedOption);
+
+      if (quizOption != null && quizOption.isCorrect) {
+        correctAnswers++;
+      }
+    }
+    double score = correctAnswers / totalQuiz * 10;
+    result.value = Result(
+        score: score,
+        totalQuiz: totalQuiz,
+        correctAnswers: correctAnswers,
+        clientId: examController.chosenExam.value!.clientId!,
+        examId: currentExamDetail.value!.examId);
   }
 }

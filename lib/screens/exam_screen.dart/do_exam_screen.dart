@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/media_query_config.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/do_exam/getx/do_exam_controller.dart';
 import 'package:mathquiz_mobile/helpers/latex_helpers.dart';
-import '../config/demension_const.dart';
+import '../../config/demension_const.dart';
 
 class DoExamScreen extends StatelessWidget {
   const DoExamScreen({super.key});
@@ -119,7 +118,9 @@ class DoExamScreen extends StatelessWidget {
                                                                 .primaryColor
                                                                 .withOpacity(
                                                                     0.3)
-                                                            : Colors.white),
+                                                            : Colors.white
+                                                                .withOpacity(
+                                                                    0.8)),
                                                     child: Padding(
                                                       padding: const EdgeInsets
                                                           .symmetric(
@@ -167,7 +168,7 @@ class DoExamScreen extends StatelessWidget {
                                     children: [
                                       doExamController.currentQuizIndex.value >
                                               0
-                                          ? InkWell(
+                                          ? GestureDetector(
                                               onTap: () => doExamController
                                                   .handlePreviousQuiz(),
                                               child: Image.asset(
@@ -187,10 +188,25 @@ class DoExamScreen extends StatelessWidget {
                                           : const SizedBox(),
                                     ],
                                   ),
+                                  const SizedBox(
+                                    height: kDefaultPadding,
+                                  ),
                                   doExamController.isLastQuiz.value
                                       ? ElevatedButton(
-                                          onPressed: () {},
-                                          child: const Text('Nộp bài'))
+                                          onPressed: () async {
+                                            await doExamController
+                                                .saveNewExamDetailList();
+                                            Get.offNamed(Routes.resultScreen);
+                                          },
+                                          child: doExamController
+                                                  .isGettingResult.value
+                                              ? const Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    color: Colors.white,
+                                                  ),
+                                                )
+                                              : const Text('Nộp bài'))
                                       : const SizedBox(),
                                 ],
                               ),

@@ -69,4 +69,24 @@ class DoExamApiClient {
       }
     }
   }
+
+  Future<void> updateExamDetail(ExamDetail examDetail) async {
+    try {
+      final body = {
+        'id': examDetail.id,
+        'examId': examDetail.examId,
+        'quizId': examDetail.quizId,
+        'selectedOption': examDetail.selectedOption
+      };
+      final response =
+          await dio.put('examDetails/${examDetail.id}', data: body);
+      print(response);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(e.response!.data['message']);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
 }
