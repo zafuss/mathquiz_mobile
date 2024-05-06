@@ -191,20 +191,23 @@ class DoExamScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: kDefaultPadding,
                                   ),
-                                  ElevatedButton(
-                                      onPressed: () async {
-                                        await doExamController
-                                            .saveNewExamDetailList();
-                                        Get.offNamed(Routes.resultScreen);
-                                      },
-                                      child: doExamController
-                                              .isGettingResult.value
-                                          ? const Center(
-                                              child: CircularProgressIndicator(
-                                                color: Colors.white,
-                                              ),
-                                            )
-                                          : const Text('Nộp bài')),
+                                  doExamController.isLastQuiz.value
+                                      ? ElevatedButton(
+                                          onPressed: () async {
+                                            await doExamController
+                                                .saveNewExamDetailList();
+                                            Get.offNamed(Routes.resultScreen);
+                                          },
+                                          child: doExamController
+                                                  .isGettingResult.value
+                                              ? const Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    color: Colors.white,
+                                                  ),
+                                                )
+                                              : const Text('Nộp bài'))
+                                      : const SizedBox(),
                                 ],
                               ),
                             ),
