@@ -8,7 +8,7 @@ import '../dtos/login_dto.dart';
 
 class AuthRepository {
   final authApiClient = AuthApiClient();
-  final localDataController = Get.put(LocalDataController());
+  final localDataController = Get.put(LocalDataController(), permanent: true);
 
   Future<Result<void>> login({
     required String email,

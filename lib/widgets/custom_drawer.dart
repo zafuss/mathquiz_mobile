@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
@@ -20,7 +19,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     final LocalDataController localDataController =
-        Get.find<LocalDataController>();
+        Get.put(LocalDataController());
     // final screenHeight = MediaQuery.of(context).size.height;
     return Drawer(
       width: 0.85 * SizeConfig.screenWidth!,

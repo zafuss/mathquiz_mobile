@@ -7,6 +7,14 @@ class LocalDataController extends GetxController {
   var clientEmail = ''.obs;
   var clientId = ''.obs;
 
+  @override
+  onInit() async {
+    super.onInit();
+    clientFullName.value = await getClientFullName() ?? 'null';
+    clientEmail.value = await getClientEmail() ?? 'null';
+    clientId.value = await getClientId() ?? 'null';
+  }
+
   Future<void> saveClientId(String id) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     clientId.value = id;

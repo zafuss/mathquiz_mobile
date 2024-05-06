@@ -25,49 +25,99 @@ class ResultScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const AutoSizeText(
-                              'Chúc mừng bạn đã hoàn thành bài thi!',
+                            const Text(
+                              'Kết quả',
                               style: TextStyle(
                                   height: 1,
-                                  fontSize: 30,
+                                  fontSize: 40,
                                   color: ColorPalette.primaryColor,
                                   fontWeight: FontWeight.w600),
                             ),
                             const SizedBox(
-                              height: kDefaultPadding,
+                              height: 5,
                             ),
-                            Text.rich(
-                              TextSpan(children: [
-                                const TextSpan(
-                                  text: "Điểm: ",
-                                ),
-                                TextSpan(
-                                  text: doExamController.result.value!.score
-                                      .toStringAsFixed(2),
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ]),
+                            const Text(
+                              'bài thi',
+                              style: TextStyle(
+                                  height: 1,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w600),
                             ),
-                            Text.rich(
-                              TextSpan(children: [
-                                const TextSpan(
-                                  text: "Số câu đúng: ",
-                                ),
-                                TextSpan(
-                                  text:
-                                      '${doExamController.result.value!.correctAnswers}/${doExamController.result.value!.totalQuiz}',
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ]),
+                            const AutoSizeText(
+                              'Chúc mừng bạn đã hoàn thành bài thi!',
+                              maxLines: 1,
                             ),
+                            const SizedBox(
+                              height: kDefaultPadding / 2,
+                            ),
+                            Center(
+                                child: Column(
+                              children: [
+                                const Text(
+                                  'Bạn đạt được',
+                                  style: TextStyle(fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.all(kMinPadding / 2),
+                                  child: Container(
+                                    width: 106,
+                                    height: 106,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white, // Màu của hình tròn
+                                    ),
+                                    child: Center(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          doExamController.result.value!.score
+                                              .toStringAsFixed(2),
+                                          style: const TextStyle(
+                                              height: 1,
+                                              fontSize: 35,
+                                              fontWeight: FontWeight.w600,
+                                              color: ColorPalette.primaryColor),
+                                        ),
+                                        const Text('Điểm')
+                                      ],
+                                    )),
+                                  ),
+                                ),
+                                Container(
+                                  height: 34,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 17),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text('Số câu đúng:'),
+                                        Text(
+                                          '${doExamController.result.value!.correctAnswers}/${doExamController.result.value!.totalQuiz}',
+                                          style: const TextStyle(
+                                              color: ColorPalette.primaryColor),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )),
                           ],
                         ),
                       ),
