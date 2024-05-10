@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
+import 'package:mathquiz_mobile/features/do_exam/getx/result_controller.dart';
 import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
 import 'package:mathquiz_mobile/models/quiz_option.dart';
@@ -25,11 +27,13 @@ class DoExamController extends GetxController {
   late Rxn<Result> result = Rxn<Result>();
   late Rxn<ExamDetail> currentExamDetail = Rxn<ExamDetail>();
   late RxList<QuizOption> currentQuizOptions = <QuizOption>[].obs;
+  late Rxn<int> totalQuiz = Rxn<int>();
 
   final quizController = Get.find<QuizController>();
   final examController = Get.find<ExamController>();
   final examDetailController = Get.find<ExamDetailController>();
   final quizOptionController = Get.put(QuizOptionController());
+  final resultController = Get.put(ResultController());
 
   @override
   void onInit() async {
@@ -38,11 +42,13 @@ class DoExamController extends GetxController {
         examController.isLoading.value ||
         examDetailController.isLoading.value ||
         quizController.isLoading.value ||
-        quizOptionController.isLoading.value) {
+        quizOptionController.isLoading.value ||
+        resultController.isLoading.value) {
       isLoading.value = true;
     }
     // Populate examDetailList if necessary
     examDetailList.value = examDetailController.searchedExamDetailList;
+    totalQuiz.value = examController.chosenExam.value!.numberOfQuiz!;
     await fetchCurrentQuiz();
     startTimer();
     isLoading.value = false;
@@ -55,18 +61,29 @@ class DoExamController extends GetxController {
     super.onClose();
   }
 
-  void startTimer() {
+  startTimer() async {
+    var id =
+        'result${examController.chosenExam.value!.clientId!}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
+    result.value = Result(
+        id: id,
+        score: 0,
+        startTime: DateTime.now(),
+        totalQuiz: totalQuiz.value!,
+        clientId: examController.chosenExam.value!.clientId!,
+        examId: currentExamDetail.value!.examId);
+    await resultController.addResults(result.value!);
     int totalSeconds =
         examController.chosenExam.value!.duration! * 60; // Tổng số giây
     remainingTime.value = Duration(seconds: totalSeconds);
-    _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+    _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) async {
       if (totalSeconds > 0) {
         totalSeconds--;
         remainingTime.value = Duration(seconds: totalSeconds);
         print(remainingTime.toString());
       } else {
         timer.cancel();
-        Get.offNamed('/time_up');
+        await calculateScore();
+        Get.offNamed(Routes.resultScreen);
       }
     });
   }
@@ -133,7 +150,6 @@ class DoExamController extends GetxController {
   }
 
   calculateScore() async {
-    int totalQuiz = examController.chosenExam.value!.numberOfQuiz!;
     int correctAnswers = 0;
     for (var examDetail in examDetailList) {
       var quizOption = quizOptionList.firstWhereOrNull(
@@ -143,12 +159,10 @@ class DoExamController extends GetxController {
         correctAnswers++;
       }
     }
-    double score = correctAnswers / totalQuiz * 10;
-    result.value = Result(
-        score: score,
-        totalQuiz: totalQuiz,
-        correctAnswers: correctAnswers,
-        clientId: examController.chosenExam.value!.clientId!,
-        examId: currentExamDetail.value!.examId);
+    double score = correctAnswers / totalQuiz.value! * 10;
+    result.value!.endTime = DateTime.now();
+    result.value!.score = score;
+    result.value!.correctAnswers = correctAnswers;
+    await resultController.updateResult(result.value!);
   }
 }

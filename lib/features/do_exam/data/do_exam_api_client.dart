@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 import 'package:mathquiz_mobile/config/http_client.dart';
 import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
 import 'package:mathquiz_mobile/models/quiz_option.dart';
+import 'package:mathquiz_mobile/models/result.dart';
 
 class DoExamApiClient {
   Future<List<ExamDetail>> getExamDetails() async {
@@ -56,10 +58,53 @@ class DoExamApiClient {
     }
   }
 
+  Future<List<Result>> getResults() async {
+    try {
+      final response = await dio.get(
+        'results/',
+      );
+      final List<dynamic> responseData = response.data;
+
+      return responseData.map((json) => Result.fromJson(json)).toList();
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(e.response!.data['message']);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
   Future<void> addExamDetail(String examId, int quizId) async {
     try {
       final body = {'examId': examId, 'quizId': quizId, 'selectedOption': -1};
       final response = await dio.post('examDetails/', data: body);
+      print(response);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(e.response!.data['message']);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<void> addResult(Result result) async {
+    try {
+      final body = {
+        'id': result.id,
+        'score': result.score,
+        'totalQuiz': result.totalQuiz,
+        'correctAnswers': result.correctAnswers,
+        'startTime': convertDateTimeFormat(result.startTime.toString()),
+        'endTime': result.endTime,
+        'clientId': result.clientId,
+        'examId': result.examId,
+        'exam': null,
+        'client': null
+      };
+
+      final response = await dio.post('results/', data: body);
       print(response);
     } on DioException catch (e) {
       if (e.response != null) {
@@ -88,5 +133,44 @@ class DoExamApiClient {
         throw Exception(e.message);
       }
     }
+  }
+
+  Future<void> updateResult(Result result) async {
+    try {
+      final body = {
+        'id': result.id,
+        'score': result.score,
+        'totalQuiz': result.totalQuiz,
+        'correctAnswers': result.correctAnswers,
+        'startTime': convertDateTimeFormat(result.startTime.toString()),
+        'endTime': convertDateTimeFormat(result.endTime.toString()),
+        'clientId': result.clientId,
+        'examId': result.examId
+      };
+      final response = await dio.put('results/${result.id}', data: body);
+      print(response);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(e.response!.data['message']);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  String convertDateTimeFormat(String inputDateString) {
+    // Định dạng chuỗi ngày giờ đầu vào
+    String inputFormatString = "yyyy-MM-dd HH:mm:ss.SSSSSS";
+    String outputFormatString = "yyyy-MM-ddTHH:mm:ss";
+    DateFormat inputFormat = DateFormat(inputFormatString);
+
+    // Định dạng chuỗi ngày giờ đầu ra
+    DateFormat outputFormat = DateFormat(outputFormatString);
+
+    // Chuyển đổi chuỗi ngày giờ
+    DateTime inputDate = inputFormat.parse(inputDateString);
+    String outputDateString = outputFormat.format(inputDate);
+
+    return outputDateString;
   }
 }

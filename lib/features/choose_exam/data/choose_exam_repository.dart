@@ -8,7 +8,7 @@ import 'package:mathquiz_mobile/result_type.dart';
 
 class ChooseExamRepository {
   final ChooseExamApiClient chooseExamApiClient = ChooseExamApiClient();
-  Future<Result<List<Level>?>> getLevels() async {
+  Future<ResultType<List<Level>?>> getLevels() async {
     try {
       // final loginSuccessDto = await authApiClient.login(
       //   LoginDto(username: username, password: password),
@@ -21,7 +21,7 @@ class ChooseExamRepository {
     }
   }
 
-  Future<Result<List<Grade>?>> getGrades() async {
+  Future<ResultType<List<Grade>?>> getGrades() async {
     try {
       // final loginSuccessDto = await authApiClient.login(
       //   LoginDto(username: username, password: password),
@@ -34,7 +34,7 @@ class ChooseExamRepository {
     }
   }
 
-  Future<Result<List<Chapter>?>> getChapters() async {
+  Future<ResultType<List<Chapter>?>> getChapters() async {
     try {
       // final loginSuccessDto = await authApiClient.login(
       //   LoginDto(username: username, password: password),
@@ -47,7 +47,7 @@ class ChooseExamRepository {
     }
   }
 
-  Future<Result<List<QuizMatrix>?>> getQuizMatrices() async {
+  Future<ResultType<List<QuizMatrix>?>> getQuizMatrices() async {
     try {
       // final loginSuccessDto = await authApiClient.login(
       //   LoginDto(username: username, password: password),
@@ -60,7 +60,7 @@ class ChooseExamRepository {
     }
   }
 
-  Future<Result<List<Exam>?>> getExams() async {
+  Future<ResultType<List<Exam>?>> getExams() async {
     try {
       // final loginSuccessDto = await authApiClient.login(
       //   LoginDto(username: username, password: password),
@@ -73,7 +73,7 @@ class ChooseExamRepository {
     }
   }
 
-  Future<Result<bool>>? addNewDefaultExam(
+  Future<ResultType<bool>>? addNewDefaultExam(
       QuizMatrix quizMatrix, String clientId, String examId) async {
     await chooseExamApiClient.addNewDefaultExam(quizMatrix, clientId, examId);
     try {

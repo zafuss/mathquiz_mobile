@@ -37,6 +37,7 @@ dependencies:
   auto_size_text:
   flutter_tex: 
   flutter_math_fork: ^0.7.2
+  intl:
 
 
   # The following adds the Cupertino Icons font to your application.

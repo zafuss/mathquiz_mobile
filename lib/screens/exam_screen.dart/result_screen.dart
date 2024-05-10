@@ -80,7 +80,7 @@ class ResultScreen extends StatelessWidget {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          doExamController.result.value!.score
+                                          doExamController.result.value!.score!
                                               .toStringAsFixed(2),
                                           style: const TextStyle(
                                               height: 1,

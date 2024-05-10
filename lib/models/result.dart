@@ -1,20 +1,39 @@
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class Result extends Equatable {
-  final double score;
+  final String? id;
+  double? score;
   final int totalQuiz;
-  final int correctAnswers;
+  int? correctAnswers;
+  final DateTime startTime;
+  DateTime? endTime;
   final String clientId;
   final String examId;
 
-  const Result(
-      {required this.score,
+  Result(
+      {this.id,
+      this.score,
+      required this.startTime,
+      this.endTime,
       required this.totalQuiz,
-      required this.correctAnswers,
+      this.correctAnswers,
       required this.clientId,
       required this.examId});
-
+  factory Result.fromJson(Map<String, dynamic> json) => Result(
+      id: json['id'],
+      score:
+          json['score'] != null ? double.parse(json['score'].toString()) : null,
+      totalQuiz: json['totalQuiz'],
+      correctAnswers: json['correctAnswers'],
+      startTime: DateTime.parse(json['startTime'].toString()),
+      endTime: json['endTime'] != null
+          ? DateTime.parse(json['endTime'].toString())
+          : null,
+      clientId: json['clientId'],
+      examId: json['examId']);
   @override
   // TODO: implement props
-  List<Object?> get props => [totalQuiz, correctAnswers, clientId, examId];
+  List<Object?> get props =>
+      [totalQuiz, correctAnswers, clientId, examId, startTime, endTime, id];
 }

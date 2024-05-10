@@ -10,7 +10,7 @@ class AuthRepository {
   final authApiClient = AuthApiClient();
   final localDataController = Get.put(LocalDataController(), permanent: true);
 
-  Future<Result<void>> login({
+  Future<ResultType<void>> login({
     required String email,
     required String password,
   }) async {
@@ -28,7 +28,7 @@ class AuthRepository {
     return Success(null);
   }
 
-  Future<Result<void>> register(
+  Future<ResultType<void>> register(
       {required String email,
       required String password,
       required String fullName}) async {
@@ -42,7 +42,7 @@ class AuthRepository {
     return Success(null);
   }
 
-  Future<Result<void>> logout() async {
+  Future<ResultType<void>> logout() async {
     try {
       await localDataController.deleteClientEmail();
       await localDataController.deleteClientId();
