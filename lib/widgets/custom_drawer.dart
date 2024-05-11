@@ -87,7 +87,7 @@ class CustomDrawer extends StatelessWidget {
                                     await localDataController
                                         .deleteClientFullName();
                                     await localDataController.deleteClientId();
-                                    Get.offAndToNamed(Routes.loginScreen);
+                                    Get.offAllNamed(Routes.loginScreen);
                                   },
                                   child: const Text('Đăng xuất')),
                             ),

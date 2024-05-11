@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/do_exam/getx/result_controller.dart';
 import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
@@ -34,6 +35,7 @@ class DoExamController extends GetxController {
   final examDetailController = Get.find<ExamDetailController>();
   final quizOptionController = Get.put(QuizOptionController());
   final resultController = Get.put(ResultController());
+  final localDataController = Get.put(LocalDataController());
 
   @override
   void onInit() async {
@@ -62,14 +64,15 @@ class DoExamController extends GetxController {
   }
 
   startTimer() async {
+    var clientId = await localDataController.getClientId();
     var id =
-        'result${examController.chosenExam.value!.clientId!}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
+        'result${examController.currentExamId}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
     result.value = Result(
         id: id,
         score: 0,
         startTime: DateTime.now(),
         totalQuiz: totalQuiz.value!,
-        clientId: examController.chosenExam.value!.clientId!,
+        clientId: clientId!,
         examId: currentExamDetail.value!.examId);
     await resultController.addResults(result.value!);
     int totalSeconds =

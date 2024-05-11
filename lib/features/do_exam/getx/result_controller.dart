@@ -8,6 +8,12 @@ class ResultController extends GetxController {
   var isLoading = false.obs;
   final DoExamRepository doExamRepository = DoExamRepository();
 
+  @override
+  onInit() async {
+    await fetchResults();
+    super.onInit();
+  }
+
   RxList<Result> resultList = <Result>[].obs;
   RxList<Result> listByExam = <Result>[].obs;
   RxList<Result> listByClient = <Result>[].obs;
@@ -35,9 +41,11 @@ class ResultController extends GetxController {
   fetchResultsByClientId(String clientId) async {
     isLoading.value = true;
 
-    listByClient.value =
-        resultList.where((p0) => p0.clientId == clientId).toList();
+    listByClient.value = resultList
+        .where((p0) => p0.clientId == clientId && p0.endTime != null)
+        .toList();
     isLoading.value = false;
+    return listByClient;
   }
 
   addResults(Result result) async {

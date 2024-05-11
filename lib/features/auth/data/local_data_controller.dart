@@ -9,10 +9,10 @@ class LocalDataController extends GetxController {
 
   @override
   onInit() async {
-    super.onInit();
     clientFullName.value = await getClientFullName() ?? 'null';
     clientEmail.value = await getClientEmail() ?? 'null';
     clientId.value = await getClientId() ?? 'null';
+    super.onInit();
   }
 
   Future<void> saveClientId(String id) async {

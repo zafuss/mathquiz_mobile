@@ -18,6 +18,12 @@ class ExamController extends GetxController {
   final QuizMatrixController quizMatrixController =
       Get.find<QuizMatrixController>();
 
+  @override
+  onInit() async {
+    await fetchExams();
+    super.onInit();
+  }
+
   fetchExams() async {
     isLoading.value = true;
     var result = await chooseExamRepository.getExams();
