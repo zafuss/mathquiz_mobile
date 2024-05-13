@@ -17,7 +17,7 @@ class ChapterController extends GetxController {
   onInit() async {
     await fetchChapters();
     fetchChaptersByGradeId(1);
-    chosenChapter.value = chapterList[0];
+    // chosenChapter.value = chapterList[0];
     super.onInit();
   }
 
@@ -37,17 +37,21 @@ class ChapterController extends GetxController {
     searchedChapterList.value =
         chapterList.where((element) => element.gradeId == gradeId).toList();
     if (searchedChapterList.isNotEmpty) {
+      searchedChapterList.sort((a, b) => a.name.compareTo(b.name));
       chosenChapter.value = searchedChapterList[0];
     } else {
       chosenChapter.value = null;
     }
     for (var element in searchedChapterList) {
-      if (element.mathTypeId != null) {
+      if (element.mathTypeId != null && gradeId <= 12) {
         isHasMultiMathType.value = true;
         chosenMathType.value = 1;
         fetchChapterByMathType(null, gradeId);
         break;
       }
+      isHasMultiMathType.value = false;
+    }
+    if (gradeId > 12) {
       isHasMultiMathType.value = false;
     }
   }

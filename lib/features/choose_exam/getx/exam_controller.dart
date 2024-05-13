@@ -61,6 +61,9 @@ class ExamController extends GetxController {
         'exam${currentQuizMatrix.id}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
     await chooseExamRepository.addNewDefaultExam(
         currentQuizMatrix, clientId!, currentExamId.value);
+    await fetchExams();
+    chosenExam.value =
+        examList.firstWhere((element) => element.id == currentExamId.value);
     isLoading.value = false;
   }
 }

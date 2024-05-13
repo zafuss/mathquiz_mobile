@@ -5,24 +5,24 @@ class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       colorSchemeSeed: ColorPalette.primaryColor,
-      textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 16)),
+      textTheme: const TextTheme(bodyMedium: const TextStyle(fontSize: 16)),
       // colorScheme: ThemeData().colorScheme.copyWith(primary: Colors.black),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
         textStyle:
-            MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 16)),
+            MaterialStateProperty.all<TextStyle>(const TextStyle(fontSize: 16)),
         alignment: Alignment.center,
       )),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           textStyle: MaterialStateProperty.all<TextStyle>(
-            TextStyle(color: Colors.white, fontSize: 16),
+            const TextStyle(color: Colors.white, fontSize: 16),
           ),
           backgroundColor: MaterialStateProperty.all<Color>(
             ColorPalette.primaryColor,
           ),
-          minimumSize:
-              MaterialStateProperty.all<Size>(Size(double.infinity, 53.0)),
+          minimumSize: MaterialStateProperty.all<Size>(
+              const Size(double.infinity, 53.0)),
           foregroundColor: MaterialStateProperty.all<Color>(
             Colors.white,
           ),
@@ -39,7 +39,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(30.0),
         ),
       ),
-      scaffoldBackgroundColor: Color.fromRGBO(228, 237, 243, 1),
+      scaffoldBackgroundColor: const Color.fromRGBO(228, 237, 243, 1),
       useMaterial3: true,
     );
   }

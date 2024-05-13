@@ -26,7 +26,7 @@ class LoginController extends GetxController {
     isLogging.value = false;
     switch (result) {
       case Success():
-        Get.toNamed(Routes.homeScreen);
+        Get.offAndToNamed(Routes.homeScreen);
         break;
       case Failure():
         Get.snackbar('Đăng nhập thất bại', result.message);

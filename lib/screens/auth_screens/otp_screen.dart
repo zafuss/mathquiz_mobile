@@ -29,15 +29,16 @@ class OtpScreen extends StatelessWidget {
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Nhập mã gồm 6 chữ số đã được gửi dến a***@gmail.com'),
-                    SizedBox(height: kDefaultPadding / 2),
-                    TextField(),
-                    SizedBox(height: kDefaultPadding / 2),
+                    const Text(
+                        'Nhập mã gồm 6 chữ số đã được gửi dến a***@gmail.com'),
+                    const SizedBox(height: kDefaultPadding / 2),
+                    const TextField(),
+                    const SizedBox(height: kDefaultPadding / 2),
                     Obx(() => Text(
                         'Bạn chưa nhận được mã? Nhận mã mới trong ${otpController.countdown} giây.')),
                   ],
                 )),
-                ElevatedButton(onPressed: () {}, child: Text('Tiếp tục'))
+                ElevatedButton(onPressed: () {}, child: const Text('Tiếp tục'))
               ],
             ),
           )

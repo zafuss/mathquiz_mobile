@@ -231,6 +231,33 @@ class ChooseExamConditionScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
+                                    Expanded(
+                                      child: GestureDetector(
+                                        onTap: () => chapterController
+                                            .fetchChapterByMathType(
+                                                3,
+                                                gradeController
+                                                    .chosenGrade.value!.id),
+                                        child: Container(
+                                          color: chapterController
+                                                      .chosenMathType.value ==
+                                                  3
+                                              ? ColorPalette.primaryColor
+                                              : Colors.white,
+                                          height: 30,
+                                          child: Center(
+                                              child: Text(
+                                            'Tổng hợp',
+                                            style: chapterController
+                                                        .chosenMathType.value ==
+                                                    3
+                                                ? const TextStyle(
+                                                    color: Colors.white)
+                                                : null,
+                                          )),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 )
                               : const SizedBox(),
@@ -316,7 +343,7 @@ class ChooseExamConditionScreen extends StatelessWidget {
                                       color: Colors.white,
                                     ),
                                   )
-                                : Text('Tiếp tục'),
+                                : const Text('Tiếp tục'),
                           ),
                         ),
                       ],

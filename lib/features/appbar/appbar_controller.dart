@@ -7,14 +7,11 @@ class AppBarController extends GetxController {
   final localDataController = Get.find<LocalDataController>();
   @override
   void onInit() async {
-    // TODO: implement onInit
-
     super.onInit();
   }
 
   @override
   void onClose() {
-    // TODO: implement onClose
     clientName = ''.obs;
     super.onClose();
   }

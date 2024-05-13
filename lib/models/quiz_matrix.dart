@@ -26,8 +26,12 @@ class QuizMatrix extends Equatable {
         numOfQuiz: json['numOfQuiz'],
         chapterId: json['chapterId'],
         defaultDuration: json['defaultDuration'],
-        createDate: json['createDate'],
-        updateDate: json['updateDate'],
+        createDate: json['createDate'] != null
+            ? DateTime.parse(json['createDate'])
+            : null,
+        updateDate: json['updateDate'] != null
+            ? DateTime.parse(json['updateDate'])
+            : null,
       );
   @override
   // TODO: implement props

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
@@ -62,11 +63,13 @@ class ExamStartScreen extends StatelessWidget {
                                           color: ColorPalette.primaryColor,
                                           fontWeight: FontWeight.w600),
                                     ),
-                                    Text(
+                                    AutoSizeText(
+                                      maxLines: 2,
                                       quizmatrixController
                                               .chosenQuizMatrix.value!.name ??
                                           'null',
                                       style: const TextStyle(
+                                          height: 1.1,
                                           fontSize: 30,
                                           color: Colors.black,
                                           fontWeight: FontWeight.w600),

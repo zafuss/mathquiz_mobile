@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/media_query_config.dart';
@@ -78,13 +79,41 @@ class DoExamScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            renderTextAndLaTeX(
+                                doExamController.currentQuiz.value!.statement!),
+                            doExamController.currentQuiz.value!.image != null
+                                ? Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: kMinPadding / 2),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              color: Colors.white
+                                                  .withOpacity(0.8)),
+                                          child: Center(
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: kDefaultPadding,
+                                                  right: kDefaultPadding,
+                                                  top: kMinPadding,
+                                                  bottom: kMinPadding),
+                                              child:
+                                                  renderImage(doExamController),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : const SizedBox(),
                             Flexible(
                               child: ListView(
                                 children: [
-                                  renderTextAndLaTeX(doExamController
-                                      .currentQuiz.value!.statement!),
                                   const SizedBox(
-                                    height: kDefaultPadding,
+                                    height: kMinPadding,
                                   ),
                                   Column(
                                     children: doExamController
@@ -217,10 +246,27 @@ class DoExamScreen extends StatelessWidget {
     );
   }
 
+  Widget renderImage(DoExamController doExamController) {
+    try {
+      return SvgPicture.network(
+        doExamController.currentQuiz.value!.image!,
+        placeholderBuilder: (BuildContext context) =>
+            const CircularProgressIndicator(),
+      );
+    } catch (e) {
+      var image = Image.network(
+        doExamController.currentQuiz.value!.image!,
+        fit: BoxFit.fill,
+      );
+
+      return image;
+    }
+  }
+
   String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-    return "${twoDigitMinutes}:${twoDigitSeconds}";
+    return "$twoDigitMinutes:$twoDigitSeconds";
   }
 }

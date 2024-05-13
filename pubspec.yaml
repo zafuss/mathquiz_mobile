@@ -38,6 +38,7 @@ dependencies:
   flutter_tex: 
   flutter_math_fork: ^0.7.2
   intl:
+  flutter_svg:
 
 
   # The following adds the Cupertino Icons font to your application.
