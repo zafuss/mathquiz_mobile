@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
@@ -32,7 +33,9 @@ class HomeScreen extends StatelessWidget {
           controller: customDrawerController,
         ),
         body: Obx(
-          () => !homeController.isLoading.value
+          () => !homeController.isLoading.value &&
+                  !chapterController.isLoading.value &&
+                  !examController.isLoading.value
               ? RefreshIndicator(
                   onRefresh: () async {
                     await examController.fetchExams();
@@ -81,85 +84,102 @@ class HomeScreen extends StatelessWidget {
                                             width:
                                                 kDefaultPadding), // SizedBox được thêm vào đầu danh sách
                                         ...homeController.recentResults.map(
-                                          (element) => Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 15, bottom: 15, right: 17),
-                                            child: Container(
-                                              width: 138,
-                                              decoration: BoxDecoration(
-                                                color: ColorPalette
-                                                    .backgroundColor,
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                              ),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 5),
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      examController.examList
-                                                          .firstWhere((exam) =>
-                                                              element.examId ==
-                                                              exam.id)
-                                                          .name!,
-                                                      maxLines: 1,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      style: const TextStyle(
-                                                          color: ColorPalette
-                                                              .primaryColor,
-                                                          fontWeight:
-                                                              FontWeight.w600),
-                                                    ),
-                                                    Text.rich(
-                                                      TextSpan(children: [
-                                                        const TextSpan(
-                                                          text: "Số câu đúng: ",
-                                                          style: TextStyle(
-                                                            fontSize: 12,
-                                                          ),
-                                                        ),
-                                                        TextSpan(
-                                                          text:
-                                                              '${element.correctAnswers}/${element.totalQuiz}',
-                                                          style: const TextStyle(
+                                          (element) => GestureDetector(
+                                            onTap: () {
+                                              examController.chosenExam.value =
+                                                  examController.examList
+                                                      .firstWhere((p0) =>
+                                                          p0.id ==
+                                                          element.examId);
+                                              Get.toNamed(
+                                                  Routes.reviewExamScreen);
+                                            },
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 15,
+                                                  bottom: 15,
+                                                  right: 17),
+                                              child: Container(
+                                                width: 138,
+                                                decoration: BoxDecoration(
+                                                  color: ColorPalette
+                                                      .backgroundColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(horizontal: 5),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        examController.examList
+                                                            .firstWhere((exam) =>
+                                                                element
+                                                                    .examId ==
+                                                                exam.id)
+                                                            .name!,
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: const TextStyle(
+                                                            color: ColorPalette
+                                                                .primaryColor,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                      ),
+                                                      Text.rich(
+                                                        TextSpan(children: [
+                                                          const TextSpan(
+                                                            text:
+                                                                "Số câu đúng: ",
+                                                            style: TextStyle(
                                                               fontSize: 12,
-                                                              color: ColorPalette
-                                                                  .primaryColor,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600),
-                                                        ),
-                                                      ]),
-                                                    ),
-                                                    Text.rich(
-                                                      TextSpan(children: [
-                                                        const TextSpan(
-                                                          text: "Điểm: ",
-                                                          style: TextStyle(
-                                                            fontSize: 12,
+                                                            ),
                                                           ),
-                                                        ),
-                                                        TextSpan(
-                                                          text:
-                                                              '${element.score}',
-                                                          style: const TextStyle(
+                                                          TextSpan(
+                                                            text:
+                                                                '${element.correctAnswers}/${element.totalQuiz}',
+                                                            style: const TextStyle(
+                                                                fontSize: 12,
+                                                                color: ColorPalette
+                                                                    .primaryColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                          ),
+                                                        ]),
+                                                      ),
+                                                      Text.rich(
+                                                        TextSpan(children: [
+                                                          const TextSpan(
+                                                            text: "Điểm: ",
+                                                            style: TextStyle(
                                                               fontSize: 12,
-                                                              color: ColorPalette
-                                                                  .primaryColor,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600),
-                                                        ),
-                                                      ]),
-                                                    ),
-                                                  ],
+                                                            ),
+                                                          ),
+                                                          TextSpan(
+                                                            text:
+                                                                '${element.score}',
+                                                            style: const TextStyle(
+                                                                fontSize: 12,
+                                                                color: ColorPalette
+                                                                    .primaryColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                          ),
+                                                        ]),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),

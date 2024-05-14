@@ -123,7 +123,16 @@ class ResultScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                           onPressed: () => Get.offAllNamed(Routes.homeScreen),
-                          child: const Text('Trở về màn hình chính'))
+                          child: const Text('Trở về màn hình chính')),
+                      Center(
+                        child: TextButton(
+                            onPressed: () {
+                              doExamController.examDetailController
+                                  .fetchExamDetails();
+                              Get.toNamed(Routes.reviewExamScreen);
+                            },
+                            child: const Text('Xem lại bài thi')),
+                      ),
                     ],
                   ),
                 )),

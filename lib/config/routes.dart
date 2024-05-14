@@ -12,6 +12,8 @@ class Routes {
   static String examStartScreen = '/examStartScreen';
   static String doExamScreen = '/doExamScreen';
   static String resultScreen = '/resultScreen';
+  static String reviewExamScreen = '/reviewExamScreen';
+  static String reviewExamDetailScreen = '/reviewExamDetailScreen';
 }
 
 final getPages = [
@@ -29,4 +31,8 @@ final getPages = [
   GetPage(name: Routes.examStartScreen, page: () => const ExamStartScreen()),
   GetPage(name: Routes.doExamScreen, page: () => const DoExamScreen()),
   GetPage(name: Routes.resultScreen, page: () => const ResultScreen()),
+  GetPage(name: Routes.reviewExamScreen, page: () => const ReviewExamScreen()),
+  GetPage(
+      name: Routes.reviewExamDetailScreen,
+      page: () => const ReviewExamDetailScreen()),
 ];
