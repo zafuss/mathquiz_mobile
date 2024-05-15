@@ -87,7 +87,8 @@ class ReviewExamDetailScreen extends StatelessWidget {
                           ? Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10),
                               child: Container(
-                                height: 58,
+                                constraints: const BoxConstraints(
+                                    minWidth: double.infinity, minHeight: 58),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     color: reviewExamController
@@ -97,15 +98,46 @@ class ReviewExamDetailScreen extends StatelessWidget {
                                         : const Color.fromRGBO(
                                             255, 49, 49, 0.3)),
                                 child: Center(
-                                    child: renderTextAndLaTeX(
-                                        reviewExamController
-                                            .chosenOption.value!.option!)),
+                                    child: Column(
+                                  children: [
+                                    reviewExamController.chosenOption.value!
+                                                .quizOptionImage !=
+                                            null
+                                        ? Center(
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical:
+                                                          kMinPadding / 2),
+                                              child: SvgPicture.network(
+                                                width: 125,
+                                                reviewExamController
+                                                    .chosenOption
+                                                    .value!
+                                                    .quizOptionImage!,
+                                                placeholderBuilder: (BuildContext
+                                                        context) =>
+                                                    const CircularProgressIndicator(),
+                                              ),
+                                            ),
+                                          )
+                                        : const SizedBox(),
+                                    renderTextAndLaTeX(reviewExamController
+                                        .chosenOption.value!.option!),
+                                  ],
+                                )),
                               ),
                             )
-                          : const Text(
-                              'Bạn đã không chọn đáp án',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(255, 49, 49, 1)),
+                          : const Center(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: kMinPadding / 2),
+                                child: Text(
+                                  'Bạn đã không chọn đáp án',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(255, 49, 49, 1)),
+                                ),
+                              ),
                             ),
                       const Text(
                         'Đáp án',
@@ -116,14 +148,39 @@ class ReviewExamDetailScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Container(
-                          height: 58,
+                          constraints: const BoxConstraints(
+                              minWidth: double.infinity, minHeight: 58),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color:
                                   ColorPalette.primaryColor.withOpacity(0.3)),
                           child: Center(
-                              child: renderTextAndLaTeX(reviewExamController
-                                  .currentCorrectOption.value!.option!)),
+                              child: Column(
+                            children: [
+                              reviewExamController.currentCorrectOption.value!
+                                          .quizOptionImage !=
+                                      null
+                                  ? Center(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: kMinPadding / 2),
+                                        child: SvgPicture.network(
+                                          width: 125,
+                                          reviewExamController
+                                              .currentCorrectOption
+                                              .value!
+                                              .quizOptionImage!,
+                                          placeholderBuilder: (BuildContext
+                                                  context) =>
+                                              const CircularProgressIndicator(),
+                                        ),
+                                      ),
+                                    )
+                                  : const SizedBox(),
+                              renderTextAndLaTeX(reviewExamController
+                                  .currentCorrectOption.value!.option!),
+                            ],
+                          )),
                         ),
                       ),
                       const Text(

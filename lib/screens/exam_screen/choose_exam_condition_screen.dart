@@ -271,7 +271,8 @@ class ChooseExamConditionScreen extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            _showChapterDialog(context, chapterController);
+                            _showChapterDialog(context, chapterController,
+                                quizmatrixController);
                           },
                           child: Container(
                             // height:
@@ -303,16 +304,47 @@ class ChooseExamConditionScreen extends StatelessWidget {
                                               child:
                                                   CircularProgressIndicator(),
                                             )
-                                          : Text(
-                                              textAlign: TextAlign.center,
-                                              chapterController.chosenChapter
-                                                      .value?.name ??
+                                          : chapterController.chosenChapter
+                                                      .value?.name ==
+                                                  null
+                                              ? const Text(
                                                   'Chọn chương',
-                                              style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                )
+                                              : Text.rich(
+                                                  TextSpan(children: [
+                                                    TextSpan(
+                                                        text: chapterController
+                                                            .chosenChapter
+                                                            .value
+                                                            ?.name),
+                                                    TextSpan(
+                                                        style: const TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w400),
+                                                        text: quizmatrixController
+                                                                    .quizMatrixList
+                                                                    .firstWhereOrNull((element) =>
+                                                                        element
+                                                                            .chapterId ==
+                                                                        chapterController
+                                                                            .chosenChapter
+                                                                            .value!
+                                                                            .id) !=
+                                                                null
+                                                            ? ': ${quizmatrixController.quizMatrixList.firstWhereOrNull((element) => element.chapterId == chapterController.chosenChapter.value!.id)!.name}'
+                                                            : ""),
+                                                  ]),
+                                                  textAlign: TextAlign.center,
+                                                  style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
                                     ),
                                   ),
                                 ],
@@ -408,7 +440,9 @@ class ChooseExamConditionScreen extends StatelessWidget {
   }
 
   void _showChapterDialog(
-      BuildContext context, ChapterController chapterController) {
+      BuildContext context,
+      ChapterController chapterController,
+      QuizMatrixController quizMatrixController) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -416,14 +450,31 @@ class ChooseExamConditionScreen extends StatelessWidget {
           title: const Text('Chọn chương'),
           content: SingleChildScrollView(
             child: ListBody(
-              children: chapterController.searchedChapterList
-                  .map((chapter) => ListTile(
-                      title: Text(chapter.name),
-                      onTap: () => {
-                            chapterController.chosenChapter.value = chapter,
-                            Get.back()
-                          }))
-                  .toList(),
+              children: chapterController.searchedChapterList.map((chapter) {
+                var quizMatrixName = quizMatrixController.quizMatrixList
+                            .firstWhereOrNull(
+                                (element) => element.chapterId == chapter.id) !=
+                        null
+                    ? quizMatrixController.quizMatrixList
+                        .firstWhereOrNull(
+                            (element) => element.chapterId == chapter.id)!
+                        .name!
+                    : '';
+                return ListTile(
+                    title: Text.rich(TextSpan(children: [
+                      TextSpan(
+                        text: '${chapter.name}: ',
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: '${quizMatrixName}',
+                      ),
+                    ])),
+                    onTap: () => {
+                          chapterController.chosenChapter.value = chapter,
+                          Get.back()
+                        });
+              }).toList(),
             ),
           ),
         );

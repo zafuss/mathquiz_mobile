@@ -29,15 +29,14 @@ class ReviewExamController extends GetxController {
     // var currentExamId = 'exam231352024221493';
     currentExamId.value = examController.chosenExam.value!.id;
     await fetchExamDetailList();
-    await quizOptionController.fetchQuizOptions();
+
     super.onInit();
   }
 
   fetchExamDetailList() async {
     isLoading.value = true;
-    if (examDetailController.examDetailList.isEmpty) {
-      await examDetailController.fetchExamDetails();
-    }
+    await examDetailController.fetchExamDetails();
+    await quizOptionController.fetchQuizOptions();
     examDetailList.value = examDetailController.examDetailList
         .where((p0) => p0.examId == currentExamId.value)
         .toList();

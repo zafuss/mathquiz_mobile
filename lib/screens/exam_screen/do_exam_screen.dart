@@ -176,9 +176,28 @@ class DoExamScreen extends StatelessWidget {
                                                               width: 5,
                                                             ),
                                                             Flexible(
-                                                              child:
+                                                              child: Column(
+                                                                children: [
+                                                                  e.quizOptionImage !=
+                                                                          null
+                                                                      ? Center(
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.symmetric(vertical: kMinPadding / 2),
+                                                                            child:
+                                                                                SvgPicture.network(
+                                                                              width: 125,
+                                                                              e.quizOptionImage!,
+                                                                              placeholderBuilder: (BuildContext context) => const CircularProgressIndicator(),
+                                                                            ),
+                                                                          ),
+                                                                        )
+                                                                      : SizedBox(),
                                                                   renderTextAndLaTeX(
                                                                       e.option!),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ],
                                                         ),

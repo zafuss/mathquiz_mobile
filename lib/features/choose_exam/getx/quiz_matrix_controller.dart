@@ -23,6 +23,7 @@ class QuizMatrixController extends GetxController {
     return (switch (result) {
       Success() => {
           quizMatrixList.value = result.data!,
+          quizMatrixList.sort((a, b) => b.createDate!.compareTo(a.createDate!))
         },
       Failure() =>
         Get.snackbar('Lỗi lấy thông tin ma trận đề thi.', result.message),

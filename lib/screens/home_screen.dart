@@ -38,11 +38,8 @@ class HomeScreen extends StatelessWidget {
                   !examController.isLoading.value
               ? RefreshIndicator(
                   onRefresh: () async {
-                    await examController.fetchExams();
-                    await homeController.fetchRecentExam();
-                    await homeController.quizMatrixController
-                        .fetchQuizMatrices();
-                    Future.delayed(const Duration(seconds: 2));
+                    await _handleOnRefresh(
+                        examController, homeController, chapterController);
                   },
                   child: SingleChildScrollView(
                     physics: const AlwaysScrollableScrollPhysics(),
@@ -216,101 +213,117 @@ class HomeScreen extends StatelessWidget {
                               childAspectRatio: 1.8,
                               children: List.generate(
                                 6,
-                                (index) => Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.8),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: kMinPadding / 3),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 30,
-                                          child: Column(
+                                (index) => GestureDetector(
+                                  onTap: () {
+                                    examController.fetchNumOfUsed(homeController
+                                        .quizMatrixController
+                                        .quizMatrixList[index]
+                                        .id);
+                                    homeController.quizMatrixController
+                                            .chosenQuizMatrix.value =
+                                        homeController.quizMatrixController
+                                            .quizMatrixList[index];
+                                    Get.toNamed(Routes.examStartScreen);
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.8),
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: kMinPadding / 3),
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 30,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Image.asset(
+                                                  'assets/images/algebra_icon.png',
+                                                  width: 30,
+                                                ),
+                                                const SizedBox(
+                                                  height: 3,
+                                                ),
+                                                AutoSizeText(
+                                                  minFontSize: 8,
+                                                  maxLines: 1,
+                                                  chapterController.chapterList
+                                                              .firstWhere((element) =>
+                                                                  element.id ==
+                                                                  homeController
+                                                                      .quizMatrixController
+                                                                      .quizMatrixList[
+                                                                          index]
+                                                                      .chapterId!)
+                                                              .gradeId <=
+                                                          12
+                                                      ? 'Lớp ${chapterController.chapterList.firstWhere((element) => element.id == homeController.quizMatrixController.quizMatrixList[index].chapterId!).gradeId.toString()}'
+                                                      : "Đại học",
+                                                  style: const TextStyle(
+                                                      color: ColorPalette
+                                                          .primaryColor,
+                                                      fontSize: 10),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: kMinPadding / 3,
+                                          ),
+                                          Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Image.asset(
-                                                'assets/images/algebra_icon.png',
-                                                width: 30,
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              AutoSizeText(
-                                                minFontSize: 8,
-                                                maxLines: 1,
-                                                chapterController.chapterList
-                                                            .firstWhere((element) =>
-                                                                element.id ==
-                                                                homeController
-                                                                    .quizMatrixController
-                                                                    .quizMatrixList[
-                                                                        index]
-                                                                    .chapterId!)
-                                                            .gradeId <=
-                                                        12
-                                                    ? 'Lớp ${chapterController.chapterList.firstWhere((element) => element.id == homeController.quizMatrixController.quizMatrixList[index].chapterId!).gradeId.toString()}'
-                                                    : "Đại học",
-                                                style: const TextStyle(
+                                              ConstrainedBox(
+                                                constraints: BoxConstraints(
+                                                    maxWidth:
+                                                        insideContainerMaxWidth),
+                                                child: AutoSizeText(
+                                                  maxLines: 1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  chapterController.chapterList
+                                                      .firstWhere((element) =>
+                                                          element.id ==
+                                                          homeController
+                                                              .quizMatrixController
+                                                              .quizMatrixList[
+                                                                  index]
+                                                              .chapterId!)
+                                                      .name,
+                                                  style: const TextStyle(
                                                     color: ColorPalette
                                                         .primaryColor,
-                                                    fontSize: 10),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: kMinPadding / 3,
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            ConstrainedBox(
-                                              constraints: BoxConstraints(
-                                                  maxWidth:
-                                                      insideContainerMaxWidth),
-                                              child: AutoSizeText(
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                                chapterController.chapterList
-                                                    .firstWhere((element) =>
-                                                        element.id ==
-                                                        homeController
-                                                            .quizMatrixController
-                                                            .quizMatrixList[
-                                                                index]
-                                                            .chapterId!)
-                                                    .name,
-                                                style: const TextStyle(
-                                                  color:
-                                                      ColorPalette.primaryColor,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            ConstrainedBox(
-                                              constraints: BoxConstraints(
-                                                maxWidth:
-                                                    insideContainerMaxWidth, // Đặt chiều rộng tối đa cho container
+                                              ConstrainedBox(
+                                                constraints: BoxConstraints(
+                                                  maxWidth:
+                                                      insideContainerMaxWidth, // Đặt chiều rộng tối đa cho container
+                                                ),
+                                                child: AutoSizeText(
+                                                  homeController
+                                                      .quizMatrixController
+                                                      .quizMatrixList[index]
+                                                      .name!,
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  style: const TextStyle(
+                                                      fontSize: 12),
+                                                ),
                                               ),
-                                              child: AutoSizeText(
-                                                homeController
-                                                    .quizMatrixController
-                                                    .quizMatrixList[index]
-                                                    .name!,
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(
-                                                    fontSize: 12),
-                                              ),
-                                            ),
-                                          ],
-                                        )
-                                      ],
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -326,5 +339,16 @@ class HomeScreen extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
         ));
+  }
+
+  Future<void> _handleOnRefresh(
+      ExamController examController,
+      HomeController homeController,
+      ChapterController chapterController) async {
+    await examController.fetchExams();
+    await homeController.fetchRecentExam();
+    await chapterController.fetchChapters();
+    await homeController.quizMatrixController.fetchQuizMatrices();
+    Future.delayed(const Duration(seconds: 2));
   }
 }
