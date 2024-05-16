@@ -14,6 +14,7 @@ class Routes {
   static String resultScreen = '/resultScreen';
   static String reviewExamScreen = '/reviewExamScreen';
   static String reviewExamDetailScreen = '/reviewExamDetailScreen';
+  static String examHistoryScreen = '/examHistoryScreen';
 }
 
 final getPages = [
@@ -35,4 +36,6 @@ final getPages = [
   GetPage(
       name: Routes.reviewExamDetailScreen,
       page: () => const ReviewExamDetailScreen()),
+  GetPage(
+      name: Routes.examHistoryScreen, page: () => const ExamHistoryScreen()),
 ];

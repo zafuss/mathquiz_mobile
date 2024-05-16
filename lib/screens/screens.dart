@@ -10,3 +10,4 @@ export 'exam_screen/do_exam_screen.dart';
 export 'exam_screen/result_screen.dart';
 export 'exam_screen/review_exam_screen.dart';
 export 'exam_screen/review_exam_detail_screen.dart';
+export 'exam_history_screen.dart';

@@ -64,25 +64,6 @@ class ReviewExamScreen extends StatelessWidget {
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                InkWell(
-                                    onTap: () async {
-                                      reviewExamController
-                                              .chosenExamDetail.value =
-                                          reviewExamController.examDetailList;
-                                      await reviewExamController
-                                          .fetchCurrentQuiz();
-                                      Get.toNamed(
-                                          Routes.reviewExamDetailScreen);
-                                    },
-                                    child: const Text(
-                                      'Xem lại toàn bộ bài thi',
-                                      style: TextStyle(
-                                          color: ColorPalette.primaryColor,
-                                          fontSize: 14),
-                                    )),
-                                const SizedBox(
-                                  height: 10,
-                                ),
                                 const Text('Chọn câu hỏi bạn muốn xem lại:',
                                     style: TextStyle(fontSize: 14)),
                                 const SizedBox(
@@ -192,7 +173,22 @@ class ReviewExamScreen extends StatelessWidget {
                                 }
                               },
                               child:
-                                  const Text('Xem lại những câu bạn đã chọn'))
+                                  const Text('Xem lại những câu bạn đã chọn')),
+                          Center(
+                            child: TextButton(
+                                onPressed: () async {
+                                  reviewExamController.chosenExamDetail.value =
+                                      reviewExamController.examDetailList;
+                                  await reviewExamController.fetchCurrentQuiz();
+                                  Get.toNamed(Routes.reviewExamDetailScreen);
+                                },
+                                child: const Text(
+                                  'Xem lại toàn bộ bài thi',
+                                  style: TextStyle(
+                                    color: ColorPalette.primaryColor,
+                                  ),
+                                )),
+                          ),
                         ],
                       ),
                     ),

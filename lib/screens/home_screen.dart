@@ -74,115 +74,164 @@ class HomeScreen extends StatelessWidget {
                                     height: 105,
                                     width: double.infinity,
                                     color: Colors.white.withOpacity(0.8),
-                                    child: ListView(
+                                    child: ListView.builder(
+                                      itemCount: homeController
+                                                  .recentResults.length >
+                                              5
+                                          ? 5
+                                          : homeController.recentResults.length,
                                       scrollDirection: Axis.horizontal,
-                                      children: [
-                                        const SizedBox(
-                                            width:
-                                                kDefaultPadding), // SizedBox được thêm vào đầu danh sách
-                                        ...homeController.recentResults.map(
-                                          (element) => GestureDetector(
-                                            onTap: () {
-                                              examController.chosenExam.value =
-                                                  examController.examList
-                                                      .firstWhere((p0) =>
-                                                          p0.id ==
-                                                          element.examId);
-                                              Get.toNamed(
-                                                  Routes.reviewExamScreen);
-                                            },
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 15,
-                                                  bottom: 15,
-                                                  right: 17),
-                                              child: Container(
-                                                width: 138,
-                                                decoration: BoxDecoration(
-                                                  color: ColorPalette
-                                                      .backgroundColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(15),
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets
-                                                      .symmetric(horizontal: 5),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        examController.examList
-                                                            .firstWhere((exam) =>
-                                                                element
-                                                                    .examId ==
-                                                                exam.id)
-                                                            .name!,
-                                                        maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: const TextStyle(
-                                                            color: ColorPalette
-                                                                .primaryColor,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
-                                                      ),
-                                                      Text.rich(
-                                                        TextSpan(children: [
-                                                          const TextSpan(
-                                                            text:
-                                                                "Số câu đúng: ",
-                                                            style: TextStyle(
-                                                              fontSize: 12,
-                                                            ),
-                                                          ),
-                                                          TextSpan(
-                                                            text:
-                                                                '${element.correctAnswers}/${element.totalQuiz}',
-                                                            style: const TextStyle(
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        var element =
+                                            homeController.recentResults[index];
+                                        return Row(
+                                          children: [
+                                            index == 0
+                                                ? const SizedBox(
+                                                    width: kDefaultPadding,
+                                                  )
+                                                : const SizedBox(),
+                                            GestureDetector(
+                                              onTap: () {
+                                                examController
+                                                        .chosenExam.value =
+                                                    examController.examList
+                                                        .firstWhere((p0) =>
+                                                            p0.id ==
+                                                            element.examId);
+                                                Get.toNamed(
+                                                    Routes.reviewExamScreen);
+                                              },
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 15,
+                                                    bottom: 15,
+                                                    right: 17),
+                                                child: Container(
+                                                  width: 138,
+                                                  decoration: BoxDecoration(
+                                                    color: ColorPalette
+                                                        .backgroundColor,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15),
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                        horizontal: 5),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          examController
+                                                              .examList
+                                                              .firstWhere((exam) =>
+                                                                  element
+                                                                      .examId ==
+                                                                  exam.id)
+                                                              .name!,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: const TextStyle(
+                                                              color: ColorPalette
+                                                                  .primaryColor,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                        ),
+                                                        Text.rich(
+                                                          TextSpan(children: [
+                                                            const TextSpan(
+                                                              text:
+                                                                  "Số câu đúng: ",
+                                                              style: TextStyle(
                                                                 fontSize: 12,
-                                                                color: ColorPalette
-                                                                    .primaryColor,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                        ]),
-                                                      ),
-                                                      Text.rich(
-                                                        TextSpan(children: [
-                                                          const TextSpan(
-                                                            text: "Điểm: ",
-                                                            style: TextStyle(
-                                                              fontSize: 12,
+                                                              ),
                                                             ),
-                                                          ),
-                                                          TextSpan(
-                                                            text:
-                                                                '${element.score}',
-                                                            style: const TextStyle(
+                                                            TextSpan(
+                                                              text:
+                                                                  '${element.correctAnswers}/${element.totalQuiz}',
+                                                              style: const TextStyle(
+                                                                  fontSize: 12,
+                                                                  color: ColorPalette
+                                                                      .primaryColor,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600),
+                                                            ),
+                                                          ]),
+                                                        ),
+                                                        Text.rich(
+                                                          TextSpan(children: [
+                                                            const TextSpan(
+                                                              text: "Điểm: ",
+                                                              style: TextStyle(
                                                                 fontSize: 12,
-                                                                color: ColorPalette
-                                                                    .primaryColor,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                        ]),
-                                                      ),
-                                                    ],
+                                                              ),
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  '${element.score}',
+                                                              style: const TextStyle(
+                                                                  fontSize: 12,
+                                                                  color: ColorPalette
+                                                                      .primaryColor,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600),
+                                                            ),
+                                                          ]),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ],
+                                            index == 4 &&
+                                                    homeController.recentResults
+                                                            .length >
+                                                        5
+                                                ? Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            right: kMinPadding),
+                                                    child: InkWell(
+                                                      onTap: () => Get.toNamed(
+                                                          Routes
+                                                              .examHistoryScreen),
+                                                      child: Container(
+                                                        width: 45,
+                                                        height: 45,
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                                color: ColorPalette
+                                                                    .backgroundColor,
+                                                                shape: BoxShape
+                                                                    .circle),
+                                                        child: const Center(
+                                                          child: Icon(
+                                                            Icons
+                                                                .arrow_forward_ios,
+                                                            color: ColorPalette
+                                                                .primaryColor,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                : const SizedBox(),
+                                          ],
+                                        );
+                                      },
                                     ),
                                   ),
                                 ],

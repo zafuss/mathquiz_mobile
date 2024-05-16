@@ -70,7 +70,10 @@ class CustomDrawer extends StatelessWidget {
                       children: [
                         ListTile(
                           contentPadding: const EdgeInsets.all(0),
-                          onTap: () {},
+                          onTap: () {
+                            controller!.closeDrawer();
+                            Get.toNamed(Routes.examHistoryScreen);
+                          },
                           title: const Text('Lịch sử làm bài'),
                         ),
                         const Spacer(), // Add Spacer to push the button to the bottom
