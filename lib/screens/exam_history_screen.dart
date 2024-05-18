@@ -10,7 +10,9 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart'
 import 'package:mathquiz_mobile/features/home/getx/home_controller.dart';
 
 class ExamHistoryScreen extends StatelessWidget {
-  const ExamHistoryScreen({super.key});
+  final int itemsPerPage = 10;
+
+  const ExamHistoryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,8 @@ class ExamHistoryScreen extends StatelessWidget {
     final examController = Get.put(ExamController());
     final chapterController = Get.put(ChapterController());
     final gradeController = Get.put(GradeController());
+    final currentPage = 0.obs;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -72,192 +76,255 @@ class ExamHistoryScreen extends StatelessWidget {
                             ],
                           ),
                           Flexible(
-                            child: ListView.builder(
+                            child: Obx(() {
+                              final startIndex =
+                                  currentPage.value * itemsPerPage;
+                              final endIndex = (startIndex + itemsPerPage) >
+                                      homeController.recentResults.length
+                                  ? homeController.recentResults.length
+                                  : startIndex + itemsPerPage;
+                              final itemsToDisplay = homeController
+                                  .recentResults
+                                  .sublist(startIndex, endIndex);
+
+                              return ListView.builder(
                                 shrinkWrap: true,
-                                itemCount: homeController.recentResults.length,
-                                itemBuilder: (context, index) => Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: kMinPadding / 5),
-                                      child: InkWell(
-                                        borderRadius: BorderRadius.circular(15),
-                                        onTap: () {
-                                          examController.chosenExam.value =
-                                              examController.examList
-                                                  .firstWhere((p0) =>
-                                                      p0.id ==
-                                                      homeController
-                                                          .recentResults[index]
-                                                          .examId);
-                                          Get.toNamed(Routes.reviewExamScreen);
-                                        },
-                                        child: Stack(
-                                          fit: StackFit.values.first,
-                                          children: [
-                                            Container(
-                                              width: screenWidth -
-                                                  kDefaultPadding * 2,
-                                              constraints: const BoxConstraints(
-                                                minHeight: 60,
-                                              ),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(15),
-                                                  color: Colors.white
-                                                      .withOpacity(0.8)),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 5,
-                                                        horizontal: 10),
-                                                child: Row(
-                                                  children: [
-                                                    Column(
+                                itemCount: itemsToDisplay.length,
+                                itemBuilder: (context, index) {
+                                  final actualIndex = startIndex + index;
+
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: kMinPadding / 5),
+                                    child: InkWell(
+                                      borderRadius: BorderRadius.circular(15),
+                                      onTap: () {
+                                        examController.chosenExam.value =
+                                            examController.examList.firstWhere(
+                                                (p0) =>
+                                                    p0.id ==
+                                                    homeController
+                                                        .recentResults[
+                                                            actualIndex]
+                                                        .examId);
+                                        Get.toNamed(Routes.reviewExamScreen);
+                                      },
+                                      child: Stack(
+                                        fit: StackFit.values.first,
+                                        children: [
+                                          Container(
+                                            width: screenWidth -
+                                                kDefaultPadding * 2,
+                                            constraints: const BoxConstraints(
+                                              minHeight: 60,
+                                            ),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                color: Colors.white
+                                                    .withOpacity(0.8)),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 5,
+                                                      horizontal: 10),
+                                              child: Row(
+                                                children: [
+                                                  Column(
+                                                    children: [
+                                                      Image.asset(
+                                                        'assets/images/algebra_icon.png',
+                                                        width: 35,
+                                                      ),
+                                                      const SizedBox(
+                                                        height: kMinPadding / 8,
+                                                      ),
+                                                      AutoSizeText(
+                                                        minFontSize: 8,
+                                                        gradeController
+                                                            .gradeList
+                                                            .firstWhere((element) =>
+                                                                element.id ==
+                                                                chapterController.chapterList
+                                                                    .firstWhere((element) =>
+                                                                        element.id ==
+                                                                        homeController.quizMatrixController.quizMatrixList
+                                                                            .firstWhere(
+                                                                              (element) => element.id == examController.examList.firstWhere((p0) => p0.id == homeController.recentResults[actualIndex].examId).quizMatrixId,
+                                                                            )
+                                                                            .chapterId)
+                                                                    .gradeId)
+                                                            .name,
+                                                        style: const TextStyle(
+                                                            fontSize: 12,
+                                                            color: ColorPalette
+                                                                .primaryColor),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  Expanded(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
-                                                        Image.asset(
-                                                          'assets/images/algebra_icon.png',
-                                                          width: 35,
-                                                        ),
-                                                        const SizedBox(
-                                                          height:
-                                                              kMinPadding / 8,
-                                                        ),
-                                                        AutoSizeText(
-                                                          minFontSize: 8,
-                                                          gradeController
-                                                              .gradeList
-                                                              .firstWhere((element) =>
-                                                                  element.id ==
-                                                                  chapterController.chapterList
-                                                                      .firstWhere((element) =>
-                                                                          element.id ==
-                                                                          homeController.quizMatrixController.quizMatrixList
-                                                                              .firstWhere(
-                                                                                (element) => element.id == examController.examList.firstWhere((p0) => p0.id == homeController.recentResults[index].examId).quizMatrixId,
-                                                                              )
-                                                                              .chapterId)
-                                                                      .gradeId)
+                                                        Text(
+                                                          chapterController
+                                                              .chapterList
+                                                              .firstWhere(
+                                                                  (element) =>
+                                                                      element
+                                                                          .id ==
+                                                                      homeController
+                                                                          .quizMatrixController
+                                                                          .quizMatrixList
+                                                                          .firstWhere(
+                                                                            (element) =>
+                                                                                element.id ==
+                                                                                examController.examList.firstWhere((p0) => p0.id == homeController.recentResults[actualIndex].examId).quizMatrixId,
+                                                                          )
+                                                                          .chapterId)
                                                               .name,
                                                           style: const TextStyle(
-                                                              fontSize: 12,
                                                               color: ColorPalette
-                                                                  .primaryColor),
+                                                                  .primaryColor,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                        ),
+                                                        Text(
+                                                          examController
+                                                              .examList
+                                                              .firstWhere((p0) =>
+                                                                  p0.id ==
+                                                                  homeController
+                                                                      .recentResults[
+                                                                          actualIndex]
+                                                                      .examId)
+                                                              .name!,
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 5,
+                                                        ),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Row(
+                                                              children: [
+                                                                Image.asset(
+                                                                  'assets/images/num_of_quiz_icon.png',
+                                                                  width: 15,
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 5,
+                                                                ),
+                                                                Text(
+                                                                  '${homeController.recentResults[actualIndex].correctAnswers}/${homeController.recentResults[actualIndex].totalQuiz} câu',
+                                                                  style: const TextStyle(
+                                                                      fontSize:
+                                                                          14),
+                                                                )
+                                                              ],
+                                                            ),
+                                                          ],
                                                         )
                                                       ],
                                                     ),
-                                                    const SizedBox(
-                                                      width: 10,
-                                                    ),
-                                                    Expanded(
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            chapterController
-                                                                .chapterList
-                                                                .firstWhere(
-                                                                    (element) =>
-                                                                        element
-                                                                            .id ==
-                                                                        homeController
-                                                                            .quizMatrixController
-                                                                            .quizMatrixList
-                                                                            .firstWhere(
-                                                                              (element) => element.id == examController.examList.firstWhere((p0) => p0.id == homeController.recentResults[index].examId).quizMatrixId,
-                                                                            )
-                                                                            .chapterId)
-                                                                .name,
-                                                            style: const TextStyle(
-                                                                color: ColorPalette
-                                                                    .primaryColor,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                          Text(
-                                                            examController
-                                                                .examList
-                                                                .firstWhere((p0) =>
-                                                                    p0.id ==
-                                                                    homeController
-                                                                        .recentResults[
-                                                                            index]
-                                                                        .examId)
-                                                                .name!,
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5,
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Row(
-                                                                children: [
-                                                                  Image.asset(
-                                                                    'assets/images/num_of_quiz_icon.png',
-                                                                    width: 15,
-                                                                  ),
-                                                                  const SizedBox(
-                                                                    width: 5,
-                                                                  ),
-                                                                  Text(
-                                                                    '${homeController.recentResults[index].correctAnswers}/${homeController.recentResults[index].totalQuiz} câu',
-                                                                    style: const TextStyle(
-                                                                        fontSize:
-                                                                            14),
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          )
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            bottom: 0,
+                                            right: 0,
+                                            child: Container(
+                                              height: 30,
+                                              width: 110,
+                                              decoration: const BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  15),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  15)),
+                                                  color: ColorPalette
+                                                      .primaryColor),
+                                              child: Center(
+                                                child: Text(
+                                                  'Điểm: ${homeController.recentResults[actualIndex].score}',
+                                                  style: const TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.w600),
                                                 ),
                                               ),
                                             ),
-                                            Positioned(
-                                                bottom: 0,
-                                                right: 0,
-                                                child: Container(
-                                                  height: 30,
-                                                  width: 110,
-                                                  decoration: const BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          15),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      15)),
-                                                      color: ColorPalette
-                                                          .primaryColor),
-                                                  child: Center(
-                                                    child: Text(
-                                                      'Điểm: ${homeController.recentResults[index].score}',
-                                                      style: const TextStyle(
-                                                          color: Colors.white,
-                                                          fontWeight:
-                                                              FontWeight.w600),
-                                                    ),
-                                                  ),
-                                                ))
-                                          ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            }),
+                          ),
+                          // Pagination buttons
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: List.generate(
+                                (homeController.recentResults.length /
+                                        itemsPerPage)
+                                    .ceil(),
+                                (pageIndex) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      currentPage.value = pageIndex;
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(8),
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 5),
+                                      height: 36,
+                                      width: 36,
+                                      decoration: BoxDecoration(
+                                        color: currentPage.value == pageIndex
+                                            ? ColorPalette.primaryColor
+                                            : Colors.white,
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          (pageIndex + 1).toString(),
+                                          style: TextStyle(
+                                            color:
+                                                currentPage.value != pageIndex
+                                                    ? ColorPalette.primaryColor
+                                                    : Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
-                                    )),
-                          )
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   );
-          })
+          }),
         ],
       ),
     );
