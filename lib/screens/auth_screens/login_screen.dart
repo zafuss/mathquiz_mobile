@@ -5,14 +5,14 @@ import 'package:get/route_manager.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
-import 'package:mathquiz_mobile/features/auth/login/login_controller.dart';
+import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final loginController = Get.put(LoginController());
+    final authController = Get.put(AuthController());
     final _formKey = GlobalKey<FormState>();
     final _emailController = TextEditingController();
     final _passwordController = TextEditingController();
@@ -112,11 +112,11 @@ class LoginScreen extends StatelessWidget {
                               children: [
                                 GestureDetector(
                                     onTap: () =>
-                                        loginController.isRememberMe.value =
-                                            !loginController.isRememberMe.value,
+                                        authController.isRememberMe.value =
+                                            !authController.isRememberMe.value,
                                     child: Row(
                                       children: [
-                                        loginController.isRememberMe.value
+                                        authController.isRememberMe.value
                                             ? const Icon(Icons
                                                 .radio_button_checked_outlined)
                                             : const Icon(Icons
@@ -139,10 +139,10 @@ class LoginScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                             onPressed: () async {
-                              await loginController.login(_emailController.text,
+                              await authController.login(_emailController.text,
                                   _passwordController.text);
                             },
-                            child: loginController.isLogging.value
+                            child: authController.isLoading.value
                                 ? const Center(
                                     child: CircularProgressIndicator(
                                       color: Colors.white,
@@ -175,7 +175,7 @@ class LoginScreen extends StatelessWidget {
                   )),
                   TextButton(
                     onPressed: () {
-                      loginController.toRegister();
+                      authController.toRegister();
                     },
                     child: const Text.rich(
                       TextSpan(children: [

@@ -5,3 +5,5 @@ final dio = Dio(
     baseUrl: 'http://onluyentoan.online/api/',
   ),
 );
+
+const imgurId = '4dd726d22f92a0a';

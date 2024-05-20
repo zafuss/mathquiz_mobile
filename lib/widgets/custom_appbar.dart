@@ -95,6 +95,8 @@ class CustomAppBarContainer extends StatelessWidget {
                                   InkWell(
                                     onTap: () => drawerController.openDrawer(),
                                     child: Container(
+                                        height: 45,
+                                        width: 45,
                                         decoration: const BoxDecoration(
                                             color: Colors.white,
                                             shape: BoxShape.circle),
@@ -103,16 +105,28 @@ class CustomAppBarContainer extends StatelessWidget {
                                           child: Icon(Icons.menu_outlined),
                                         )),
                                   ),
-                                  InkWell(
-                                    child: Container(
-                                        decoration: const BoxDecoration(
-                                            color: Colors.white,
-                                            shape: BoxShape.circle),
-                                        child: const Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Icon(Icons.person_2_outlined),
-                                        )),
-                                  ),
+                                  localDataController
+                                          .clientImageUrl.value.isEmpty
+                                      ? Container(
+                                          height: 45,
+                                          width: 45,
+                                          decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              shape: BoxShape.circle),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child:
+                                                Icon(Icons.person_2_outlined),
+                                          ))
+                                      : ClipOval(
+                                          child: Image.network(
+                                            localDataController
+                                                .clientImageUrl.value,
+                                            fit: BoxFit.cover,
+                                            width: 45.0,
+                                            height: 45.0,
+                                          ),
+                                        )
                                 ],
                               ),
                               const SizedBox(
