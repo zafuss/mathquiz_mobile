@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         getPages: getPages,
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'MathQuiz',
         theme: AppTheme.lightTheme(),
         initialRoute: Routes.loginScreen);
   }
