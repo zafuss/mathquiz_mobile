@@ -15,6 +15,7 @@ class Routes {
   static String reviewExamScreen = '/reviewExamScreen';
   static String reviewExamDetailScreen = '/reviewExamDetailScreen';
   static String examHistoryScreen = '/examHistoryScreen';
+  static String resetPasswordScreen = '/resetPasswordScreen';
 }
 
 final getPages = [
@@ -38,4 +39,7 @@ final getPages = [
       page: () => const ReviewExamDetailScreen()),
   GetPage(
       name: Routes.examHistoryScreen, page: () => const ExamHistoryScreen()),
+  GetPage(
+      name: Routes.resetPasswordScreen,
+      page: () => const ResetPasswordScreen()),
 ];

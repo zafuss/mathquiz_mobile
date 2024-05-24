@@ -5,6 +5,7 @@ import 'package:mathquiz_mobile/features/auth/data/auth_api_client.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/change_password_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/register_dto.dart';
+import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/upload_avatar_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/verify_otp_dto.dart';
 import 'package:mathquiz_mobile/result_type.dart';
@@ -29,6 +30,10 @@ class AuthRepository {
           .saveClientFullName(loginSuccessDto.fullName ?? 'null');
       await localDataController
           .saveClientImageUrl(loginSuccessDto.avatarUrl ?? '');
+      await localDataController
+          .saveClientAccessToken(loginSuccessDto.accessToken);
+      await localDataController
+          .saveClientRefreshToken(loginSuccessDto.refreshToken);
     } catch (e) {
       return Failure('$e');
     }
@@ -85,13 +90,37 @@ class AuthRepository {
     return Success(null);
   }
 
+  Future<ResultType<void>> resetPasswordWithOtp(
+      {required String otp, required String password}) async {
+    try {
+      var email = localDataController.clientEmail.value;
+      print(email);
+      await authApiClient.resetPasswordWithOtp(
+          ResetPasswordDto(email: email, otp: otp, password: password));
+    } catch (e) {
+      return Failure('$e');
+    }
+    return Success(null);
+  }
+
+  Future<ResultType<void>> sendForgotPasswordEmail(
+      {required String email}) async {
+    try {
+      await authApiClient.sendForgotPasswordEmail(email);
+    } catch (e) {
+      return Failure('$e');
+    }
+    return Success(null);
+  }
+
   Future<ResultType<void>> uploadAvatar({required File file}) async {
     try {
+      final token = await localDataController.getClientAccessToken();
       final imageUrl = await authApiClient.updateAvatar(
-        file,
-        UploadAvatarDto(
-            userId: localDataController.clientId.value, imageUrl: null),
-      );
+          file,
+          UploadAvatarDto(
+              userId: localDataController.clientId.value, imageUrl: null),
+          token!);
       await localDataController.saveClientImageUrl(imageUrl);
     } catch (e) {
       return Failure('$e');

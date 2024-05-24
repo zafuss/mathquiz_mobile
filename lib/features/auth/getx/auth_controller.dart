@@ -75,6 +75,48 @@ class AuthController extends GetxController {
     }
   }
 
+  Future<void> resetPasswordWithOtp(
+    String otp,
+    String password,
+  ) async {
+    isLoading.value = true;
+    final result =
+        await authRepository.resetPasswordWithOtp(otp: otp, password: password);
+    switch (result) {
+      case Success():
+        isLoading.value = false;
+        Get.snackbar('Thông báo', 'Đổi mật khẩu thành công!');
+        Get.offAndToNamed(Routes.loginScreen);
+        break;
+      case Failure():
+        isLoading.value = false;
+        Get.snackbar('Lỗi cập nhật mật khẩu', result.message);
+        break;
+      default:
+        // Xử lý trường hợp khác nếu cần
+        break;
+    }
+  }
+
+  Future<void> sendForgotPasswordEmail(String email) async {
+    isLoading.value = true;
+    final result = await authRepository.sendForgotPasswordEmail(email: email);
+    switch (result) {
+      case Success():
+        isLoading.value = false;
+        Get.toNamed(Routes.resetPasswordScreen);
+        Get.snackbar('Thông báo', 'Đã gửi OTP đến địa chỉ email của bạn.');
+        break;
+      case Failure():
+        isLoading.value = false;
+        Get.snackbar('Lỗi', result.message);
+        break;
+      default:
+        // Xử lý trường hợp khác nếu cần
+        break;
+    }
+  }
+
   Future<void> verifyOtp(String id, String otp) async {
     isLoading.value = true;
     final result = await authRepository.verifyOtp(id: id, otp: otp);
@@ -84,6 +126,7 @@ class AuthController extends GetxController {
         isRegisterSuccess.value = true;
         Get.snackbar('Xác thực OTP thành công!',
             'Vui lòng đăng nhập để sử dụng MathQuiz.');
+        await Future.delayed(const Duration(seconds: 3));
         toLogin();
         break;
       case Failure():

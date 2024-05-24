@@ -43,8 +43,9 @@ class CustomDrawer extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             GestureDetector(
-                              onTap: () async =>
-                                  await authController.pickImage(),
+                              onTap: () async {
+                                await authController.pickImage();
+                              },
                               child: Stack(
                                 children: [
                                   Padding(

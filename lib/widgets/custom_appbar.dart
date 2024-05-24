@@ -12,7 +12,7 @@ class CustomAppBarContainer extends StatelessWidget {
   CustomAppBarContainer({Key? key, required this.drawerController})
       : super(key: key);
   final CustomDrawerController drawerController;
-  final localDataController = Get.find<LocalDataController>();
+  final localDataController = Get.put(LocalDataController());
 
   @override
   Widget build(BuildContext context) {

@@ -99,7 +99,8 @@ class OtpScreen extends StatelessWidget {
                           Obx(
                             () => ElevatedButton(
                               onPressed: () async {
-                                var id = localDataController.clientId.value;
+                                var id =
+                                    localDataController.registerClientId.value;
                                 await authController.verifyOtp(
                                   id,
                                   otpInputController.text,

@@ -2,28 +2,31 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:mathquiz_mobile/config/http_client.dart';
-import 'package:mathquiz_mobile/features/auth/dtos/change_password_dto.dart';
-import 'package:mathquiz_mobile/features/auth/dtos/login_dto.dart';
-import 'package:mathquiz_mobile/features/auth/dtos/login_success_dto.dart';
-import 'package:mathquiz_mobile/features/auth/dtos/register_success_dto.dart';
-import 'package:mathquiz_mobile/features/auth/dtos/upload_avatar_dto.dart';
-import 'package:mathquiz_mobile/features/auth/dtos/verify_otp_dto.dart';
-
+import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
+import '../../../config/http_client.dart';
+import '../dtos/change_password_dto.dart';
+import '../dtos/login_dto.dart';
+import '../dtos/login_success_dto.dart';
+import '../dtos/register_success_dto.dart';
+import '../dtos/upload_avatar_dto.dart';
+import '../dtos/verify_otp_dto.dart';
 import '../dtos/register_dto.dart';
 
 class AuthApiClient {
+  final DioClient dioClient = DioClient();
+
   Future<LoginSuccessDto> login(LoginDto loginDto) async {
     try {
-      final response = await dio.post(
+      final response = await dioClient.dio.post(
         'account/login/',
         data: loginDto.toJson(),
       );
       print(response);
-      return LoginSuccessDto.fromJson(response.data);
+      final loginSuccessDto = LoginSuccessDto.fromJson(response.data);
+      return loginSuccessDto;
     } on DioException catch (e) {
       if (e.response != null) {
-        throw Exception(e.response!.data['message']);
+        throw Exception(e.response!.data);
       } else {
         throw Exception(e.message);
       }
@@ -32,15 +35,17 @@ class AuthApiClient {
 
   Future<RegisterSuccessDto> register(RegisterDto registerDto) async {
     try {
-      final response = await dio.post(
+      final response = await dioClient.dio.post(
         'account/register/',
         data: registerDto.toJson(),
       );
       print(response);
-      return RegisterSuccessDto.fromJson(response.data);
+      final registerSuccessDto = RegisterSuccessDto.fromJson(response.data);
+
+      return registerSuccessDto;
     } on DioException catch (e) {
       if (e.response != null) {
-        throw Exception(e.response!.data['message']);
+        throw Exception(e.response!.data);
       } else {
         throw Exception(e.message);
       }
@@ -56,7 +61,7 @@ class AuthApiClient {
       print(response);
     } on DioException catch (e) {
       if (e.response != null) {
-        throw Exception(e.response!.data['message']);
+        throw Exception(e.response!.data);
       } else {
         throw Exception(e.message);
       }
@@ -66,14 +71,48 @@ class AuthApiClient {
   Future<void> changePassword(ChangepasswordDto changepasswordDto) async {
     try {
       print(changepasswordDto.toJson());
-      final response = await dio.post(
+      final response = await dioClient.dio.post(
         'account/change-password/',
         data: changepasswordDto.toJson(),
       );
       print(response);
     } on DioException catch (e) {
       if (e.response != null) {
-        throw Exception(e.response!.data['message']);
+        throw Exception(e.response!.data);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<void> resetPasswordWithOtp(ResetPasswordDto resetPasswordDto) async {
+    try {
+      print(resetPasswordDto.toJson());
+      final response = await dioClient.dio.post(
+        'account/reset-password-with-otp/',
+        data: resetPasswordDto.toJson(),
+      );
+      print(response);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(e.response!.data);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<void> sendForgotPasswordEmail(String email) async {
+    try {
+      final response = await dioClient.dio.post(
+        'account/forgot-password/',
+        data: {'email': email},
+      );
+      print(response);
+    } on DioException catch (e) {
+      print(e);
+      if (e.response != null) {
+        throw Exception(e.response!.data);
       } else {
         throw Exception(e.message);
       }
@@ -81,11 +120,17 @@ class AuthApiClient {
   }
 
   Future<String> updateAvatar(
-      File image, UploadAvatarDto uploadAvatarDto) async {
+      File image, UploadAvatarDto uploadAvatarDto, String accessToken) async {
     try {
       String imageUrl = '';
+      print(accessToken);
       uploadAvatarDto.imageUrl = imageUrl = await uploadImage(image);
-      final response = await dio.post(
+      final response = await dioClient.dio.post(
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $accessToken',
+          },
+        ),
         'account/update-avatar/',
         data: uploadAvatarDto.toJson(),
       );
@@ -101,12 +146,11 @@ class AuthApiClient {
   }
 
   Future<String> uploadImage(File image) async {
-    Dio _dio = Dio();
     final bytes = await image.readAsBytes();
     final base64Image = base64Encode(bytes);
 
     try {
-      final response = await _dio.post(
+      final response = await Dio().post(
         'https://api.imgur.com/3/image',
         options: Options(
           headers: {
@@ -122,9 +166,7 @@ class AuthApiClient {
       final data = response.data;
       final imageUrl = data['data']['link'];
       print('Uploaded image URL: $imageUrl');
-      // You can do something with the image URL here
       return imageUrl.toString();
-      // print('Failed to upload image: ${response.data}');
     } on DioException catch (e) {
       if (e.response != null) {
         throw Exception(e.response!.data['message']);

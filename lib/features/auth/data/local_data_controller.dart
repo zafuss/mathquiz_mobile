@@ -8,6 +8,8 @@ class LocalDataController extends GetxController {
   var clientId = ''.obs;
   var registerClientId = ''.obs;
   var clientImageUrl = ''.obs;
+  var clientAccessToken = ''.obs;
+  var clientRefreshToken = ''.obs;
   @override
   onInit() async {
     clientFullName.value = await getClientFullName() ?? 'null';
@@ -46,6 +48,18 @@ class LocalDataController extends GetxController {
     prefs.setString('clientImageUrl', imageUrl);
   }
 
+  Future<void> saveClientAccessToken(String accessToken) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientAccessToken.value = accessToken;
+    prefs.setString('clientAccessToken', accessToken);
+  }
+
+  Future<void> saveClientRefreshToken(String refreshToken) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientRefreshToken.value = refreshToken;
+    prefs.setString('clientRefreshToken', refreshToken);
+  }
+
   Future<void> deleteClientId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     clientId.value = '';
@@ -76,6 +90,18 @@ class LocalDataController extends GetxController {
     prefs.remove('clientImageUrl');
   }
 
+  Future<void> deleteClientAccessToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientAccessToken.value = '';
+    prefs.remove('clientAccessToken');
+  }
+
+  Future<void> deleteClientRefreshToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientRefreshToken.value = '';
+    prefs.remove('clientRefreshToken');
+  }
+
   Future<String?> getClientId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -99,10 +125,22 @@ class LocalDataController extends GetxController {
 
     return prefs.getString('clientEmail');
   }
-}
 
-Future<String?> getClientImageUrl() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
+  Future<String?> getClientImageUrl() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
 
-  return prefs.getString('clientImageUrl');
+    return prefs.getString('clientImageUrl');
+  }
+
+  Future<String?> getClientAccessToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    return prefs.getString('clientAccessToken');
+  }
+
+  Future<String?> getClientRefreshToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    return prefs.getString('clientRefreshToken');
+  }
 }

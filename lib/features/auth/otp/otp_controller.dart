@@ -5,7 +5,7 @@ import 'package:mathquiz_mobile/config/routes.dart';
 
 class OtpController extends GetxController {
   var countdown = 30.obs;
-  var isRegisterSuccess = false.obs;
+  var isSuccess = false.obs;
 
   Timer? timer;
 
@@ -32,7 +32,7 @@ class OtpController extends GetxController {
   }
 
   void toLogin() {
-    isRegisterSuccess = false.obs;
+    isSuccess = false.obs;
     Get.offAndToNamed(Routes.loginScreen);
   }
 
