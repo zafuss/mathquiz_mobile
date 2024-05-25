@@ -28,97 +28,92 @@ class OtpScreen extends StatelessWidget {
                 },
               ),
             ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: authController.isRegisterSuccess.value
-                  ? Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Đăng ký tài khoản thành công',
-                            style: TextStyle(
-                              color: ColorPalette.primaryColor,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            textAlign: TextAlign.center,
+            authController.isRegisterSuccess.value
+                ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Đăng ký tài khoản thành công',
+                          style: TextStyle(
+                            color: ColorPalette.primaryColor,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
                           ),
-                          Image.asset(
-                            'assets/images/checked.gif',
-                            width: 115,
-                          ),
-                          const Text(
-                              'Tự động chuyển về trang đăng nhập sau 3 giây'),
-                        ],
-                      ),
-                    )
-                  : Padding(
-                      padding: const EdgeInsets.all(kDefaultPadding),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          const SizedBox(
-                            height: kDefaultPadding * 2,
-                          ),
-                          const Text.rich(
-                            TextSpan(children: [
-                              TextSpan(
-                                text: "Xác minh ",
-                                style: TextStyle(
-                                    fontSize: 40, fontWeight: FontWeight.w600),
-                              ),
-                              TextSpan(
-                                text: "OTP",
-                                style: TextStyle(
-                                    fontSize: 40,
-                                    color: ColorPalette.primaryColor,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ]),
-                          ),
-                          const SizedBox(
-                            height: kMinPadding,
-                          ),
-                          Text(
-                            'Nhập mã gồm 6 chữ số đã được gửi đến ${localDataController.clientEmail.value}',
-                          ),
-                          const SizedBox(height: kDefaultPadding / 2),
-                          TextField(
-                            controller: otpInputController,
-                          ),
-                          const SizedBox(height: kDefaultPadding / 2),
-                          Obx(
-                            () => Text(
-                              'Bạn chưa nhận được mã? Nhận mã mới trong ${otpController.countdown} giây.',
-                            ),
-                          ),
-                          const SizedBox(height: kDefaultPadding),
-                          Obx(
-                            () => ElevatedButton(
-                              onPressed: () async {
-                                var id =
-                                    localDataController.registerClientId.value;
-                                await authController.verifyOtp(
-                                  id,
-                                  otpInputController.text,
-                                );
-                              },
-                              child: authController.isLoading.value
-                                  ? const Center(
-                                      child: CircularProgressIndicator(
-                                        color: Colors.white,
-                                      ),
-                                    )
-                                  : const Text('Tiếp tục'),
-                            ),
-                          ),
-                        ],
-                      ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/images/checked.gif',
+                          width: 115,
+                        ),
+                        const Text(
+                            'Tự động chuyển về trang đăng nhập sau 3 giây'),
+                      ],
                     ),
-            ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.all(kDefaultPadding),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const SizedBox(
+                          height: kDefaultPadding * 2,
+                        ),
+                        const Text.rich(
+                          TextSpan(children: [
+                            TextSpan(
+                              text: "Xác minh ",
+                              style: TextStyle(
+                                  fontSize: 40, fontWeight: FontWeight.w600),
+                            ),
+                            TextSpan(
+                              text: "OTP",
+                              style: TextStyle(
+                                  fontSize: 40,
+                                  color: ColorPalette.primaryColor,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ]),
+                        ),
+                        const SizedBox(
+                          height: kMinPadding,
+                        ),
+                        Text(
+                          'Nhập mã gồm 6 chữ số đã được gửi đến ${localDataController.clientEmail.value}',
+                        ),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        TextField(
+                          controller: otpInputController,
+                        ),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        Obx(
+                          () => Text(
+                            'Bạn chưa nhận được mã? Nhận mã mới trong ${otpController.countdown} giây.',
+                          ),
+                        ),
+                        const SizedBox(height: kDefaultPadding),
+                        Obx(
+                          () => ElevatedButton(
+                            onPressed: () async {
+                              var id = await localDataController
+                                  .getRegisterClientId();
+                              await authController.verifyOtp(
+                                id!,
+                                otpInputController.text,
+                              );
+                            },
+                            child: authController.isLoading.value
+                                ? const Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                : const Text('Tiếp tục'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
           ],
         ),
       ),

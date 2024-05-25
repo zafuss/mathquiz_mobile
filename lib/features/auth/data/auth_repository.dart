@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/auth/data/auth_api_client.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/change_password_dto.dart';
+import 'package:mathquiz_mobile/features/auth/dtos/login_success_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/register_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/update_personal_information_dto.dart';
@@ -43,6 +44,42 @@ class AuthRepository {
       return Failure('$e');
     }
     return Success(null);
+  }
+
+  Future<ResultType<void>> loginByEmail({
+    required String email,
+  }) async {
+    try {
+      await localDataController.saveClientEmail(email);
+      final result = await authApiClient.loginByEmail(email);
+      if (result is Success<LoginSuccessDto>) {
+        final loginSuccessDto = result.data;
+        await localDataController.saveClientId(loginSuccessDto.id);
+        await localDataController.saveClientEmail(loginSuccessDto.email);
+        await localDataController
+            .saveClientFullName(loginSuccessDto.fullName ?? 'null');
+        await localDataController
+            .saveClientImageUrl(loginSuccessDto.avatarUrl ?? '');
+        await localDataController
+            .saveClientAccessToken(loginSuccessDto.accessToken);
+        await localDataController
+            .saveClientRefreshToken(loginSuccessDto.refreshToken);
+        await localDataController
+            .saveClientPhoneNumber(loginSuccessDto.phoneNumber ?? '');
+        await localDataController
+            .saveClientGradeId(loginSuccessDto.gradeId ?? -1);
+        return result; // Return the Success result
+      } else if (result is Failure<LoginSuccessDto>) {
+        // Handle failure
+        await localDataController.saveClientId(result.message);
+        return result; // Return the Failure result
+      } else {
+        // Handle other cases
+        return Failure('Unknown error');
+      }
+    } catch (e) {
+      return Failure('Unknown error');
+    }
   }
 
   Future<ResultType<void>> register(
@@ -152,6 +189,15 @@ class AuthRepository {
     }
     return Success(null);
   }
+  // Future<ResultType<void>> loginByGoogle(
+  //     ) async {
+  //   try {
+
+  //   } catch (e) {
+  //     return Failure('$e');
+  //   }
+  //   return Success(null);
+  // }
 
   Future<ResultType<void>> logout() async {
     try {

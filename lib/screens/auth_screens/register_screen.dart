@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
 import 'package:mathquiz_mobile/helpers/input_validators.dart';
 
@@ -16,7 +17,10 @@ class RegisterScreen extends StatelessWidget {
     final _fullNameController = TextEditingController();
     final _passwordController = TextEditingController();
     final _confirmPasswordController = TextEditingController();
-
+    final localDataController = Get.put(LocalDataController());
+    _emailController.text = localDataController.clientEmail.value == 'null'
+        ? ''
+        : localDataController.clientEmail.value;
     return Scaffold(
       body: Stack(
         children: [

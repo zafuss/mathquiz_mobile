@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/update_personal_information_dto.dart';
+import 'package:mathquiz_mobile/result_type.dart';
 import '../../../config/http_client.dart';
 import '../dtos/change_password_dto.dart';
 import '../dtos/login_dto.dart';
@@ -27,10 +29,37 @@ class AuthApiClient {
       return loginSuccessDto;
     } on DioException catch (e) {
       if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          Get.toNamed(Routes.otpScreen);
+        }
         throw Exception(e.response!.data);
       } else {
         throw Exception(e.message);
       }
+    }
+  }
+
+  Future<ResultType<LoginSuccessDto>> loginByEmail(String email) async {
+    try {
+      final response = await dioClient.dio
+          .post('account/login-by-email/', data: {'email': email});
+      print(response);
+      final loginSuccessDto = LoginSuccessDto.fromJson(response.data);
+      return Success(loginSuccessDto, response.statusCode ?? 200);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        int statusCode = e.response!.statusCode ?? 500; // Default status code
+        if (statusCode == 400) {
+          return Failure('Invalid request', statusCode);
+        } else if (statusCode == 401) {
+          return Failure(e.response!.data['id'].toString(), statusCode);
+        }
+        return Failure('Server error', statusCode);
+      } else {
+        return Failure('Network error', 0);
+      }
+    } catch (e) {
+      return Failure('Unknown error', 0);
     }
   }
 
@@ -102,6 +131,26 @@ class AuthApiClient {
       }
     }
   }
+
+  // Future<void> loginByGoogle() async {
+  //   try {
+  //     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+  //     // Obtain the auth details from the request
+  //     final GoogleSignInAuthentication? googleAuth =
+  //         await googleUser?.authentication;
+
+  //     // Create a new credential
+  //     final credential = GoogleAuthProvider.credential(
+  //       accessToken: googleAuth?.accessToken,
+  //       idToken: googleAuth?.idToken,
+  //     );
+  //     // Once signed in, return the UserCredential
+  //     await FirebaseAuth.instance.signInWithCredential(credential);
+  //   } catch (e) {
+  //     throw Exception(e);
+  //   }
+  // }
 
   Future<void> sendForgotPasswordEmail(String email) async {
     try {

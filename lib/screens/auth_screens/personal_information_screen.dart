@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
@@ -91,8 +90,7 @@ class PersonalInformationScreen extends StatelessWidget {
                                                     const EdgeInsets.all(5),
                                                 child: CircleAvatar(
                                                   radius: 60,
-                                                  backgroundColor: ColorPalette
-                                                      .backgroundColor,
+                                                  backgroundColor: Colors.white,
                                                   child: !authController
                                                           .isUploadingAvatar
                                                           .value
@@ -103,6 +101,7 @@ class PersonalInformationScreen extends StatelessWidget {
                                                           ? const Icon(
                                                               Icons
                                                                   .person_2_outlined,
+                                                              size: 50,
                                                               color: ColorPalette
                                                                   .primaryColor,
                                                             )

@@ -23,6 +23,7 @@ class GradeController extends GetxController {
   fetchGrades() async {
     isLoading.value = true;
     var result = await chooseExamRepository.getGrades();
+
     isLoading.value = false;
     return (switch (result) {
       Success() => {

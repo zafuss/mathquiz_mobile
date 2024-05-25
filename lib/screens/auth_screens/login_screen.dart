@@ -164,7 +164,9 @@ class LoginScreen extends StatelessWidget {
                                 : const Text('Đăng nhập'),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () async {
+                              await authController.loginByGoogle();
+                            },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

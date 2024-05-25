@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import '../../../result_type.dart';
@@ -12,8 +14,20 @@ class AuthController extends GetxController {
   var isChangingInformation = false.obs;
   final authRepository = AuthRepository();
   var isRegisterSuccess = false.obs;
+
+  Rx<User?> user = Rx<User?>(null);
   File? _image;
+  final FirebaseAuth auth = FirebaseAuth.instance;
   final ImagePicker _picker = ImagePicker();
+  @override
+  void onInit() {
+    super.onInit();
+    auth.authStateChanges().listen((event) {
+      user.value = event;
+    });
+
+    // TODO: implement onInit
+  }
 
   Future<void> login(String email, String password) async {
     isLoading.value = true;
@@ -39,9 +53,9 @@ class AuthController extends GetxController {
     switch (result) {
       case Success():
         isLoading.value = false;
-        isRegisterSuccess.value = true;
+        // isRegisterSuccess.value = true;
+        Get.toNamed(Routes.otpScreen);
         Get.snackbar('Đăng ký thành công!', 'Chào mừng bạn đến với MathQuiz');
-
         break;
       case Failure():
         isLoading.value = false;
@@ -161,7 +175,68 @@ class AuthController extends GetxController {
 
   void toForgotPassword() {}
 
-  void loginByGoogle() {}
+  Future<void> loginByGoogle() async {
+    try {
+      isLoading.value = true;
+      await auth.signOut();
+      await _callGoogleDialog();
+      print(user.value);
+      if (user.value != null) {
+        final result =
+            await authRepository.loginByEmail(email: user.value!.email!);
+        isLoading.value = false;
+        if (result is Success) {
+          isLoading.value = false;
+          Get.offAndToNamed(Routes.homeScreen);
+        } else if (result is Failure) {
+          isLoading.value = false;
+          if (result.statusCode == 400) {
+            Get.toNamed(Routes.registerScreen);
+            Get.snackbar(
+                'Lỗi đăng nhập', 'Tài khoản chưa tồn tại, vui lòng đăng ký');
+          } else if (result.statusCode == 401) {
+            Get.snackbar('Lỗi đăng nhập',
+                'Tài khoản cần xác minh email. Vui lòng kiểm tra mã OTP hộp thư đến.');
+            Get.toNamed(Routes.otpScreen);
+          } else {
+            Get.snackbar('Lỗi đăng nhập', 'Có lỗi xảy ra');
+          }
+        }
+      } else {
+        isLoading.value = false;
+      }
+    } catch (e) {
+      isLoading.value = false;
+      Get.snackbar('Lỗi', e.toString());
+    }
+  }
+
+  Future<void> _callGoogleDialog() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      // Check if user cancelled the dialog
+      if (googleUser == null) {
+        // Handle cancellation
+        return; // Exit function
+      }
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      // Once signed in, return the UserCredential
+      await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      Get.snackbar('Lỗi', e.toString());
+    }
+  }
 
   Future<void> pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);

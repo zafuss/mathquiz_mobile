@@ -10,5 +10,5 @@ export 'exam_screen/do_exam_screen.dart';
 export 'exam_screen/result_screen.dart';
 export 'exam_screen/review_exam_screen.dart';
 export 'exam_screen/review_exam_detail_screen.dart';
-export 'exam_screen/exam_history_screen.dart';
+export 'exam_history_screen.dart';
 export 'auth_screens/reset_password_screen.dart';
