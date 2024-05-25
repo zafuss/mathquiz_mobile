@@ -277,49 +277,57 @@ class ExamHistoryScreen extends StatelessWidget {
                             }),
                           ),
                           // Pagination buttons
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: List.generate(
-                                (homeController.recentResults.length /
-                                        itemsPerPage)
-                                    .ceil(),
-                                (pageIndex) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      currentPage.value = pageIndex;
-                                    },
-                                    child: Container(
-                                      padding: const EdgeInsets.all(8),
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 5),
-                                      height: 36,
-                                      width: 36,
-                                      decoration: BoxDecoration(
-                                        color: currentPage.value == pageIndex
-                                            ? ColorPalette.primaryColor
-                                            : Colors.white,
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          (pageIndex + 1).toString(),
-                                          style: TextStyle(
-                                            color:
-                                                currentPage.value != pageIndex
-                                                    ? ColorPalette.primaryColor
-                                                    : Colors.white,
-                                            fontWeight: FontWeight.bold,
+                          homeController.recentResults.isEmpty
+                              ? const Center(
+                                  child: Text('Bạn chưa làm bài thi nào'),
+                                )
+                              : Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: List.generate(
+                                      (homeController.recentResults.length /
+                                              itemsPerPage)
+                                          .ceil(),
+                                      (pageIndex) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            currentPage.value = pageIndex;
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.all(8),
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 5),
+                                            height: 36,
+                                            width: 36,
+                                            decoration: BoxDecoration(
+                                              color: currentPage.value ==
+                                                      pageIndex
+                                                  ? ColorPalette.primaryColor
+                                                  : Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                (pageIndex + 1).toString(),
+                                                style: TextStyle(
+                                                  color: currentPage.value !=
+                                                          pageIndex
+                                                      ? ColorPalette
+                                                          .primaryColor
+                                                      : Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ),
+                                        );
+                                      },
                                     ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
+                                  ),
+                                ),
                         ],
                       ),
                     ),

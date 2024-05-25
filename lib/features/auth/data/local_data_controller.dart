@@ -10,6 +10,8 @@ class LocalDataController extends GetxController {
   var clientImageUrl = ''.obs;
   var clientAccessToken = ''.obs;
   var clientRefreshToken = ''.obs;
+  var clientPhoneNumber = ''.obs;
+  RxInt clientGradeId = (-1).obs;
   @override
   onInit() async {
     clientFullName.value = await getClientFullName() ?? 'null';
@@ -60,6 +62,18 @@ class LocalDataController extends GetxController {
     prefs.setString('clientRefreshToken', refreshToken);
   }
 
+  Future<void> saveClientPhoneNumber(String phoneNumber) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientPhoneNumber.value = phoneNumber;
+    prefs.setString('clientPhoneNumber', phoneNumber);
+  }
+
+  Future<void> saveClientGradeId(int gradeId) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientGradeId.value = gradeId;
+    prefs.setInt('clientGradeId', gradeId);
+  }
+
   Future<void> deleteClientId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     clientId.value = '';
@@ -102,6 +116,18 @@ class LocalDataController extends GetxController {
     prefs.remove('clientRefreshToken');
   }
 
+  Future<void> deleteClientPhoneNumber() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientPhoneNumber.value = '';
+    prefs.remove('clientPhoneNumber');
+  }
+
+  Future<void> deleteClientGradeId() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientGradeId.value = -1;
+    prefs.remove('clientGradeId');
+  }
+
   Future<String?> getClientId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -142,5 +168,17 @@ class LocalDataController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getString('clientRefreshToken');
+  }
+
+  Future<String?> getClientPhoneNumber() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    return prefs.getString('clientPhoneNumber');
+  }
+
+  Future<int?> getClientGradeId() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    return prefs.getInt('clientGradeId');
   }
 }

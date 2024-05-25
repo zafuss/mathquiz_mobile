@@ -29,7 +29,7 @@ class CustomAppBarContainer extends StatelessWidget {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : Container(
+          : SizedBox(
               height: appBarHeight,
               child: Stack(
                 children: [
@@ -105,28 +105,31 @@ class CustomAppBarContainer extends StatelessWidget {
                                           child: Icon(Icons.menu_outlined),
                                         )),
                                   ),
-                                  localDataController
-                                          .clientImageUrl.value.isEmpty
-                                      ? Container(
-                                          height: 45,
-                                          width: 45,
-                                          decoration: const BoxDecoration(
-                                              color: Colors.white,
-                                              shape: BoxShape.circle),
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child:
-                                                Icon(Icons.person_2_outlined),
-                                          ))
-                                      : ClipOval(
-                                          child: Image.network(
-                                            localDataController
-                                                .clientImageUrl.value,
-                                            fit: BoxFit.cover,
-                                            width: 45.0,
-                                            height: 45.0,
-                                          ),
-                                        )
+                                  InkWell(
+                                      child: localDataController
+                                              .clientImageUrl.value.isEmpty
+                                          ? Container(
+                                              height: 45,
+                                              width: 45,
+                                              decoration: const BoxDecoration(
+                                                  color: Colors.white,
+                                                  shape: BoxShape.circle),
+                                              child: const Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child: Icon(
+                                                    Icons.person_2_outlined),
+                                              ))
+                                          : ClipOval(
+                                              child: Image.network(
+                                                localDataController
+                                                    .clientImageUrl.value,
+                                                fit: BoxFit.cover,
+                                                width: 45.0,
+                                                height: 45.0,
+                                              ),
+                                            ),
+                                      onTap: () => Get.toNamed(
+                                          Routes.personalInformationScreen))
                                 ],
                               ),
                               const SizedBox(

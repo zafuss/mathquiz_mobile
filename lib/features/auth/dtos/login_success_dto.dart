@@ -6,6 +6,8 @@ class LoginSuccessDto {
   final String? fullName;
   final String accessToken;
   final String refreshToken;
+  final String? phoneNumber;
+  final int? gradeId;
 
   const LoginSuccessDto(
       {required this.id,
@@ -14,7 +16,9 @@ class LoginSuccessDto {
       required this.email,
       this.fullName,
       required this.accessToken,
-      required this.refreshToken});
+      required this.refreshToken,
+      this.phoneNumber,
+      this.gradeId});
 
   factory LoginSuccessDto.fromJson(Map<String, dynamic> json) {
     return LoginSuccessDto(
@@ -24,6 +28,8 @@ class LoginSuccessDto {
         fullName: json['fullName'],
         email: json['email'] as String,
         accessToken: json['accessToken'] as String,
-        refreshToken: json['refreshToken'] as String);
+        refreshToken: json['refreshToken'] as String,
+        phoneNumber: json['phoneNumber'],
+        gradeId: json['gradeId']);
   }
 }

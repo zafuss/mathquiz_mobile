@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 import '../config/media_query_config.dart';
@@ -127,8 +128,9 @@ class CustomDrawer extends StatelessWidget {
                         ListTile(
                           contentPadding: const EdgeInsets.all(0),
                           onTap: () {
+                            authController.isChangingInformation.value = false;
                             controller!.closeDrawer();
-                            Get.toNamed(Routes.examHistoryScreen);
+                            _showPersonalInformationDialog(context);
                           },
                           title: const Text('Thông tin cá nhân'),
                         ),
@@ -240,13 +242,31 @@ class CustomDrawer extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Đổi mật khẩu'),
+          surfaceTintColor: Colors.white,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Thay đổi ',
+                style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500),
+              ),
+              Text(
+                'mật khẩu',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: oldPasswordController,
                 decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.vpn_key_outlined),
                   labelText: 'Mật khẩu cũ',
                 ),
                 obscureText: true,
@@ -254,6 +274,7 @@ class CustomDrawer extends StatelessWidget {
               TextField(
                 controller: newPasswordController,
                 decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.lock_outline),
                   labelText: 'Mật khẩu mới',
                 ),
                 obscureText: true,
@@ -261,6 +282,7 @@ class CustomDrawer extends StatelessWidget {
               TextField(
                 controller: confirmPasswordController,
                 decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.library_add_check_outlined),
                   labelText: 'Xác nhận mật khẩu mới',
                 ),
                 obscureText: true,
@@ -315,6 +337,208 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ],
+        );
+      },
+    );
+  }
+
+  void _showPersonalInformationDialog(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController fullNameController = TextEditingController();
+    final TextEditingController phoneNumberController = TextEditingController();
+    final authController = Get.put(AuthController());
+    final localDataController = Get.put(LocalDataController());
+    final gradeController = Get.put(GradeController());
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        emailController.text = localDataController.clientEmail.value;
+        fullNameController.text = localDataController.clientFullName.value;
+        phoneNumberController.text =
+            localDataController.clientPhoneNumber.value;
+
+        return Obx(
+          () {
+            int gradeIdValue = localDataController.clientGradeId.value;
+            return gradeController.isLoading.value
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : AlertDialog(
+                    surfaceTintColor: Colors.white,
+                    title: const Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Thông tin ',
+                          style: TextStyle(
+                              color: ColorPalette.primaryColor,
+                              fontSize: 25,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          'cá nhân',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextField(
+                          controller: emailController,
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(Icons.email_outlined),
+                            labelText: 'Email',
+                          ),
+                          readOnly: true,
+                        ),
+                        TextField(
+                          readOnly: !authController.isChangingInformation.value
+                              ? true
+                              : false,
+                          controller: fullNameController,
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(Icons.person_2_outlined),
+                            labelText: 'Họ và tên',
+                          ),
+                        ),
+                        TextField(
+                          readOnly: !authController.isChangingInformation.value
+                              ? true
+                              : false,
+                          controller: phoneNumberController,
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(Icons.phone_android_outlined),
+                            labelText: 'Số điện thoại',
+                          ),
+                        ),
+                        DropdownButtonFormField<String>(
+                          decoration: InputDecoration(
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Image.asset(
+                                color: Colors.black,
+                                'assets/images/grade_icon.png',
+                                width: 10,
+                                height: 10,
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          isExpanded: true,
+                          value: localDataController.clientGradeId.value != -1
+                              ? gradeController.gradeList
+                                  .firstWhere((element) =>
+                                      element.id ==
+                                      localDataController.clientGradeId.value)
+                                  .name
+                              : null,
+                          hint: Text(localDataController.clientGradeId.value ==
+                                  -1
+                              ? "Chọn lớp"
+                              : gradeController.gradeList
+                                  .firstWhere((grade) =>
+                                      grade.id ==
+                                      localDataController.clientGradeId.value)
+                                  .name),
+                          items: authController.isChangingInformation.value
+                              ? gradeController.gradeList.map((grade) {
+                                  return DropdownMenuItem<String>(
+                                    value: grade.name,
+                                    child: Text(grade.name),
+                                  );
+                                }).toList()
+                              : null,
+                          onChanged: (String? newValue) {
+                            if (newValue != null) {
+                              final selectedGrade = gradeController.gradeList
+                                  .firstWhere(
+                                      (grade) => grade.name == newValue);
+                              gradeIdValue = selectedGrade.id;
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                    actions: !authController.isChangingInformation.value
+                        ? [
+                            TextButton(
+                              onPressed: () {
+                                authController.isChangingInformation.value =
+                                    true;
+                              },
+                              child: const Text('Chỉnh sửa'),
+                            ),
+                            SizedBox(
+                              height: 35,
+                              width: 120,
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Obx(
+                                  () => authController.isLoading.value
+                                      ? const Center(
+                                          child: SizedBox(
+                                            height: 20,
+                                            width: 20,
+                                            child: CircularProgressIndicator(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        )
+                                      : const Text(
+                                          'Đóng',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                ),
+                              ),
+                            ),
+                          ]
+                        : [
+                            TextButton(
+                              onPressed: () {
+                                authController.isChangingInformation.value =
+                                    false;
+                              },
+                              child: const Text('Hủy'),
+                            ),
+                            SizedBox(
+                              height: 35,
+                              width: 150,
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  await authController
+                                      .updatePersonalInformation(
+                                          fullNameController.text,
+                                          phoneNumberController.text,
+                                          gradeIdValue);
+                                  Navigator.of(context).pop();
+                                },
+                                child: Obx(
+                                  () => authController.isLoading.value
+                                      ? const Center(
+                                          child: SizedBox(
+                                            height: 20,
+                                            width: 20,
+                                            child: CircularProgressIndicator(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        )
+                                      : const Text(
+                                          'Lưu thay đổi',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                ),
+                              ),
+                            ),
+                          ],
+                  );
+          },
         );
       },
     );

@@ -1,4 +1,5 @@
 import 'package:get/route_manager.dart';
+import 'package:mathquiz_mobile/screens/auth_screens/personal_information_screen.dart';
 import 'package:mathquiz_mobile/screens/screens.dart';
 
 class Routes {
@@ -16,6 +17,7 @@ class Routes {
   static String reviewExamDetailScreen = '/reviewExamDetailScreen';
   static String examHistoryScreen = '/examHistoryScreen';
   static String resetPasswordScreen = '/resetPasswordScreen';
+  static String personalInformationScreen = '/personalInformationScreen';
 }
 
 final getPages = [
@@ -42,4 +44,7 @@ final getPages = [
   GetPage(
       name: Routes.resetPasswordScreen,
       page: () => const ResetPasswordScreen()),
+  GetPage(
+      name: Routes.personalInformationScreen,
+      page: () => const PersonalInformationScreen()),
 ];

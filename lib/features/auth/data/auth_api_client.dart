@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
+import 'package:mathquiz_mobile/features/auth/dtos/update_personal_information_dto.dart';
 import '../../../config/http_client.dart';
 import '../dtos/change_password_dto.dart';
 import '../dtos/login_dto.dart';
@@ -107,6 +108,24 @@ class AuthApiClient {
       final response = await dioClient.dio.post(
         'account/forgot-password/',
         data: {'email': email},
+      );
+      print(response);
+    } on DioException catch (e) {
+      print(e);
+      if (e.response != null) {
+        throw Exception(e.response!.data);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<void> updatePersonalInformation(
+      UpdatePersonalInformationDto updatePersonalInformationDto) async {
+    try {
+      final response = await dioClient.dio.post(
+        'account/update-personal-information/',
+        data: updatePersonalInformationDto.toJson(),
       );
       print(response);
     } on DioException catch (e) {

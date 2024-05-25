@@ -6,6 +6,7 @@ import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/change_password_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/register_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
+import 'package:mathquiz_mobile/features/auth/dtos/update_personal_information_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/upload_avatar_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/verify_otp_dto.dart';
 import 'package:mathquiz_mobile/result_type.dart';
@@ -34,6 +35,10 @@ class AuthRepository {
           .saveClientAccessToken(loginSuccessDto.accessToken);
       await localDataController
           .saveClientRefreshToken(loginSuccessDto.refreshToken);
+      await localDataController
+          .saveClientPhoneNumber(loginSuccessDto.phoneNumber ?? '');
+      await localDataController
+          .saveClientGradeId(loginSuccessDto.gradeId ?? -1);
     } catch (e) {
       return Failure('$e');
     }
@@ -122,6 +127,26 @@ class AuthRepository {
               userId: localDataController.clientId.value, imageUrl: null),
           token!);
       await localDataController.saveClientImageUrl(imageUrl);
+    } catch (e) {
+      return Failure('$e');
+    }
+    return Success(null);
+  }
+
+  Future<ResultType<void>> updatePersonalInformation(
+      {String? fullName, String? phoneNumber, int? gradeId}) async {
+    try {
+      final id = await localDataController.getClientId();
+      await authApiClient.updatePersonalInformation(
+        UpdatePersonalInformationDto(
+            id: id!,
+            fullName: fullName,
+            phoneNumber: phoneNumber,
+            gradeId: gradeId),
+      );
+      await localDataController.saveClientGradeId(gradeId ?? -1);
+      await localDataController.saveClientFullName(fullName ?? 'null');
+      await localDataController.saveClientPhoneNumber(phoneNumber ?? '');
     } catch (e) {
       return Failure('$e');
     }

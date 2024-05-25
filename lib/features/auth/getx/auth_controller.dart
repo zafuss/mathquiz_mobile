@@ -9,6 +9,7 @@ class AuthController extends GetxController {
   var isLoading = false.obs;
   var isUploadingAvatar = false.obs;
   var isRememberMe = false.obs;
+  var isChangingInformation = false.obs;
   final authRepository = AuthRepository();
   var isRegisterSuccess = false.obs;
   File? _image;
@@ -182,6 +183,26 @@ class AuthController extends GetxController {
       case Failure():
         isUploadingAvatar.value = false;
         isRegisterSuccess.value = false;
+        Get.snackbar('Lỗi.', result.message);
+        break;
+      default:
+        // Xử lý trường hợp khác nếu cần
+        break;
+    }
+  }
+
+  Future<void> updatePersonalInformation(
+      String? fullName, String? phoneNumber, int? gradeId) async {
+    isLoading.value = true;
+    final result = await authRepository.updatePersonalInformation(
+        fullName: fullName, phoneNumber: phoneNumber, gradeId: gradeId);
+    switch (result) {
+      case Success():
+        isLoading.value = false;
+        Get.snackbar('Thành công', 'Cập nhật thông tin cá nhân thành công.');
+        break;
+      case Failure():
+        isLoading.value = true;
         Get.snackbar('Lỗi.', result.message);
         break;
       default:
