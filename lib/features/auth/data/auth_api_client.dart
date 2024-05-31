@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
+import 'package:mathquiz_mobile/features/auth/dtos/token_refresh_success_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/update_personal_information_dto.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 import '../../../config/http_client.dart';
@@ -238,6 +239,30 @@ class AuthApiClient {
     } on DioException catch (e) {
       if (e.response != null) {
         throw Exception(e.response!.data['message']);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<TokenRefreshSuccessDto?> refreshToken(String? token) async {
+    if (token == null) {
+      Get.offAndToNamed(Routes.loginScreen);
+    }
+
+    try {
+      final response = await dioClient.dio.post(
+        'account/refresh-token/',
+        data: {'refreshToken': token},
+      );
+      print(response);
+      return TokenRefreshSuccessDto.fromJson(response.data);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 401) {
+          Get.toNamed(Routes.loginScreen);
+        }
+        throw Exception(e.response!.data);
       } else {
         throw Exception(e.message);
       }

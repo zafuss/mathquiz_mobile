@@ -33,58 +33,57 @@ class HomeScreen extends StatelessWidget {
         drawer: CustomDrawer(
           controller: customDrawerController,
         ),
-        body: Obx(
-          () => !homeController.isLoading.value &&
-                  !chapterController.isLoading.value &&
-                  !examController.isLoading.value
-              ? Column(
-                  children: [
-                    CustomAppBarContainer(
-                        drawerController: customDrawerController),
-                    Flexible(
-                      child: RefreshIndicator(
-                        onRefresh: () async {
-                          await _handleOnRefresh(examController, homeController,
-                              chapterController);
-                        },
-                        child: SingleChildScrollView(
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Obx(
-                                () {
-                                  if (examController.isLoading.value) {
-                                    return const Center(
-                                      child: CircularProgressIndicator(),
-                                    );
-                                  } else if (homeController
-                                      .recentResults.isEmpty) {
-                                    return const SizedBox();
-                                  } else {
-                                    return _buildRecentExams(
-                                        homeController, examController);
-                                  }
-                                },
-                              ),
-                              _buildNewQuizMatrix(
-                                  context,
-                                  examController,
-                                  homeController,
-                                  chapterController,
-                                  insideContainerMaxWidth),
-                            ],
+        body: Obx(() => Column(
+              children: [
+                CustomAppBarContainer(drawerController: customDrawerController),
+                !homeController.isLoading.value &&
+                        !chapterController.isLoading.value &&
+                        !examController.isLoading.value
+                    ? Flexible(
+                        child: RefreshIndicator(
+                          onRefresh: () async {
+                            await _handleOnRefresh(examController,
+                                homeController, chapterController);
+                          },
+                          child: SingleChildScrollView(
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Obx(
+                                  () {
+                                    if (examController.isLoading.value) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    } else if (homeController
+                                        .recentResults.isEmpty) {
+                                      return const SizedBox();
+                                    } else {
+                                      return _buildRecentExams(
+                                          homeController, examController);
+                                    }
+                                  },
+                                ),
+                                _buildNewQuizMatrix(
+                                    context,
+                                    examController,
+                                    homeController,
+                                    chapterController,
+                                    insideContainerMaxWidth),
+                              ],
+                            ),
                           ),
                         ),
+                      )
+                    : const Expanded(
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
                       ),
-                    ),
-                  ],
-                )
-              : const Center(
-                  child: CircularProgressIndicator(),
-                ),
-        ));
+              ],
+            )));
   }
 
   Column _buildNewQuizMatrix(

@@ -11,6 +11,7 @@ class AuthController extends GetxController {
   var isLoading = false.obs;
   var isUploadingAvatar = false.obs;
   var isRememberMe = false.obs;
+  var isLoggedIn = false.obs;
   var isChangingInformation = false.obs;
   final authRepository = AuthRepository();
   var isRegisterSuccess = false.obs;
@@ -20,8 +21,9 @@ class AuthController extends GetxController {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final ImagePicker _picker = ImagePicker();
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+    // await _refreshToken();
     auth.authStateChanges().listen((event) {
       user.value = event;
     });
@@ -31,7 +33,8 @@ class AuthController extends GetxController {
 
   Future<void> login(String email, String password) async {
     isLoading.value = true;
-    final result = await authRepository.login(email: email, password: password);
+    final result = await authRepository.login(
+        email: email, password: password, isRememberMe: isRememberMe.value);
     isLoading.value = false;
     switch (result) {
       case Success():
@@ -39,6 +42,27 @@ class AuthController extends GetxController {
         break;
       case Failure():
         Get.snackbar('Đăng nhập thất bại', result.message);
+        break;
+      default:
+        // Xử lý trường hợp khác nếu cần
+        break;
+    }
+  }
+
+  Future<void> refreshToken() async {
+    isLoading.value = true;
+    final result = await authRepository.refreshToken();
+    isLoading.value = false;
+    switch (result) {
+      case Success():
+        isLoggedIn.value = true;
+
+        // Get.offAndToNamed(Routes.homeScreen);
+        break;
+      case Failure():
+        isLoggedIn.value = false;
+
+        // Get.snackbar('Đăng nhập thất bại', result.message);
         break;
       default:
         // Xử lý trường hợp khác nếu cần
@@ -182,8 +206,8 @@ class AuthController extends GetxController {
       await _callGoogleDialog();
       print(user.value);
       if (user.value != null) {
-        final result =
-            await authRepository.loginByEmail(email: user.value!.email!);
+        final result = await authRepository.loginByEmail(
+            email: user.value!.email!, isRememberMe: true);
         isLoading.value = false;
         if (result is Success) {
           isLoading.value = false;

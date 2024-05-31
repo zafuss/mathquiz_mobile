@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/config/theme_const.dart';
+import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
 import 'package:mathquiz_mobile/firebase_options.dart';
 
 void main() async {
@@ -10,20 +11,27 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  // Khởi tạo AuthController và refresh token trước khi chạy ứng dụng
+  final AuthController authController = Get.put(AuthController());
+  await authController.refreshToken();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final AuthController authController = Get.find<AuthController>();
     return GetMaterialApp(
-        getPages: getPages,
-        debugShowCheckedModeBanner: false,
-        title: 'MathQuiz',
-        theme: AppTheme.lightTheme(),
-        initialRoute: Routes.loginScreen);
+      getPages: getPages,
+      debugShowCheckedModeBanner: false,
+      title: 'MathQuiz',
+      theme: AppTheme.lightTheme(),
+      initialRoute: authController.isLoggedIn.value
+          ? Routes.homeScreen
+          : Routes.loginScreen,
+    );
   }
 }

@@ -11,12 +11,14 @@ class LocalDataController extends GetxController {
   var clientAccessToken = ''.obs;
   var clientRefreshToken = ''.obs;
   var clientPhoneNumber = ''.obs;
+  var isRememberMe = false.obs;
   RxInt clientGradeId = (-1).obs;
   @override
   onInit() async {
     clientFullName.value = await getClientFullName() ?? 'null';
     clientEmail.value = await getClientEmail() ?? 'null';
     clientId.value = await getClientId() ?? 'null';
+    isRememberMe.value = await getIsRememberMe() ?? false;
     super.onInit();
   }
 
@@ -72,6 +74,12 @@ class LocalDataController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     clientGradeId.value = gradeId;
     prefs.setInt('clientGradeId', gradeId);
+  }
+
+  Future<void> saveIsRememberMe(bool isRememberMe) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    this.isRememberMe.value = isRememberMe;
+    prefs.setBool('isRememberMe', isRememberMe);
   }
 
   Future<void> deleteClientId() async {
@@ -180,5 +188,11 @@ class LocalDataController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getInt('clientGradeId');
+  }
+
+  Future<bool?> getIsRememberMe() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    return prefs.getBool('isRememberMe');
   }
 }

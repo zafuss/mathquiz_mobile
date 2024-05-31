@@ -18,10 +18,10 @@ class AuthRepository {
   final authApiClient = AuthApiClient();
   final localDataController = Get.put(LocalDataController(), permanent: true);
 
-  Future<ResultType<void>> login({
-    required String email,
-    required String password,
-  }) async {
+  Future<ResultType<void>> login(
+      {required String email,
+      required String password,
+      required bool isRememberMe}) async {
     try {
       final loginSuccessDto = await authApiClient.login(
         LoginDto(email: email, password: password, rememberMe: true),
@@ -40,15 +40,15 @@ class AuthRepository {
           .saveClientPhoneNumber(loginSuccessDto.phoneNumber ?? '');
       await localDataController
           .saveClientGradeId(loginSuccessDto.gradeId ?? -1);
+      await localDataController.saveIsRememberMe(isRememberMe);
     } catch (e) {
       return Failure('$e');
     }
     return Success(null);
   }
 
-  Future<ResultType<void>> loginByEmail({
-    required String email,
-  }) async {
+  Future<ResultType<void>> loginByEmail(
+      {required String email, required bool isRememberMe}) async {
     try {
       await localDataController.saveClientEmail(email);
       final result = await authApiClient.loginByEmail(email);
@@ -68,6 +68,7 @@ class AuthRepository {
             .saveClientPhoneNumber(loginSuccessDto.phoneNumber ?? '');
         await localDataController
             .saveClientGradeId(loginSuccessDto.gradeId ?? -1);
+        await localDataController.saveIsRememberMe(isRememberMe);
         return result; // Return the Success result
       } else if (result is Failure<LoginSuccessDto>) {
         // Handle failure
@@ -109,6 +110,31 @@ class AuthRepository {
           otp: otp,
         ),
       );
+    } catch (e) {
+      return Failure('$e');
+    }
+    return Success(null);
+  }
+
+  Future<ResultType<void>> refreshToken() async {
+    try {
+      final token = await localDataController.getClientRefreshToken();
+      final isRememberMe = await localDataController.getIsRememberMe();
+      if (isRememberMe!) {
+        final dto = await authApiClient.refreshToken(token);
+        if (dto != null) {
+          localDataController.saveClientAccessToken(dto.accessToken);
+          localDataController.saveClientEmail(dto.email);
+          localDataController.saveClientFullName(dto.fullName);
+          localDataController.saveClientGradeId(dto.gradeId ?? -1);
+          localDataController.saveClientId(dto.userId);
+          localDataController.saveClientImageUrl(dto.imageUrl ?? "");
+          localDataController.saveClientRefreshToken(dto.refreshToken);
+          localDataController.saveClientPhoneNumber(dto.phoneNumber ?? "");
+        }
+      } else {
+        return Failure('remember me is off');
+      }
     } catch (e) {
       return Failure('$e');
     }
