@@ -18,9 +18,13 @@ class DoExamController extends GetxController {
   var isLoading = false.obs;
   var isGettingResult = false.obs;
   var isLastQuiz = false.obs;
+  var isFirstQuiz = false.obs;
   var currentQuizIndex = 0.obs;
   var examDetailList = <ExamDetail>[].obs;
   var quizOptionList = <QuizOption>[].obs;
+  var markedQuiz = <int>[].obs;
+  var markedQuizIndex = 0.obs;
+  var isInMarkedQuiz = false.obs;
   var remainingTime = const Duration().obs;
 
   late Timer _timer;
@@ -100,11 +104,27 @@ class DoExamController extends GetxController {
     currentQuiz.value = quizController.quizList
         .firstWhere((element) => element.id == currentExamDetail.value!.quizId);
     isLastQuiz.value = _checkIsLastQuiz();
+    isFirstQuiz.value = _checkIsFirstQuiz();
     await fetchQuizOptions();
   }
 
   _checkIsLastQuiz() {
-    if (currentQuizIndex.value + 1 == examDetailList.length) {
+    if (currentQuizIndex.value + 1 ==
+            (examDetailList.length + markedQuiz.length) ||
+        (markedQuizIndex.value == markedQuiz.length &&
+            markedQuizIndex.value != 0)) {
+      if (markedQuizIndex.value != 0) {
+        markedQuizIndex.value--;
+      }
+      // isInMarkedQuiz.value = false;
+      return true;
+    }
+    return false;
+  }
+
+  _checkIsFirstQuiz() {
+    if (currentQuizIndex.value > 0 ||
+        currentQuizIndex.value == 0 && isInMarkedQuiz.value) {
       return true;
     }
     return false;
@@ -112,14 +132,34 @@ class DoExamController extends GetxController {
 
   handleNextQuiz() async {
     isLoading.value = true;
-    currentQuizIndex.value++;
+    if (currentQuizIndex.value + 1 == examDetailList.length) {
+      currentQuizIndex.value = markedQuiz.first;
+      markedQuizIndex.value++;
+      isInMarkedQuiz.value = true;
+    } else if (markedQuizIndex.value != 0 ||
+        (markedQuizIndex.value == 0 && isInMarkedQuiz.value)) {
+      currentQuizIndex.value = markedQuiz[markedQuizIndex.value];
+      markedQuizIndex.value++;
+    } else {
+      currentQuizIndex.value++;
+    }
     await fetchCurrentQuiz();
+    print(markedQuizIndex.value);
     isLoading.value = false;
   }
 
   handlePreviousQuiz() async {
     isLoading.value = true;
-    currentQuizIndex.value--;
+    print(markedQuizIndex.value);
+    if (markedQuizIndex.value != 0) {
+      currentQuizIndex.value = markedQuiz[--markedQuizIndex.value];
+    } else if (markedQuizIndex.value == 0 && isInMarkedQuiz.value) {
+      currentQuizIndex.value = examDetailList.length - 1;
+      isInMarkedQuiz.value = false;
+    } else {
+      currentQuizIndex.value--;
+      isInMarkedQuiz.value = false;
+    }
     await fetchCurrentQuiz();
     isLoading.value = false;
   }
@@ -142,6 +182,14 @@ class DoExamController extends GetxController {
         selectedOption: quizOptionId);
     examDetailList[currentQuizIndex.value] = newExamDetail;
     currentExamDetail.value = examDetailList[currentQuizIndex.value];
+  }
+
+  handleMarkedQuiz() {
+    if (markedQuiz.contains(currentQuizIndex.value)) {
+      markedQuiz.removeWhere((element) => element == currentQuizIndex.value);
+    } else {
+      markedQuiz.add(currentQuizIndex.value);
+    }
   }
 
   saveNewExamDetailList() async {

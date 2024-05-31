@@ -44,13 +44,32 @@ class DoExamScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text(
-                                  'Câu ${doExamController.currentQuizIndex.value + 1}/${doExamController.examDetailList.length}:',
-                                  style: const TextStyle(
-                                    color: ColorPalette.primaryColor,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 20,
-                                  ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Câu ${doExamController.currentQuizIndex.value + 1}/${doExamController.examDetailList.length}:',
+                                      style: const TextStyle(
+                                        color: ColorPalette.primaryColor,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        doExamController.handleMarkedQuiz();
+                                      },
+                                      child: Image.asset(
+                                          width: 17,
+                                          doExamController.markedQuiz.contains(
+                                                  doExamController
+                                                      .currentQuizIndex.value)
+                                              ? 'assets/images/marker_icon.png'
+                                              : 'assets/images/unmarker_icon.png'),
+                                    ),
+                                  ],
                                 ),
                                 Column(
                                   children: [
@@ -193,7 +212,7 @@ class DoExamScreen extends StatelessWidget {
                                                                             ),
                                                                           ),
                                                                         )
-                                                                      : SizedBox(),
+                                                                      : const SizedBox(),
                                                                   renderTextAndLaTeX(
                                                                       e.option!),
                                                                 ],
@@ -214,8 +233,7 @@ class DoExamScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      doExamController.currentQuizIndex.value >
-                                              0
+                                      doExamController.isFirstQuiz.value
                                           ? GestureDetector(
                                               onTap: () => doExamController
                                                   .handlePreviousQuiz(),
