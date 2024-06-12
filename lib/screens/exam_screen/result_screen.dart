@@ -6,6 +6,8 @@ import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/do_exam/getx/do_exam_controller.dart';
 
+import '../../helpers/score_formatter.dart';
+
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});
 
@@ -80,8 +82,9 @@ class ResultScreen extends StatelessWidget {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          doExamController.result.value!.score!
-                                              .toStringAsFixed(2),
+                                          scoreFormatter(doExamController
+                                                  .result.value!.score!)
+                                              .toString(),
                                           style: const TextStyle(
                                               height: 1,
                                               fontSize: 35,

@@ -3,6 +3,7 @@ import 'package:mathquiz_mobile/features/do_exam/data/do_exam_repository.dart';
 import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
 
+import '../../../helpers/list_shuffle.dart';
 import '../../../result_type.dart';
 
 class ExamDetailController extends GetxController {
@@ -35,6 +36,7 @@ class ExamDetailController extends GetxController {
 
   addExamDetails(String examId, List<Quiz> quizList) async {
     isLoading.value = true;
+    shuffle(quizList);
     for (var quiz in quizList) {
       await doExamRepository.addExamDetail(examId, quiz.id);
     }

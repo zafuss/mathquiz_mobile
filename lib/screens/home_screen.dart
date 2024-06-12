@@ -8,6 +8,7 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dar
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 import 'package:mathquiz_mobile/features/home/getx/home_controller.dart';
+import 'package:mathquiz_mobile/helpers/score_formatter.dart';
 import 'package:mathquiz_mobile/widgets/custom_appbar.dart';
 import 'package:mathquiz_mobile/widgets/custom_drawer.dart';
 
@@ -320,8 +321,8 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text:
-                                        '${double.parse(element.score!.toStringAsFixed(2))}',
+                                    text: scoreFormatter(element.score!)
+                                        .toString(),
                                     style: const TextStyle(
                                         fontSize: 12,
                                         color: ColorPalette.primaryColor,

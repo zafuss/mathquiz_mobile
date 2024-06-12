@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
@@ -8,6 +7,7 @@ import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
 import 'package:mathquiz_mobile/models/quiz_option.dart';
 
+import '../../../helpers/list_shuffle.dart';
 import '../../../models/result.dart';
 import '../../choose_exam/getx/exam_controller.dart';
 import 'exam_detail_controller.dart';
@@ -172,6 +172,7 @@ class DoExamController extends GetxController {
     currentQuizOptions.value = quizOptionList
         .where((p0) => p0.quizId == currentQuiz.value!.id)
         .toList();
+    shuffle(currentQuizOptions);
   }
 
   handleChooseAnOption(int quizOptionId) {

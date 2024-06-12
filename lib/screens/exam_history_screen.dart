@@ -8,6 +8,7 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dar
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart';
 import 'package:mathquiz_mobile/features/home/getx/home_controller.dart';
+import 'package:mathquiz_mobile/helpers/score_formatter.dart';
 
 class ExamHistoryScreen extends StatelessWidget {
   final int itemsPerPage = 10;
@@ -259,7 +260,7 @@ class ExamHistoryScreen extends StatelessWidget {
                                                       .primaryColor),
                                               child: Center(
                                                 child: Text(
-                                                  'Điểm: ${homeController.recentResults[actualIndex].score}',
+                                                  'Điểm: ${scoreFormatter(homeController.recentResults[actualIndex].score!).toString()}',
                                                   style: const TextStyle(
                                                       color: Colors.white,
                                                       fontWeight:
