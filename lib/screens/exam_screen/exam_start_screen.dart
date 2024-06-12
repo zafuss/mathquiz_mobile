@@ -20,6 +20,7 @@ class ExamStartScreen extends StatelessWidget {
     final examController = Get.put(ExamController());
     final examDetailController = Get.put(ExamDetailController());
     final quizController = Get.put(QuizController());
+
     return Scaffold(
       body: Stack(
         children: [
@@ -89,7 +90,7 @@ class ExamStartScreen extends StatelessWidget {
                                         Padding(
                                           padding: const EdgeInsets.all(5.0),
                                           child: Text(
-                                              '${quizmatrixController.chosenQuizMatrix.value!.numOfQuiz} câu'),
+                                              '${examController.tempNumOfQuiz.value} câu'),
                                         )
                                       ],
                                     ),
@@ -102,7 +103,7 @@ class ExamStartScreen extends StatelessWidget {
                                         Padding(
                                           padding: const EdgeInsets.all(5.0),
                                           child: Text(
-                                              '${quizmatrixController.chosenQuizMatrix.value!.defaultDuration} phút'),
+                                              '${examController.tempDuration.value} phút'),
                                         )
                                       ],
                                     ),
@@ -134,7 +135,7 @@ class ExamStartScreen extends StatelessWidget {
                               Obx(
                                 () => ElevatedButton(
                                   onPressed: () async {
-                                    await examController.addNewDefaultExam(
+                                    await examController.addExam(
                                         quizmatrixController
                                             .chosenQuizMatrix.value!);
                                     await quizController
@@ -158,7 +159,10 @@ class ExamStartScreen extends StatelessWidget {
                                 ),
                               ),
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    _showCustomizeExamDialog(context,
+                                        quizmatrixController, examController);
+                                  },
                                   child: const Text('Tuỳ chỉnh đề thi')),
                             ],
                           )
@@ -376,6 +380,117 @@ class ExamStartScreen extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+
+  void _showCustomizeExamDialog(
+      BuildContext context,
+      QuizMatrixController quizMatrixController,
+      ExamController examController) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Obx(
+          () {
+            int maxNumOfQuiz =
+                quizMatrixController.chosenQuizMatrix.value!.numOfQuiz!;
+            List<int> durationOptions =
+                List.generate((120 ~/ 10) + 1, (index) => index * 10);
+
+            // Ensure the current tempDuration value is valid
+            if (!durationOptions.contains(examController.tempDuration.value)) {
+              examController.tempDuration.value = durationOptions.first;
+            }
+
+            return AlertDialog(
+              surfaceTintColor: Colors.white,
+              title: const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Tuỳ chỉnh ',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    'đề thi',
+                    style: TextStyle(
+                        color: ColorPalette.primaryColor,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+              content: SingleChildScrollView(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("Số câu hỏi"),
+                      DropdownButton<int>(
+                        value: examController.tempNumOfQuiz.value,
+                        items: List.generate(
+                            maxNumOfQuiz + 1,
+                            (index) => DropdownMenuItem(
+                                  value: index,
+                                  child: Text('$index câu'),
+                                )),
+                        onChanged: (int? newValue) {
+                          if (newValue != null) {
+                            examController.tempNumOfQuiz.value = newValue;
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("Thời gian (phút)"),
+                      DropdownButton<int>(
+                        value: examController.tempDuration.value,
+                        items: durationOptions
+                            .map((value) => DropdownMenuItem(
+                                  value: value,
+                                  child: Text('$value phút'),
+                                ))
+                            .toList(),
+                        onChanged: (int? newValue) {
+                          if (newValue != null) {
+                            examController.tempDuration.value = newValue;
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              )),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      examController.tempDuration.value = quizMatrixController
+                          .chosenQuizMatrix.value!.defaultDuration!;
+                      examController.tempNumOfQuiz.value = quizMatrixController
+                          .chosenQuizMatrix.value!.numOfQuiz!;
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("Huỷ")),
+                SizedBox(
+                  height: 35,
+                  width: 150,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('Tuỳ chỉnh')),
+                )
+              ],
+            );
+          },
+        );
+      },
     );
   }
 }

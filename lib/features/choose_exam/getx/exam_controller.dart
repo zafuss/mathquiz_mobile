@@ -11,6 +11,8 @@ class ExamController extends GetxController {
   var currentExamId = ''.obs;
   var isLoading = false.obs;
   var numOfUsed = 0.obs;
+  RxInt tempDuration = 0.obs;
+  RxInt tempNumOfQuiz = 0.obs;
   RxList<Exam> examList = <Exam>[].obs;
   Rx<Exam?> chosenExam = Rx<Exam?>(null);
   final ChooseExamRepository chooseExamRepository = ChooseExamRepository();
@@ -53,14 +55,20 @@ class ExamController extends GetxController {
     }
   }
 
-  addNewDefaultExam(QuizMatrix currentQuizMatrix) async {
+  addExam(QuizMatrix currentQuizMatrix) async {
     isLoading.value = true;
 
     final clientId = await localDataController.getClientId();
     currentExamId.value =
         'exam${currentQuizMatrix.id}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
-    await chooseExamRepository.addNewDefaultExam(
-        currentQuizMatrix, clientId!, currentExamId.value);
+    if (tempDuration.value != currentQuizMatrix.defaultDuration ||
+        tempNumOfQuiz.value != currentQuizMatrix.numOfQuiz) {
+      await chooseExamRepository.addCustomExam(currentQuizMatrix, clientId!,
+          currentExamId.value, tempDuration.value, tempNumOfQuiz.value);
+    } else {
+      await chooseExamRepository.addNewDefaultExam(
+          currentQuizMatrix, clientId!, currentExamId.value);
+    }
     await fetchExams();
     chosenExam.value =
         examList.firstWhere((element) => element.id == currentExamId.value);

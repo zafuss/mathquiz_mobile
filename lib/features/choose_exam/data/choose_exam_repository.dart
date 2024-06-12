@@ -82,4 +82,15 @@ class ChooseExamRepository {
       return Failure('$e');
     }
   }
+
+  Future<ResultType<bool>>? addCustomExam(QuizMatrix quizMatrix,
+      String clientId, String examId, int duration, int numOfQuiz) async {
+    await chooseExamApiClient.addCustomExam(
+        quizMatrix, clientId, examId, numOfQuiz, duration);
+    try {
+      return Success(true);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
 }

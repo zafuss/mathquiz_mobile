@@ -366,6 +366,12 @@ class ChooseExamConditionScreen extends StatelessWidget {
                               await examController.fetchExamByQuizMatrixId(
                                   quizmatrixController
                                       .chosenQuizMatrix.value!.id);
+                              examController.tempNumOfQuiz.value =
+                                  quizmatrixController
+                                      .chosenQuizMatrix.value!.numOfQuiz!;
+                              examController.tempDuration.value =
+                                  quizmatrixController
+                                      .chosenQuizMatrix.value!.defaultDuration!;
                               Get.toNamed(Routes.examStartScreen);
                             },
                             child: quizmatrixController.isLoading.value ||
@@ -393,7 +399,24 @@ class ChooseExamConditionScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Chọn cấp học'),
+          surfaceTintColor: Colors.white,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Chọn ',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+              Text(
+                'cấp học',
+                style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
           content: SingleChildScrollView(
             child: ListBody(
               children: levelController.levelList
@@ -418,9 +441,34 @@ class ChooseExamConditionScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Obx(() => levelController.chosenLevel.value!.id == 4
-              ? const Text('Chọn môn')
-              : const Text('Chọn lớp')),
+          surfaceTintColor: Colors.white,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Chọn ',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+              Obx(
+                () => levelController.chosenLevel.value!.id == 4
+                    ? const Text(
+                        'môn',
+                        style: TextStyle(
+                            color: ColorPalette.primaryColor,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w500),
+                      )
+                    : const Text(
+                        'lớp',
+                        style: TextStyle(
+                            color: ColorPalette.primaryColor,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w500),
+                      ),
+              ),
+            ],
+          ),
           content: SingleChildScrollView(
             child: ListBody(
               children: gradeController.searchedGradeList
@@ -447,7 +495,24 @@ class ChooseExamConditionScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Chọn chương'),
+          surfaceTintColor: Colors.white,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Chọn ',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+              Text(
+                'chương',
+                style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
           content: SingleChildScrollView(
             child: ListBody(
               children: chapterController.searchedChapterList.map((chapter) {

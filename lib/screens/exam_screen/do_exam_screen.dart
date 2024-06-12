@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -23,8 +24,7 @@ class DoExamScreen extends StatelessWidget {
             child: IconButton(
               icon: const Icon(Icons.arrow_back_ios_new),
               onPressed: () {
-                Get.back();
-                doExamController.stopTimer();
+                _showExitConfirmDialog(context, doExamController);
               },
             ),
           ),
@@ -87,9 +87,11 @@ class DoExamScreen extends StatelessWidget {
                                             Colors.white, // Màu của hình tròn
                                       ),
                                       child: Center(
-                                          child: Text(_formatDuration(
-                                              doExamController
-                                                  .remainingTime.value))),
+                                          child: AutoSizeText(
+                                        _formatDuration(doExamController
+                                            .remainingTime.value),
+                                        maxLines: 1,
+                                      )),
                                     ),
                                     const SizedBox(
                                       height: 15,
@@ -137,93 +139,102 @@ class DoExamScreen extends StatelessWidget {
                                   Column(
                                     children: doExamController
                                         .currentQuizOptions
-                                        .map((e) => Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 16),
-                                              child: InkWell(
-                                                onTap: () => doExamController
-                                                    .handleChooseAnOption(e.id),
-                                                hoverColor: ColorPalette
-                                                    .primaryColor
-                                                    .withOpacity(0.1),
-                                                child: Container(
-                                                    constraints:
-                                                        const BoxConstraints(
-                                                            minWidth:
-                                                                double.infinity,
-                                                            minHeight: 58),
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        color: e.id ==
-                                                                doExamController
-                                                                    .currentExamDetail
-                                                                    .value!
-                                                                    .selectedOption
-                                                            ? ColorPalette
-                                                                .primaryColor
-                                                                .withOpacity(
-                                                                    0.3)
-                                                            : Colors.white
-                                                                .withOpacity(
-                                                                    0.8)),
-                                                    child: Padding(
-                                                      padding: const EdgeInsets
-                                                          .symmetric(
-                                                          horizontal: 10.0),
-                                                      child: Align(
-                                                        alignment: Alignment
-                                                            .centerLeft,
-                                                        child: Row(
-                                                          children: [
-                                                            e.id ==
-                                                                    doExamController
-                                                                        .currentExamDetail
-                                                                        .value!
-                                                                        .selectedOption
-                                                                ? Image.asset(
-                                                                    'assets/images/choose_icon.png',
-                                                                    width: 20,
-                                                                  )
-                                                                : Image.asset(
-                                                                    'assets/images/unchoose_icon.png',
-                                                                    width: 20,
-                                                                  ),
-                                                            const SizedBox(
-                                                              width: 5,
-                                                            ),
-                                                            Flexible(
-                                                              child: Column(
-                                                                children: [
-                                                                  e.quizOptionImage !=
-                                                                          null
-                                                                      ? Center(
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.symmetric(vertical: kMinPadding / 2),
-                                                                            child:
-                                                                                SvgPicture.network(
-                                                                              width: 125,
-                                                                              e.quizOptionImage!,
-                                                                              placeholderBuilder: (BuildContext context) => const CircularProgressIndicator(),
-                                                                            ),
-                                                                          ),
-                                                                        )
-                                                                      : const SizedBox(),
-                                                                  renderTextAndLaTeX(
-                                                                      e.option!),
-                                                                ],
+                                        .asMap()
+                                        .map((index, e) => MapEntry(
+                                              index,
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 16),
+                                                child: InkWell(
+                                                  onTap: () => doExamController
+                                                      .handleChooseAnOption(
+                                                          e.id),
+                                                  hoverColor: ColorPalette
+                                                      .primaryColor
+                                                      .withOpacity(0.1),
+                                                  child: Container(
+                                                      constraints:
+                                                          const BoxConstraints(
+                                                              minWidth: double
+                                                                  .infinity,
+                                                              minHeight: 58),
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(5),
+                                                          color: e.id ==
+                                                                  doExamController
+                                                                      .currentExamDetail
+                                                                      .value!
+                                                                      .selectedOption
+                                                              ? ColorPalette
+                                                                  .primaryColor
+                                                                  .withOpacity(
+                                                                      0.3)
+                                                              : Colors.white
+                                                                  .withOpacity(
+                                                                      0.8)),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                horizontal:
+                                                                    10.0),
+                                                        child: Align(
+                                                          alignment: Alignment
+                                                              .centerLeft,
+                                                          child: Row(
+                                                            children: [
+                                                              e.id ==
+                                                                      doExamController
+                                                                          .currentExamDetail
+                                                                          .value!
+                                                                          .selectedOption
+                                                                  ? Image.asset(
+                                                                      'assets/images/choose_icon.png',
+                                                                      width: 20,
+                                                                    )
+                                                                  : Image.asset(
+                                                                      'assets/images/unchoose_icon.png',
+                                                                      width: 20,
+                                                                    ),
+                                                              const SizedBox(
+                                                                width: 5,
                                                               ),
-                                                            ),
-                                                          ],
+                                                              Text(
+                                                                '${String.fromCharCode(65 + index)}. ',
+                                                              ),
+                                                              Flexible(
+                                                                child: Column(
+                                                                  children: [
+                                                                    e.quizOptionImage !=
+                                                                            null
+                                                                        ? Center(
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsets.symmetric(vertical: kMinPadding / 2),
+                                                                              child: SvgPicture.network(
+                                                                                width: 125,
+                                                                                e.quizOptionImage!,
+                                                                                placeholderBuilder: (BuildContext context) => const CircularProgressIndicator(),
+                                                                              ),
+                                                                            ),
+                                                                          )
+                                                                        : const SizedBox(),
+                                                                    renderTextAndLaTeX(
+                                                                        e.option!),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
-                                                      ),
-                                                    )),
+                                                      )),
+                                                ),
                                               ),
                                             ))
+                                        .values
                                         .toList(),
                                   ),
                                   const SizedBox(
@@ -286,6 +297,61 @@ class DoExamScreen extends StatelessWidget {
     );
   }
 
+  void _showExitConfirmDialog(
+      BuildContext context, DoExamController doExamController) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          surfaceTintColor: Colors.white,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Thoát khỏi ',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+              Text(
+                'bài thi',
+                style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500),
+              ),
+              Text(
+                '?',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          content:
+              const Text('Bạn có chắc chắn muốn thoát khỏi bài thi không?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Get.back();
+                Navigator.of(context).pop(); // Dismiss the dialog
+              },
+              child: const Text('Không'),
+            ),
+            TextButton(
+              onPressed: () {
+                doExamController.stopTimer();
+                Get.back(); // Close the dialog
+                Navigator.of(context).pop(); // Close the screen
+              },
+              child: const Text(
+                'Có',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   Widget renderImage(DoExamController doExamController) {
     try {
       return SvgPicture.network(
@@ -305,8 +371,13 @@ class DoExamScreen extends StatelessWidget {
 
   String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String twoDigitHours = twoDigits(duration.inHours.remainder(60));
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-    return "$twoDigitMinutes:$twoDigitSeconds";
+    if (twoDigitHours == "00") {
+      return "$twoDigitMinutes:$twoDigitSeconds";
+    } else {
+      return "$twoDigitHours:$twoDigitMinutes:$twoDigitSeconds";
+    }
   }
 }

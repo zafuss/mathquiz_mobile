@@ -130,7 +130,8 @@ class CustomDrawer extends StatelessWidget {
                           onTap: () {
                             authController.isChangingInformation.value = false;
                             controller!.closeDrawer();
-                            _showPersonalInformationDialog(context);
+                            // _showPersonalInformationDialog(context);
+                            Get.toNamed(Routes.personalInformationScreen);
                           },
                           title: const Text('Thông tin cá nhân'),
                         ),

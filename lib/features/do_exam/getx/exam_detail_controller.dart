@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/do_exam/data/do_exam_repository.dart';
 import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
@@ -9,7 +10,7 @@ import '../../../result_type.dart';
 class ExamDetailController extends GetxController {
   var isLoading = false.obs;
   final DoExamRepository doExamRepository = DoExamRepository();
-
+  final ExamController examController = Get.put(ExamController());
   RxList<ExamDetail> examDetailList = <ExamDetail>[].obs;
   RxList<ExamDetail> searchedExamDetailList = <ExamDetail>[].obs;
   Rx<ExamDetail?> chosenExamDetail = Rx<ExamDetail?>(null);
@@ -36,9 +37,10 @@ class ExamDetailController extends GetxController {
 
   addExamDetails(String examId, List<Quiz> quizList) async {
     isLoading.value = true;
+    await examController.fetchExams();
     shuffle(quizList);
-    for (var quiz in quizList) {
-      await doExamRepository.addExamDetail(examId, quiz.id);
+    for (int i = 0; i < examController.tempNumOfQuiz.value; i++) {
+      await doExamRepository.addExamDetail(examId, quizList[i].id);
     }
     await fetchExamDetails();
     await fetchExamDetailsByExamId(examId);
