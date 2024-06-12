@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
@@ -13,6 +14,7 @@ class AuthController extends GetxController {
   var isRememberMe = false.obs;
   var isLoggedIn = false.obs;
   var isChangingInformation = false.obs;
+  RxInt registerGradeId = (-1).obs;
   final authRepository = AuthRepository();
   var isRegisterSuccess = false.obs;
 
@@ -20,6 +22,7 @@ class AuthController extends GetxController {
   File? _image;
   final FirebaseAuth auth = FirebaseAuth.instance;
   final ImagePicker _picker = ImagePicker();
+
   @override
   void onInit() async {
     super.onInit();
@@ -70,16 +73,17 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> register(String email, String password, String fullName) async {
+  Future<void> register(
+      String email, String password, String fullName, int gradeId) async {
     isLoading.value = true;
     final result = await authRepository.register(
-        email: email, password: password, fullName: fullName);
+        email: email, password: password, fullName: fullName, gradeId: gradeId);
     switch (result) {
       case Success():
         isLoading.value = false;
         // isRegisterSuccess.value = true;
         Get.toNamed(Routes.otpScreen);
-        Get.snackbar('Đăng ký thành công!', 'Chào mừng bạn đến với MathQuiz');
+        // Get.snackbar('Đăng ký thành công!', 'Chào mừng bạn đến với MathQuiz');
         break;
       case Failure():
         isLoading.value = false;

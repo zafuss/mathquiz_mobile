@@ -43,7 +43,7 @@ class ChapterController extends GetxController {
       chosenChapter.value = null;
     }
     for (var element in searchedChapterList) {
-      if (element.mathTypeId != null && gradeId <= 12) {
+      if (element.mathTypeId != 7 && gradeId <= 12) {
         isHasMultiMathType.value = true;
         chosenMathType.value = 1;
         fetchChapterByMathType(null, gradeId);

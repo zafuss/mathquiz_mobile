@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
@@ -113,7 +112,7 @@ class HomeScreen extends StatelessWidget {
               context: context,
               removeTop: true,
               child: ListView(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 children: List.generate(
                   6,
@@ -145,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Image.asset(
-                                    'assets/images/algebra_icon.png',
+                                    'assets/images/mixtype_icon.png',
                                     width: 30,
                                   ),
                                   const SizedBox(
@@ -321,7 +320,8 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: '${element.score}',
+                                    text:
+                                        '${double.parse(element.score!.toStringAsFixed(2))}',
                                     style: const TextStyle(
                                         fontSize: 12,
                                         color: ColorPalette.primaryColor,
@@ -369,10 +369,10 @@ class HomeScreen extends StatelessWidget {
       ExamController examController,
       HomeController homeController,
       ChapterController chapterController) async {
-    await examController.fetchExams();
-    await homeController.fetchRecentExam();
     await chapterController.fetchChapters();
     await homeController.quizMatrixController.fetchQuizMatrices();
+    await examController.fetchExams();
+    await homeController.fetchRecentExam();
     Future.delayed(const Duration(seconds: 2));
   }
 }

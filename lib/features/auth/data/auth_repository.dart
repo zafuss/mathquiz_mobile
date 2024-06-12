@@ -86,10 +86,15 @@ class AuthRepository {
   Future<ResultType<void>> register(
       {required String email,
       required String password,
-      required String fullName}) async {
+      required String fullName,
+      required int gradeId}) async {
     try {
       final registerSuccessDto = await authApiClient.register(
-        RegisterDto(email: email, password: password, fullName: fullName),
+        RegisterDto(
+            email: email,
+            password: password,
+            fullName: fullName,
+            gradeId: gradeId),
       );
       await localDataController.saveRegisterClientId(registerSuccessDto.id);
       await localDataController.saveClientEmail(registerSuccessDto.email);
@@ -110,6 +115,7 @@ class AuthRepository {
           otp: otp,
         ),
       );
+      await localDataController.deleteClientEmail();
     } catch (e) {
       return Failure('$e');
     }

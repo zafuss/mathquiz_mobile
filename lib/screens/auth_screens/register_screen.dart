@@ -4,6 +4,7 @@ import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart';
 import 'package:mathquiz_mobile/helpers/input_validators.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -18,7 +19,10 @@ class RegisterScreen extends StatelessWidget {
     final _passwordController = TextEditingController();
     final _confirmPasswordController = TextEditingController();
     final localDataController = Get.put(LocalDataController());
-    _emailController.text = localDataController.clientEmail.value == 'null'
+    final gradeController = Get.put(GradeController());
+    int gradeIdValue = -1;
+    _emailController.text = localDataController.clientEmail.value == 'null' ||
+            localDataController.clientEmail.value.isEmpty
         ? ''
         : localDataController.clientEmail.value;
     return Scaffold(
@@ -90,6 +94,68 @@ class RegisterScreen extends StatelessWidget {
                                 const SizedBox(
                                   height: kMinPadding / 2,
                                 ),
+                                Obx(() {
+                                  gradeIdValue =
+                                      authController.registerGradeId.value;
+                                  return DropdownButtonFormField<String>(
+                                      decoration: InputDecoration(
+                                        prefixIcon: Padding(
+                                          padding: const EdgeInsets.all(12.0),
+                                          child: Image.asset(
+                                            color: Colors.black,
+                                            'assets/images/grade_icon.png',
+                                            width: 10,
+                                            height: 10,
+                                          ),
+                                        ),
+                                      ),
+                                      isExpanded: true,
+                                      value: authController
+                                                  .registerGradeId.value !=
+                                              -1
+                                          ? gradeController.gradeList
+                                              .firstWhere((element) =>
+                                                  element.id ==
+                                                  authController
+                                                      .registerGradeId.value)
+                                              .name
+                                          : null,
+                                      hint: Text(localDataController
+                                                  .clientGradeId.value ==
+                                              -1
+                                          ? "Chọn lớp"
+                                          : gradeController.gradeList
+                                              .firstWhere((grade) =>
+                                                  grade.id ==
+                                                  localDataController
+                                                      .clientGradeId.value)
+                                              .name),
+                                      items: gradeController.gradeList
+                                          .where((grade) =>
+                                              grade.id <
+                                              16) // Filter out grades with id <= 13
+                                          .map((grade) {
+                                        return DropdownMenuItem<String>(
+                                          value: grade.name,
+                                          child: Text(grade.id <= 12
+                                              ? grade.name
+                                              : "Đại học"),
+                                        );
+                                      }).toList(),
+                                      onChanged: (String? newValue) {
+                                        if (newValue != null) {
+                                          final selectedGrade = gradeController
+                                              .gradeList
+                                              .firstWhere((grade) =>
+                                                  grade.name == newValue);
+                                          gradeIdValue = selectedGrade.id;
+                                          print(gradeIdValue);
+                                        }
+                                      });
+                                }),
+                                const SizedBox(
+                                  height: kMinPadding / 2,
+                                ),
                                 TextFormField(
                                   controller: _passwordController,
                                   obscureText: true,
@@ -136,10 +202,10 @@ class RegisterScreen extends StatelessWidget {
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 authController.register(
-                                  _emailController.text,
-                                  _passwordController.text,
-                                  _fullNameController.text,
-                                );
+                                    _emailController.text,
+                                    _passwordController.text,
+                                    _fullNameController.text,
+                                    gradeIdValue);
                               }
                             },
                             child: authController.isLoading.value

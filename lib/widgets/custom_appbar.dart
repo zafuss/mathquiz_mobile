@@ -142,7 +142,7 @@ class CustomAppBarContainer extends StatelessWidget {
                                     'Xin chào,',
                                     style: TextStyle(
                                         height: 1,
-                                        fontSize: 40,
+                                        fontSize: 36,
                                         color: ColorPalette.primaryColor,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -151,7 +151,7 @@ class CustomAppBarContainer extends StatelessWidget {
                                     maxLines: 1,
                                     overflow: TextOverflow.fade,
                                     style: const TextStyle(
-                                      fontSize: 40,
+                                      fontSize: 36,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w600,
                                     ),

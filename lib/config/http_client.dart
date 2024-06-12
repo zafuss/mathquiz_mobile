@@ -78,7 +78,6 @@ class DioClient {
     LocalDataController localDataController = LocalDataController();
     final prefs = await SharedPreferences.getInstance();
     final refreshToken = await localDataController.getClientRefreshToken();
-    final userId = await localDataController.getClientId();
 
     if (refreshToken!.isEmpty) {
       Get.offAndToNamed(Routes.loginScreen);
@@ -86,8 +85,8 @@ class DioClient {
     }
 
     try {
-      final response = await _dio.post('account/refresh-token/',
-          data: {'userId': userId, 'refreshToken': refreshToken});
+      final response = await _dio
+          .post('account/refresh-token/', data: {'refreshToken': refreshToken});
       if (response.statusCode == 200) {
         final data = response.data;
         final newAccessToken = data['accessToken'];
