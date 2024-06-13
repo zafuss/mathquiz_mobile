@@ -48,10 +48,12 @@ class GradeController extends GetxController {
   }
 
   fetchInitGradesByLevelId() async {
+    isLoading.value = true;
     var levelId = await chooseExamRepository.fetchClientLevelId();
     searchedGradeList.value =
         gradeList.where((element) => element.levelId == levelId).toList();
     chosenGrade.value = searchedGradeList[0];
+    isLoading.value = false;
   }
 
   handleOnChangedGrade(Grade? newGrade, ChapterController chapterController) {

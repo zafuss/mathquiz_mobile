@@ -18,6 +18,7 @@ class Routes {
   static String examHistoryScreen = '/examHistoryScreen';
   static String resetPasswordScreen = '/resetPasswordScreen';
   static String personalInformationScreen = '/personalInformationScreen';
+  static String aboutScreen = '/aboutScreen';
 }
 
 final getPages = [
@@ -47,4 +48,5 @@ final getPages = [
   GetPage(
       name: Routes.personalInformationScreen,
       page: () => const PersonalInformationScreen()),
+  GetPage(name: Routes.aboutScreen, page: () => const AboutScreen()),
 ];

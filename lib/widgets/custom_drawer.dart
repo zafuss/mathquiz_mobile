@@ -156,7 +156,7 @@ class CustomDrawer extends StatelessWidget {
                           contentPadding: const EdgeInsets.all(0),
                           onTap: () {
                             controller!.closeDrawer();
-                            Get.toNamed(Routes.examHistoryScreen);
+                            Get.toNamed(Routes.aboutScreen);
                           },
                           title: const Text('Giới thiệu'),
                         ),
