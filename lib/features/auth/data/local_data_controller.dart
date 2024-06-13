@@ -13,6 +13,7 @@ class LocalDataController extends GetxController {
   var clientPhoneNumber = ''.obs;
   var isRememberMe = false.obs;
   RxInt clientGradeId = (-1).obs;
+  RxInt clientLevelId = (-1).obs;
   @override
   onInit() async {
     clientFullName.value = await getClientFullName() ?? 'null';
@@ -76,6 +77,12 @@ class LocalDataController extends GetxController {
     prefs.setInt('clientGradeId', gradeId);
   }
 
+  Future<void> saveClientLevelId(int levelId) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientLevelId.value = levelId;
+    prefs.setInt('clientLevelId', levelId);
+  }
+
   Future<void> saveIsRememberMe(bool isRememberMe) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     this.isRememberMe.value = isRememberMe;
@@ -136,6 +143,12 @@ class LocalDataController extends GetxController {
     prefs.remove('clientGradeId');
   }
 
+  Future<void> deleteClientLevelId() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    clientLevelId.value = -1;
+    prefs.remove('clientLevelId');
+  }
+
   Future<String?> getClientId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -188,6 +201,12 @@ class LocalDataController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     return prefs.getInt('clientGradeId');
+  }
+
+  Future<int?> getClientLevelId() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    return prefs.getInt('clientLevelId');
   }
 
   Future<bool?> getIsRememberMe() async {

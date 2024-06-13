@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_api_client.dart';
 import 'package:mathquiz_mobile/models/chapter.dart';
 import 'package:mathquiz_mobile/models/exam.dart';
@@ -8,6 +10,9 @@ import 'package:mathquiz_mobile/result_type.dart';
 
 class ChooseExamRepository {
   final ChooseExamApiClient chooseExamApiClient = ChooseExamApiClient();
+  final LocalDataController localDataController =
+      Get.put(LocalDataController());
+
   Future<ResultType<List<Level>?>> getLevels() async {
     try {
       // final loginSuccessDto = await authApiClient.login(
@@ -16,6 +21,52 @@ class ChooseExamRepository {
       // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
       var levelList = await chooseExamApiClient.getLevels();
       return Success(levelList);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+
+  Future<ResultType<Level>?> fetchClientLevel(List<Level> levelList) async {
+    try {
+      // final loginSuccessDto = await authApiClient.login(
+      //   LoginDto(username: username, password: password),
+      // );
+      // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
+
+      var gradeList = await chooseExamApiClient.getGrades();
+      var clientGradeId = await localDataController.getClientGradeId();
+      var currentGrade =
+          gradeList.firstWhere((element) => element.id == clientGradeId);
+      var level = levelList.firstWhere((l) => l.id == currentGrade.levelId);
+      await localDataController.saveClientLevelId(level.id);
+      return Success(level);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+
+  fetchClientLevelId() async {
+    final levelId = await localDataController.getClientLevelId();
+    return levelId;
+  }
+
+  fetchClientGradeId() async {
+    final gradeId = await localDataController.getClientGradeId();
+    return gradeId;
+  }
+
+  Future<ResultType<Grade>?> fetchClientGrade() async {
+    try {
+      // final loginSuccessDto = await authApiClient.login(
+      //   LoginDto(username: username, password: password),
+      // );
+      // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
+      var gradeList = await chooseExamApiClient.getGrades();
+      var clientGradeId = await localDataController.getClientGradeId();
+      var currentGrade =
+          gradeList.firstWhere((element) => element.id == clientGradeId);
+
+      return Success(currentGrade);
     } catch (e) {
       return Failure('$e');
     }

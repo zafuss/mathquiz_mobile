@@ -55,8 +55,8 @@ class ReviewExamController extends GetxController {
   fetchCurrentQuizOption() {
     isLoading.value = true;
     int currentSelectedOption = currentExamDetail.value!.selectedOption;
-    currentCorrectOption.value = quizOptionController.quizOptionList.firstWhere(
-        (element) =>
+    currentCorrectOption.value = quizOptionController.quizOptionList
+        .firstWhereOrNull((element) =>
             element.quizId == currentQuiz.value!.id && element.isCorrect);
     if (currentSelectedOption == -1) {
       chosenOption.value = null;

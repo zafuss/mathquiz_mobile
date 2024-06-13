@@ -8,9 +8,11 @@ import '../../../config/http_client.dart';
 import '../../../models/grade.dart';
 
 class ChooseExamApiClient {
+  final DioClient dioClient = DioClient();
+
   Future<List<Level>> getLevels() async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'levels/',
       );
       final List<dynamic> responseData = response.data;
@@ -27,7 +29,7 @@ class ChooseExamApiClient {
 
   Future<List<Grade>> getGrades() async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'grades/',
       );
       final List<dynamic> responseData = response.data;
@@ -43,7 +45,7 @@ class ChooseExamApiClient {
 
   Future<List<Chapter>> getChapters() async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'chapters/',
       );
       final List<dynamic> responseData = response.data;
@@ -59,7 +61,7 @@ class ChooseExamApiClient {
 
   Future<List<QuizMatrix>> getQuizMatrices() async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'quizmatrices/',
       );
       final List<dynamic> responseData = response.data;
@@ -75,7 +77,7 @@ class ChooseExamApiClient {
 
   Future<List<Exam>> getExams() async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'exams/',
       );
       final List<dynamic> responseData = response.data;
@@ -95,8 +97,6 @@ class ChooseExamApiClient {
       final body = {
         "id": examId,
         "name": quizMatrix.name,
-        "timeStart": null,
-        "timeEnd": null,
         "quizMatrixId": quizMatrix.id,
         "clientId": clientId,
         "numberOfQuiz": quizMatrix.numOfQuiz,
@@ -104,7 +104,7 @@ class ChooseExamApiClient {
         "duration": quizMatrix.defaultDuration,
         "isCustomExam": false,
       };
-      final response = await dio.post('exams/', data: body);
+      final response = await dioClient.dio.post('exams/', data: body);
       print(response);
     } on DioException catch (e) {
       if (e.response != null) {
@@ -121,8 +121,6 @@ class ChooseExamApiClient {
       final body = {
         "id": examId,
         "name": quizMatrix.name,
-        "timeStart": null,
-        "timeEnd": null,
         "quizMatrixId": quizMatrix.id,
         "clientId": clientId,
         "numberOfQuiz": numOfQuiz,
@@ -130,7 +128,7 @@ class ChooseExamApiClient {
         "duration": duration,
         "isCustomExam": true,
       };
-      final response = await dio.post('exams/', data: body);
+      final response = await dioClient.dio.post('exams/', data: body);
       print(response);
     } on DioException catch (e) {
       if (e.response != null) {

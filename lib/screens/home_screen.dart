@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    double insideContainerMaxWidth = screenWidth - kDefaultPadding * 2 - 60;
+    double insideContainerMaxWidth = screenWidth - kDefaultPadding * 2 - 70;
     final homeController = Get.put(HomeController());
     final customDrawerController = CustomDrawerController();
     final examController = Get.put(ExamController());
@@ -67,11 +67,12 @@ class HomeScreen extends StatelessWidget {
                                   },
                                 ),
                                 _buildNewQuizMatrix(
-                                    context,
-                                    examController,
-                                    homeController,
-                                    chapterController,
-                                    insideContainerMaxWidth),
+                                  context,
+                                  examController,
+                                  homeController,
+                                  chapterController,
+                                  insideContainerMaxWidth,
+                                ),
                               ],
                             ),
                           ),
@@ -87,11 +88,12 @@ class HomeScreen extends StatelessWidget {
   }
 
   Column _buildNewQuizMatrix(
-      BuildContext context,
-      ExamController examController,
-      HomeController homeController,
-      ChapterController chapterController,
-      double insideContainerMaxWidth) {
+    BuildContext context,
+    ExamController examController,
+    HomeController homeController,
+    ChapterController chapterController,
+    double insideContainerMaxWidth,
+  ) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,107 +119,114 @@ class HomeScreen extends StatelessWidget {
                 shrinkWrap: true,
                 children: List.generate(
                   6,
-                  (index) => GestureDetector(
-                    onTap: () {
-                      examController.fetchNumOfUsed(homeController
-                          .quizMatrixController.quizMatrixList[index].id);
-                      homeController
-                              .quizMatrixController.chosenQuizMatrix.value =
-                          homeController
-                              .quizMatrixController.quizMatrixList[index];
-                      Get.toNamed(Routes.examStartScreen);
-                    },
-                    child: Container(
-                      margin:
-                          const EdgeInsets.symmetric(vertical: kMinPadding / 4),
-                      decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.8),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: kMinPadding / 4,
-                            horizontal: kMinPadding / 3),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 30,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/images/mixtype_icon.png',
-                                    width: 30,
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  AutoSizeText(
-                                    minFontSize: 8,
-                                    maxLines: 1,
-                                    chapterController.chapterList
-                                                .firstWhere((element) =>
-                                                    element.id ==
-                                                    homeController
-                                                        .quizMatrixController
-                                                        .quizMatrixList[index]
-                                                        .chapterId!)
-                                                .gradeId <=
-                                            12
-                                        ? 'Lớp ${chapterController.chapterList.firstWhere((element) => element.id == homeController.quizMatrixController.quizMatrixList[index].chapterId!).gradeId.toString()}'
-                                        : "Đại học",
-                                    style: const TextStyle(
-                                        color: ColorPalette.primaryColor,
-                                        fontSize: 10),
-                                  ),
-                                ],
+                  (index) {
+                    var currentChapter = chapterController.chapterList
+                        .firstWhere((element) =>
+                            element.id ==
+                            homeController.quizMatrixController
+                                .quizMatrixList[index].chapterId!);
+                    return GestureDetector(
+                      onTap: () async {
+                        homeController
+                                .quizMatrixController.chosenQuizMatrix.value =
+                            homeController
+                                .quizMatrixController.quizMatrixList[index];
+                        examController.tempNumOfQuiz.value = homeController
+                            .quizMatrixController
+                            .chosenQuizMatrix
+                            .value!
+                            .numOfQuiz!;
+                        examController.tempDuration.value = homeController
+                            .quizMatrixController
+                            .chosenQuizMatrix
+                            .value!
+                            .defaultDuration!;
+                        await examController.fetchNumOfUsed(homeController
+                            .quizMatrixController.chosenQuizMatrix.value!.id);
+                        Get.toNamed(Routes.examStartScreen);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: kMinPadding / 4),
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.8),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: kMinPadding / 4,
+                              horizontal: kMinPadding / 3),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 35,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      currentChapter.mathTypeId == 1
+                                          ? 'assets/images/algebra_icon.png'
+                                          : currentChapter.mathTypeId == 2
+                                              ? 'assets/images/geography_icon.png'
+                                              : 'assets/images/mixtype_icon.png',
+                                      width: 35,
+                                    ),
+                                    const SizedBox(
+                                      height: 3,
+                                    ),
+                                    AutoSizeText(
+                                      minFontSize: 8,
+                                      maxLines: 1,
+                                      currentChapter.gradeId <= 12
+                                          ? 'Lớp ${chapterController.chapterList.firstWhere((element) => element.id == homeController.quizMatrixController.quizMatrixList[index].chapterId!).gradeId.toString()}'
+                                          : "Đại học",
+                                      style: const TextStyle(
+                                          color: ColorPalette.primaryColor,
+                                          fontSize: 10),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              width: kMinPadding / 3,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                      maxWidth: insideContainerMaxWidth),
-                                  child: AutoSizeText(
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    chapterController.chapterList
-                                        .firstWhere((element) =>
-                                            element.id ==
-                                            homeController
-                                                .quizMatrixController
-                                                .quizMatrixList[index]
-                                                .chapterId!)
-                                        .name,
-                                    style: const TextStyle(
-                                      color: ColorPalette.primaryColor,
+                              const SizedBox(
+                                width: kMinPadding / 3,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                        maxWidth: insideContainerMaxWidth),
+                                    child: AutoSizeText(
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      currentChapter.name,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorPalette.primaryColor,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                    maxWidth:
-                                        insideContainerMaxWidth, // Đặt chiều rộng tối đa cho container
+                                  ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                      maxWidth:
+                                          insideContainerMaxWidth, // Đặt chiều rộng tối đa cho container
+                                    ),
+                                    child: AutoSizeText(
+                                      homeController.quizMatrixController
+                                          .quizMatrixList[index].name!,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
                                   ),
-                                  child: AutoSizeText(
-                                    homeController.quizMatrixController
-                                        .quizMatrixList[index].name!,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(fontSize: 12),
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ),

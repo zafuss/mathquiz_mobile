@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
@@ -76,7 +77,7 @@ class ExamHistoryScreen extends StatelessWidget {
                               )
                             ],
                           ),
-                          Flexible(
+                          Expanded(
                             child: Obx(() {
                               final startIndex =
                                   currentPage.value * itemsPerPage;
@@ -93,7 +94,25 @@ class ExamHistoryScreen extends StatelessWidget {
                                 itemCount: itemsToDisplay.length,
                                 itemBuilder: (context, index) {
                                   final actualIndex = startIndex + index;
-
+                                  var currentChapter = chapterController
+                                      .chapterList
+                                      .firstWhere((element) =>
+                                          element.id ==
+                                          homeController.quizMatrixController
+                                              .quizMatrixList
+                                              .firstWhere(
+                                                (element) =>
+                                                    element.id ==
+                                                    examController.examList
+                                                        .firstWhere((p0) =>
+                                                            p0.id ==
+                                                            homeController
+                                                                .recentResults[
+                                                                    actualIndex]
+                                                                .examId)
+                                                        .quizMatrixId,
+                                              )
+                                              .chapterId);
                                   return Padding(
                                     padding: const EdgeInsets.symmetric(
                                         vertical: kMinPadding / 5),
@@ -134,7 +153,15 @@ class ExamHistoryScreen extends StatelessWidget {
                                                   Column(
                                                     children: [
                                                       Image.asset(
-                                                        'assets/images/algebra_icon.png',
+                                                        currentChapter
+                                                                    .mathTypeId ==
+                                                                1
+                                                            ? 'assets/images/algebra_icon.png'
+                                                            : currentChapter
+                                                                        .mathTypeId ==
+                                                                    2
+                                                                ? 'assets/images/geography_icon.png'
+                                                                : 'assets/images/mixtype_icon.png',
                                                         width: 35,
                                                       ),
                                                       const SizedBox(
@@ -173,22 +200,7 @@ class ExamHistoryScreen extends StatelessWidget {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          chapterController
-                                                              .chapterList
-                                                              .firstWhere(
-                                                                  (element) =>
-                                                                      element
-                                                                          .id ==
-                                                                      homeController
-                                                                          .quizMatrixController
-                                                                          .quizMatrixList
-                                                                          .firstWhere(
-                                                                            (element) =>
-                                                                                element.id ==
-                                                                                examController.examList.firstWhere((p0) => p0.id == homeController.recentResults[actualIndex].examId).quizMatrixId,
-                                                                          )
-                                                                          .chapterId)
-                                                              .name,
+                                                          currentChapter.name,
                                                           style: const TextStyle(
                                                               color: ColorPalette
                                                                   .primaryColor,

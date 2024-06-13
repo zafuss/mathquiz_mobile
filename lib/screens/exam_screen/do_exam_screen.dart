@@ -271,9 +271,13 @@ class DoExamScreen extends StatelessWidget {
                                   doExamController.isLastQuiz.value
                                       ? ElevatedButton(
                                           onPressed: () async {
-                                            await doExamController
-                                                .saveNewExamDetailList();
-                                            Get.offNamed(Routes.resultScreen);
+                                            if (await doExamController
+                                                .handleSubmitExam()) {
+                                              Get.offNamed(Routes.resultScreen);
+                                            } else {
+                                              _submitFailedDialog(
+                                                  context, doExamController);
+                                            }
                                           },
                                           child: doExamController
                                                   .isGettingResult.value
@@ -340,6 +344,59 @@ class DoExamScreen extends StatelessWidget {
                 doExamController.stopTimer();
                 Get.back(); // Close the dialog
                 Navigator.of(context).pop(); // Close the screen
+              },
+              child: const Text(
+                'Có',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _submitFailedDialog(
+      BuildContext context, DoExamController doExamController) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          surfaceTintColor: Colors.white,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Vẫn nộp ',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+              Text(
+                'bài thi',
+                style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500),
+              ),
+              Text(
+                '?',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          content: const Text(
+              'Có một số câu chưa chọn đáp án, bạn vẫn muốn nộp bài chứ?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Dismiss the dialog
+              },
+              child: const Text('Không'),
+            ),
+            TextButton(
+              onPressed: () async {
+                await doExamController.forceSubmitExam();
+                Get.offAndToNamed(Routes.resultScreen);
               },
               child: const Text(
                 'Có',

@@ -235,13 +235,13 @@ class ChooseExamConditionScreen extends StatelessWidget {
                                       child: GestureDetector(
                                         onTap: () => chapterController
                                             .fetchChapterByMathType(
-                                                3,
+                                                7,
                                                 gradeController
                                                     .chosenGrade.value!.id),
                                         child: Container(
                                           color: chapterController
                                                       .chosenMathType.value ==
-                                                  3
+                                                  7
                                               ? ColorPalette.primaryColor
                                               : Colors.white,
                                           height: 30,
@@ -250,7 +250,7 @@ class ChooseExamConditionScreen extends StatelessWidget {
                                             'Tổng hợp',
                                             style: chapterController
                                                         .chosenMathType.value ==
-                                                    3
+                                                    7
                                                 ? const TextStyle(
                                                     color: Colors.white)
                                                 : null,
@@ -357,22 +357,36 @@ class ChooseExamConditionScreen extends StatelessWidget {
                         ),
                         Obx(
                           () => ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: chapterController
+                                          .chosenChapter.value !=
+                                      null
+                                  ? MaterialStateProperty.all<Color>(
+                                      ColorPalette.primaryColor)
+                                  : MaterialStateProperty.all<Color>(
+                                      const Color.fromARGB(255, 209, 208, 208)
+                                          .withOpacity(0.5)),
+                            ),
                             onPressed: () async {
-                              await quizmatrixController
-                                  .fetchQuizMatricesByChapterId(
-                                      chapterController
-                                          .chosenChapter.value!.id);
-                              await examController.fetchExams();
-                              await examController.fetchExamByQuizMatrixId(
-                                  quizmatrixController
-                                      .chosenQuizMatrix.value!.id);
-                              examController.tempNumOfQuiz.value =
-                                  quizmatrixController
-                                      .chosenQuizMatrix.value!.numOfQuiz!;
-                              examController.tempDuration.value =
-                                  quizmatrixController
-                                      .chosenQuizMatrix.value!.defaultDuration!;
-                              Get.toNamed(Routes.examStartScreen);
+                              if (chapterController.chosenChapter.value ==
+                                  null) {
+                              } else {
+                                await quizmatrixController
+                                    .fetchQuizMatricesByChapterId(
+                                        chapterController
+                                            .chosenChapter.value!.id);
+                                await examController.fetchExams();
+                                await examController.fetchExamByQuizMatrixId(
+                                    quizmatrixController
+                                        .chosenQuizMatrix.value!.id);
+                                examController.tempNumOfQuiz.value =
+                                    quizmatrixController
+                                        .chosenQuizMatrix.value!.numOfQuiz!;
+                                examController.tempDuration.value =
+                                    quizmatrixController.chosenQuizMatrix.value!
+                                        .defaultDuration!;
+                                Get.toNamed(Routes.examStartScreen);
+                              }
                             },
                             child: quizmatrixController.isLoading.value ||
                                     examController.isLoading.value

@@ -193,11 +193,28 @@ class DoExamController extends GetxController {
     }
   }
 
-  saveNewExamDetailList() async {
+  handleSubmitExam() async {
     isGettingResult.value = true;
+    for (var examDetail in examDetailList) {
+      if (examDetail.selectedOption == -1) {
+        isGettingResult.value = false;
+        return false;
+      }
+    }
+    await saveNewExamDetailList();
+    isGettingResult.value = false;
+    return true;
+  }
+
+  forceSubmitExam() async {
+    isGettingResult.value = true;
+    await saveNewExamDetailList();
+    isGettingResult.value = false;
+  }
+
+  saveNewExamDetailList() async {
     await examDetailController.updateExamDetails(examDetailList);
     await calculateScore();
-    isGettingResult.value = false;
   }
 
   calculateScore() async {

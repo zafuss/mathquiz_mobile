@@ -5,8 +5,6 @@ import 'exam_detail.dart';
 class Exam extends Equatable {
   final String id;
   final String? name;
-  final DateTime? timeStart;
-  final DateTime? timeEnd;
   final int? numberOfQuiz;
   final int? numberOfCorrectAnswer;
   final int? duration;
@@ -19,8 +17,6 @@ class Exam extends Equatable {
   const Exam(
       {required this.id,
       this.name,
-      required this.timeStart,
-      required this.timeEnd,
       required this.numberOfQuiz,
       required this.numberOfCorrectAnswer,
       required this.duration,
@@ -32,9 +28,6 @@ class Exam extends Equatable {
   factory Exam.fromJson(Map<String, dynamic> json) => Exam(
       id: json['id'],
       name: json['name'],
-      timeStart:
-          json['timeStart'] != null ? DateTime.parse(json['timeStart']) : null,
-      timeEnd: json['timeEnd'] != null ? DateTime.parse(json['timeEnd']) : null,
       numberOfQuiz: json['numberOfQuiz'],
       numberOfCorrectAnswer: json['numberOfCorrectAnswer'],
       duration: json['duration'],
@@ -46,8 +39,6 @@ class Exam extends Equatable {
   List<Object?> get props => [
         id,
         name,
-        timeStart,
-        timeEnd,
         numberOfQuiz,
         numberOfCorrectAnswer,
         duration,

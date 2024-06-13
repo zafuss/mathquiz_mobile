@@ -396,7 +396,10 @@ class ExamStartScreen extends StatelessWidget {
                 quizMatrixController.chosenQuizMatrix.value!.numOfQuiz!;
             List<int> durationOptions =
                 List.generate((120 ~/ 10) + 1, (index) => index * 10);
+            List<int> numOfQuizOptions =
+                List.generate(maxNumOfQuiz, (index) => index + 1).toList();
 
+            durationOptions.removeAt(0);
             // Ensure the current tempDuration value is valid
             if (!durationOptions.contains(examController.tempDuration.value)) {
               examController.tempDuration.value = durationOptions.first;
@@ -431,12 +434,12 @@ class ExamStartScreen extends StatelessWidget {
                       const Text("Số câu hỏi"),
                       DropdownButton<int>(
                         value: examController.tempNumOfQuiz.value,
-                        items: List.generate(
-                            maxNumOfQuiz + 1,
-                            (index) => DropdownMenuItem(
-                                  value: index,
-                                  child: Text('$index câu'),
-                                )),
+                        items: numOfQuizOptions
+                            .map((value) => DropdownMenuItem(
+                                  value: value,
+                                  child: Text('$value câu'),
+                                ))
+                            .toList(),
                         onChanged: (int? newValue) {
                           if (newValue != null) {
                             examController.tempNumOfQuiz.value = newValue;

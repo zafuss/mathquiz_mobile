@@ -48,6 +48,7 @@ class ExamController extends GetxController {
   }
 
   fetchNumOfUsed(int quizMatrixId) {
+    numOfUsed.value = 0;
     for (var element in examList) {
       if (element.quizMatrixId == quizMatrixId) {
         numOfUsed++;

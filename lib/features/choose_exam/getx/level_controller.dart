@@ -15,9 +15,21 @@ class LevelController extends GetxController {
   @override
   onInit() async {
     await fetchLevels();
-
-    chosenLevel.value = levelList[0];
+    await fetchInitLevel();
     super.onInit();
+  }
+
+  fetchInitLevel() async {
+    isLoading.value = true;
+    var result = await chooseExamRepository.fetchClientLevel(levelList);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {
+          chosenLevel.value = result.data,
+        },
+      Failure() => Get.snackbar('Lỗi lấy thông tin cấp học.', result.message),
+      null => throw UnimplementedError(),
+    });
   }
 
   fetchLevels() async {

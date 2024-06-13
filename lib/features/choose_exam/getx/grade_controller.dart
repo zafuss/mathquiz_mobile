@@ -15,8 +15,8 @@ class GradeController extends GetxController {
   @override
   onInit() async {
     await fetchGrades();
-    fetchGradesByLevelId(1);
-    chosenGrade.value = gradeList[0];
+    await fetchInitGradesByLevelId();
+    await fetchInitGrade();
     super.onInit();
   }
 
@@ -33,7 +33,22 @@ class GradeController extends GetxController {
     });
   }
 
+  fetchInitGrade() async {
+    isLoading.value = true;
+    var id = await chooseExamRepository.fetchClientGradeId();
+    chosenGrade.value =
+        gradeList.firstWhereOrNull((element) => element.id == id);
+    isLoading.value = false;
+  }
+
   fetchGradesByLevelId(int levelId) {
+    searchedGradeList.value =
+        gradeList.where((element) => element.levelId == levelId).toList();
+    chosenGrade.value = searchedGradeList[0];
+  }
+
+  fetchInitGradesByLevelId() async {
+    var levelId = await chooseExamRepository.fetchClientLevelId();
     searchedGradeList.value =
         gradeList.where((element) => element.levelId == levelId).toList();
     chosenGrade.value = searchedGradeList[0];
