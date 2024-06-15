@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class AboutScreen extends StatelessWidget {
     final Email email = Email(
       body: '',
       subject: '',
-      recipients: ['support@mathquiz.com'],
+      recipients: ['vuavanho283@gmail.com'],
       isHTML: false,
     );
 
@@ -42,6 +43,26 @@ class AboutScreen extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _launchSupportURL() async {
+    const urlString = 'https://facebook.com/zafus2103/';
+    final Uri url = Uri.parse(urlString);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $urlString';
+    }
+  }
+
+  void _launchWebsiteURL() async {
+    const urlString = 'http://onluyentoan.online/';
+    final Uri url = Uri.parse(urlString);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $urlString';
+    }
   }
 
   @override
@@ -75,7 +96,7 @@ class AboutScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           children: [
                             TextSpan(
                               text: "Math",
@@ -85,7 +106,7 @@ class AboutScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "Quiz",
                               style: TextStyle(
                                 fontSize: 40,
@@ -96,12 +117,44 @@ class AboutScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 8.0),
                       const Text(
                         'Version 1.0.0',
                         style: TextStyle(height: 1.5, fontSize: 16.0),
                       ),
-                      const SizedBox(height: kDefaultPadding * 2),
+                      const SizedBox(
+                        height: kMinPadding,
+                      ),
+                      const Text(
+                        'Ứng dụng thi trắc nghiệm Toán cho học sinh, sinh viên, được xây dựng và phát triển bởi zafus.',
+                        style: TextStyle(height: 1.5, fontSize: 16.0),
+                      ),
+                      const SizedBox(height: kMinPadding * 2),
+                      const Text(
+                        'Phiên bản web',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 8.0),
+                      IconButton(
+                          onPressed: _launchWebsiteURL,
+                          icon: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.web,
+                                color: ColorPalette.primaryColor,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text('onluyentoan.online'),
+                            ],
+                          )),
+                      const SizedBox(
+                        height: kDefaultPadding,
+                      ),
                       const Text(
                         'Liên hệ chúng tôi',
                         style: TextStyle(
@@ -110,36 +163,42 @@ class AboutScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8.0),
-                      GestureDetector(
-                        onTap: () => _launchEmail(context),
-                        child: const Text(
-                          'Email: vuavanho283@gmail.com',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.blue,
-                            decoration: TextDecoration.underline,
-                          ),
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                              onPressed: () => _launchEmail(context),
+                              icon: const Row(
+                                children: [
+                                  Icon(
+                                    Icons.email,
+                                    color: ColorPalette.primaryColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text("Email"),
+                                ],
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () => _launchSupportURL(),
+                              icon: const Row(
+                                children: [
+                                  Icon(
+                                    Icons.facebook,
+                                    color: ColorPalette.primaryColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text("Facebook"),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      const SizedBox(height: kDefaultPadding),
-                      const Text(
-                        'Hỗ trợ',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 8.0),
-                      const Text(
-                        'Để hỗ trợ, vui lòng liên hệ với đại diện của chúng tôi.',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                      const SizedBox(height: 8.0),
-                      ElevatedButton(
-                        onPressed: () {
-                          // Navigate to support page or perform support-related action
-                        },
-                        child: const Text('Liên hệ hỗ trợ'),
                       ),
                     ],
                   ),

@@ -45,8 +45,13 @@ class ChooseExamRepository {
     }
   }
 
-  fetchClientLevelId() async {
-    final levelId = await localDataController.getClientLevelId();
+  Future<int?> fetchClientLevelId() async {
+    var levelId = await localDataController.getClientLevelId();
+    if (levelId == null) {
+      var levelList = await chooseExamApiClient.getLevels();
+      await fetchClientLevel(levelList);
+    }
+    levelId = await localDataController.getClientLevelId();
     return levelId;
   }
 

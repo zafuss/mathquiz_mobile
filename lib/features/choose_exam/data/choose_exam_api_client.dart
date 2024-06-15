@@ -12,7 +12,7 @@ class ChooseExamApiClient {
 
   Future<List<Level>> getLevels() async {
     try {
-      final response = await dioClient.dio.get(
+      final response = await dio.get(
         'levels/',
       );
       final List<dynamic> responseData = response.data;
@@ -20,7 +20,7 @@ class ChooseExamApiClient {
       return responseData.map((json) => Level.fromJson(json)).toList();
     } on DioException catch (e) {
       if (e.response != null) {
-        throw Exception(e.response!.data['message']);
+        throw Exception(e.response!.data['statusMessage']);
       } else {
         throw Exception(e.message);
       }

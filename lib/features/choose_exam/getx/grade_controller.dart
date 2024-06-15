@@ -15,7 +15,7 @@ class GradeController extends GetxController {
   @override
   onInit() async {
     await fetchGrades();
-    await fetchInitGradesByLevelId();
+    // await fetchInitGradesByLevelId();
     await fetchInitGrade();
     super.onInit();
   }

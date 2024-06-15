@@ -6,6 +6,7 @@ import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/appbar/appbar_controller.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 class CustomAppBarContainer extends StatelessWidget {
@@ -13,7 +14,7 @@ class CustomAppBarContainer extends StatelessWidget {
       : super(key: key);
   final CustomDrawerController drawerController;
   final localDataController = Get.put(LocalDataController());
-
+  final gradeController = Get.put(GradeController());
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -115,8 +116,9 @@ class CustomAppBarContainer extends StatelessWidget {
                       Align(
                         alignment: Alignment.topLeft,
                         child: GestureDetector(
-                          onTap: () =>
-                              Get.toNamed(Routes.chooseExamConditionScreen),
+                          onTap: () async {
+                            Get.toNamed(Routes.chooseExamConditionScreen);
+                          },
                           child: Container(
                             width: buttonWidth,
                             height: buttonHeight / 1.8,
@@ -167,8 +169,10 @@ class CustomAppBarContainer extends StatelessWidget {
                             buttonHeight / 10,
                         left: (screenWidth - buttonWidth) / 2,
                         child: GestureDetector(
-                          onTap: () =>
-                              Get.toNamed(Routes.chooseExamConditionScreen),
+                          onTap: () async {
+                            await gradeController.fetchInitGradesByLevelId();
+                            Get.toNamed(Routes.chooseExamConditionScreen);
+                          },
                           child: Container(
                             width: buttonWidth,
                             height: buttonHeight / 1.5,

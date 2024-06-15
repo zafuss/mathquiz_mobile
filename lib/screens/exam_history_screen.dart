@@ -160,7 +160,7 @@ class ExamHistoryScreen extends StatelessWidget {
                                                             : currentChapter
                                                                         .mathTypeId ==
                                                                     2
-                                                                ? 'assets/images/geography_icon.png'
+                                                                ? 'assets/images/geometry_icon.png'
                                                                 : 'assets/images/mixtype_icon.png',
                                                         width: 35,
                                                       ),

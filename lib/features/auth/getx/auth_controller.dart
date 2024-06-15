@@ -45,6 +45,7 @@ class AuthController extends GetxController {
         break;
       case Failure():
         Get.snackbar('Đăng nhập thất bại', result.message);
+        Get.offAndToNamed(Routes.loginScreen);
         break;
       default:
         // Xử lý trường hợp khác nếu cần
@@ -188,11 +189,6 @@ class AuthController extends GetxController {
   void toLogin() {
     isRegisterSuccess = false.obs;
     Get.offAndToNamed(Routes.loginScreen);
-  }
-
-  void toOtp() {
-    isRegisterSuccess = false.obs;
-    Get.offAndToNamed(Routes.otpScreen);
   }
 
   Future<void> processRegisterSuccess() async {}

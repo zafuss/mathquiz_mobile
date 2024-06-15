@@ -78,9 +78,10 @@ class DioClient {
     LocalDataController localDataController = LocalDataController();
     final prefs = await SharedPreferences.getInstance();
     final refreshToken = await localDataController.getClientRefreshToken();
-
-    if (refreshToken!.isEmpty) {
+    final rememberMe = await localDataController.getIsRememberMe();
+    if (refreshToken == null && rememberMe == true) {
       Get.offAndToNamed(Routes.loginScreen);
+    } else {
       return null;
     }
 

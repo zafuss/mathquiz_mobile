@@ -8,6 +8,7 @@ import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../config/media_query_config.dart';
 
@@ -207,13 +208,31 @@ class CustomDrawer extends StatelessWidget {
                                           .deleteClientFullName();
                                       await localDataController
                                           .deleteClientId();
+                                      await localDataController
+                                          .deleteClientAccessToken();
+                                      await localDataController
+                                          .deleteClientGradeId();
+                                      await localDataController
+                                          .deleteClientImageUrl();
+                                      await localDataController
+                                          .deleteClientLevelId();
+                                      await localDataController
+                                          .deleteClientPhoneNumber();
+                                      await localDataController
+                                          .deleteRegisterClientId();
+                                      await localDataController
+                                          .deleteClientRefreshToken();
+                                      await localDataController
+                                          .saveIsRememberMe(false);
                                       Get.offAllNamed(Routes.loginScreen);
                                     }
                                   },
                                   child: const Text('Đăng xuất')),
                             ),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () async {
+                                  _launchSupportURL();
+                                },
                                 child: const Text(
                                   'Hỗ trợ',
                                   style: TextStyle(
@@ -231,6 +250,16 @@ class CustomDrawer extends StatelessWidget {
               child: CircularProgressIndicator(),
             )),
     );
+  }
+
+  void _launchSupportURL() async {
+    const urlString = 'https://facebook.com/zafus2103/';
+    final Uri url = Uri.parse(urlString);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $urlString';
+    }
   }
 
   void _showChangePasswordDialog(BuildContext context) {

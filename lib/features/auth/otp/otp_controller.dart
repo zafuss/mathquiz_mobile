@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 
 class OtpController extends GetxController {
-  var countdown = 30.obs;
+  var countdown = 120.obs;
   var isSuccess = false.obs;
 
   Timer? timer;
