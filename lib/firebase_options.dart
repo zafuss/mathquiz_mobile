@@ -47,31 +47,31 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAfC4PgN2I7q-BcRTvpH0-GTUgzf8bcnac',
-    appId: '1:913157397362:web:962eb115878c0bd3e99beb',
-    messagingSenderId: '913157397362',
-    projectId: 'mathquiz-424403',
-    authDomain: 'mathquiz-424403.firebaseapp.com',
-    storageBucket: 'mathquiz-424403.appspot.com',
-    measurementId: 'G-FCXBTD5JK5',
+    apiKey: 'AIzaSyCWy6LSlFDzBLrgEaj0aX0tF8kTumMAUq4',
+    appId: '1:536358771254:web:e55e8c6d25c3fc26b11697',
+    messagingSenderId: '536358771254',
+    projectId: 'mathquiz-release',
+    authDomain: 'mathquiz-release.firebaseapp.com',
+    storageBucket: 'mathquiz-release.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDJ50TOYm6qnMouhApWAJDn12PfsEW-KTc',
-    appId: '1:913157397362:android:af155f280d814106e99beb',
-    messagingSenderId: '913157397362',
-    projectId: 'mathquiz-424403',
-    storageBucket: 'mathquiz-424403.appspot.com',
+    apiKey: 'AIzaSyAoTLR2L-RI8pcque6Wl9_5kN1XZtiG6gM',
+    appId: '1:536358771254:android:b4d175e20fc72198b11697',
+    messagingSenderId: '536358771254',
+    projectId: 'mathquiz-release',
+    storageBucket: 'mathquiz-release.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAUNS5fZfYJXJoybkytSSNofHmOQmTwaNM',
-    appId: '1:913157397362:ios:46ed6d065fe4f5cde99beb',
-    messagingSenderId: '913157397362',
-    projectId: 'mathquiz-424403',
-    storageBucket: 'mathquiz-424403.appspot.com',
-    iosClientId: '913157397362-hhc95nmflf31vem7nvno3pc39pflcfso.apps.googleusercontent.com',
-    iosBundleId: 'com.example.mathquizMobile',
+    apiKey: 'AIzaSyCJIwbw_AvSm-eRG4aXHqCKy1zZjKOnLmw',
+    appId: '1:536358771254:ios:dcff771d1cae1b50b11697',
+    messagingSenderId: '536358771254',
+    projectId: 'mathquiz-release',
+    storageBucket: 'mathquiz-release.appspot.com',
+    androidClientId: '536358771254-tf1jsg78v0v8vip0g0749lohggfoqq4p.apps.googleusercontent.com',
+    iosClientId: '536358771254-m0v393gssddn2bfsckshlvkcculpfhcf.apps.googleusercontent.com',
+    iosBundleId: 'com.zafus.mathquiz',
   );
 
 }

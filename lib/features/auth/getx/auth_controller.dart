@@ -231,6 +231,7 @@ class AuthController extends GetxController {
       }
     } catch (e) {
       isLoading.value = false;
+      print(e.toString());
       Get.snackbar('Lỗi', e.toString());
     }
   }
@@ -258,6 +259,7 @@ class AuthController extends GetxController {
       // Once signed in, return the UserCredential
       await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
+      print(e.toString());
       Get.snackbar('Lỗi', e.toString());
     }
   }

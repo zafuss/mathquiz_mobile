@@ -1,40 +1,56 @@
 {
   "project_info": {
-    "project_number": "913157397362",
-    "project_id": "mathquiz-424403",
-    "storage_bucket": "mathquiz-424403.appspot.com"
+    "project_number": "536358771254",
+    "project_id": "mathquiz-release",
+    "storage_bucket": "mathquiz-release.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:913157397362:android:af155f280d814106e99beb",
+        "mobilesdk_app_id": "1:536358771254:android:b4d175e20fc72198b11697",
         "android_client_info": {
-          "package_name": "com.example.mathquiz_mobile"
+          "package_name": "com.zafus.mathquiz"
         }
       },
       "oauth_client": [
         {
-          "client_id": "913157397362-qe1ciqvjkf63d7rge8bb3pp7v15c8hrp.apps.googleusercontent.com",
+          "client_id": "536358771254-0pksl4m57v68v6m37j8rv466mt83f7lu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zafus.mathquiz",
+            "certificate_hash": "73b3f58a0fb479aecdfa50835a77ee8a3c91a609"
+          }
+        },
+        {
+          "client_id": "536358771254-tf1jsg78v0v8vip0g0749lohggfoqq4p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zafus.mathquiz",
+            "certificate_hash": "b71495f9fdc5767903528cbfc71e985339a8efb4"
+          }
+        },
+        {
+          "client_id": "536358771254-c7tko4g91nv8p9h6bt0vcnrvd2m2stp7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDJ50TOYm6qnMouhApWAJDn12PfsEW-KTc"
+          "current_key": "AIzaSyAoTLR2L-RI8pcque6Wl9_5kN1XZtiG6gM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "913157397362-qe1ciqvjkf63d7rge8bb3pp7v15c8hrp.apps.googleusercontent.com",
+              "client_id": "536358771254-c7tko4g91nv8p9h6bt0vcnrvd2m2stp7.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "913157397362-hhc95nmflf31vem7nvno3pc39pflcfso.apps.googleusercontent.com",
+              "client_id": "536358771254-m0v393gssddn2bfsckshlvkcculpfhcf.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.mathquizMobile"
+                "bundle_id": "com.zafus.mathquiz"
               }
             }
           ]

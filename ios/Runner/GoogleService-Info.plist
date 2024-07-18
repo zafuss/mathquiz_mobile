@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>913157397362-hhc95nmflf31vem7nvno3pc39pflcfso.apps.googleusercontent.com</string>
+	<string>536358771254-m0v393gssddn2bfsckshlvkcculpfhcf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.913157397362-hhc95nmflf31vem7nvno3pc39pflcfso</string>
+	<string>com.googleusercontent.apps.536358771254-m0v393gssddn2bfsckshlvkcculpfhcf</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>536358771254-tf1jsg78v0v8vip0g0749lohggfoqq4p.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAUNS5fZfYJXJoybkytSSNofHmOQmTwaNM</string>
+	<string>AIzaSyCJIwbw_AvSm-eRG4aXHqCKy1zZjKOnLmw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>913157397362</string>
+	<string>536358771254</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.mathquizMobile</string>
+	<string>com.zafus.mathquiz</string>
 	<key>PROJECT_ID</key>
-	<string>mathquiz-424403</string>
+	<string>mathquiz-release</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mathquiz-424403.appspot.com</string>
+	<string>mathquiz-release.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:913157397362:ios:46ed6d065fe4f5cde99beb</string>
+	<string>1:536358771254:ios:dcff771d1cae1b50b11697</string>
 </dict>
 </plist>

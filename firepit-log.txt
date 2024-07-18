@@ -12,7 +12,7 @@ Checking for npm/bin/npm-cli install at /snapshot/firepit/node_modules/npm/bin/n
 Found npm/bin/npm-cli install.
 Runtime binaries created.
 /usr/local/bin/firebase
-/usr/local/bin/firebase,/snapshot/firepit/firepit.js,apps:sdkconfig,web,1:913157397362:web:962eb115878c0bd3e99beb,--json
+/usr/local/bin/firebase,/snapshot/firepit/firepit.js,--version
 Checking for npm/bin/npm-cli install at /Users/zafus/.cache/firebase/tools/lib/node_modules/npm/bin/npm-cli
 Checking for npm/bin/npm-cli install at /Users/zafus/.cache/firebase/tools/node_modules/npm/bin/npm-cli
 Checking for npm/bin/npm-cli install at /snapshot/firepit/node_modules/npm/bin/npm-cli
@@ -21,4 +21,4 @@ Checking for npm/bin/npm-cli install at /Users/zafus/.cache/firebase/tools/lib/n
 Checking for npm/bin/npm-cli install at /Users/zafus/.cache/firebase/tools/node_modules/npm/bin/npm-cli
 Checking for npm/bin/npm-cli install at /snapshot/firepit/node_modules/npm/bin/npm-cli
 Found npm/bin/npm-cli install.
-ShellJSInternalError: ENOENT: no such file or directory, chmod '/Users/zafus/.cache/firebase/runtime/shell.js'
+ShellJSInternalError: ENOENT: no such file or directory, stat '/Users/zafus/.cache/firebase/runtime/node.js'

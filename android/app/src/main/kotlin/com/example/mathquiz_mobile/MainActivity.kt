@@ -1,4 +1,4 @@
-package com.example.mathquiz_mobile
+package com.zafus.mathquiz
 
 import io.flutter.embedding.android.FlutterActivity
 
