@@ -1,0 +1,43 @@
+dependencies: \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/GoogleSignIn.build/module.modulemap \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/GoogleSignIn/GoogleSignIn/Sources/GIDAuthentication.m \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/GoogleSignIn/GoogleSignIn/Sources/GIDAuthentication.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/AppAuth.build/module.modulemap \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/Target\ Support\ Files/AppAuth/AppAuth-umbrella.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDAuthState.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDAuthStateChangeDelegate.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDAuthStateErrorDelegate.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDAuthorizationRequest.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDExternalUserAgentRequest.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDResponseTypes.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDScopes.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDAuthorizationResponse.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDAuthorizationService.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDError.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDErrorUtilities.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDExternalUserAgent.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDExternalUserAgentSession.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDGrantTypes.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDIDToken.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDRegistrationRequest.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDRegistrationResponse.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDScopeUtilities.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDServiceConfiguration.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDServiceDiscovery.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDTokenRequest.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDTokenResponse.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDTokenUtilities.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDURLSessionProvider.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDEndSessionRequest.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDEndSessionResponse.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDClientMetadataParameters.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDDefines.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDFieldMapping.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuthCore/OIDURLQueryComponent.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuth.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuth/iOS/OIDAuthState+IOS.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuth/iOS/OIDAuthorizationService+IOS.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuth/iOS/OIDExternalUserAgentIOS.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuth/iOS/OIDExternalUserAgentIOSCustomBrowser.h \
+  /Users/zafus/Development/project/dacs/mathquiz_mobile/ios/Pods/AppAuth/Sources/AppAuth/iOS/OIDExternalUserAgentCatalyst.h

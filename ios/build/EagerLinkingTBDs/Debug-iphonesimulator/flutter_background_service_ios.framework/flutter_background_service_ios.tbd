@@ -1,0 +1,122 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginCACycfC",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginCMn",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvMTq",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC6worker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0efgH6WorkerAELLCSgvM",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC019applicationDidEnterG0yySo13UIApplicationCF",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvM",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC6worker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0efgH6WorkerAELLCSgvs",
+            "_flutter_background_service_iosVersionString",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationCfD",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC14taskIdentifierSSvgZ",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC19runForegroundWorker33_1EC1987FB71C2DA7EF78C4DB345F7760LLyyF",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationCACycfc",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC22registerTaskIdentifier04taskL0ySS_tFZ",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvgTq",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationCMn",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC16foregroundWorker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0f10ForegroundK0AELLCSgvpfi",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC6handle_6resultySo0F10MethodCallC_yypSgctFTq",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvg",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11application_29didFinishLaunchingWithOptionsSbSo13UIApplicationC_SDys11AnyHashableVypGtF",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC16foregroundWorker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0f10ForegroundK0AELLCSgvs",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationCACycfC",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvs",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvpMV",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvMTq",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11application_33performFetchWithCompletionHandlerSbSo13UIApplicationC_ySo012UIBackgroundL6ResultVctF",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC14taskIdentifierSSvpZ",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginCfD",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC14taskIdentifierSSvau",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginCN",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskACSo05BGAppG4TaskC_tcfCTq",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC9autoStart33_1EC1987FB71C2DA7EF78C4DB345F7760LL12isForegroundySb_tF",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationCMa",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvsTq",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4mainyyF",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC14taskIdentifierSSvsZ",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvg",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvs",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC14taskIdentifierSSvMZ",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC019applicationDidEnterG0yySo13UIApplicationCFTq",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginCMa",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvpfi",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvgTq",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC16foregroundWorker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0f10ForegroundK0AELLCSgvM",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationCN",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskACSo05BGAppG4TaskC_tcfc",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC6worker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0efgH6WorkerAELLCSgvg",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvpWvd",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvpMV",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskACSo05BGAppG4TaskC_tcfC",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginCACycfc",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvpWvd",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC16foregroundWorker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0f10ForegroundK0AELLCSgvg",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC11mainChannelSo0f6MethodK0CSgvsTq",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC6handle_6resultySo0F10MethodCallC_yypSgctF",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC6worker33_1EC1987FB71C2DA7EF78C4DB345F7760LLAA0efgH6WorkerAELLCSgvpfi",
+            "_$s30flutter_background_service_ios35SwiftFlutterBackgroundServicePluginC8register4withySo0fI9Registrar_p_tFZ",
+            "_$s30flutter_background_service_ios36FlutterBackgroundRefreshAppOperationC4taskSo05BGAppG4TaskCvM",
+            "_flutter_background_service_iosVersionNumber"
+          ],
+          "objc_class": [
+            "_TtC30flutter_background_service_ios36FlutterBackgroundRefreshAppOperation",
+            "FlutterBackgroundServicePlugin",
+            "_TtC30flutter_background_service_ios35SwiftFlutterBackgroundServicePlugin",
+            "PodsDummy_flutter_background_service_ios"
+          ]
+        }
+      },
+      {
+        "data": {
+          "global": [
+            "_Swift51Overrides",
+            "_Swift50Overrides"
+          ]
+        },
+        "targets": [
+          "x86_64-ios-simulator"
+        ],
+        "text": {
+          "global": [
+            "__ZN5swift39swift51override_conformsToSwiftProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEN7__swift9__runtime4llvm9StringRefEPFPKNS_35TargetProtocolConformanceDescriptorIS1_EES4_S8_SC_E",
+            "__ZN5swift34swift50override_conformsToProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEPFPKNS_18TargetWitnessTableIS1_EES4_S8_E",
+            "__Z34_swiftoverride_class_getSuperclassPKN5swift14TargetMetadataINS_9InProcessEEE"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/flutter_background_service_ios.framework/flutter_background_service_ios"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "12",
+        "target": "x86_64-ios-simulator"
+      },
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios-simulator"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

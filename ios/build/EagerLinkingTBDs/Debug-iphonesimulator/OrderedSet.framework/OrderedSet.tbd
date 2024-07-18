@@ -1,0 +1,115 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s10OrderedSetAAV6removeySiSgxF",
+            "_$s10OrderedSetAAV16removeAllObjectsyyF",
+            "_$s10OrderedSetAAV5index5afterS2i_tF",
+            "_$s10OrderedSetAAV12removeObject2atySi_tF",
+            "_$s10OrderedSetAAV10moveObject_7toIndexyx_SitF",
+            "_$s10OrderedSetAAV17sequencedContents33_3C71C785C84C4E53731C8868A2649E31LLAB09SequencedD0ADLLCyx_Gvpfi",
+            "_OrderedSetVersionString",
+            "_$s10OrderedSetAAVAByxGycfC",
+            "_$s10OrderedSet2eeoiySbA2AVyxG_ADtSHRzlF",
+            "_$s10OrderedSetAAV5countSivpMV",
+            "_$s10OrderedSetAAVyxGSTAAMc",
+            "_$s10OrderedSetAAV8sequenceAByxGqd___tc7ElementQyd__RszSTRd__lufC",
+            "_$s10OrderedSetAAV11descriptionSSvg",
+            "_$s10OrderedSetAAV8endIndexSivg",
+            "_$s10OrderedSetAAVyxGSQAAMc",
+            "_$s10OrderedSet2peoiyyA2AVyxGz_q_tSHRz7ElementQy_RszSTR_r0_lF",
+            "_$s10OrderedSetAAV5firstxSgvg",
+            "_$s10OrderedSetAAVyxGSKAAMc",
+            "_$s10OrderedSetAAV7isEmptySbvg",
+            "_$s10OrderedSetAAVyxSiciM",
+            "_$s10OrderedSet1poiyA2AVyxGAD_q_tSHRz7ElementQy_RszSTR_r0_lF",
+            "_$s10OrderedSetAAV11descriptionSSvpMV",
+            "_$s10OrderedSetAAV8endIndexSivpMV",
+            "_$s10OrderedSetAAV6insert_2atyx_SitF",
+            "_$s10OrderedSetAAV5firstxSgvpMV",
+            "_OrderedSetVersionNumber",
+            "_$s10OrderedSetAAVyxSicipMV",
+            "_$s10OrderedSetAAV12arrayLiteralAByxGxd_tcfC",
+            "_$s10OrderedSetAAV5index2ofSiSgx_tF",
+            "_$s10OrderedSetAAV6removeySaySiGSgqd__7ElementQyd__RszSTRd__lF",
+            "_$s10OrderedSet2seoiyyA2AVyxGz_q_tSHRz7ElementQy_RszSTR_r0_lF",
+            "_$s10OrderedSetAAV10startIndexSivg",
+            "_$s10OrderedSetAAV10swapObject_4withyx_xtF",
+            "_$s10OrderedSetAAV5countSivg",
+            "_$s10OrderedSetAAVyxSicis",
+            "_$s10OrderedSetAAVyxGs25ExpressibleByArrayLiteralAAMc",
+            "_$s10OrderedSetAAV10startIndexSivpMV",
+            "_$s10OrderedSetAAV4lastxSgvpMV",
+            "_$s10OrderedSet1soiyA2AVyxGAD_q_tSHRz7ElementQy_RszSTR_r0_lF",
+            "_$s10OrderedSetAAV6append10contentsOfyqd___t7ElementQyd__RszSTRd__lF",
+            "_$s10OrderedSetAAV8contents33_3C71C785C84C4E53731C8868A2649E31LLSDyxSiGvpfi",
+            "_$s10OrderedSetAAVyxSicig",
+            "_$s10OrderedSetAAV7isEmptySbvpMV",
+            "_$s10OrderedSetAAVyxGSkAAMc",
+            "_$s10OrderedSetAAV10intersectsySbqd__7ElementQyd__RszSTRd__lF",
+            "_$s10OrderedSetAAV4lastxSgvg",
+            "_$s10OrderedSetAAVyxGs23CustomStringConvertibleAAMc",
+            "_$s10OrderedSetAAVyxGSlAAMc",
+            "_$s10OrderedSetAAV10moveObject2at2toySi_SitF",
+            "_$s10OrderedSetAAV8isSubset2ofSbqd___t7ElementQyd__RszSTRd__lF",
+            "_$s10OrderedSetAAV6insert_2atyqd___Sit7ElementQyd__RszSTRd__lF",
+            "_$s10OrderedSetAAVMn",
+            "_$s10OrderedSetAAVMa",
+            "_$s10OrderedSetAAV6appendyyxF"
+          ],
+          "objc_class": [
+            "PodsDummy_OrderedSet"
+          ]
+        }
+      },
+      {
+        "data": {
+          "global": [
+            "_Swift51Overrides",
+            "_Swift50Overrides"
+          ]
+        },
+        "targets": [
+          "x86_64-ios-simulator"
+        ],
+        "text": {
+          "global": [
+            "__ZN5swift39swift51override_conformsToSwiftProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEN7__swift9__runtime4llvm9StringRefEPFPKNS_35TargetProtocolConformanceDescriptorIS1_EES4_S8_SC_E",
+            "__ZN5swift34swift50override_conformsToProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEPFPKNS_18TargetWitnessTableIS1_EES4_S8_E",
+            "__Z34_swiftoverride_class_getSuperclassPKN5swift14TargetMetadataINS_9InProcessEEE"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/OrderedSet.framework/OrderedSet"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "12",
+        "target": "x86_64-ios-simulator"
+      },
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios-simulator"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

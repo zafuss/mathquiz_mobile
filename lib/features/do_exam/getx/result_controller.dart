@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/models/result.dart';
 
 import '../../../result_type.dart';
@@ -7,7 +8,7 @@ import '../data/do_exam_repository.dart';
 class ResultController extends GetxController {
   var isLoading = false.obs;
   final DoExamRepository doExamRepository = DoExamRepository();
-
+  final ExamController examController = Get.put(ExamController());
   @override
   onInit() async {
     await fetchResults();
@@ -41,12 +42,20 @@ class ResultController extends GetxController {
   fetchResultsByClientId(String clientId) async {
     isLoading.value = true;
 
-    listByClient.value = resultList
-        .where((p0) => p0.clientId == clientId && p0.endTime != null)
-        .toList();
+    List<Result> filteredList = [];
+    for (var result in resultList) {
+      if (result.clientId == clientId && result.endTime != null) {
+        if (await examController.isExamExist(result.examId)) {
+          filteredList.add(result);
+        }
+      }
+    }
+
+    listByClient.value = filteredList;
     isLoading.value = false;
     return listByClient;
   }
+
 
   addResults(Result result) async {
     isLoading.value = true;

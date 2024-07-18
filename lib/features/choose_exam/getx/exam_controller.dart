@@ -18,7 +18,7 @@ class ExamController extends GetxController {
   final ChooseExamRepository chooseExamRepository = ChooseExamRepository();
   final LocalDataController localDataController = LocalDataController();
   final QuizMatrixController quizMatrixController =
-      Get.find<QuizMatrixController>();
+      Get.put(QuizMatrixController());
 
   @override
   onInit() async {
@@ -74,5 +74,16 @@ class ExamController extends GetxController {
     chosenExam.value =
         examList.firstWhere((element) => element.id == currentExamId.value);
     isLoading.value = false;
+  }
+
+  Future<bool> isExamExist(String resultId) async {
+    if (examList.isEmpty) {
+      await fetchExams();
+    }
+    var exam = examList.firstWhereOrNull((exam) => exam.id == resultId);
+    if (exam != null) {
+      return true;
+    }
+    return false;
   }
 }

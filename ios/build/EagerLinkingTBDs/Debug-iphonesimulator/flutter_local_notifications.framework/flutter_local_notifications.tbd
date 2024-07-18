@@ -1,0 +1,96 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_BADGE_NUMBER",
+            "_REPEAT_INTERVAL",
+            "_INITIALIZE_METHOD",
+            "_SECOND",
+            "_SCHEDULE_METHOD",
+            "_TITLE",
+            "_SHOW_DAILY_AT_TIME_METHOD",
+            "_BADGE_PERMISSION",
+            "_MINUTE",
+            "_flutter_local_notificationsVersionNumber",
+            "_HOUR",
+            "_MILLISECONDS_SINCE_EPOCH",
+            "_SOUND",
+            "_DEFAULT_PRESENT_SOUND",
+            "_NOTIFICATION_LAUNCHED_APP",
+            "_ATTACHMENTS",
+            "_CANCEL_METHOD",
+            "_GET_NOTIFICATION_APP_LAUNCH_DETAILS_METHOD",
+            "_THREAD_IDENTIFIER",
+            "_ATTACHMENT_FILE_PATH",
+            "_REQUEST_BADGE_PERMISSION",
+            "_NOTIFICATION_ID",
+            "_SCHEDULED_DATE_TIME",
+            "_SOUND_PERMISSION",
+            "_PENDING_NOTIFICATIONS_REQUESTS_METHOD",
+            "_PRESENT_SOUND",
+            "_PAYLOAD",
+            "_PERIODICALLY_SHOW_METHOD",
+            "_PRESENT_BADGE",
+            "_SUBTITLE",
+            "_SHOW_METHOD",
+            "_CANCEL_ALL_METHOD",
+            "_PRESENT_ALERT",
+            "_PLATFORM_SPECIFICS",
+            "_flutter_local_notificationsVersionString",
+            "_REQUEST_SOUND_PERMISSION",
+            "_DEFAULT_PRESENT_ALERT",
+            "_ON_NOTIFICATION_METHOD",
+            "_ZONED_SCHEDULE_METHOD",
+            "_UILOCALNOTIFICATION_DATE_INTERPRETATION",
+            "_SHOW_WEEKLY_AT_DAY_AND_TIME_METHOD",
+            "_ON_NOTIFICATION_CALLBACK_DISPATCHER",
+            "_REQUEST_PERMISSIONS_METHOD",
+            "_ID",
+            "_CALLBACK_CHANNEL",
+            "_ATTACHMENT_IDENTIFIER",
+            "_DEFAULT_PRESENT_BADGE",
+            "_REQUEST_ALERT_PERMISSION",
+            "_MATCH_DATE_TIME_COMPONENTS",
+            "_CALLBACK_DISPATCHER",
+            "_ALERT_PERMISSION",
+            "_DID_RECEIVE_LOCAL_NOTIFICATION",
+            "_DAY",
+            "_CHANNEL",
+            "_TIME_ZONE_NAME",
+            "_BODY",
+            "_REPEAT_TIME"
+          ],
+          "objc_class": [
+            "FlutterLocalNotificationsPlugin",
+            "PodsDummy_flutter_local_notifications"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/flutter_local_notifications.framework/flutter_local_notifications"
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "12",
+        "target": "x86_64-ios-simulator"
+      },
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios-simulator"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}
