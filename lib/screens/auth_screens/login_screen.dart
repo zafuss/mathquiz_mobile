@@ -17,16 +17,19 @@ class LoginScreen extends StatelessWidget {
     final _passwordController = TextEditingController();
 
     return Scaffold(
-        body: Stack(children: [
-      Image.asset('assets/images/bg_auth.png'),
-      SafeArea(
-          child: Padding(
+      resizeToAvoidBottomInset: true,
+      body: Stack(
+        children: [
+          Image.asset('assets/images/bg_auth.png'),
+          SafeArea(
+            child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Obx(
-                      () => Column(
+                  Flexible(
+                    child: SingleChildScrollView(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -77,35 +80,41 @@ class LoginScreen extends StatelessWidget {
                             key: _formKey,
                             child: Column(
                               children: [
-                                TextFormField(
-                                  controller: _emailController,
-                                  textAlignVertical: TextAlignVertical.center,
-                                  decoration: const InputDecoration(
-                                    contentPadding: EdgeInsets.only(top: 0),
-                                    prefixIcon: Icon(
-                                      Icons.person_2_outlined,
+                                Semantics(
+                                  label: 'Email Input Field',
+                                  child: TextFormField(
+                                    controller: _emailController,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    decoration: const InputDecoration(
+                                      contentPadding: EdgeInsets.only(top: 0),
+                                      prefixIcon: Icon(
+                                        Icons.person_2_outlined,
+                                      ),
+                                      hintText: "Email",
                                     ),
-                                    hintText: "Email",
+                                    validator: (value) =>
+                                        InputValidator.validateEmail(value),
                                   ),
-                                  validator: (value) =>
-                                      InputValidator.validateEmail(value),
                                 ),
                                 const SizedBox(
                                   height: kMinPadding / 2,
                                 ),
-                                TextFormField(
-                                  controller: _passwordController,
-                                  obscureText: true,
-                                  textAlignVertical: TextAlignVertical.center,
-                                  decoration: const InputDecoration(
-                                    contentPadding: EdgeInsets.only(top: 0),
-                                    prefixIcon: Icon(
-                                      Icons.key_outlined,
+                                Semantics(
+                                  label: 'Password Input Field',
+                                  child: TextFormField(
+                                    controller: _passwordController,
+                                    obscureText: true,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    decoration: const InputDecoration(
+                                      contentPadding: EdgeInsets.only(top: 0),
+                                      prefixIcon: Icon(
+                                        Icons.key_outlined,
+                                      ),
+                                      hintText: "Mật khẩu",
                                     ),
-                                    hintText: "Mật khẩu",
+                                    validator: (value) =>
+                                        InputValidator.validatePassword(value),
                                   ),
-                                  validator: (value) =>
-                                      InputValidator.validatePassword(value),
                                 ),
                               ],
                             ),
@@ -124,11 +133,16 @@ class LoginScreen extends StatelessWidget {
                                           !authController.isRememberMe.value,
                                   child: Row(
                                     children: [
-                                      authController.isRememberMe.value
-                                          ? const Icon(Icons
-                                              .radio_button_checked_outlined)
-                                          : const Icon(Icons
-                                              .radio_button_unchecked_outlined),
+                                      Semantics(
+                                        label: authController.isRememberMe.value
+                                            ? 'Remember Me selected'
+                                            : 'Remember Me unselected',
+                                        child: authController.isRememberMe.value
+                                            ? const Icon(Icons
+                                                .radio_button_checked_outlined)
+                                            : const Icon(Icons
+                                                .radio_button_unchecked_outlined),
+                                      ),
                                       const SizedBox(
                                         width: 5,
                                       ),
@@ -139,7 +153,10 @@ class LoginScreen extends StatelessWidget {
                                 GestureDetector(
                                   onTap: () =>
                                       Get.toNamed(Routes.forgotPasswordScreen),
-                                  child: const Text('Quên mật khẩu?'),
+                                  child: Semantics(
+                                    label: 'Forgot Password Button',
+                                    child: const Text('Quên mật khẩu?'),
+                                  ),
                                 ),
                               ],
                             ),
@@ -147,70 +164,89 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(
                             height: kMinPadding / 2,
                           ),
-                          ElevatedButton(
-                            onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                                await authController.login(
-                                    _emailController.text,
-                                    _passwordController.text);
-                              }
-                            },
-                            child: authController.isLoading.value
-                                ? const Center(
-                                    child: CircularProgressIndicator(
-                                      color: Colors.white,
-                                    ),
-                                  )
-                                : const Text('Đăng nhập'),
-                          ),
-                          TextButton(
-                            onPressed: () async {
-                              await authController.loginByGoogle();
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Đăng nhập bằng Google',
-                                  style: TextStyle(
-                                      color: ColorPalette.primaryColor),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: 25,
-                                    child: Image.asset(
-                                      'assets/images/google_logo.jpg',
-                                    ),
-                                  ),
-                                ),
-                              ],
+                          Semantics(
+                            label: 'Login Button',
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                if (_formKey.currentState!.validate()) {
+                                  await authController.login(
+                                      _emailController.text,
+                                      _passwordController.text);
+                                }
+                              },
+                              child: authController.isLoading.value
+                                  ? const Center(
+                                      child: CircularProgressIndicator(
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  : const Text('Đăng nhập'),
                             ),
                           ),
+                          Semantics(
+                            label: 'Google Login Button',
+                            child: TextButton(
+                              onPressed: () async {
+                                await authController.loginByGoogle();
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'Đăng nhập bằng Google',
+                                    style: TextStyle(
+                                        color: ColorPalette.primaryColor),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SizedBox(
+                                      width: 25,
+                                      child: Image.asset(
+                                        'assets/images/google_logo.jpg',
+                                        semanticLabel: 'Google Logo',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 20), // Add some spacing here
                         ],
                       ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      authController.toRegister();
-                    },
-                    child: const Text.rich(
-                      TextSpan(children: [
-                        TextSpan(
-                            text: "Bạn chưa có tài khoản? ",
-                            style: TextStyle(color: Colors.black)),
-                        TextSpan(
-                          text: "Đăng ký",
-                          style: TextStyle(
-                            color: ColorPalette.primaryColor,
-                          ),
-                        ),
-                      ]),
-                    ),
-                  )
                 ],
-              )))
-    ]));
+              ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(
+            bottom: kMinPadding, left: kDefaultPadding, right: kDefaultPadding),
+        child: Semantics(
+          label: 'Register Button',
+          child: TextButton(
+            onPressed: () {
+              authController.toRegister();
+            },
+            child: const Text.rich(
+              TextSpan(children: [
+                TextSpan(
+                    text: "Bạn chưa có tài khoản? ",
+                    style: TextStyle(color: Colors.black)),
+                TextSpan(
+                  text: "Đăng ký",
+                  style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                  ),
+                ),
+              ]),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

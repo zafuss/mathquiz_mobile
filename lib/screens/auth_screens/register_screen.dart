@@ -25,6 +25,7 @@ class RegisterScreen extends StatelessWidget {
             localDataController.clientEmail.value.isEmpty
         ? ''
         : localDataController.clientEmail.value;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -33,95 +34,108 @@ class RegisterScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Obx(
-                      () => gradeController.isLoading.value
-                          ? const Center(
-                              child: CircularProgressIndicator(),
-                            )
-                          : Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Đăng ký',
-                                  style: TextStyle(
-                                      height: 1,
-                                      fontSize: 40,
-                                      color: ColorPalette.primaryColor,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const Text(
-                                  'tài khoản',
-                                  style: TextStyle(
-                                      fontSize: 40,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(
-                                  height: kDefaultPadding / 2,
-                                ),
-                                Form(
-                                  key: _formKey,
-                                  child: Column(
-                                    children: [
-                                      TextFormField(
-                                        controller: _emailController,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        decoration: const InputDecoration(
-                                          contentPadding:
-                                              EdgeInsets.only(top: 0),
-                                          prefixIcon: Icon(
-                                            Icons.email_outlined,
-                                          ),
-                                          hintText: "Email",
-                                        ),
-                                        validator: (value) =>
-                                            InputValidator.validateEmail(value),
-                                      ),
-                                      const SizedBox(
-                                        height: kMinPadding / 2,
-                                      ),
-                                      TextFormField(
-                                        controller: _fullNameController,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        decoration: const InputDecoration(
-                                          contentPadding:
-                                              EdgeInsets.only(top: 0),
-                                          prefixIcon: Icon(
-                                            Icons.person,
-                                          ),
-                                          hintText: "Họ và tên",
-                                        ),
-                                        validator: (value) =>
-                                            InputValidator.validateFullName(
-                                                value),
-                                      ),
-                                      const SizedBox(
-                                        height: kMinPadding / 2,
-                                      ),
-                                      Obx(() {
-                                        gradeIdValue = authController
-                                            .registerGradeId.value;
-                                        return DropdownButtonFormField<String>(
-                                            decoration: InputDecoration(
-                                              prefixIcon: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(12.0),
-                                                child: Image.asset(
-                                                  color: Colors.black,
-                                                  'assets/images/grade_icon.png',
-                                                  width: 10,
-                                                  height: 10,
-                                                ),
+                  Flexible(
+                    child: SingleChildScrollView(
+                      child: Obx(
+                        () => gradeController.isLoading.value
+                            ? const Center(
+                                child: CircularProgressIndicator(),
+                              )
+                            : Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'Đăng ký',
+                                    style: TextStyle(
+                                        height: 1,
+                                        fontSize: 40,
+                                        color: ColorPalette.primaryColor,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  const Text(
+                                    'tài khoản',
+                                    style: TextStyle(
+                                        fontSize: 40,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  const SizedBox(
+                                    height: kDefaultPadding / 2,
+                                  ),
+                                  Form(
+                                    key: _formKey,
+                                    child: Column(
+                                      children: [
+                                        Tooltip(
+                                          message: 'Nhập email của bạn',
+                                          child: TextFormField(
+                                            controller: _emailController,
+                                            textAlignVertical:
+                                                TextAlignVertical.center,
+                                            decoration: const InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.only(top: 0),
+                                              prefixIcon: Icon(
+                                                Icons.email_outlined,
                                               ),
+                                              hintText: "Email",
                                             ),
-                                            isExpanded: true,
-                                            value:
-                                                authController.registerGradeId.value != -1
+                                            validator: (value) =>
+                                                InputValidator.validateEmail(
+                                                    value),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: kMinPadding / 2,
+                                        ),
+                                        Tooltip(
+                                          message: 'Nhập họ và tên của bạn',
+                                          child: TextFormField(
+                                            controller: _fullNameController,
+                                            textAlignVertical:
+                                                TextAlignVertical.center,
+                                            decoration: const InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.only(top: 0),
+                                              prefixIcon: Icon(
+                                                Icons.person,
+                                              ),
+                                              hintText: "Họ và tên",
+                                            ),
+                                            validator: (value) =>
+                                                InputValidator.validateFullName(
+                                                    value),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: kMinPadding / 2,
+                                        ),
+                                        Tooltip(
+                                          message: 'Chọn lớp của bạn',
+                                          child: Obx(() {
+                                            gradeIdValue = authController
+                                                .registerGradeId.value;
+                                            return DropdownButtonFormField<
+                                                    String>(
+                                                decoration: InputDecoration(
+                                                  prefixIcon: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            12.0),
+                                                    child: Image.asset(
+                                                      color: Colors.black,
+                                                      'assets/images/grade_icon.png',
+                                                      width: 10,
+                                                      height: 10,
+                                                    ),
+                                                  ),
+                                                ),
+                                                isExpanded: true,
+                                                value: authController.registerGradeId.value !=
+                                                        -1
                                                     ? gradeController.gradeList
                                                         .firstWhere((element) =>
                                                             element.id ==
@@ -130,138 +144,162 @@ class RegisterScreen extends StatelessWidget {
                                                                 .value)
                                                         .name
                                                     : null,
-                                            hint: Text(localDataController
-                                                        .clientGradeId.value ==
-                                                    -1
-                                                ? "Chọn lớp"
-                                                : gradeController.gradeList
-                                                    .firstWhere((grade) =>
-                                                        grade.id ==
-                                                        localDataController
+                                                hint: Text(localDataController
                                                             .clientGradeId
-                                                            .value)
-                                                    .name),
-                                            items: gradeController.gradeList
-                                                .where((grade) =>
-                                                    grade.id <
-                                                    16) // Filter out grades with id <= 13
-                                                .map((grade) {
-                                              return DropdownMenuItem<String>(
-                                                value: grade.name,
-                                                child: Text(grade.id <= 12
-                                                    ? grade.name
-                                                    : "Đại học"),
-                                              );
-                                            }).toList(),
-                                            onChanged: (String? newValue) {
-                                              if (newValue != null) {
-                                                final selectedGrade =
-                                                    gradeController.gradeList
+                                                            .value ==
+                                                        -1
+                                                    ? "Chọn lớp"
+                                                    : gradeController.gradeList
                                                         .firstWhere((grade) =>
-                                                            grade.name ==
-                                                            newValue);
-                                                gradeIdValue = selectedGrade.id;
-                                                print(gradeIdValue);
+                                                            grade.id ==
+                                                            localDataController
+                                                                .clientGradeId
+                                                                .value)
+                                                        .name),
+                                                items: gradeController.gradeList
+                                                    .where((grade) => grade.id < 16)
+                                                    .map((grade) {
+                                                  return DropdownMenuItem<
+                                                      String>(
+                                                    value: grade.name,
+                                                    child: Text(grade.id <= 12
+                                                        ? grade.name
+                                                        : "Đại học"),
+                                                  );
+                                                }).toList(),
+                                                onChanged: (String? newValue) {
+                                                  if (newValue != null) {
+                                                    final selectedGrade =
+                                                        gradeController
+                                                            .gradeList
+                                                            .firstWhere(
+                                                                (grade) =>
+                                                                    grade
+                                                                        .name ==
+                                                                    newValue);
+                                                    gradeIdValue =
+                                                        selectedGrade.id;
+                                                  }
+                                                });
+                                          }),
+                                        ),
+                                        const SizedBox(
+                                          height: kMinPadding / 2,
+                                        ),
+                                        Tooltip(
+                                          message: 'Nhập mật khẩu của bạn',
+                                          child: TextFormField(
+                                            controller: _passwordController,
+                                            obscureText: true,
+                                            textAlignVertical:
+                                                TextAlignVertical.center,
+                                            decoration: const InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.only(top: 0),
+                                              prefixIcon: Icon(
+                                                Icons.key_outlined,
+                                              ),
+                                              hintText: "Mật khẩu",
+                                            ),
+                                            validator: (value) =>
+                                                InputValidator.validatePassword(
+                                                    value),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: kMinPadding / 2,
+                                        ),
+                                        Tooltip(
+                                          message: 'Xác nhận mật khẩu của bạn',
+                                          child: TextFormField(
+                                            controller:
+                                                _confirmPasswordController,
+                                            obscureText: true,
+                                            textAlignVertical:
+                                                TextAlignVertical.center,
+                                            decoration: const InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.only(top: 0),
+                                              prefixIcon: Icon(
+                                                Icons.lock_outline,
+                                              ),
+                                              hintText: "Xác nhận mật khẩu",
+                                            ),
+                                            validator: (value) {
+                                              if (value !=
+                                                  _passwordController.text) {
+                                                return 'Mật khẩu không khớp';
                                               }
-                                            });
-                                      }),
-                                      const SizedBox(
-                                        height: kMinPadding / 2,
-                                      ),
-                                      TextFormField(
-                                        controller: _passwordController,
-                                        obscureText: true,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        decoration: const InputDecoration(
-                                          contentPadding:
-                                              EdgeInsets.only(top: 0),
-                                          prefixIcon: Icon(
-                                            Icons.key_outlined,
+                                              return InputValidator
+                                                  .validatePassword(value);
+                                            },
                                           ),
-                                          hintText: "Mật khẩu",
                                         ),
-                                        validator: (value) =>
-                                            InputValidator.validatePassword(
-                                                value),
-                                      ),
-                                      const SizedBox(
-                                        height: kMinPadding / 2,
-                                      ),
-                                      TextFormField(
-                                        controller: _confirmPasswordController,
-                                        obscureText: true,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        decoration: const InputDecoration(
-                                          contentPadding:
-                                              EdgeInsets.only(top: 0),
-                                          prefixIcon: Icon(
-                                            Icons.lock_outline,
-                                          ),
-                                          hintText: "Xác nhận mật khẩu",
-                                        ),
-                                        validator: (value) {
-                                          if (value !=
-                                              _passwordController.text) {
-                                            return 'Mật khẩu không khớp';
-                                          }
-                                          return InputValidator
-                                              .validatePassword(value);
-                                        },
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: kDefaultPadding,
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      authController.register(
-                                          _emailController.text,
-                                          _passwordController.text,
-                                          _fullNameController.text,
-                                          gradeIdValue);
-                                    }
-                                  },
-                                  child: authController.isLoading.value
-                                      ? const Center(
-                                          child: CircularProgressIndicator(
-                                            color: Colors.white,
-                                          ),
-                                        )
-                                      : const Text('Đăng ký'),
-                                ),
-                              ],
-                            ),
+                                  const SizedBox(
+                                    height: kDefaultPadding,
+                                  ),
+                                  Semantics(
+                                    button: true,
+                                    label: 'Đăng ký',
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          authController.register(
+                                              _emailController.text,
+                                              _passwordController.text,
+                                              _fullNameController.text,
+                                              gradeIdValue);
+                                        }
+                                      },
+                                      child: authController.isLoading.value
+                                          ? const Center(
+                                              child: CircularProgressIndicator(
+                                                color: Colors.white,
+                                              ),
+                                            )
+                                          : const Text('Đăng ký'),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                      ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      authController.toLogin();
-                    },
-                    child: const Text.rich(
-                      TextSpan(children: [
-                        TextSpan(
-                          text: "Bạn đã có tài khoản? ",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "Đăng nhập",
-                          style: TextStyle(
-                            color: ColorPalette.primaryColor,
-                          ),
-                        ),
-                      ]),
-                    ),
-                  )
                 ],
               ),
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(
+            bottom: kMinPadding, left: kDefaultPadding, right: kDefaultPadding),
+        child: Semantics(
+          button: true,
+          label: 'Chuyển đến trang đăng nhập',
+          child: TextButton(
+            onPressed: () {
+              authController.toLogin();
+            },
+            child: const Text.rich(
+              TextSpan(children: [
+                TextSpan(
+                  text: "Bạn đã có tài khoản? ",
+                  style: TextStyle(color: Colors.black),
+                ),
+                TextSpan(
+                  text: "Đăng nhập",
+                  style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                  ),
+                ),
+              ]),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -1,0 +1,818 @@
+{
+  "" : {
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/flutter_inappwebview-master.dia",
+    "emit-module-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/flutter_inappwebview-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/flutter_inappwebview-master-emit-module.dia",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/flutter_inappwebview-master.swiftdeps"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/ContextMenuOptions.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ContextMenuOptions~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/CredentialDatabase.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CredentialDatabase~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/CustomeSchemeHandler.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CustomeSchemeHandler~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/FlutterMethodCallDelegate.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterMethodCallDelegate~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/HeadlessInAppWebView/HeadlessInAppWebView.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebView~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/HeadlessInAppWebView/HeadlessInAppWebViewManager.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HeadlessInAppWebViewManager~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/HttpAuthenticationChallenge.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HttpAuthenticationChallenge~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppBrowser/InAppBrowserDelegate.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserDelegate~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppBrowser/InAppBrowserManager.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserManager~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppBrowser/InAppBrowserNavigationController.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserNavigationController~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppBrowser/InAppBrowserOptions.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserOptions~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppBrowser/InAppBrowserWebViewController.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppBrowserWebViewController~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppWebView/FlutterWebViewController.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewController~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppWebView/FlutterWebViewFactory.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FlutterWebViewFactory~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppWebView/InAppWebView.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebView~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppWebView/InAppWebViewOptions.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewOptions~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppWebViewMethodHandler.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewMethodHandler~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/InAppWebViewStatic.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InAppWebViewStatic~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/LeakAvoider.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LeakAvoider~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/MyCookieManager.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyCookieManager~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/MyWebStorageManager.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/MyWebStorageManager~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Options.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Options~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PlatformUtil.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PlatformUtil~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/CallAsyncJavaScriptBelowIOS14WrapperJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/CallAsyncJavaScriptBelowIOS14WrapperJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/ConsoleLogJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ConsoleLogJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/EnableViewportScaleJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/EnableViewportScaleJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/FindElementsAtPointJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindElementsAtPointJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/FindTextHighlightJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/FindTextHighlightJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/InterceptAjaxRequestJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptAjaxRequestJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/InterceptFetchRequestJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/InterceptFetchRequestJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/JavaScriptBridgeJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/JavaScriptBridgeJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/LastTouchedAnchorOrImageJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/LastTouchedAnchorOrImageJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/OnLoadResourceJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnLoadResourceJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/OnWindowBlurEventJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowBlurEventJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/OnWindowFocusEventJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OnWindowFocusEventJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/OriginalViewPortMetaTagContentJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/OriginalViewPortMetaTagContentJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/PluginScriptsUtil.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScriptsUtil~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/PrintJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PrintJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/PromisePolyfillJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PromisePolyfillJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/SupportZoomJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SupportZoomJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/WebMessageChannelJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannelJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/WebMessageListenerJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListenerJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PluginScriptsJS/WindowIdJS.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WindowIdJS~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PullToRefresh/PullToRefreshControl.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshControl~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PullToRefresh/PullToRefreshDelegate.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshDelegate~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/PullToRefresh/PullToRefreshOptions.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PullToRefreshOptions~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/SafariViewController/ChromeSafariBrowserManager.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ChromeSafariBrowserManager~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/SafariViewController/SafariBrowserOptions.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariBrowserOptions~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/SafariViewController/SafariViewController.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SafariViewController~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/SwiftFlutterPlugin.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SwiftFlutterPlugin~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/ClientCertChallenge.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ClientCertChallenge~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/DownloadStartRequest.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/DownloadStartRequest~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/HitTestResult.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/HitTestResult~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/NSAttributedString.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/NSAttributedString~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/PluginScript.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/PluginScript~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/SecCertificate.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SecCertificate~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/ServerTrustChallenge.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/ServerTrustChallenge~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/Size2D.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Size2D~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/SslCertificate.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslCertificate~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/SslError.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/SslError~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/UIColor.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UIColor~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/URLAuthenticationChallenge.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLAuthenticationChallenge~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/URLCredential.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLCredential~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/URLProtectionSpace.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLProtectionSpace~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/URLRequest.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLRequest~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/URLResponse.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/URLResponse~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/UserScript.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/UserScript~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WKContentWorld.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKContentWorld~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WKFrameInfo.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKFrameInfo~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WKNavigationAction.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationAction~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WKNavigationResponse.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKNavigationResponse~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WKSecurityOrigin.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKSecurityOrigin~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WKUserContentController.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKUserContentController~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WKWindowFeatures.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKWindowFeatures~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WebMessage.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessage~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WebMessageChannel.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageChannel~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WebMessageListener.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessageListener~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WebMessagePort.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebMessagePort~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Types/WebViewTransport.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WebViewTransport~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/Util.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/Util~partial.swiftmodule"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview-5.8.0/ios/Classes/WKProcessPoolManager.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_inappwebview.build/Objects-normal/x86_64/WKProcessPoolManager~partial.swiftmodule"
+  }
+}
