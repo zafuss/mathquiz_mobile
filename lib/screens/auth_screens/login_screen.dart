@@ -123,33 +123,32 @@ class LoginScreen extends StatelessWidget {
                             height: kMinPadding / 2,
                           ),
                           SizedBox(
-                            height: 50,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                GestureDetector(
-                                  onTap: () =>
-                                      authController.isRememberMe.value =
-                                          !authController.isRememberMe.value,
-                                  child: Row(
-                                    children: [
-                                      Semantics(
-                                        label: authController.isRememberMe.value
-                                            ? 'Remember Me selected'
-                                            : 'Remember Me unselected',
-                                        child: authController.isRememberMe.value
-                                            ? const Icon(Icons
-                                                .radio_button_checked_outlined)
-                                            : const Icon(Icons
-                                                .radio_button_unchecked_outlined),
-                                      ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      const Text('Lưu đăng nhập?'),
-                                    ],
-                                  ),
-                                ),
+                                // GestureDetector(
+                                //   onTap: () =>
+                                //       authController.isRememberMe.value =
+                                //           !authController.isRememberMe.value,
+                                //   child: Row(
+                                //     children: [
+                                //       Semantics(
+                                //         label: authController.isRememberMe.value
+                                //             ? 'Remember Me selected'
+                                //             : 'Remember Me unselected',
+                                //         child: authController.isRememberMe.value
+                                //             ? const Icon(Icons
+                                //                 .radio_button_checked_outlined)
+                                //             : const Icon(Icons
+                                //                 .radio_button_unchecked_outlined),
+                                //       ),
+                                //       const SizedBox(
+                                //         width: 5,
+                                //       ),
+                                //       const Text('Lưu đăng nhập?'),
+                                //     ],
+                                //   ),
+                                // ),
                                 GestureDetector(
                                   onTap: () =>
                                       Get.toNamed(Routes.forgotPasswordScreen),
@@ -164,23 +163,25 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(
                             height: kMinPadding / 2,
                           ),
-                          Semantics(
-                            label: 'Login Button',
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                  await authController.login(
-                                      _emailController.text,
-                                      _passwordController.text);
-                                }
-                              },
-                              child: authController.isLoading.value
-                                  ? const Center(
-                                      child: CircularProgressIndicator(
-                                        color: Colors.white,
-                                      ),
-                                    )
-                                  : const Text('Đăng nhập'),
+                          Obx(
+                            () => Semantics(
+                              label: 'Login Button',
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    await authController.login(
+                                        _emailController.text,
+                                        _passwordController.text);
+                                  }
+                                },
+                                child: authController.isLoading.value
+                                    ? const Center(
+                                        child: CircularProgressIndicator(
+                                          color: Colors.white,
+                                        ),
+                                      )
+                                    : const Text('Đăng nhập'),
+                              ),
                             ),
                           ),
                           Semantics(

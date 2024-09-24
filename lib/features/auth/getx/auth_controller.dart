@@ -5,6 +5,7 @@ import 'package:get/get_rx/get_rx.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
+import 'package:mathquiz_mobile/features/auth/otp/otp_controller.dart';
 import '../../../result_type.dart';
 import '../data/auth_repository.dart';
 
@@ -22,6 +23,7 @@ class AuthController extends GetxController {
   File? _image;
   final FirebaseAuth auth = FirebaseAuth.instance;
   final ImagePicker _picker = ImagePicker();
+  final OtpController otpController = Get.put(OtpController());
 
   @override
   void onInit() async {
@@ -36,21 +38,28 @@ class AuthController extends GetxController {
 
   Future<void> login(String email, String password) async {
     isLoading.value = true;
+    // final result = await authRepository.login(
+    //     email: email, password: password, isRememberMe: isRememberMe.value);
     final result = await authRepository.login(
-        email: email, password: password, isRememberMe: isRememberMe.value);
-    isLoading.value = false;
+        email: email, password: password, isRememberMe: true);
     switch (result) {
       case Success():
         Get.offAndToNamed(Routes.homeScreen);
         break;
       case Failure():
         Get.snackbar('Đăng nhập thất bại', result.message);
-        Get.offAndToNamed(Routes.loginScreen);
+        if (result.statusCode == 401) {
+          Get.toNamed(Routes.otpScreen);
+          otpController.startCountdown();
+        } else {
+          Get.offAndToNamed(Routes.loginScreen);
+        }
         break;
       default:
         // Xử lý trường hợp khác nếu cần
         break;
     }
+    isLoading.value = false;
   }
 
   Future<void> refreshToken() async {
@@ -84,6 +93,7 @@ class AuthController extends GetxController {
         isLoading.value = false;
         // isRegisterSuccess.value = true;
         Get.toNamed(Routes.otpScreen);
+        otpController.startCountdown();
         // Get.snackbar('Đăng ký thành công!', 'Chào mừng bạn đến với MathQuiz');
         break;
       case Failure():
@@ -161,9 +171,29 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> verifyOtp(String id, String otp) async {
+  Future<void> resendOTP(String email) async {
     isLoading.value = true;
-    final result = await authRepository.verifyOtp(id: id, otp: otp);
+    final result = await authRepository.resendOTP(email: email);
+    switch (result) {
+      case Success():
+        isLoading.value = false;
+        Get.toNamed(Routes.otpScreen);
+        otpController.startCountdown();
+        Get.snackbar('Thông báo', 'Đã gửi OTP đến địa chỉ email của bạn.');
+        break;
+      case Failure():
+        isLoading.value = false;
+        Get.snackbar('Lỗi', result.message);
+        break;
+      default:
+        // Xử lý trường hợp khác nếu cần
+        break;
+    }
+  }
+
+  Future<void> verifyOtp(String email, String otp) async {
+    isLoading.value = true;
+    final result = await authRepository.verifyOtp(email: email, otp: otp);
     switch (result) {
       case Success():
         isLoading.value = false;
@@ -177,8 +207,9 @@ class AuthController extends GetxController {
         isLoading.value = false;
         isRegisterSuccess.value = false;
         Get.snackbar(
-            'OTP không đúng hoặc tài khoản đã được kích hoạt trước đó.',
-            result.message);
+          'Lỗi xác minh OTP.',
+          'OTP không đúng hoặc tài khoản đã được kích hoạt trước đó.',
+        );
         break;
       default:
         // Xử lý trường hợp khác nếu cần

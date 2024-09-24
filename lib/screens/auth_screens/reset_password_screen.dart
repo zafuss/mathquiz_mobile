@@ -4,7 +4,6 @@ import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
-import 'package:mathquiz_mobile/features/auth/otp/otp_controller.dart';
 import 'package:mathquiz_mobile/helpers/input_validators.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
@@ -12,7 +11,6 @@ class ResetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final otpController = Get.put(OtpController());
     final localDataController = Get.put(LocalDataController());
     final authController = Get.put(AuthController());
     final otpInputController = TextEditingController();
@@ -126,12 +124,12 @@ class ResetPasswordScreen extends StatelessWidget {
                               },
                             ),
                             const SizedBox(height: kDefaultPadding / 2),
-                            Obx(
-                              () => Text(
-                                'Bạn chưa nhận được mã? Nhận mã mới trong ${otpController.countdown} giây.',
-                              ),
-                            ),
-                            const SizedBox(height: kDefaultPadding),
+                            // Obx(
+                            //   () => Text(
+                            //     'Bạn chưa nhận được mã? Nhận mã mới trong ${otpController.countdown} giây.',
+                            //   ),
+                            // ),
+                            // const SizedBox(height: kDefaultPadding),
                             Obx(
                               () => ElevatedButton(
                                 onPressed: () async {

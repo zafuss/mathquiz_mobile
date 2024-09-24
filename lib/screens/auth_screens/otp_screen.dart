@@ -102,12 +102,17 @@ class OtpScreen extends StatelessWidget {
                           Obx(
                             () => ElevatedButton(
                               onPressed: () async {
-                                var id = await localDataController
-                                    .getRegisterClientId();
-                                await authController.verifyOtp(
-                                  id!,
-                                  otpInputController.text,
-                                );
+                                if (otpController.countdown.value == 0) {
+                                  await authController.resendOTP(
+                                      localDataController.clientEmail.value);
+                                } else {
+                                  var email =
+                                      localDataController.clientEmail.value;
+                                  await authController.verifyOtp(
+                                    email,
+                                    otpInputController.text,
+                                  );
+                                }
                               },
                               child: authController.isLoading.value
                                   ? const Center(
@@ -115,7 +120,9 @@ class OtpScreen extends StatelessWidget {
                                         color: Colors.white,
                                       ),
                                     )
-                                  : const Text('Tiếp tục'),
+                                  : Text(otpController.countdown.value != 0
+                                      ? 'Tiếp tục'
+                                      : 'Gửi lại'),
                             ),
                           ),
                         ],

@@ -6,6 +6,7 @@ import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/token_refresh_success_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/update_personal_information_dto.dart';
+import 'package:mathquiz_mobile/helpers/api_custom_exception.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 import '../../../config/http_client.dart';
 import '../dtos/change_password_dto.dart';
@@ -29,14 +30,9 @@ class AuthApiClient {
       final loginSuccessDto = LoginSuccessDto.fromJson(response.data);
       return loginSuccessDto;
     } on DioException catch (e) {
-      if (e.response != null) {
-        if (e.response!.statusCode == 401) {
-          Get.toNamed(Routes.otpScreen);
-        }
-        throw Exception(e.response!.data);
-      } else {
-        throw Exception(e.message);
-      }
+      throw ApiCustomException(
+          message: e.response != null ? e.response!.data : e.message,
+          statusCode: e.response!.statusCode);
     }
   }
 
@@ -157,6 +153,23 @@ class AuthApiClient {
     try {
       final response = await dioClient.dio.post(
         'account/forgot-password/',
+        data: {'email': email},
+      );
+      print(response);
+    } on DioException catch (e) {
+      print(e);
+      if (e.response != null) {
+        throw Exception(e.response!.data);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<void> resendOTP(String email) async {
+    try {
+      final response = await dioClient.dio.post(
+        'account/resendOTP/',
         data: {'email': email},
       );
       print(response);

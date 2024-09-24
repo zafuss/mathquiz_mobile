@@ -1,14 +1,14 @@
 class VerifyOtpDto {
-  final String userId;
+  final String email;
   final String otp;
 
   VerifyOtpDto({
-    required this.userId,
+    required this.email,
     required this.otp,
   });
 
   Map<String, dynamic> toJson() => {
-        'userId': userId,
+        'email': email,
         'otp': otp,
       };
 }

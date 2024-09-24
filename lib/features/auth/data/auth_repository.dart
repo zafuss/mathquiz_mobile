@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/auth/data/auth_api_client.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
@@ -10,6 +11,7 @@ import 'package:mathquiz_mobile/features/auth/dtos/reset_password_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/update_personal_information_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/upload_avatar_dto.dart';
 import 'package:mathquiz_mobile/features/auth/dtos/verify_otp_dto.dart';
+import 'package:mathquiz_mobile/helpers/api_custom_exception.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 
 import '../dtos/login_dto.dart';
@@ -18,12 +20,14 @@ class AuthRepository {
   final authApiClient = AuthApiClient();
   final localDataController = Get.put(LocalDataController(), permanent: true);
 
-  Future<ResultType<void>> login(
-      {required String email,
-      required String password,
-      required bool isRememberMe}) async {
+  Future<ResultType<void>> login({
+    required String email,
+    required String password,
+    required bool isRememberMe,
+  }) async {
+    LoginSuccessDto? loginSuccessDto; // Sử dụng kiểu nullable
     try {
-      final loginSuccessDto = await authApiClient.login(
+      loginSuccessDto = await authApiClient.login(
         LoginDto(email: email, password: password, rememberMe: true),
       );
       await localDataController.saveClientId(loginSuccessDto.id);
@@ -42,6 +46,14 @@ class AuthRepository {
           .saveClientGradeId(loginSuccessDto.gradeId ?? -1);
       await localDataController.saveIsRememberMe(isRememberMe);
     } catch (e) {
+      if (e is ApiCustomException) {
+        await localDataController.saveClientEmail(email);
+        // Kiểm tra nếu loginSuccessDto đã khởi tạo trước khi sử dụng
+        if (loginSuccessDto != null) {
+          await localDataController.saveRegisterClientId(loginSuccessDto.id);
+        }
+        return Failure(e.message, e.statusCode);
+      }
       return Failure('$e');
     }
     return Success(null);
@@ -105,13 +117,13 @@ class AuthRepository {
   }
 
   Future<ResultType<void>> verifyOtp({
-    required String id,
+    required String email,
     required String otp,
   }) async {
     try {
       await authApiClient.verifyOtp(
         VerifyOtpDto(
-          userId: id,
+          email: email,
           otp: otp,
         ),
       );
@@ -181,6 +193,15 @@ class AuthRepository {
       {required String email}) async {
     try {
       await authApiClient.sendForgotPasswordEmail(email);
+    } catch (e) {
+      return Failure('$e');
+    }
+    return Success(null);
+  }
+
+  Future<ResultType<void>> resendOTP({required String email}) async {
+    try {
+      await authApiClient.resendOTP(email);
     } catch (e) {
       return Failure('$e');
     }

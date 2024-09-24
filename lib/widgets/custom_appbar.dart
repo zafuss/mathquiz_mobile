@@ -186,7 +186,7 @@ class CustomAppBarContainer extends StatelessWidget {
                             ),
                             child: const Center(
                               child: Text(
-                                'Thi ngay',
+                                'Chọn đề thi',
                                 style: TextStyle(
                                   color: ColorPalette.primaryColor,
                                   fontSize: 20,

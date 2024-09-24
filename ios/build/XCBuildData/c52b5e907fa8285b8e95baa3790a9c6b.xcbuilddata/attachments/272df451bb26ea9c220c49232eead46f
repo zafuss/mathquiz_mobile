@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/flutter_background_service_ios-master.dia",
+    "emit-module-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/flutter_background_service_ios-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/flutter_background_service_ios-master-emit-module.dia",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/flutter_background_service_ios-master.swiftdeps"
+  },
+  "/Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_ios-5.0.0/ios/Classes/SwiftFlutterBackgroundServicePlugin.swift" : {
+    "const-values" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin.swiftconstvalues",
+    "dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin.d",
+    "diagnostics" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin.o",
+    "llvm-bc" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin.bc",
+    "object" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin.o",
+    "swift-dependencies" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin.swiftdeps",
+    "swiftmodule" : "/Users/zafus/Development/project/dacs/mathquiz_mobile/ios/build/Pods.build/Debug-iphonesimulator/flutter_background_service_ios.build/Objects-normal/x86_64/SwiftFlutterBackgroundServicePlugin~partial.swiftmodule"
+  }
+}

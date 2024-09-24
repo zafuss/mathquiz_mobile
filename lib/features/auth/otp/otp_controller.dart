@@ -17,7 +17,8 @@ class OtpController extends GetxController {
   }
 
   void startCountdown() {
-    countdown.value = 30;
+    stopCountdown();
+    countdown.value = 60;
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (countdown.value > 0) {
         countdown.value--;
