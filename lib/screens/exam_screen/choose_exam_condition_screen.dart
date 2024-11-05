@@ -385,6 +385,8 @@ class ChooseExamConditionScreen extends StatelessWidget {
                                 examController.tempDuration.value =
                                     quizmatrixController.chosenQuizMatrix.value!
                                         .defaultDuration!;
+                                await examController.fetchRanking(
+                                    chapterController.chosenChapter.value!.id);
                                 Get.toNamed(Routes.examStartScreen);
                               }
                             },

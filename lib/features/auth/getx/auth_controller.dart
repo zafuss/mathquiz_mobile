@@ -48,7 +48,7 @@ class AuthController extends GetxController {
         break;
       case Failure():
         Get.snackbar('Đăng nhập thất bại', result.message);
-        if (result.statusCode == 401) {
+        if (result.statusCode == 403) {
           Get.toNamed(Routes.otpScreen);
           otpController.startCountdown();
         } else {
@@ -249,7 +249,7 @@ class AuthController extends GetxController {
             Get.toNamed(Routes.registerScreen);
             Get.snackbar(
                 'Lỗi đăng nhập', 'Tài khoản chưa tồn tại, vui lòng đăng ký');
-          } else if (result.statusCode == 401) {
+          } else if (result.statusCode == 403) {
             Get.snackbar('Lỗi đăng nhập',
                 'Tài khoản cần xác minh email. Vui lòng kiểm tra mã OTP hộp thư đến.');
             Get.toNamed(Routes.otpScreen);

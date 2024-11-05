@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_repository.dart';
+import 'package:mathquiz_mobile/features/choose_exam/dtos/ranking_dto.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
 import 'package:mathquiz_mobile/models/quiz_matrix.dart';
 import 'package:mathquiz_mobile/result_type.dart';
@@ -15,6 +16,7 @@ class ExamController extends GetxController {
   RxInt tempNumOfQuiz = 0.obs;
   RxList<Exam> examList = <Exam>[].obs;
   Rx<Exam?> chosenExam = Rx<Exam?>(null);
+  RxList<RankingDto?> ranking = <RankingDto>[].obs;
   final ChooseExamRepository chooseExamRepository = ChooseExamRepository();
   final LocalDataController localDataController = LocalDataController();
   final QuizMatrixController quizMatrixController =
@@ -33,6 +35,18 @@ class ExamController extends GetxController {
     return (switch (result) {
       Success() => {
           examList.value = result.data!,
+        },
+      Failure() => Get.snackbar('Lỗi lấy thông tin đề thi.', result.message),
+    });
+  }
+
+  fetchRanking(int chapterId) async {
+    isLoading.value = true;
+    var result = await chooseExamRepository.getRanking(chapterId);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {
+          ranking.value = result.data!,
         },
       Failure() => Get.snackbar('Lỗi lấy thông tin đề thi.', result.message),
     });

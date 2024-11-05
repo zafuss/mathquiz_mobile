@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_api_client.dart';
+import 'package:mathquiz_mobile/features/choose_exam/dtos/ranking_dto.dart';
 import 'package:mathquiz_mobile/models/chapter.dart';
 import 'package:mathquiz_mobile/models/exam.dart';
 import 'package:mathquiz_mobile/models/grade.dart';
@@ -124,6 +125,19 @@ class ChooseExamRepository {
       // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
       var examList = await chooseExamApiClient.getExams();
       return Success(examList);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+
+  Future<ResultType<List<RankingDto>?>> getRanking(int chapterId) async {
+    try {
+      // final loginSuccessDto = await authApiClient.login(
+      //   LoginDto(username: username, password: password),
+      // );
+      // await authLocalDataSource.saveToken(loginSuccessDto.accessToken);
+      var ranking = await chooseExamApiClient.getRanking(chapterId);
+      return Success(ranking);
     } catch (e) {
       return Failure('$e');
     }

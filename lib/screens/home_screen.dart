@@ -143,6 +143,10 @@ class HomeScreen extends StatelessWidget {
                             .defaultDuration!;
                         await examController.fetchNumOfUsed(homeController
                             .quizMatrixController.chosenQuizMatrix.value!.id);
+                        await examController.fetchRanking(homeController
+                            .quizMatrixController
+                            .quizMatrixList[index]
+                            .chapterId!);
                         Get.toNamed(Routes.examStartScreen);
                       },
                       child: Container(

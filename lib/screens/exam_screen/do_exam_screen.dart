@@ -19,7 +19,6 @@ class DoExamScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/images/bg_auth.png'),
           SafeArea(
             child: IconButton(
               icon: const Icon(Icons.arrow_back_ios_new),
@@ -74,24 +73,27 @@ class DoExamScreen extends StatelessWidget {
                                 Column(
                                   children: [
                                     Container(
-                                      width: 60,
-                                      height: 60,
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                           color: ColorPalette
                                               .primaryColor, // Màu của viền
                                           width: 2, // Độ dày của viền
                                         ),
-                                        shape: BoxShape.circle,
+                                        shape: BoxShape.rectangle,
+                                        borderRadius:
+                                            BorderRadius.circular(kMinPadding),
                                         color:
                                             Colors.white, // Màu của hình tròn
                                       ),
-                                      child: Center(
-                                          child: AutoSizeText(
-                                        _formatDuration(doExamController
-                                            .remainingTime.value),
-                                        maxLines: 1,
-                                      )),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: Center(
+                                            child: AutoSizeText(
+                                          _formatDuration(doExamController
+                                              .remainingTime.value),
+                                          maxLines: 1,
+                                        )),
+                                      ),
                                     ),
                                     const SizedBox(
                                       height: 15,
@@ -100,39 +102,44 @@ class DoExamScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            renderTextAndLaTeX(
-                                doExamController.currentQuiz.value!.statement!),
-                            doExamController.currentQuiz.value!.image != null
-                                ? Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: kMinPadding / 2),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              color: Colors.white
-                                                  .withOpacity(0.8)),
-                                          child: Center(
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: kDefaultPadding,
-                                                  right: kDefaultPadding,
-                                                  top: kMinPadding,
-                                                  bottom: kMinPadding),
-                                              child:
-                                                  renderImage(doExamController),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : const SizedBox(),
                             Flexible(
                               child: ListView(
                                 children: [
+                                  renderTextAndLaTeX(doExamController
+                                      .currentQuiz.value!.statement!),
+                                  doExamController.currentQuiz.value!.image !=
+                                          null
+                                      ? Column(
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical:
+                                                          kMinPadding / 2),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                    color: Colors.white
+                                                        .withOpacity(0.8)),
+                                                child: Center(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                        .only(
+                                                        left: kDefaultPadding,
+                                                        right: kDefaultPadding,
+                                                        top: kMinPadding,
+                                                        bottom: kMinPadding),
+                                                    child: renderImage(
+                                                        doExamController),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      : const SizedBox(),
                                   const SizedBox(
                                     height: kMinPadding,
                                   ),
@@ -240,58 +247,82 @@ class DoExamScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: kMinPadding / 2,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      doExamController.isFirstQuiz.value
-                                          ? GestureDetector(
-                                              onTap: () => doExamController
-                                                  .handlePreviousQuiz(),
-                                              child: Image.asset(
-                                                'assets/images/previous_icon.png',
-                                                width: 35,
-                                              ))
-                                          : const SizedBox(),
-                                      Expanded(child: Container()),
-                                      !doExamController.isLastQuiz.value
-                                          ? GestureDetector(
-                                              onTap: () => doExamController
-                                                  .handleNextQuiz(),
-                                              child: Image.asset(
-                                                'assets/images/next_icon.png',
-                                                width: 35,
-                                              ))
-                                          : const SizedBox(),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: kDefaultPadding,
-                                  ),
-                                  doExamController.isLastQuiz.value
-                                      ? ElevatedButton(
-                                          onPressed: () async {
-                                            if (await doExamController
-                                                .handleSubmitExam()) {
-                                              Get.offNamed(Routes.resultScreen);
-                                            } else {
-                                              _submitFailedDialog(
-                                                  context, doExamController);
-                                            }
-                                          },
-                                          child: doExamController
-                                                  .isGettingResult.value
-                                              ? const Center(
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: Colors.white,
-                                                  ),
-                                                )
-                                              : const Text('Nộp bài'))
-                                      : const SizedBox()
                                 ],
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: kMinPadding / 4,
+                                  horizontal: kDefaultPadding / 1.5),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.circular(kMinPadding)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          doExamController.isFirstQuiz.value
+                                              ? GestureDetector(
+                                                  onTap: () => doExamController
+                                                      .handlePreviousQuiz(),
+                                                  child: Image.asset(
+                                                    'assets/images/previous_icon.png',
+                                                    width: 40,
+                                                  ))
+                                              : const SizedBox(),
+                                          SizedBox(
+                                            width: kMinPadding / 2,
+                                          ),
+                                          !doExamController.isLastQuiz.value
+                                              ? GestureDetector(
+                                                  onTap: () => doExamController
+                                                      .handleNextQuiz(),
+                                                  child: Image.asset(
+                                                    'assets/images/next_icon.png',
+                                                    width: 40,
+                                                  ))
+                                              : Expanded(
+                                                  child: SizedBox(
+                                                    height: 40,
+                                                    child: ElevatedButton(
+                                                        onPressed: () async {
+                                                          if (await doExamController
+                                                              .handleSubmitExam()) {
+                                                            Get.offNamed(Routes
+                                                                .resultScreen);
+                                                          } else {
+                                                            _submitFailedDialog(
+                                                                context,
+                                                                doExamController);
+                                                          }
+                                                        },
+                                                        child: doExamController
+                                                                .isGettingResult
+                                                                .value
+                                                            ? const Center(
+                                                                child:
+                                                                    CircularProgressIndicator(
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                              )
+                                                            : const Text(
+                                                                'Nộp bài')),
+                                                  ),
+                                                ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
                           ],
                         )),
                   ),

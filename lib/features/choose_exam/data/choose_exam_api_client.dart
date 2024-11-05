@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:mathquiz_mobile/features/choose_exam/dtos/ranking_dto.dart';
 import 'package:mathquiz_mobile/models/chapter.dart';
 import 'package:mathquiz_mobile/models/exam.dart';
 import 'package:mathquiz_mobile/models/level.dart';
@@ -18,6 +19,24 @@ class ChooseExamApiClient {
       final List<dynamic> responseData = response.data;
 
       return responseData.map((json) => Level.fromJson(json)).toList();
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(e.response!.data['statusMessage']);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<List<RankingDto>> getRanking(int chapterId) async {
+    try {
+      final response = await dio.get(
+        'chapters/ranking',
+        queryParameters: {'chapterId': chapterId}, // Use queryParameters here
+      );
+      final List<dynamic> responseData = response.data;
+
+      return responseData.map((json) => RankingDto.fromJson(json)).toList();
     } on DioException catch (e) {
       if (e.response != null) {
         throw Exception(e.response!.data['statusMessage']);

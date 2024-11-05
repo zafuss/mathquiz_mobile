@@ -30,7 +30,7 @@ class CustomAppBarContainer extends StatelessWidget {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : screenWidth > 400
+          : screenWidth > 100
               ? Container(
                   color: ColorPalette.primaryColor.withOpacity(0.2),
                   width: screenWidth,
@@ -42,6 +42,9 @@ class CustomAppBarContainer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      const SizedBox(
+                        height: kDefaultPadding / 2,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

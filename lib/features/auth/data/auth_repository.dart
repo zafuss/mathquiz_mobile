@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/auth/data/auth_api_client.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';

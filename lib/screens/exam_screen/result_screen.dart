@@ -4,9 +4,11 @@ import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
+import 'package:mathquiz_mobile/features/choose_exam/dtos/ranking_dto.dart';
 import 'package:mathquiz_mobile/features/do_exam/getx/do_exam_controller.dart';
 
 import '../../helpers/score_formatter.dart';
+import '../../widgets/ranking_widget.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});
@@ -121,6 +123,13 @@ class ResultScreen extends StatelessWidget {
                                 )
                               ],
                             )),
+                            const SizedBox(
+                              height: kMinPadding / 2,
+                            ),
+                            rankingWidget(
+                                doExamController.examController.ranking
+                                    as List<RankingDto>,
+                                5)
                           ],
                         ),
                       ),

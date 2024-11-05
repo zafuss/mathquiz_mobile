@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
 import 'package:mathquiz_mobile/features/do_exam/getx/result_controller.dart';
 import 'package:mathquiz_mobile/models/exam_detail.dart';
 import 'package:mathquiz_mobile/models/quiz.dart';
@@ -40,6 +41,7 @@ class DoExamController extends GetxController {
   final quizOptionController = Get.put(QuizOptionController());
   final resultController = Get.put(ResultController());
   final localDataController = Get.put(LocalDataController());
+  final chapterController = Get.find<ChapterController>();
 
   @override
   void onInit() async {
@@ -202,6 +204,8 @@ class DoExamController extends GetxController {
       }
     }
     await saveNewExamDetailList();
+    await examController
+        .fetchRanking(chapterController.chosenChapter.value!.id);
     isGettingResult.value = false;
     return true;
   }
@@ -209,6 +213,8 @@ class DoExamController extends GetxController {
   forceSubmitExam() async {
     isGettingResult.value = true;
     await saveNewExamDetailList();
+    await examController
+        .fetchRanking(chapterController.chosenChapter.value!.id);
     isGettingResult.value = false;
   }
 

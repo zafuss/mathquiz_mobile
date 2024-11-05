@@ -118,7 +118,7 @@ class AboutScreen extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        'Version 1.0.0',
+                        'Version 1.1.0',
                         style: TextStyle(height: 1.5, fontSize: 16.0),
                       ),
                       const SizedBox(
@@ -156,7 +156,7 @@ class AboutScreen extends StatelessWidget {
                         height: kDefaultPadding,
                       ),
                       const Text(
-                        'Liên hệ chúng tôi',
+                        'Liên hệ tôi',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
