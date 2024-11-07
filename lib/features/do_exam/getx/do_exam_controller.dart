@@ -132,6 +132,14 @@ class DoExamController extends GetxController {
     return false;
   }
 
+  handleChangeQuiz(int index) async {
+    isLoading.value = true;
+    currentQuizIndex.value = index;
+    await fetchCurrentQuiz();
+    print(markedQuizIndex.value);
+    isLoading.value = false;
+  }
+
   handleNextQuiz() async {
     isLoading.value = true;
     if (currentQuizIndex.value + 1 == examDetailList.length) {
@@ -193,6 +201,13 @@ class DoExamController extends GetxController {
     } else {
       markedQuiz.add(currentQuizIndex.value);
     }
+  }
+
+  isChosen(int index) {
+    if (examDetailList[index].selectedOption != -1) {
+      return true;
+    }
+    return false;
   }
 
   handleSubmitExam() async {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 
-Widget renderTextAndLaTeX(String inputString) {
+Widget renderTextAndLaTeX(String inputString, Color? color) {
   // Create a list of widgets from the input string
   List<Widget> widgets = [];
 
@@ -19,7 +19,10 @@ Widget renderTextAndLaTeX(String inputString) {
     if (textPart.isNotEmpty) {
       widgets.add(Text(
         textPart,
-        style: TextStyle(fontSize: 16), // Ensure consistent text size
+        style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: color ?? Colors.black), // Ensure consistent text size
       ));
     }
 
@@ -35,8 +38,9 @@ Widget renderTextAndLaTeX(String inputString) {
           scrollDirection: Axis.horizontal,
           child: Math.tex(
             latexPart,
-            textStyle:
-                const TextStyle(fontSize: 16), // Adjust the font size if needed
+            textStyle: TextStyle(
+                fontSize: 16,
+                color: color ?? Colors.black), // Adjust the font size if needed
           ),
         ),
       ),
@@ -51,7 +55,10 @@ Widget renderTextAndLaTeX(String inputString) {
   if (lastTextPart.isNotEmpty) {
     widgets.add(Text(
       lastTextPart,
-      style: TextStyle(fontSize: 16), // Ensure consistent text size
+      style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          color: color ?? Colors.black), // Ensure consistent text size
     ));
   }
 

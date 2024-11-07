@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
@@ -6,6 +5,7 @@ import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 import 'package:mathquiz_mobile/features/home/getx/home_controller.dart';
 import 'package:mathquiz_mobile/helpers/score_formatter.dart';
@@ -66,11 +66,15 @@ class HomeScreen extends StatelessWidget {
                                     }
                                   },
                                 ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
                                 _buildNewQuizMatrix(
                                   context,
                                   examController,
                                   homeController,
                                   chapterController,
+                                  homeController.quizMatrixController,
                                   insideContainerMaxWidth,
                                 ),
                               ],
@@ -87,156 +91,203 @@ class HomeScreen extends StatelessWidget {
             )));
   }
 
-  Column _buildNewQuizMatrix(
+  Widget _buildNewQuizMatrix(
     BuildContext context,
     ExamController examController,
     HomeController homeController,
     ChapterController chapterController,
+    QuizMatrixController quizMatrixController,
     double insideContainerMaxWidth,
   ) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(
-              left: kDefaultPadding,
-              top: kMinPadding / 2,
-              bottom: kMinPadding / 3),
-          child: Text(
-            'Đề mới cập nhật',
-            style: TextStyle(fontSize: 18),
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white.withOpacity(0.6)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(
+                left: kDefaultPadding,
+                right: kDefaultPadding,
+                top: kMinPadding / 2,
+                bottom: kMinPadding / 3),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Đề mới cập nhật',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
           ),
-        ),
-        Obx(
-          () => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-            child: MediaQuery.removePadding(
-              context: context,
-              removeTop: true,
-              child: ListView(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                children: List.generate(
-                  6,
-                  (index) {
-                    var currentChapter = chapterController.chapterList
-                        .firstWhere((element) =>
-                            element.id ==
-                            homeController.quizMatrixController
-                                .quizMatrixList[index].chapterId!);
-                    return GestureDetector(
-                      onTap: () async {
+          ListView.builder(
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(0),
+            itemCount: 6,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              var chapterList = quizMatrixController
+                  .getRecentChaptersInfo(chapterController.chapterList);
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: kDefaultPadding, vertical: kMinPadding / 3),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: () async {
+                    homeController.quizMatrixController.chosenQuizMatrix.value =
                         homeController
-                                .quizMatrixController.chosenQuizMatrix.value =
-                            homeController
-                                .quizMatrixController.quizMatrixList[index];
-                        examController.tempNumOfQuiz.value = homeController
-                            .quizMatrixController
-                            .chosenQuizMatrix
-                            .value!
-                            .numOfQuiz!;
-                        examController.tempDuration.value = homeController
-                            .quizMatrixController
-                            .chosenQuizMatrix
-                            .value!
-                            .defaultDuration!;
-                        await examController.fetchNumOfUsed(homeController
-                            .quizMatrixController.chosenQuizMatrix.value!.id);
-                        await examController.fetchRanking(homeController
-                            .quizMatrixController
-                            .quizMatrixList[index]
-                            .chapterId!);
-                        Get.toNamed(Routes.examStartScreen);
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(
-                            vertical: kMinPadding / 4),
-                        decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.8),
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: kMinPadding / 4,
-                              horizontal: kMinPadding / 3),
-                          child: Row(
+                            .quizMatrixController.quizMatrixList[index];
+                    examController.tempNumOfQuiz.value = homeController
+                        .quizMatrixController
+                        .chosenQuizMatrix
+                        .value!
+                        .numOfQuiz!;
+                    examController.tempDuration.value = homeController
+                        .quizMatrixController
+                        .chosenQuizMatrix
+                        .value!
+                        .defaultDuration!;
+                    await examController.fetchNumOfUsed(homeController
+                        .quizMatrixController.chosenQuizMatrix.value!.id);
+                    await examController.fetchRanking(homeController
+                        .quizMatrixController.quizMatrixList[index].chapterId!);
+                    Get.toNamed(Routes.examStartScreen);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: kMinPadding, vertical: kMinPadding / 2),
+                      child: Column(
+                        children: [
+                          Row(
                             children: [
-                              SizedBox(
-                                width: 35,
+                              Image.asset(
+                                chapterList[index].mathType == 1
+                                    ? 'assets/images/algebra_icon.png'
+                                    : chapterList[index].mathType == 2
+                                        ? 'assets/images/geometry_icon.png'
+                                        : 'assets/images/mixtype_icon.png',
+                                width: 45,
+                              ),
+                              const SizedBox(
+                                  width:
+                                      kMinPadding), // thêm khoảng cách giữa ảnh và văn bản
+                              Expanded(
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.asset(
-                                      currentChapter.mathTypeId == 1
-                                          ? 'assets/images/algebra_icon.png'
-                                          : currentChapter.mathTypeId == 2
-                                              ? 'assets/images/geometry_icon.png'
-                                              : 'assets/images/mixtype_icon.png',
-                                      width: 35,
+                                    RichText(
+                                      text: TextSpan(
+                                        style: DefaultTextStyle.of(context)
+                                            .style
+                                            .copyWith(color: Colors.black),
+                                        children: [
+                                          TextSpan(
+                                            text:
+                                                '${chapterList[index].chapterName}: ',
+                                            style: const TextStyle(
+                                                fontWeight:
+                                                    FontWeight.bold), // In đậm
+                                          ),
+                                          TextSpan(
+                                            text: chapterList[index]
+                                                .quizMatrixName,
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight
+                                                    .normal), // Ghi thường
+                                          ),
+                                        ],
+                                      ),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.clip,
+                                      softWrap: true,
                                     ),
                                     const SizedBox(
-                                      height: 3,
+                                      height: 8,
                                     ),
-                                    AutoSizeText(
-                                      minFontSize: 8,
-                                      maxLines: 1,
-                                      currentChapter.gradeId <= 12
-                                          ? 'Lớp ${chapterController.chapterList.firstWhere((element) => element.id == homeController.quizMatrixController.quizMatrixList[index].chapterId!).gradeId.toString()}'
-                                          : "Đại học",
-                                      style: const TextStyle(
-                                          color: ColorPalette.primaryColor,
-                                          fontSize: 10),
-                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/grade_icon.png',
+                                              width: 12,
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text(
+                                              chapterList[index].grade <= 12
+                                                  ? 'Lớp ${chapterList[index].grade}'
+                                                  : 'Đại học',
+                                              style: const TextStyle(
+                                                  color: Colors.black54,
+                                                  fontSize: 13),
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/num_of_quiz_icon.png',
+                                              width: 12,
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text(
+                                              '${chapterList[index].numOfQuiz} câu',
+                                              style: const TextStyle(
+                                                  color: Colors.black54,
+                                                  fontSize: 13),
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/time_icon.png',
+                                              width: 12,
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text(
+                                              '${chapterList[index].duration} phút',
+                                              style: const TextStyle(
+                                                  color: Colors.black54,
+                                                  fontSize: 13),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    )
                                   ],
                                 ),
                               ),
-                              const SizedBox(
-                                width: kMinPadding / 3,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                        maxWidth: insideContainerMaxWidth),
-                                    child: AutoSizeText(
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      currentChapter.name,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: ColorPalette.primaryColor,
-                                      ),
-                                    ),
-                                  ),
-                                  ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                      maxWidth:
-                                          insideContainerMaxWidth, // Đặt chiều rộng tối đa cho container
-                                    ),
-                                    child: AutoSizeText(
-                                      homeController.quizMatrixController
-                                          .quizMatrixList[index].name!,
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(fontSize: 14),
-                                    ),
-                                  ),
-                                ],
-                              )
                             ],
                           ),
-                        ),
+                        ],
                       ),
-                    );
-                  },
+                    ),
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
-        ),
-      ],
+          const SizedBox(
+            height: kMinPadding,
+          )
+        ],
+      ),
     );
   }
 
@@ -246,14 +297,30 @@ class HomeScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(
-              left: kDefaultPadding,
-              top: kMinPadding / 2,
-              bottom: kMinPadding / 3),
-          child: Text(
-            'Đề bạn đã làm gần đây',
-            style: TextStyle(fontSize: 18),
+        Container(
+          width: double.infinity,
+          color: Colors.white.withOpacity(0.8),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: kDefaultPadding, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Đã làm gần đây',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                InkWell(
+                  child: const Text(
+                    'Xem tất cả',
+                    style: TextStyle(
+                        color: ColorPalette.primaryColor,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  onTap: () => Get.toNamed(Routes.examHistoryScreen),
+                )
+              ],
+            ),
           ),
         ),
         Container(
@@ -282,8 +349,7 @@ class HomeScreen extends StatelessWidget {
                       Get.toNamed(Routes.reviewExamScreen);
                     },
                     child: Padding(
-                      padding:
-                          const EdgeInsets.only(top: 15, bottom: 15, right: 17),
+                      padding: const EdgeInsets.only(bottom: 15, right: 17),
                       child: Container(
                         width: 138,
                         decoration: BoxDecoration(

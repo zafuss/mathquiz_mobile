@@ -34,7 +34,7 @@ final getPages = [
       name: Routes.chooseExamConditionScreen,
       page: () => const ChooseExamConditionScreen()),
   GetPage(name: Routes.examStartScreen, page: () => const ExamStartScreen()),
-  GetPage(name: Routes.doExamScreen, page: () => const DoExamScreen()),
+  GetPage(name: Routes.doExamScreen, page: () => DoExamScreen()),
   GetPage(name: Routes.resultScreen, page: () => const ResultScreen()),
   GetPage(name: Routes.reviewExamScreen, page: () => const ReviewExamScreen()),
   GetPage(

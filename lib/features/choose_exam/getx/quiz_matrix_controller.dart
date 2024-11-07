@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
+import 'package:mathquiz_mobile/features/home/dtos/chapter_info_dto.dart';
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_repository.dart';
+import 'package:mathquiz_mobile/models/chapter.dart';
 import 'package:mathquiz_mobile/models/quiz_matrix.dart';
 
 import '../../../result_type.dart';
@@ -28,6 +30,25 @@ class QuizMatrixController extends GetxController {
       Failure() =>
         Get.snackbar('Lỗi lấy thông tin ma trận đề thi.', result.message),
     });
+  }
+
+  List<ChapterInfoDto> getRecentChaptersInfo(List<Chapter> chapters) {
+    List<ChapterInfoDto> chapterList = [];
+
+    for (var quizMatrix in quizMatrixList) {
+      for (var chapter in chapters) {
+        if (chapter.id == quizMatrix.chapterId) {
+          chapterList.add(ChapterInfoDto(
+              chapterName: chapter.name,
+              quizMatrixName: quizMatrix.name!,
+              numOfQuiz: quizMatrix.numOfQuiz!,
+              duration: quizMatrix.defaultDuration ?? 0,
+              mathType: chapter.mathTypeId!,
+              grade: chapter.gradeId));
+        }
+      }
+    }
+    return chapterList;
   }
 
   fetchQuizMatricesByChapterId(int chapterId) {

@@ -53,7 +53,8 @@ class ReviewExamDetailScreen extends StatelessWidget {
                           ),
                         ),
                         renderTextAndLaTeX(
-                            reviewExamController.currentQuiz.value!.statement!),
+                            reviewExamController.currentQuiz.value!.statement!,
+                            null),
                         reviewExamController.currentQuiz.value!.image != null
                             ? Column(
                                 children: [
@@ -125,8 +126,10 @@ class ReviewExamDetailScreen extends StatelessWidget {
                                               ),
                                             )
                                           : const SizedBox(),
-                                      renderTextAndLaTeX(reviewExamController
-                                          .chosenOption.value!.option!),
+                                      renderTextAndLaTeX(
+                                          reviewExamController
+                                              .chosenOption.value!.option!,
+                                          null),
                                     ],
                                   )),
                                 ),
@@ -180,8 +183,10 @@ class ReviewExamDetailScreen extends StatelessWidget {
                                         ),
                                       )
                                     : const SizedBox(),
-                                renderTextAndLaTeX(reviewExamController
-                                    .currentCorrectOption.value!.option!),
+                                renderTextAndLaTeX(
+                                    reviewExamController
+                                        .currentCorrectOption.value!.option!,
+                                    null),
                               ],
                             )),
                           ),
@@ -208,7 +213,8 @@ class ReviewExamDetailScreen extends StatelessWidget {
                               )
                             : const SizedBox(),
                         renderTextAndLaTeX(
-                            reviewExamController.currentQuiz.value!.solution!),
+                            reviewExamController.currentQuiz.value!.solution!,
+                            null),
                         const SizedBox(
                           height: kMinPadding,
                         ),
