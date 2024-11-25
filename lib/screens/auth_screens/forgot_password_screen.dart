@@ -7,12 +7,12 @@ import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
 import 'package:mathquiz_mobile/helpers/input_validators.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({Key? key});
+  const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final emailController = TextEditingController();
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final localDataController = Get.put(LocalDataController());
     final authController = Get.put(AuthController());
     return Scaffold(
@@ -30,7 +30,7 @@ class ForgotPasswordScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +70,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                       onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
+                        if (formKey.currentState!.validate()) {
                           await localDataController
                               .saveClientEmail(emailController.text);
                           await authController

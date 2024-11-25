@@ -10,8 +10,7 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart'
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 class CustomAppBarContainer extends StatelessWidget {
-  CustomAppBarContainer({Key? key, required this.drawerController})
-      : super(key: key);
+  CustomAppBarContainer({super.key, required this.drawerController});
   final CustomDrawerController drawerController;
   final localDataController = Get.put(LocalDataController());
   final gradeController = Get.put(GradeController());
@@ -127,7 +126,7 @@ class CustomAppBarContainer extends StatelessWidget {
                             fontSize: 16, color: ColorPalette.primaryColor),
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: kMinPadding,
                 )
               ],

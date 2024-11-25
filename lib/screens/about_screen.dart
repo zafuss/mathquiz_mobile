@@ -6,7 +6,7 @@ import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
-  const AboutScreen({Key? key}) : super(key: key);
+  const AboutScreen({super.key});
 
   void _launchEmail(BuildContext context) async {
     final Email email = Email(

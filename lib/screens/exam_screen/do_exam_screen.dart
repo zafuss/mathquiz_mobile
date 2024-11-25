@@ -282,7 +282,7 @@ class DoExamScreen extends StatelessWidget {
                                                           height: 45,
                                                           width: 45,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             shape:
                                                                 BoxShape.circle,
                                                             color: ColorPalette

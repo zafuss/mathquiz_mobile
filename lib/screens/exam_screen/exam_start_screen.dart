@@ -62,7 +62,7 @@ class ExamStartScreen extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 100,
                                     ),
                                     const Text(

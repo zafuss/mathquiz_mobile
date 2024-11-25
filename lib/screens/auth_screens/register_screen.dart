@@ -8,20 +8,20 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart'
 import 'package:mathquiz_mobile/helpers/input_validators.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final authController = Get.put(AuthController());
-    final _formKey = GlobalKey<FormState>();
-    final _emailController = TextEditingController();
-    final _fullNameController = TextEditingController();
-    final _passwordController = TextEditingController();
-    final _confirmPasswordController = TextEditingController();
+    final formKey = GlobalKey<FormState>();
+    final emailController = TextEditingController();
+    final fullNameController = TextEditingController();
+    final passwordController = TextEditingController();
+    final confirmPasswordController = TextEditingController();
     final localDataController = Get.put(LocalDataController());
     final gradeController = Get.put(GradeController());
     int gradeIdValue = -1;
-    _emailController.text = localDataController.clientEmail.value == 'null' ||
+    emailController.text = localDataController.clientEmail.value == 'null' ||
             localDataController.clientEmail.value.isEmpty
         ? ''
         : localDataController.clientEmail.value;
@@ -66,13 +66,13 @@ class RegisterScreen extends StatelessWidget {
                                     height: kDefaultPadding / 2,
                                   ),
                                   Form(
-                                    key: _formKey,
+                                    key: formKey,
                                     child: Column(
                                       children: [
                                         Tooltip(
                                           message: 'Nhập email của bạn',
                                           child: TextFormField(
-                                            controller: _emailController,
+                                            controller: emailController,
                                             textAlignVertical:
                                                 TextAlignVertical.center,
                                             decoration: const InputDecoration(
@@ -94,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                                         Tooltip(
                                           message: 'Nhập họ và tên của bạn',
                                           child: TextFormField(
-                                            controller: _fullNameController,
+                                            controller: fullNameController,
                                             textAlignVertical:
                                                 TextAlignVertical.center,
                                             decoration: const InputDecoration(
@@ -189,7 +189,7 @@ class RegisterScreen extends StatelessWidget {
                                         Tooltip(
                                           message: 'Nhập mật khẩu của bạn',
                                           child: TextFormField(
-                                            controller: _passwordController,
+                                            controller: passwordController,
                                             obscureText: true,
                                             textAlignVertical:
                                                 TextAlignVertical.center,
@@ -213,7 +213,7 @@ class RegisterScreen extends StatelessWidget {
                                           message: 'Xác nhận mật khẩu của bạn',
                                           child: TextFormField(
                                             controller:
-                                                _confirmPasswordController,
+                                                confirmPasswordController,
                                             obscureText: true,
                                             textAlignVertical:
                                                 TextAlignVertical.center,
@@ -227,7 +227,7 @@ class RegisterScreen extends StatelessWidget {
                                             ),
                                             validator: (value) {
                                               if (value !=
-                                                  _passwordController.text) {
+                                                  passwordController.text) {
                                                 return 'Mật khẩu không khớp';
                                               }
                                               return InputValidator
@@ -246,11 +246,11 @@ class RegisterScreen extends StatelessWidget {
                                     label: 'Đăng ký',
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        if (_formKey.currentState!.validate()) {
+                                        if (formKey.currentState!.validate()) {
                                           authController.register(
-                                              _emailController.text,
-                                              _passwordController.text,
-                                              _fullNameController.text,
+                                              emailController.text,
+                                              passwordController.text,
+                                              fullNameController.text,
                                               gradeIdValue);
                                         }
                                       },

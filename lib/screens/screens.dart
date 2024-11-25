@@ -13,3 +13,4 @@ export 'exam_screen/review_exam_detail_screen.dart';
 export 'exam_history_screen.dart';
 export 'about_screen.dart';
 export 'auth_screens/reset_password_screen.dart';
+export 'classroom_screens/classroom_index_screen.dart';

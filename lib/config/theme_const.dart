@@ -5,25 +5,25 @@ class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       colorSchemeSeed: ColorPalette.primaryColor,
-      textTheme: const TextTheme(bodyMedium: const TextStyle(fontSize: 16)),
+      textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16)),
       // colorScheme: ThemeData().colorScheme.copyWith(primary: Colors.black),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
         textStyle:
-            MaterialStateProperty.all<TextStyle>(const TextStyle(fontSize: 16)),
+            WidgetStateProperty.all<TextStyle>(const TextStyle(fontSize: 16)),
         alignment: Alignment.center,
       )),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          textStyle: MaterialStateProperty.all<TextStyle>(
+          textStyle: WidgetStateProperty.all<TextStyle>(
             const TextStyle(color: Colors.white, fontSize: 16),
           ),
-          backgroundColor: MaterialStateProperty.all<Color>(
+          backgroundColor: WidgetStateProperty.all<Color>(
             ColorPalette.primaryColor,
           ),
-          minimumSize: MaterialStateProperty.all<Size>(
-              const Size(double.infinity, 53.0)),
-          foregroundColor: MaterialStateProperty.all<Color>(
+          minimumSize:
+              WidgetStateProperty.all<Size>(const Size(double.infinity, 53.0)),
+          foregroundColor: WidgetStateProperty.all<Color>(
             Colors.white,
           ),
         ),

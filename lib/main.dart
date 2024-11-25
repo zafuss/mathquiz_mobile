@@ -15,7 +15,7 @@ void main() async {
   final AuthController authController = Get.put(AuthController());
   await authController.refreshToken();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

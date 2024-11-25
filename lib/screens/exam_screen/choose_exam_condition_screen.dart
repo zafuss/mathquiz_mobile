@@ -361,9 +361,9 @@ class ChooseExamConditionScreen extends StatelessWidget {
                               backgroundColor: chapterController
                                           .chosenChapter.value !=
                                       null
-                                  ? MaterialStateProperty.all<Color>(
+                                  ? WidgetStateProperty.all<Color>(
                                       ColorPalette.primaryColor)
-                                  : MaterialStateProperty.all<Color>(
+                                  : WidgetStateProperty.all<Color>(
                                       const Color.fromARGB(255, 209, 208, 208)
                                           .withOpacity(0.5)),
                             ),
@@ -548,7 +548,7 @@ class ChooseExamConditionScreen extends StatelessWidget {
                         style: const TextStyle(fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text: '${quizMatrixName}',
+                        text: quizMatrixName,
                       ),
                     ])),
                     onTap: () => {

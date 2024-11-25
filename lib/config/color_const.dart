@@ -7,5 +7,10 @@ class ColorPalette {
     Color.fromRGBO(53, 80, 220, 1),
     Color.fromRGBO(39, 244, 247, 1)
   ];
+  static const List<Color> appBarGradientColorList = [
+    Color.fromRGBO(50, 118, 227, 1),
+    Color.fromRGBO(45, 166, 235, 1)
+  ];
   static const Color greyColor = Color.fromRGBO(212, 212, 212, 1);
+  static const Color darkGreyColor = Color.fromRGBO(97, 100, 106, 1);
 }

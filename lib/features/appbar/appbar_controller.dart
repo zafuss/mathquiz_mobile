@@ -5,10 +5,6 @@ class AppBarController extends GetxController {
   var isLoading = false.obs;
   var clientName = ''.obs;
   final localDataController = Get.find<LocalDataController>();
-  @override
-  void onInit() async {
-    super.onInit();
-  }
 
   @override
   void onClose() {

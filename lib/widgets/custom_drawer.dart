@@ -37,13 +37,20 @@ class CustomDrawer extends StatelessWidget {
                     Container(
                       width: double.infinity,
                       height: 170,
-                      color: ColorPalette.primaryColor,
+                      decoration: const BoxDecoration(
+                          gradient: const LinearGradient(
+                              colors: ColorPalette.appBarGradientColorList,
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter)),
                       child: Padding(
                         padding: const EdgeInsets.only(
                             left: kDefaultPadding, top: kDefaultPadding),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
                             GestureDetector(
                               onTap: () async {
                                 await authController.pickImage();
@@ -118,15 +125,93 @@ class CustomDrawer extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: kDefaultPadding,
+                ),
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: kDefaultPadding / 2,
-                        horizontal: kDefaultPadding),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ListTile(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // InkWell(
+                      //   splashColor:
+                      //       ColorPalette.primaryColor.withOpacity(0.15),
+                      //   focusColor: ColorPalette.primaryColor.withOpacity(0.15),
+                      //   hoverColor: ColorPalette.primaryColor.withOpacity(0.15),
+                      //   highlightColor:
+                      //       ColorPalette.primaryColor.withOpacity(0.15),
+                      //   borderRadius: BorderRadius.only(
+                      //     topRight: Radius.circular(20),
+                      //     bottomRight: Radius.circular(20),
+                      //   ),
+                      //   onTap: () {},
+                      //   child: Container(
+                      //       height: 45,
+                      //       child: Padding(
+                      //         padding:
+                      //             const EdgeInsets.only(left: kDefaultPadding),
+                      //         child: Row(
+                      //           children: [
+                      //             Text(
+                      //               'Trang chủ',
+                      //               style: TextStyle(
+                      //                   color: ColorPalette.darkGreyColor,
+                      //                   fontWeight: FontWeight.w500),
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       )),
+                      // ),
+                      ListTile(
+                          contentPadding: const EdgeInsets.all(0),
+                          onTap: () {
+                            authController.isChangingInformation.value = false;
+                            controller!.closeDrawer();
+                            // _showPersonalInformationDialog(context);
+                            Get.offAllNamed(Routes.homeScreen);
+                          },
+                          title: const Padding(
+                            padding: EdgeInsets.only(left: kDefaultPadding),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Trang chủ',
+                                ),
+                              ],
+                            ),
+                          )),
+                      ListTile(
+                          contentPadding: const EdgeInsets.all(0),
+                          onTap: () {
+                            controller!.closeDrawer();
+                            Get.offAllNamed(Routes.classroomIndexScreen);
+                          },
+                          title: const Padding(
+                            padding: EdgeInsets.only(left: kDefaultPadding),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Lớp học',
+                                ),
+                              ],
+                            ),
+                          )),
+                      ListTile(
+                          contentPadding: const EdgeInsets.all(0),
+                          onTap: () {
+                            controller!.closeDrawer();
+                            Get.toNamed(Routes.examHistoryScreen);
+                          },
+                          title: const Padding(
+                            padding: EdgeInsets.only(left: kDefaultPadding),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Lịch sử làm bài',
+                                ),
+                              ],
+                            ),
+                          )),
+                      ListTile(
                           contentPadding: const EdgeInsets.all(0),
                           onTap: () {
                             authController.isChangingInformation.value = false;
@@ -134,35 +219,60 @@ class CustomDrawer extends StatelessWidget {
                             // _showPersonalInformationDialog(context);
                             Get.toNamed(Routes.personalInformationScreen);
                           },
-                          title: const Text('Thông tin cá nhân'),
-                        ),
-                        ListTile(
+                          title: const Padding(
+                            padding: EdgeInsets.only(left: kDefaultPadding),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Thông tin cá nhân',
+                                ),
+                              ],
+                            ),
+                          )),
+                      ListTile(
                           contentPadding: const EdgeInsets.all(0),
                           onTap: () {
                             controller!.closeDrawer();
                             _showChangePasswordDialog(context);
                           },
-                          title: const Text('Đổi mật khẩu'),
+                          title: const Padding(
+                            padding: EdgeInsets.only(left: kDefaultPadding),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Đổi mật khẩu',
+                                ),
+                              ],
+                            ),
+                          )),
+
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                        child: Divider(),
+                      ),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(0),
+                        onTap: () {
+                          controller!.closeDrawer();
+                          Get.toNamed(Routes.aboutScreen);
+                        },
+                        title: const Padding(
+                          padding: EdgeInsets.only(left: kDefaultPadding),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Giới thiệu',
+                              ),
+                            ],
+                          ),
                         ),
-                        ListTile(
-                          contentPadding: const EdgeInsets.all(0),
-                          onTap: () {
-                            controller!.closeDrawer();
-                            Get.toNamed(Routes.examHistoryScreen);
-                          },
-                          title: const Text('Lịch sử làm bài'),
-                        ),
-                        const Divider(),
-                        ListTile(
-                          contentPadding: const EdgeInsets.all(0),
-                          onTap: () {
-                            controller!.closeDrawer();
-                            Get.toNamed(Routes.aboutScreen);
-                          },
-                          title: const Text('Giới thiệu'),
-                        ),
-                        const Spacer(), // Add Spacer to push the button to the bottom
-                        Row(
+                      ),
+                      const Spacer(), // Add Spacer to push the button to the bottom
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: kDefaultPadding, vertical: kMinPadding),
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
@@ -240,8 +350,8 @@ class CustomDrawer extends StatelessWidget {
                                 ))
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ],

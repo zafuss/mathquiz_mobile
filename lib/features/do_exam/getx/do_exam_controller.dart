@@ -83,7 +83,7 @@ class DoExamController extends GetxController {
     int totalSeconds =
         examController.chosenExam.value!.duration! * 60; // Tổng số giây
     remainingTime.value = Duration(seconds: totalSeconds);
-    _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) async {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) async {
       if (totalSeconds > 0) {
         totalSeconds--;
         remainingTime.value = Duration(seconds: totalSeconds);

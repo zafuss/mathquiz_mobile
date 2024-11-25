@@ -7,7 +7,7 @@ import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
 import 'package:mathquiz_mobile/helpers/input_validators.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({Key? key}) : super(key: key);
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class ResetPasswordScreen extends StatelessWidget {
     final confirmNewPasswordController = TextEditingController();
 
     // Khai báo GlobalKey<FormState>
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -64,7 +64,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(kDefaultPadding),
                       child: Form(
                         // Sử dụng Form và đặt key là _formKey
-                        key: _formKey,
+                        key: formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
@@ -134,7 +134,7 @@ class ResetPasswordScreen extends StatelessWidget {
                               () => ElevatedButton(
                                 onPressed: () async {
                                   // Kiểm tra tính hợp lệ của form trước khi tiếp tục
-                                  if (_formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     await authController.resetPasswordWithOtp(
                                         otpInputController.text,
                                         newPasswordController.text);

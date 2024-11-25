@@ -159,9 +159,9 @@ class ReviewExamScreen extends StatelessWidget {
                               style: ButtonStyle(
                                 backgroundColor: reviewExamController
                                         .chosenExamDetail.isNotEmpty
-                                    ? MaterialStateProperty.all<Color>(
+                                    ? WidgetStateProperty.all<Color>(
                                         ColorPalette.primaryColor)
-                                    : MaterialStateProperty.all<Color>(
+                                    : WidgetStateProperty.all<Color>(
                                         const Color.fromARGB(255, 209, 208, 208)
                                             .withOpacity(0.5)),
                               ),

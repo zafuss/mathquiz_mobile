@@ -14,7 +14,7 @@ import 'package:mathquiz_mobile/helpers/score_formatter.dart';
 class ExamHistoryScreen extends StatelessWidget {
   final int itemsPerPage = 10;
 
-  const ExamHistoryScreen({Key? key}) : super(key: key);
+  const ExamHistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

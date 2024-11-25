@@ -19,6 +19,7 @@ class Routes {
   static String resetPasswordScreen = '/resetPasswordScreen';
   static String personalInformationScreen = '/personalInformationScreen';
   static String aboutScreen = '/aboutScreen';
+  static String classroomIndexScreen = '/classroomIndexScreen';
 }
 
 final getPages = [
@@ -49,4 +50,7 @@ final getPages = [
       name: Routes.personalInformationScreen,
       page: () => const PersonalInformationScreen()),
   GetPage(name: Routes.aboutScreen, page: () => const AboutScreen()),
+  GetPage(
+      name: Routes.classroomIndexScreen,
+      page: () => const ClassroomIndexScreen()),
 ];

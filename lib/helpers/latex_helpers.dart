@@ -33,7 +33,7 @@ Widget renderTextAndLaTeX(String inputString, Color? color) {
     // Add the LaTeX part to the list of widgets
     widgets.add(
       Container(
-        constraints: BoxConstraints(maxWidth: double.infinity),
+        constraints: const BoxConstraints(maxWidth: double.infinity),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Math.tex(

@@ -7,14 +7,14 @@ import 'package:mathquiz_mobile/features/auth/getx/auth_controller.dart';
 import 'package:mathquiz_mobile/helpers/input_validators.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final authController = Get.put(AuthController());
-    final _formKey = GlobalKey<FormState>();
-    final _emailController = TextEditingController();
-    final _passwordController = TextEditingController();
+    final formKey = GlobalKey<FormState>();
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -77,13 +77,13 @@ class LoginScreen extends StatelessWidget {
                             height: kDefaultPadding / 2,
                           ),
                           Form(
-                            key: _formKey,
+                            key: formKey,
                             child: Column(
                               children: [
                                 Semantics(
                                   label: 'Email Input Field',
                                   child: TextFormField(
-                                    controller: _emailController,
+                                    controller: emailController,
                                     textAlignVertical: TextAlignVertical.center,
                                     decoration: const InputDecoration(
                                       contentPadding: EdgeInsets.only(top: 0),
@@ -102,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                                 Semantics(
                                   label: 'Password Input Field',
                                   child: TextFormField(
-                                    controller: _passwordController,
+                                    controller: passwordController,
                                     obscureText: true,
                                     textAlignVertical: TextAlignVertical.center,
                                     decoration: const InputDecoration(
@@ -168,10 +168,10 @@ class LoginScreen extends StatelessWidget {
                               label: 'Login Button',
                               child: ElevatedButton(
                                 onPressed: () async {
-                                  if (_formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     await authController.login(
-                                        _emailController.text,
-                                        _passwordController.text);
+                                        emailController.text,
+                                        passwordController.text);
                                   }
                                 },
                                 child: authController.isLoading.value
