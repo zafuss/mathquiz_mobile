@@ -28,4 +28,42 @@ class ClassroomRepository {
       return Failure('$e');
     }
   }
+
+  Future<ResultType<String>> joinClassroom(
+      {required String clientId, required String classroomId}) async {
+    try {
+      final result =
+          await classroomApiClient.joinClassroom(clientId, classroomId);
+      if (result is Success<String>) {
+        return Success(result.data);
+      } else if (result is Failure<String>) {
+        // Handle failure
+        return result; // Return the Failure result
+      } else {
+        // Handle other cases
+        return Failure('Unknown error');
+      }
+    } catch (e) {
+      return Failure('Unknown error');
+    }
+  }
+
+  Future<ResultType<String>> createClassroom(
+      {required String clientId, required String classroomName}) async {
+    try {
+      final result =
+          await classroomApiClient.createClassroom(clientId, classroomName);
+      if (result is Success<String>) {
+        return Success(result.data);
+      } else if (result is Failure<String>) {
+        // Handle failure
+        return result; // Return the Failure result
+      } else {
+        // Handle other cases
+        return Failure('Unknown error');
+      }
+    } catch (e) {
+      return Failure('Unknown error');
+    }
+  }
 }

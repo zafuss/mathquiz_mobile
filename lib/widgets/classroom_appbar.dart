@@ -8,8 +8,14 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart'
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 class ClassroomAppBarContainer extends StatelessWidget {
-  ClassroomAppBarContainer({super.key, required this.drawerController});
+  ClassroomAppBarContainer(
+      {super.key,
+      required this.drawerController,
+      required this.title,
+      this.backAction = false});
   final CustomDrawerController drawerController;
+  final String title;
+  final bool backAction;
   final localDataController = Get.put(LocalDataController());
   final gradeController = Get.put(GradeController());
   @override
@@ -46,21 +52,37 @@ class ClassroomAppBarContainer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    InkWell(
-                      onTap: () => drawerController.openDrawer(),
-                      child: Container(
-                        height: 45,
-                        width: 45,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.menu_outlined),
-                        ),
-                      ),
-                    ),
+                    backAction
+                        ? InkWell(
+                            onTap: () => Get.back(),
+                            child: Container(
+                              height: 45,
+                              width: 45,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(Icons.arrow_back_ios_outlined),
+                              ),
+                            ),
+                          )
+                        : InkWell(
+                            onTap: () => drawerController.openDrawer(),
+                            child: Container(
+                              height: 45,
+                              width: 45,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(Icons.menu_outlined),
+                              ),
+                            ),
+                          ),
                     const SizedBox(
                       width: kMinPadding / 2,
                     ),

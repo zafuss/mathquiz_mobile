@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mathquiz_mobile/config/http_client.dart';
 import 'package:mathquiz_mobile/models/classroom_models/classroom.dart';
+import 'package:mathquiz_mobile/result_type.dart';
 
 class ClassroomApiClient {
   final DioClient dioClient = DioClient();
@@ -42,6 +43,56 @@ class ClassroomApiClient {
       } else {
         throw Exception(e.message);
       }
+    }
+  }
+
+  Future<ResultType<String>> joinClassroom(
+      String clientId, String classroomId) async {
+    try {
+      final response = await dio.post('classrooms/joinClassroom/',
+          data: {'clientId': clientId, 'classroomId': classroomId});
+      print(response);
+
+      return Success(response.data, response.statusCode ?? 200);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        int statusCode = e.response!.statusCode ?? 500; // Default status code
+        if (statusCode == 400) {
+          return Failure(e.response!.data, statusCode);
+        } else if (statusCode == 401) {
+          return Failure(e.response!.data['id'].toString(), statusCode);
+        }
+        return Failure('Server error', statusCode);
+      } else {
+        return Failure('Network error', 0);
+      }
+    } catch (e) {
+      return Failure('Unknown error', 0);
+    }
+  }
+
+  Future<ResultType<String>> createClassroom(
+      String clientId, String classroomName) async {
+    try {
+      final response = await dio.post('classrooms/createClassroom/',
+          data: {'clientId': clientId, 'classroomName': classroomName});
+      print(response);
+
+      return Success(response.data['classroomId'], 200);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        int statusCode = e.response!.statusCode ?? 500; // Default status code
+        if (statusCode == 400) {
+          return Failure(e.response!.data, statusCode);
+        } else if (statusCode == 401) {
+          return Failure(e.response!.data['id'].toString(), statusCode);
+        }
+        return Failure('Server error', statusCode);
+      } else {
+        return Failure('Network error', 0);
+      }
+    } catch (e) {
+      return Failure('Unknown error', 0);
     }
   }
 }

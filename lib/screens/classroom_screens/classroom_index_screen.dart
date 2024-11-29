@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
@@ -28,23 +29,27 @@ class ClassroomIndexScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           foregroundColor: Colors.white,
           backgroundColor: ColorPalette.primaryColor,
-          onPressed: () => _showOptions(context),
-          child: const Icon(Icons.add),
+          onPressed: () => _showOptions(context, classroomController),
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(30))),
+          child: const Icon(Icons.add),
         ),
         body: Obx(() => Column(
               children: [
                 ClassroomAppBarContainer(
                   drawerController: customDrawerController,
+                  title: 'Lớp học',
                 ),
                 !classroomController.isLoading.value
                     ? Flexible(
                         child: RefreshIndicator(
-                          onRefresh: () async {},
+                          onRefresh: () async {
+                            await classroomController.fetchMyClassrooms();
+                            await classroomController.fetchMyJoinedClassrooms();
+                          },
                           child: SingleChildScrollView(
                             physics: const AlwaysScrollableScrollPhysics(),
-                            child: Container(
+                            child: SizedBox(
                               height: SizeConfig.screenHeight,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -249,7 +254,8 @@ class ClassroomIndexScreen extends StatelessWidget {
     );
   }
 
-  void _showOptions(BuildContext context) {
+  void _showOptions(
+      BuildContext context, ClassroomController classroomController) {
     showModalBottomSheet(
       context: context,
       builder: (context) {
@@ -261,6 +267,8 @@ class ClassroomIndexScreen extends StatelessWidget {
               title: const Text('Tạo lớp học mới'),
               onTap: () {
                 Navigator.of(context).pop();
+                classroomController.dialogMessage.value = '';
+
                 _showCreateClassroomDialog(context);
               },
             ),
@@ -284,7 +292,9 @@ class ClassroomIndexScreen extends StatelessWidget {
   void _showCreateClassroomDialog(BuildContext context) {
     final TextEditingController classroomNameController =
         TextEditingController();
+    final _formKey = GlobalKey<FormState>();
     final classroomController = Get.put(ClassroomController());
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -307,32 +317,86 @@ class ClassroomIndexScreen extends StatelessWidget {
               ),
             ],
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: classroomNameController,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.create),
-                  labelText: 'Nhập tên lớp học',
-                ),
+          content: Form(
+            key: _formKey,
+            child: Obx(
+              () => Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  classroomController.dialogMessage.value.isNotEmpty
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(kMinPadding),
+                              child: Text(
+                                classroomController.dialogMessage.value,
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Clipboard.setData(ClipboardData(
+                                      text: classroomController
+                                          .dialogMessage.value));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text(
+                                            'Đã lưu mã lớp vào bộ nhớ tạm!')),
+                                  );
+                                },
+                                child: const Icon(Icons.copy),
+                              ),
+                            ),
+                          ],
+                        )
+                      : TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Trường này không được để trống';
+                            }
+
+                            return null; // Trả về null nếu không có lỗi
+                          },
+                          controller: classroomNameController,
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(Icons.create),
+                            labelText: 'Nhập tên lớp học',
+                          ),
+                        ),
+                ],
               ),
-            ],
+            ),
           ),
           actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('Hủy'),
+            Obx(
+              () => classroomController.dialogMessage.value.isEmpty
+                  ? TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('Hủy'),
+                    )
+                  : const SizedBox(),
             ),
             SizedBox(
               height: 35,
               width: 150,
               child: ElevatedButton(
-                onPressed: () async {},
+                onPressed: () async {
+                  if (_formKey.currentState?.validate() == true) {
+                    classroomController.dialogMessage.value.isEmpty
+                        ? await classroomController.createClassroom(
+                            classroomNameController.text, context)
+                        : Navigator.of(context).pop();
+                  }
+                },
                 child: Obx(
-                  () => classroomController.isLoading.value
+                  () => classroomController.dialogLoading.value
                       ? const Center(
                           child: SizedBox(
                             height: 20,
@@ -342,8 +406,10 @@ class ClassroomIndexScreen extends StatelessWidget {
                             ),
                           ),
                         )
-                      : const Text(
-                          'Tạo',
+                      : Text(
+                          classroomController.dialogMessage.value.isNotEmpty
+                              ? 'Đóng'
+                              : 'Tạo',
                           style: TextStyle(color: Colors.white),
                         ),
                 ),
@@ -355,10 +421,50 @@ class ClassroomIndexScreen extends StatelessWidget {
     );
   }
 
+  AlertDialog _classroomCreatedDialog(BuildContext context, String code) {
+    return AlertDialog(
+      title: const Text('Tạo lớp học thành công!'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            code,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton.icon(
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: code));
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Đã lưu mã lớp vào bộ nhớ tạm!')),
+              );
+            },
+            icon: const Icon(Icons.copy),
+            label: const Text('Sao chép'),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Đóng'),
+        ),
+      ],
+    );
+  }
+
   void _showJoinClassroomDialog(BuildContext context) {
     final TextEditingController classroomNameController =
         TextEditingController();
+    final _formKey = GlobalKey<FormState>();
+
     final classroomController = Get.put(ClassroomController());
+    classroomController.joinClassroomLoading.update((data) {
+      data?.resultMessage = null;
+    });
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -381,22 +487,48 @@ class ClassroomIndexScreen extends StatelessWidget {
               ),
             ],
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: classroomNameController,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.key),
-                  labelText: 'Nhập mã lớp học',
+          content: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  controller: classroomNameController,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.key),
+                    labelText: 'Nhập mã lớp học',
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Trường này không được để trống';
+                    }
+                    if (value.length != 6) {
+                      return 'Số ký tự phải là 6';
+                    }
+                    return null; // Trả về null nếu không có lỗi
+                  },
                 ),
-              ),
-            ],
+                const SizedBox(
+                  height: kMinPadding / 3,
+                ),
+                Obx(() => classroomController
+                            .joinClassroomLoading.value.resultMessage ==
+                        null
+                    ? const SizedBox()
+                    : Text(
+                        classroomController
+                            .joinClassroomLoading.value.resultMessage!,
+                        style: const TextStyle(color: Colors.red),
+                      ))
+              ],
+            ),
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
+                classroomController.joinClassroomLoading.value.resultMessage =
+                    null;
               },
               child: const Text('Hủy'),
             ),
@@ -404,9 +536,14 @@ class ClassroomIndexScreen extends StatelessWidget {
               height: 35,
               width: 150,
               child: ElevatedButton(
-                onPressed: () async {},
+                onPressed: () async {
+                  if (_formKey.currentState?.validate() == true) {
+                    classroomController.joinClassroom(
+                        classroomNameController.text, context);
+                  }
+                },
                 child: Obx(
-                  () => classroomController.isLoading.value
+                  () => classroomController.joinClassroomLoading.value.isLoading
                       ? const Center(
                           child: SizedBox(
                             height: 20,
