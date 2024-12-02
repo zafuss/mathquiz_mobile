@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/models/classroom_models/classroom.dart';
 
-import '../../../result_type.dart';
+import '../../../../result_type.dart';
 import 'classroom_api_client.dart';
 
 class ClassroomRepository {

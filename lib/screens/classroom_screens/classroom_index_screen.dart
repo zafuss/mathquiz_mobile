@@ -12,6 +12,7 @@ import 'package:mathquiz_mobile/widgets/custom_drawer.dart';
 
 import '../../config/color_const.dart';
 import '../../models/classroom_models/classroom.dart';
+import '../../widgets/list_view_container.dart';
 
 class ClassroomIndexScreen extends StatelessWidget {
   const ClassroomIndexScreen({super.key});
@@ -58,17 +59,49 @@ class ClassroomIndexScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  listViewContainer(
-                                      'Quản lý lớp học',
-                                      classroomController.myClassrooms,
-                                      () => Get.toNamed(Routes.aboutScreen)),
+                                  ListViewContainer(
+                                    title: 'Quản lý lớp học',
+                                    classroomList:
+                                        classroomController.myClassrooms,
+                                    numOfItems:
+                                        classroomController.myClassrooms.isEmpty
+                                            ? 0
+                                            : classroomController
+                                                        .myClassrooms.length >
+                                                    1
+                                                ? 2
+                                                : 1,
+                                    func: (Classroom classroom) {
+                                      classroomController.onChooseClassroom(
+                                          classroom, true);
+                                      Get.toNamed(Routes.classroomScreen);
+                                    },
+                                    seeAllFunc: () =>
+                                        Get.toNamed(Routes.myClassroomsScreen),
+                                  ),
                                   const SizedBox(
                                     height: kMinPadding,
                                   ),
-                                  listViewContainer(
-                                      'Lớp học của bạn',
-                                      classroomController.myJoinedClassrooms,
-                                      () => Routes.aboutScreen)
+                                  ListViewContainer(
+                                    title: 'Lớp đang theo học',
+                                    classroomList:
+                                        classroomController.myJoinedClassrooms,
+                                    numOfItems: classroomController
+                                            .myJoinedClassrooms.isEmpty
+                                        ? 0
+                                        : classroomController
+                                                    .myJoinedClassrooms.length >
+                                                1
+                                            ? 2
+                                            : 1,
+                                    func: (Classroom classroom) {
+                                      classroomController.onChooseClassroom(
+                                          classroom, false);
+                                      Get.toNamed(Routes.classroomScreen);
+                                    },
+                                    seeAllFunc: () => Get.toNamed(
+                                        Routes.myJoinedClassroomsScreen),
+                                  ),
                                 ],
                               ),
                             ),
@@ -82,158 +115,6 @@ class ClassroomIndexScreen extends StatelessWidget {
                       ),
               ],
             )));
-  }
-
-  Container listViewContainer(
-      String title, List<Classroom> classroomList, Function func) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.white.withOpacity(0.6)),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: kDefaultPadding, vertical: kMinPadding / 2),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(title,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600)),
-                InkWell(
-                  child: const Text(
-                    'Xem tất cả',
-                    style: TextStyle(
-                        color: ColorPalette.primaryColor,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  onTap: () => func(),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: kMinPadding / 2,
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(0),
-              itemCount: classroomList.isEmpty
-                  ? 0
-                  : classroomList.length > 1
-                      ? 2
-                      : 1,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: kMinPadding),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(20),
-                    onTap: () async {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: kMinPadding / 2),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                const SizedBox(
-                                    width:
-                                        kMinPadding), // thêm khoảng cách giữa ảnh và văn bản
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          style: DefaultTextStyle.of(context)
-                                              .style
-                                              .copyWith(color: Colors.black),
-                                          children: [
-                                            TextSpan(
-                                              text:
-                                                  '${classroomList[index].name}',
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight
-                                                      .bold), // In đậm
-                                            ),
-                                          ],
-                                        ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.clip,
-                                        softWrap: true,
-                                      ),
-                                      const SizedBox(
-                                        height: 4,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Image.asset(
-                                                'assets/images/people_icon.png',
-                                                width: 12,
-                                              ),
-                                              const SizedBox(
-                                                width: 4,
-                                              ),
-                                              Text(
-                                                classroomList[index]
-                                                    .teacherFullName,
-                                                style: const TextStyle(
-                                                    color: Colors.black54,
-                                                    fontSize: 13),
-                                              )
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            width: kMinPadding,
-                                          ),
-                                          Row(
-                                            children: [
-                                              const Text(
-                                                '·',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.w800),
-                                              ),
-                                              const SizedBox(
-                                                width: 4,
-                                              ),
-                                              Text(
-                                                '${classroomList[index].numOfMembers} thành viên',
-                                                style: const TextStyle(
-                                                    color: Colors.black54,
-                                                    fontSize: 13),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-    );
   }
 
   void _showOptionDialog(BuildContext context, String option) {

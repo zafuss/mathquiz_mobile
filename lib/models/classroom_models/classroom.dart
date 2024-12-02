@@ -5,7 +5,7 @@ class Classroom extends Equatable {
   final String? name;
   final DateTime createDate;
   final DateTime? endDate;
-  final String teacherFullName;
+  final String? teacherFullName;
   final int numOfMembers;
 
   const Classroom(

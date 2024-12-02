@@ -18,9 +18,9 @@ class ClassroomDetail extends Equatable {
   factory ClassroomDetail.fromJson(Map<String, dynamic> json) =>
       ClassroomDetail(
         id: json['id'],
-        classroomRole: json['classroomRole'],
-        classroom: json['classroom'],
-        client: json['client'],
+        classroomRole: ClassroomRole.fromJson(json['classroomRole']),
+        classroom: Classroom.fromJson(json['classroom']),
+        client: Client.fromJson(json['client']),
       );
   @override
   // TODO: implement props

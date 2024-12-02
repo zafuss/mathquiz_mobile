@@ -14,3 +14,7 @@ export 'exam_history_screen.dart';
 export 'about_screen.dart';
 export 'auth_screens/reset_password_screen.dart';
 export 'classroom_screens/classroom_index_screen.dart';
+export 'classroom_screens/my_classrooms_screen.dart';
+export 'classroom_screens/my_joined_classrooms_screen.dart';
+export 'classroom_screens/classroom_screen.dart';
+export 'classroom_screens/classroom_members_screen.dart';

@@ -5,6 +5,7 @@ import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/features/appbar/appbar_controller.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart';
+import 'package:mathquiz_mobile/features/classroom/getx/classroom_controller.dart';
 import 'package:mathquiz_mobile/features/drawer/drawer_controller.dart';
 
 class ClassroomAppBarContainer extends StatelessWidget {
@@ -12,12 +13,15 @@ class ClassroomAppBarContainer extends StatelessWidget {
       {super.key,
       required this.drawerController,
       required this.title,
-      this.backAction = false});
+      this.backAction = false,
+      this.membersAction = false});
   final CustomDrawerController drawerController;
   final String title;
   final bool backAction;
+  final bool membersAction;
   final localDataController = Get.put(LocalDataController());
   final gradeController = Get.put(GradeController());
+  final classroomController = Get.find<ClassroomController>();
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -86,13 +90,34 @@ class ClassroomAppBarContainer extends StatelessWidget {
                     const SizedBox(
                       width: kMinPadding / 2,
                     ),
-                    const Text(
-                      'Lớp học',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 24),
-                    )
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 24),
+                      ),
+                    ),
+                    membersAction
+                        ? InkWell(
+                            onTap: () async {
+                              await classroomController
+                                  .fetchClassroomDetailListByClassroomId();
+                            },
+                            child: Container(
+                              height: 45,
+                              width: 45,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Icon(Icons.group_outlined)),
+                            ),
+                          )
+                        : const SizedBox(),
                   ],
                 ),
                 const SizedBox(
