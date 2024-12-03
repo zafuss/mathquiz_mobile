@@ -4,12 +4,15 @@ import 'package:get/get_rx/get_rx.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/classroom/data/classroom/classroom_repository.dart';
 import 'package:mathquiz_mobile/features/classroom/data/classroom_detail/classroom_detail_repository.dart';
+import 'package:mathquiz_mobile/features/classroom/data/comment/comment_repository.dart';
 import 'package:mathquiz_mobile/features/classroom/data/news/news_repository.dart';
+import 'package:mathquiz_mobile/features/classroom/dtos/comment/create_comment_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/news/create_news_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/news/update_news_dto.dart';
 import 'package:mathquiz_mobile/helpers/data_loading.dart';
 import 'package:mathquiz_mobile/models/classroom_models/classroom.dart';
 import 'package:mathquiz_mobile/models/classroom_models/classroom_detail.dart';
+import 'package:mathquiz_mobile/models/classroom_models/comments.dart';
 import 'package:mathquiz_mobile/models/classroom_models/news.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 
@@ -28,11 +31,13 @@ class ClassroomController extends GetxController {
   RxList<Classroom> myJoinedClassrooms = <Classroom>[].obs;
   RxList<ClassroomDetail> classroomDetailList = <ClassroomDetail>[].obs;
   RxList<News> newsList = <News>[].obs;
+  RxList<Comment> commentList = <Comment>[].obs;
 
   ClassroomRepository classroomRepository = ClassroomRepository();
   ClassroomDetailRepository classroomDetailRepository =
       ClassroomDetailRepository();
   NewsRepository newsRepository = NewsRepository();
+  CommentRepository commentRepository = CommentRepository();
   LocalDataController localDataController = LocalDataController();
 
   @override
@@ -51,6 +56,19 @@ class ClassroomController extends GetxController {
     isLoading.value = false;
   }
 
+  fetchCommentList() async {
+    isLoading.value = true;
+    var result = await commentRepository.getByNews(chosenNews.value!.id);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {
+          commentList.value = result.data!,
+          commentList.sort((a, b) => b.publishDate.compareTo(a.publishDate))
+        },
+      Failure() => Get.snackbar('Lỗi lấy thông tin bình luận.', result.message),
+    });
+  }
+
   createNews(String title, String content, BuildContext context) async {
     dialogLoading.value = true;
     CreateNewsDto news = CreateNewsDto(
@@ -60,6 +78,21 @@ class ClassroomController extends GetxController {
     return (switch (result) {
       Success() => {await fetchNewsList(), Navigator.of(context).pop()},
       Failure() => Get.snackbar('Lỗi tạo bài viết.', result.message),
+    });
+  }
+
+  createNewsComment(String content) async {
+    isLoading.value = true;
+    String clientId = await localDataController.getClientId() ?? '';
+
+    CreateCommentDto comment = CreateCommentDto(
+        content: content, newsId: chosenNews.value!.id, clientId: clientId);
+    var result = await commentRepository.createNewsComment(comment);
+    isLoading.value = false;
+
+    return (switch (result) {
+      Success() => {await fetchCommentList()},
+      Failure() => Get.snackbar('Lỗi thêm bình luận.', result.message),
     });
   }
 
@@ -91,8 +124,8 @@ class ClassroomController extends GetxController {
 
   fetchNewsList() async {
     isLoading.value = true;
-    var result = await newsRepository
-        .getMyClassroomDetailsByClassroomId(chosenClassroom.value!.id);
+    var result =
+        await newsRepository.getNewsByClassroomId(chosenClassroom.value!.id);
     isLoading.value = false;
     return (switch (result) {
       Success() => {

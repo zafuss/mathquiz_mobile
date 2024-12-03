@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
+import 'package:mathquiz_mobile/widgets/news_widget.dart';
 
 import '../../config/color_const.dart';
 import '../../features/classroom/getx/classroom_controller.dart';
 import '../../features/drawer/drawer_controller.dart';
 import '../../helpers/classroom_datetime_formatter.dart';
+import '../../models/classroom_models/comments.dart';
 import '../../widgets/classroom_appbar.dart';
 import '../../widgets/custom_drawer.dart';
 
@@ -33,7 +35,7 @@ class ClassroomNewsScreen extends StatelessWidget {
                   // Cuộn nội dung bên dưới
                   child: RefreshIndicator(
                     onRefresh: () async {
-                      await classroomController.fetchNewsList();
+                      await classroomController.fetchCommentList();
                     },
                     child: SingleChildScrollView(
                       physics: const AlwaysScrollableScrollPhysics(),
@@ -56,6 +58,8 @@ class ClassroomNewsScreen extends StatelessWidget {
   }
 
   Column _newsAndCommentsWidget(ClassroomController classroomController) {
+    final _formKey = GlobalKey<FormState>();
+    TextEditingController _contentController = TextEditingController();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -70,29 +74,9 @@ class ClassroomNewsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(children: [
-                  _avatarCircle(
-                      classroomController
-                              .chosenClassroom.value!.teacher!.imageUrl ??
-                          null,
-                      45),
-                  const SizedBox(
-                    width: kMinPadding / 2,
-                  ),
-                  _clientInfoWidget(),
-                ]),
-                const SizedBox(
-                  height: kMinPadding / 3,
-                ),
-                Text(
-                  classroomController.chosenNews.value!.title,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  classroomController.chosenNews.value!.content,
-                  textAlign: TextAlign.start,
-                ),
+                NewsInfoWidget(
+                    classroomController: classroomController,
+                    news: classroomController.chosenNews.value!),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: kMinPadding / 2),
@@ -102,61 +86,96 @@ class ClassroomNewsScreen extends StatelessWidget {
                     color: ColorPalette.primaryColor,
                   ),
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      suffix: const Text(
-                        'Gửi',
-                        style: TextStyle(color: ColorPalette.primaryColor),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.6),
-                      hintText: 'Nhập bình luận...',
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: ColorPalette
-                                .primaryColor), // Màu viền khi không focus
-                        borderRadius:
-                            BorderRadius.circular(defaultBorderRadius),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: ColorPalette
-                                .primaryColor), // Màu viền khi focus
-                        borderRadius:
-                            BorderRadius.circular(defaultBorderRadius),
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(defaultBorderRadius))),
+                Form(
+                  key: _formKey,
+                  child: SizedBox(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            controller: _contentController,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Nội dung không được để trống';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white.withOpacity(0.6),
+                                hintText: 'Nhập bình luận...',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: ColorPalette
+                                          .primaryColor), // Màu viền khi không focus
+                                  borderRadius: BorderRadius.circular(
+                                      defaultBorderRadius),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: ColorPalette
+                                          .primaryColor), // Màu viền khi focus
+                                  borderRadius: BorderRadius.circular(
+                                      defaultBorderRadius),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius))),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              await classroomController
+                                  .createNewsComment(_contentController.text);
+                            }
+                          },
+                          icon: const Text(
+                            'Gửi',
+                            style: TextStyle(color: ColorPalette.primaryColor),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: kMinPadding / 2,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.6),
-                      border: Border.all(color: ColorPalette.primaryColor),
-                      borderRadius: BorderRadius.circular(defaultBorderRadius)),
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(0),
-                      shrinkWrap: true,
-                      itemCount: 2,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: kMinPadding / 2,
-                              vertical: kMinPadding / 2),
-                          child: Row(children: [
-                            // _avatarCircle(
-                            //     localDataController.clientImageUrl.value, 35),
-                            const SizedBox(
-                              width: kMinPadding / 2,
-                            ),
-                            _clientCommentInfoWidget(),
-                          ]),
-                        );
-                      }),
-                ),
+                classroomController.commentList.isEmpty
+                    ? const Center(
+                        child: const Text('Chưa có bình luận nào'),
+                      )
+                    : Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.6),
+                            border:
+                                Border.all(color: ColorPalette.primaryColor),
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius)),
+                        child: ListView.builder(
+                            padding: const EdgeInsets.all(0),
+                            shrinkWrap: true,
+                            itemCount: classroomController.commentList.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: kMinPadding / 2,
+                                    vertical: kMinPadding / 2),
+                                child: Row(children: [
+                                  _avatarCircle(
+                                      classroomController
+                                          .commentList[index].client.imageUrl,
+                                      35),
+                                  const SizedBox(
+                                    width: kMinPadding / 2,
+                                  ),
+                                  _clientCommentInfoWidget(
+                                      classroomController.commentList[index]),
+                                ]),
+                              );
+                            }),
+                      ),
               ],
             ),
           ),
@@ -168,7 +187,7 @@ class ClassroomNewsScreen extends StatelessWidget {
     );
   }
 
-  Expanded _clientInfoWidget() {
+  Expanded _clientCommentInfoWidget(Comment comment) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,72 +196,24 @@ class ClassroomNewsScreen extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  classroomController.chosenClassroom.value!.teacher!.fullname!,
+                  comment.client.fullname ?? 'null',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: ColorPalette.primaryColor,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-              PopupMenuButton<int>(
-                child: const Icon(
-                  Icons.more_vert_outlined,
-                  size: 20,
-                  color: ColorPalette.primaryColor,
-                ),
-                itemBuilder: (BuildContext context) => [
-                  const PopupMenuItem(
-                    value: 1,
-                    child: Text("Chỉnh sửa bài viết"),
-                  ),
-                  const PopupMenuItem(
-                    value: 1,
-                    child: Text("Xoá bài viết"),
-                  ),
-                ],
-              )
-            ],
-          ),
-          Text(
-            classroomDateTimeFormatter(
-                classroomController.chosenNews.value!.timeCreated),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(color: Colors.black38, fontSize: 13),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Expanded _clientCommentInfoWidget() {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Row(
-            children: [
-              Expanded(
-                child: Text(
-                  'Tên người bình luận',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
             ],
           ),
           Text(
-            classroomDateTimeFormatter(DateTime.now()),
+            classroomDateTimeFormatter(comment.publishDate),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(color: Colors.black38, fontSize: 13),
           ),
-          const Text(
-              style: TextStyle(fontSize: 14),
+          Text(
+              style: const TextStyle(fontSize: 14),
               textAlign: TextAlign.start,
-              '''Lorem ipsum dolor sit amet Nam quis hendrerit magna. '''),
+              comment.content),
         ],
       ),
     );
@@ -258,7 +229,7 @@ class ClassroomNewsScreen extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: const Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(4.0),
           child: Icon(Icons.person_2_outlined),
         ),
       );

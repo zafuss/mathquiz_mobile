@@ -5,7 +5,7 @@ class News extends Equatable {
   final String id;
   final String title;
   final String content;
-  final Classroom classroom;
+  final Classroom? classroom;
   final DateTime timeCreated;
   final bool isDeleted;
 
@@ -20,7 +20,9 @@ class News extends Equatable {
       id: json['id'],
       title: json['title'],
       content: json['content'],
-      classroom: Classroom.fromJson(json['classroom']),
+      classroom: json['classroom'] != null
+          ? Classroom.fromJson(json['classroom'])
+          : null,
       timeCreated: DateTime.parse(json['timeCreated']),
       isDeleted: json['isDeleted']);
   @override

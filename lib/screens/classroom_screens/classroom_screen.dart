@@ -70,8 +70,6 @@ class ClassroomScreen extends StatelessWidget {
                                       callback: () => classroomController
                                               .chosenNews.value =
                                           classroomController.newsList[index],
-                                      isTeacher:
-                                          classroomController.isTeacher.value,
                                     ),
                                   ),
                           ],
