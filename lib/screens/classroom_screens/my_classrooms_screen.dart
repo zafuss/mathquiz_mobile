@@ -51,9 +51,9 @@ class MyClassroomsScreen extends StatelessWidget {
                                           classroomController.myClassrooms,
                                       numOfItems: classroomController
                                           .myClassrooms.length,
-                                      func: (Classroom classroom) {
-                                        classroomController.onChooseClassroom(
-                                            classroom, true);
+                                      func: (Classroom classroom) async {
+                                        await classroomController
+                                            .onChooseClassroom(classroom, true);
                                         Get.toNamed(Routes.classroomScreen);
                                       }),
                                 ],

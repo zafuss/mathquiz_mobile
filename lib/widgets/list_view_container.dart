@@ -121,7 +121,8 @@ class ListViewContainer extends StatelessWidget {
                                               ),
                                               Text(
                                                 classroomList[index]
-                                                    .teacherFullName!
+                                                    .teacher!
+                                                    .fullname!
                                                     .trim(),
                                                 style: const TextStyle(
                                                     color: Colors.black54,

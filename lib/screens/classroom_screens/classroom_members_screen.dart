@@ -287,189 +287,7 @@ class ClassroomMembersListView extends StatelessWidget {
                                               highlightColor:
                                                   ColorPalette.backgroundColor,
                                             ),
-                                            child: PopupMenuButton<int>(
-                                              surfaceTintColor:
-                                                  ColorPalette.backgroundColor,
-                                              icon: const Icon(
-                                                Icons.more_horiz_rounded,
-                                                color: ColorPalette
-                                                    .primaryColor, // Màu sắc của icon
-                                              ),
-                                              itemBuilder: (context) => [
-                                                const PopupMenuItem(
-                                                  value: 1,
-                                                  child: Text("Xoá khỏi lớp"),
-                                                ),
-                                              ],
-                                              onSelected: (value) async {
-                                                // Xử lý khi chọn menu
-                                                var dialogResult =
-                                                    await showDialog<bool>(
-                                                  context: context,
-                                                  builder: (context) =>
-                                                      AlertDialog(
-                                                    title: const Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          'Xoá ',
-                                                          style: TextStyle(
-                                                              color: ColorPalette
-                                                                  .primaryColor,
-                                                              fontSize: 25,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
-                                                        ),
-                                                        Text(
-                                                          'thành viên',
-                                                          style: TextStyle(
-                                                              fontSize: 25,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    content:
-                                                        classroomController
-                                                                .dialogLoading
-                                                                .value
-                                                            ? const Center(
-                                                                child:
-                                                                    CircularProgressIndicator(),
-                                                              )
-                                                            : RichText(
-                                                                text: TextSpan(
-                                                                  style: DefaultTextStyle.of(
-                                                                          context)
-                                                                      .style
-                                                                      .copyWith(
-                                                                          color:
-                                                                              ColorPalette.primaryColor),
-                                                                  children: [
-                                                                    const TextSpan(
-                                                                        text:
-                                                                            'Bạn chắc chắn muốn xoá ',
-                                                                        style: TextStyle(
-                                                                            color:
-                                                                                Colors.black)),
-                                                                    TextSpan(
-                                                                      text:
-                                                                          '${classroomController.classroomDetailList[index].client.fullname}',
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold), // In đậm
-                                                                    ),
-                                                                    const TextSpan(
-                                                                        text:
-                                                                            ' ra khỏi lớp ',
-                                                                        style: TextStyle(
-                                                                            color:
-                                                                                Colors.black)),
-                                                                    TextSpan(
-                                                                      text:
-                                                                          '${classroomController.classroomDetailList[index].classroom.name}',
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold), // In đậm
-                                                                    ),
-                                                                    const TextSpan(
-                                                                        text:
-                                                                            '?',
-                                                                        style: TextStyle(
-                                                                            color:
-                                                                                Colors.black)),
-                                                                  ],
-                                                                ),
-                                                                maxLines: 2,
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .clip,
-                                                                softWrap: true,
-                                                              ),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () {
-                                                          Navigator.of(context)
-                                                              .pop(false);
-                                                        },
-                                                        child:
-                                                            const Text('Hủy'),
-                                                      ),
-                                                      TextButton(
-                                                        onPressed: () {
-                                                          Navigator.of(context)
-                                                              .pop(true);
-                                                        },
-                                                        child: const Text(
-                                                          'Xoá',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.red),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-
-                                                if (dialogResult == true) {
-                                                  await classroomController
-                                                      .changeIsDeletedStatus(
-                                                          classroomController
-                                                              .classroomDetailList[
-                                                                  index]
-                                                              .id);
-
-                                                  await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (context) =>
-                                                              AlertDialog(
-                                                                content: Text(
-                                                                    classroomController
-                                                                        .dialogMessage
-                                                                        .value),
-                                                                title:
-                                                                    const Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .start,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Xoá ',
-                                                                      style: TextStyle(
-                                                                          color: ColorPalette
-                                                                              .primaryColor,
-                                                                          fontSize:
-                                                                              25,
-                                                                          fontWeight:
-                                                                              FontWeight.w500),
-                                                                    ),
-                                                                    Text(
-                                                                      'thành viên',
-                                                                      style: TextStyle(
-                                                                          fontSize:
-                                                                              25,
-                                                                          fontWeight:
-                                                                              FontWeight.w500),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ));
-                                                  await classroomController
-                                                      .fetchClassroomDetailListByClassroomId();
-                                                }
-                                              },
-                                            ),
+                                            child: _memberPopup(context, index),
                                           )
                                         else
                                           const SizedBox(),
@@ -487,6 +305,130 @@ class ClassroomMembersListView extends StatelessWidget {
                 ),
               ),
             ),
+    );
+  }
+
+  PopupMenuButton<int> _memberPopup(BuildContext context, int index) {
+    return PopupMenuButton<int>(
+      surfaceTintColor: ColorPalette.backgroundColor,
+      icon: const Icon(
+        Icons.more_horiz_rounded,
+        color: ColorPalette.primaryColor, // Màu sắc của icon
+      ),
+      itemBuilder: (context) => [
+        const PopupMenuItem(
+          value: 1,
+          child: Text("Xoá khỏi lớp"),
+        ),
+      ],
+      onSelected: (value) async {
+        // Xử lý khi chọn menu
+        var dialogResult = await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Xoá ',
+                  style: TextStyle(
+                      color: ColorPalette.primaryColor,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  'thành viên',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            content: classroomController.dialogLoading.value
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : RichText(
+                    text: TextSpan(
+                      style: DefaultTextStyle.of(context)
+                          .style
+                          .copyWith(color: ColorPalette.primaryColor),
+                      children: [
+                        const TextSpan(
+                            text: 'Bạn chắc chắn muốn xoá ',
+                            style: TextStyle(color: Colors.black)),
+                        TextSpan(
+                          text:
+                              '${classroomController.classroomDetailList[index].client.fullname}',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold), // In đậm
+                        ),
+                        const TextSpan(
+                            text: ' ra khỏi lớp ',
+                            style: TextStyle(color: Colors.black)),
+                        TextSpan(
+                          text:
+                              '${classroomController.classroomDetailList[index].classroom.name}',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold), // In đậm
+                        ),
+                        const TextSpan(
+                            text: '?', style: TextStyle(color: Colors.black)),
+                      ],
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.clip,
+                    softWrap: true,
+                  ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(false);
+                },
+                child: const Text('Hủy'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(true);
+                },
+                child: const Text(
+                  'Xoá',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ],
+          ),
+        );
+
+        if (dialogResult == true) {
+          await classroomController.changeIsDeletedStatus(
+              classroomController.classroomDetailList[index].id);
+
+          await showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    content: Text(classroomController.dialogMessage.value),
+                    title: const Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Xoá ',
+                          style: TextStyle(
+                              color: ColorPalette.primaryColor,
+                              fontSize: 25,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          'thành viên',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ));
+          await classroomController.fetchClassroomDetailListByClassroomId();
+        }
+      },
     );
   }
 }

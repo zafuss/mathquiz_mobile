@@ -20,6 +20,7 @@ class LocalDataController extends GetxController {
     clientEmail.value = await getClientEmail() ?? 'null';
     clientId.value = await getClientId() ?? 'null';
     isRememberMe.value = await getIsRememberMe() ?? false;
+    clientImageUrl.value = await getClientImageUrl() ?? '';
     super.onInit();
   }
 

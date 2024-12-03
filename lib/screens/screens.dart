@@ -18,3 +18,4 @@ export 'classroom_screens/my_classrooms_screen.dart';
 export 'classroom_screens/my_joined_classrooms_screen.dart';
 export 'classroom_screens/classroom_screen.dart';
 export 'classroom_screens/classroom_members_screen.dart';
+export 'classroom_screens/classroom_news_screen.dart';

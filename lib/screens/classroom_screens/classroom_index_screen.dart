@@ -71,9 +71,9 @@ class ClassroomIndexScreen extends StatelessWidget {
                                                     1
                                                 ? 2
                                                 : 1,
-                                    func: (Classroom classroom) {
-                                      classroomController.onChooseClassroom(
-                                          classroom, true);
+                                    func: (Classroom classroom) async {
+                                      await classroomController
+                                          .onChooseClassroom(classroom, true);
                                       Get.toNamed(Routes.classroomScreen);
                                     },
                                     seeAllFunc: () =>
@@ -94,9 +94,9 @@ class ClassroomIndexScreen extends StatelessWidget {
                                                 1
                                             ? 2
                                             : 1,
-                                    func: (Classroom classroom) {
-                                      classroomController.onChooseClassroom(
-                                          classroom, false);
+                                    func: (Classroom classroom) async {
+                                      await classroomController
+                                          .onChooseClassroom(classroom, false);
                                       Get.toNamed(Routes.classroomScreen);
                                     },
                                     seeAllFunc: () => Get.toNamed(

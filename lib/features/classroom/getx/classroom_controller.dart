@@ -1,13 +1,16 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
-import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/classroom/data/classroom/classroom_repository.dart';
 import 'package:mathquiz_mobile/features/classroom/data/classroom_detail/classroom_detail_repository.dart';
+import 'package:mathquiz_mobile/features/classroom/data/news/news_repository.dart';
+import 'package:mathquiz_mobile/features/classroom/dtos/news/create_news_dto.dart';
+import 'package:mathquiz_mobile/features/classroom/dtos/news/update_news_dto.dart';
 import 'package:mathquiz_mobile/helpers/data_loading.dart';
 import 'package:mathquiz_mobile/models/classroom_models/classroom.dart';
 import 'package:mathquiz_mobile/models/classroom_models/classroom_detail.dart';
+import 'package:mathquiz_mobile/models/classroom_models/news.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 
 class ClassroomController extends GetxController {
@@ -19,12 +22,17 @@ class ClassroomController extends GetxController {
   var isTeacher = false.obs;
 
   Rx<Classroom?> chosenClassroom = Rx<Classroom?>(null);
+  Rx<News?> chosenNews = Rx<News?>(null);
+
   RxList<Classroom> myClassrooms = <Classroom>[].obs;
   RxList<Classroom> myJoinedClassrooms = <Classroom>[].obs;
   RxList<ClassroomDetail> classroomDetailList = <ClassroomDetail>[].obs;
+  RxList<News> newsList = <News>[].obs;
+
   ClassroomRepository classroomRepository = ClassroomRepository();
   ClassroomDetailRepository classroomDetailRepository =
       ClassroomDetailRepository();
+  NewsRepository newsRepository = NewsRepository();
   LocalDataController localDataController = LocalDataController();
 
   @override
@@ -34,9 +42,38 @@ class ClassroomController extends GetxController {
     await fetchMyJoinedClassrooms();
   }
 
-  onChooseClassroom(Classroom classroom, bool isTeacher) {
+  onChooseClassroom(Classroom classroom, bool isTeacher) async {
+    isLoading.value = true;
     chosenClassroom.value = classroom;
     this.isTeacher.value = isTeacher;
+    await fetchClassroomDetailListByClassroomId();
+    await fetchNewsList();
+    isLoading.value = false;
+  }
+
+  createNews(String title, String content, BuildContext context) async {
+    dialogLoading.value = true;
+    CreateNewsDto news = CreateNewsDto(
+        title: title, content: content, classroomId: chosenClassroom.value!.id);
+    var result = await newsRepository.createNews(news);
+    dialogLoading.value = false;
+    return (switch (result) {
+      Success() => {await fetchNewsList(), Navigator.of(context).pop()},
+      Failure() => Get.snackbar('Lỗi tạo bài viết.', result.message),
+    });
+  }
+
+  editNews(String id, String title, String content, BuildContext context,
+      {bool isDeleted = false}) async {
+    dialogLoading.value = true;
+    UpdateNewsDto news = UpdateNewsDto(
+        id: id, title: title, content: content, isDeleted: isDeleted);
+    var result = await newsRepository.editNews(news);
+    dialogLoading.value = false;
+    return (switch (result) {
+      Success() => {await fetchNewsList(), Navigator.of(context).pop()},
+      Failure() => Get.snackbar('Lỗi chỉnh sửa bài viết.', result.message),
+    });
   }
 
   fetchMyClassrooms() async {
@@ -49,6 +86,20 @@ class ClassroomController extends GetxController {
           myClassrooms.sort((a, b) => b.createDate.compareTo(a.createDate))
         },
       Failure() => Get.snackbar('Lỗi lấy thông tin lớp học.', result.message),
+    });
+  }
+
+  fetchNewsList() async {
+    isLoading.value = true;
+    var result = await newsRepository
+        .getMyClassroomDetailsByClassroomId(chosenClassroom.value!.id);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {
+          newsList.value = result.data!,
+          newsList.sort((a, b) => b.timeCreated.compareTo(a.timeCreated))
+        },
+      Failure() => Get.snackbar('Lỗi lấy thông tin bảng tin.', result.message),
     });
   }
 
@@ -65,9 +116,9 @@ class ClassroomController extends GetxController {
               classroomDetailList.sort((a, b) =>
                   b.classroomRole.name.compareTo(a.classroomRole.name))
             },
-          Get.toNamed(Routes.classroomMembersScreen)
         },
-      Failure() => Get.snackbar('Lỗi lấy thông tin lớp học.', result.message),
+      Failure() =>
+        Get.snackbar('Lỗi lấy thông tin chi tiết lớp học.', result.message),
     });
   }
 

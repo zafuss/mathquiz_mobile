@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/appbar/appbar_controller.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/grade_controller.dart';
@@ -104,6 +105,7 @@ class ClassroomAppBarContainer extends StatelessWidget {
                             onTap: () async {
                               await classroomController
                                   .fetchClassroomDetailListByClassroomId();
+                              Get.toNamed(Routes.classroomMembersScreen);
                             },
                             child: Container(
                               height: 45,
