@@ -25,6 +25,7 @@ class Routes {
   static String classroomScreen = '/classroomScreen';
   static String classroomMembersScreen = '/classroomMembersScreen';
   static String classroomNewsScreen = '/classroomNewsScreen';
+  static String classroomChooseExamScreen = '/classroomChooseExamScreen';
 }
 
 final getPages = [
@@ -68,4 +69,7 @@ final getPages = [
       name: Routes.classroomMembersScreen,
       page: () => const ClassroomMembersScreen()),
   GetPage(name: Routes.classroomNewsScreen, page: () => ClassroomNewsScreen()),
+  GetPage(
+      name: Routes.classroomChooseExamScreen,
+      page: () => const ClassroomChooseExamScreen()),
 ];

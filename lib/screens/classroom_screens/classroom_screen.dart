@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
+import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
+import 'package:mathquiz_mobile/helpers/classroom_datetime_formatter.dart';
 
 import '../../features/classroom/getx/classroom_controller.dart';
 import '../../features/drawer/drawer_controller.dart';
@@ -37,45 +39,435 @@ class ClassroomScreen extends StatelessWidget {
                     onRefresh: () async {
                       await classroomController
                           .fetchClassroomDetailListByClassroomId();
+                      await classroomController.fetchHomeworkList();
+                      await classroomController.fetchNewsList();
                     },
-                    child: SingleChildScrollView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 20),
-                            !classroomController.isTeacher.value
-                                ? SizedBox()
-                                : _createNewsWidget(
-                                    context, classroomController),
-                            const SizedBox(height: kMinPadding),
-                            classroomController.newsList.isEmpty
-                                ? const Align(
-                                    alignment: Alignment.center,
-                                    child: const Text(
-                                        'Lớp bạn chưa có bài viết nào'))
-                                : ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    itemCount:
-                                        classroomController.newsList.length,
-                                    itemBuilder: (context, index) => NewsWidget(
-                                      classroomController: classroomController,
-                                      news: classroomController.newsList[index],
-                                      callback: () => classroomController
-                                              .chosenNews.value =
-                                          classroomController.newsList[index],
-                                    ),
+                    child: classroomController.isLoading.value
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : SingleChildScrollView(
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            child: Column(
+                              children: [
+                                classroomController.homeworkList.isEmpty
+                                    ? const SizedBox()
+                                    : classroomController.isTeacher.value
+                                        ? Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: kMinPadding),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  color: Colors.white
+                                                      .withOpacity(0.6)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal:
+                                                            kDefaultPadding,
+                                                        vertical:
+                                                            kMinPadding / 2),
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        const Text(
+                                                            'Bài thi đã giao',
+                                                            style: TextStyle(
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600)),
+                                                        InkWell(
+                                                          child: const Text(
+                                                            'Xem tất cả',
+                                                            style: TextStyle(
+                                                                color: ColorPalette
+                                                                    .primaryColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                          ),
+                                                          onTap: () {},
+                                                        )
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: kMinPadding / 2,
+                                                    ),
+                                                    ListView.builder(
+                                                      shrinkWrap: true,
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
+                                                      itemCount: 2,
+                                                      physics:
+                                                          const NeverScrollableScrollPhysics(),
+                                                      itemBuilder:
+                                                          (BuildContext context,
+                                                              int index) {
+                                                        return Padding(
+                                                          padding: const EdgeInsets
+                                                              .only(
+                                                              bottom:
+                                                                  kMinPadding),
+                                                          child: InkWell(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20),
+                                                            onTap: () async {},
+                                                            child: Container(
+                                                              decoration: BoxDecoration(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                  color: Colors
+                                                                      .white),
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                    .symmetric(
+                                                                    vertical:
+                                                                        kMinPadding /
+                                                                            2),
+                                                                child: Column(
+                                                                  children: [
+                                                                    Row(
+                                                                      children: [
+                                                                        const SizedBox(
+                                                                            width:
+                                                                                kMinPadding), // thêm khoảng cách giữa ảnh và văn bản
+                                                                        Expanded(
+                                                                          child:
+                                                                              Column(
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              RichText(
+                                                                                text: TextSpan(
+                                                                                  style: DefaultTextStyle.of(context).style.copyWith(color: Colors.black),
+                                                                                  children: [
+                                                                                    TextSpan(
+                                                                                      text: classroomController.homeworkList[index].title,
+                                                                                      style: const TextStyle(fontWeight: FontWeight.bold), // In đậm
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                                maxLines: 2,
+                                                                                overflow: TextOverflow.clip,
+                                                                                softWrap: true,
+                                                                              ),
+                                                                              const SizedBox(
+                                                                                height: 4,
+                                                                              ),
+                                                                              Column(
+                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                children: [
+                                                                                  Text(
+                                                                                    'Có hiệu lực: ${classroomDateTimeFormatter(classroomController.homeworkList[index].handinDate)}',
+                                                                                    style: const TextStyle(color: Colors.black54, fontSize: 13),
+                                                                                  ),
+                                                                                  Text(
+                                                                                    'Hết hạn: ${classroomDateTimeFormatter(classroomController.homeworkList[index].expiredDate)}',
+                                                                                    style: const TextStyle(color: Colors.black54, fontSize: 13),
+                                                                                  ),
+                                                                                ],
+                                                                              )
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: kMinPadding),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  color: Colors.white
+                                                      .withOpacity(0.6)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal:
+                                                            kDefaultPadding,
+                                                        vertical:
+                                                            kMinPadding / 2),
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        const Text(
+                                                            'Bài thi đã giao',
+                                                            style: TextStyle(
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600)),
+                                                        InkWell(
+                                                          child: const Text(
+                                                            'Xem tất cả',
+                                                            style: TextStyle(
+                                                                color: ColorPalette
+                                                                    .primaryColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                          ),
+                                                          onTap: () {},
+                                                        )
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: kMinPadding / 2,
+                                                    ),
+                                                    ListView.builder(
+                                                      shrinkWrap: true,
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
+                                                      itemCount: 2,
+                                                      physics:
+                                                          const NeverScrollableScrollPhysics(),
+                                                      itemBuilder:
+                                                          (BuildContext context,
+                                                              int index) {
+                                                        return Padding(
+                                                          padding: const EdgeInsets
+                                                              .only(
+                                                              bottom:
+                                                                  kMinPadding),
+                                                          child: InkWell(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20),
+                                                            onTap: () async {},
+                                                            child: Container(
+                                                              decoration: BoxDecoration(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                  color: Colors
+                                                                      .white),
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                    .symmetric(
+                                                                    vertical:
+                                                                        kMinPadding /
+                                                                            2),
+                                                                child: Column(
+                                                                  children: [
+                                                                    Row(
+                                                                      children: [
+                                                                        const SizedBox(
+                                                                            width:
+                                                                                kMinPadding), // thêm khoảng cách giữa ảnh và văn bản
+                                                                        Expanded(
+                                                                          child:
+                                                                              Row(
+                                                                            children: [
+                                                                              Expanded(
+                                                                                child: Column(
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    RichText(
+                                                                                      text: TextSpan(
+                                                                                        style: DefaultTextStyle.of(context).style.copyWith(color: Colors.black),
+                                                                                        children: [
+                                                                                          TextSpan(
+                                                                                            text: classroomController.homeworkList[index].title,
+                                                                                            style: const TextStyle(fontWeight: FontWeight.bold), // In đậm
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                      maxLines: 2,
+                                                                                      overflow: TextOverflow.clip,
+                                                                                      softWrap: true,
+                                                                                    ),
+                                                                                    const SizedBox(
+                                                                                      height: 4,
+                                                                                    ),
+                                                                                    Column(
+                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                      children: [
+                                                                                        Text(
+                                                                                          'Có hiệu lực: ${classroomDateTimeFormatter(classroomController.homeworkList[index].handinDate)}',
+                                                                                          style: const TextStyle(color: Colors.black54, fontSize: 13),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          'Hết hạn: ${classroomDateTimeFormatter(classroomController.homeworkList[index].expiredDate)}',
+                                                                                          style: const TextStyle(color: Colors.black54, fontSize: 13),
+                                                                                        ),
+                                                                                      ],
+                                                                                    )
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: const EdgeInsets.symmetric(horizontal: kMinPadding / 2),
+                                                                                child: TextButton(
+                                                                                    style: TextButton.styleFrom(backgroundColor: ColorPalette.backgroundColor),
+                                                                                    onPressed: () {},
+                                                                                    child: const Text(
+                                                                                      'Làm ngay',
+                                                                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                                                                                    )),
+                                                                              )
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                classroomController.isTeacher.value
+                                    ? Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: kMinPadding),
+                                        child: TextButton(
+                                            style: TextButton.styleFrom(
+                                                backgroundColor:
+                                                    ColorPalette.primaryColor,
+                                                foregroundColor: Colors.white),
+                                            onPressed: () {
+                                              classroomController
+                                                  .resetDateTime();
+                                              Get.toNamed(Routes
+                                                  .classroomChooseExamScreen);
+                                            },
+                                            child:
+                                                const Text('Giao bài tập mới')),
+                                      )
+                                    : const SizedBox(),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: kDefaultPadding),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      !classroomController.isTeacher.value
+                                          ? const SizedBox()
+                                          : Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                const Padding(
+                                                  padding: EdgeInsets.only(
+                                                      bottom: kMinPadding / 2),
+                                                  child: Text('Bảng tin',
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w600)),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          bottom: kMinPadding),
+                                                  child: _createNewsWidget(
+                                                      context,
+                                                      classroomController),
+                                                ),
+                                              ],
+                                            ),
+                                      classroomController.newsList.isEmpty
+                                          ? const Align(
+                                              alignment: Alignment.center,
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: kMinPadding),
+                                                child: Text(
+                                                    'Lớp bạn chưa có bài viết nào'),
+                                              ))
+                                          : Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                classroomController
+                                                        .isTeacher.value
+                                                    ? const SizedBox()
+                                                    : const Padding(
+                                                        padding: EdgeInsets.only(
+                                                            bottom:
+                                                                kMinPadding / 2,
+                                                            top: kMinPadding),
+                                                        child: Text('Bảng tin',
+                                                            style: TextStyle(
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600)),
+                                                      ),
+                                                ListView.builder(
+                                                  padding: EdgeInsets.zero,
+                                                  shrinkWrap: true,
+                                                  physics:
+                                                      const NeverScrollableScrollPhysics(),
+                                                  itemCount: classroomController
+                                                      .newsList.length,
+                                                  itemBuilder:
+                                                      (context, index) =>
+                                                          NewsWidget(
+                                                    classroomController:
+                                                        classroomController,
+                                                    news: classroomController
+                                                        .newsList[index],
+                                                    callback: () =>
+                                                        classroomController
+                                                                .chosenNews
+                                                                .value =
+                                                            classroomController
+                                                                    .newsList[
+                                                                index],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                    ],
                                   ),
-                          ],
-                        ),
-                      ),
-                    ),
+                                ),
+                              ],
+                            ),
+                          ),
                   ),
                 ),
               ],
@@ -91,11 +483,6 @@ class ClassroomScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Bảng tin',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-        const SizedBox(
-          height: kMinPadding / 3,
-        ),
         InkWell(
           borderRadius: BorderRadius.circular(defaultBorderRadius),
           onTap: () {
