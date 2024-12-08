@@ -4,6 +4,9 @@ import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
 import 'package:mathquiz_mobile/config/routes.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
+import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
 import 'package:mathquiz_mobile/helpers/classroom_datetime_formatter.dart';
 
 import '../../features/classroom/getx/classroom_controller.dart';
@@ -19,6 +22,9 @@ class ClassroomScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final customDrawerController = CustomDrawerController();
     final classroomController = Get.put(ClassroomController());
+    final quizMatrixController = Get.put(QuizMatrixController());
+    final chapterController = Get.put(ChapterController());
+    final examController = Get.put(ExamController());
     return Scaffold(
         key: customDrawerController.scaffoldKey,
         drawer: CustomDrawer(
@@ -42,7 +48,10 @@ class ClassroomScreen extends StatelessWidget {
                       await classroomController.fetchHomeworkList();
                       await classroomController.fetchNewsList();
                     },
-                    child: classroomController.isLoading.value
+                    child: classroomController.isLoading.value ||
+                            quizMatrixController.isLoading.value ||
+                            chapterController.isLoading.value ||
+                            examController.isLoading.value
                         ? const Center(
                             child: CircularProgressIndicator(),
                           )
@@ -105,7 +114,13 @@ class ClassroomScreen extends StatelessWidget {
                                                       padding:
                                                           const EdgeInsets.all(
                                                               0),
-                                                      itemCount: 2,
+                                                      itemCount:
+                                                          classroomController
+                                                                      .homeworkList
+                                                                      .length >
+                                                                  1
+                                                              ? 2
+                                                              : 1,
                                                       physics:
                                                           const NeverScrollableScrollPhysics(),
                                                       itemBuilder:
@@ -222,7 +237,7 @@ class ClassroomScreen extends StatelessWidget {
                                                               .spaceBetween,
                                                       children: [
                                                         const Text(
-                                                            'Bài thi đã giao',
+                                                            'Bài thi được giao',
                                                             style: TextStyle(
                                                                 fontSize: 18,
                                                                 fontWeight:
@@ -250,7 +265,13 @@ class ClassroomScreen extends StatelessWidget {
                                                       padding:
                                                           const EdgeInsets.all(
                                                               0),
-                                                      itemCount: 2,
+                                                      itemCount:
+                                                          classroomController
+                                                                      .homeworkList
+                                                                      .length >
+                                                                  1
+                                                              ? 2
+                                                              : 1,
                                                       physics:
                                                           const NeverScrollableScrollPhysics(),
                                                       itemBuilder:
@@ -334,7 +355,17 @@ class ClassroomScreen extends StatelessWidget {
                                                                                 padding: const EdgeInsets.symmetric(horizontal: kMinPadding / 2),
                                                                                 child: TextButton(
                                                                                     style: TextButton.styleFrom(backgroundColor: ColorPalette.backgroundColor),
-                                                                                    onPressed: () {},
+                                                                                    onPressed: () async {
+                                                                                      classroomController.chosenHomework.value = classroomController.homeworkList[index];
+                                                                                      chapterController.chosenChapter.value = chapterController.chapterList.firstWhere((e) => e.id == classroomController.homeworkList[index].quizMatrix.chapterId);
+                                                                                      quizMatrixController.chosenQuizMatrix.value = classroomController.homeworkList[index].quizMatrix;
+                                                                                      await examController.fetchExams();
+                                                                                      await examController.fetchExamByQuizMatrixId(quizMatrixController.chosenQuizMatrix.value!.id);
+                                                                                      examController.tempNumOfQuiz.value = quizMatrixController.chosenQuizMatrix.value!.numOfQuiz!;
+                                                                                      examController.tempDuration.value = quizMatrixController.chosenQuizMatrix.value!.defaultDuration!;
+                                                                                      await examController.fetchRanking(chapterController.chosenChapter.value!.id);
+                                                                                      Get.toNamed(Routes.classroomExamStartScreen);
+                                                                                    },
                                                                                     child: const Text(
                                                                                       'Làm ngay',
                                                                                       style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),

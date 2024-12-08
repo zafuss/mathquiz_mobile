@@ -10,8 +10,9 @@ import 'package:mathquiz_mobile/helpers/latex_helpers.dart';
 import '../../config/demension_const.dart';
 
 class DoExamScreen extends StatelessWidget {
-  DoExamScreen({super.key});
+  DoExamScreen({super.key, this.func});
   final ScrollController _scrollController = ScrollController();
+  final Function? func;
 
   void _scrollToSelectedItem(int index) {
     // Kích thước xấp xỉ của mỗi item (40 + 8 padding)
@@ -303,12 +304,18 @@ class DoExamScreen extends StatelessWidget {
                                                           onPressed: () async {
                                                             if (await doExamController
                                                                 .handleSubmitExam()) {
-                                                              Get.offNamed(Routes
-                                                                  .resultScreen);
+                                                              if (func !=
+                                                                  null) {
+                                                                func!();
+                                                              } else {
+                                                                Get.offNamed(Routes
+                                                                    .resultScreen);
+                                                              }
                                                             } else {
                                                               _submitFailedDialog(
                                                                   context,
-                                                                  doExamController);
+                                                                  doExamController,
+                                                                  func!);
                                                             }
                                                           },
                                                           child: doExamController
@@ -625,7 +632,7 @@ class DoExamScreen extends StatelessWidget {
   }
 
   void _submitFailedDialog(
-      BuildContext context, DoExamController doExamController) {
+      BuildContext context, DoExamController doExamController, Function func) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -664,7 +671,11 @@ class DoExamScreen extends StatelessWidget {
             TextButton(
               onPressed: () async {
                 await doExamController.forceSubmitExam();
-                Get.offAndToNamed(Routes.resultScreen);
+                if (func != null) {
+                  func();
+                } else {
+                  Get.offAndToNamed(Routes.resultScreen);
+                }
               },
               child: const Text(
                 'Có',

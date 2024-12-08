@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mathquiz_mobile/features/choose_exam/dtos/ranking_dto.dart';
 import 'package:mathquiz_mobile/models/chapter.dart';
+import 'package:mathquiz_mobile/models/classroom_models/homework.dart';
 import 'package:mathquiz_mobile/models/exam.dart';
 import 'package:mathquiz_mobile/models/level.dart';
 import 'package:mathquiz_mobile/models/quiz_matrix.dart';
@@ -110,8 +111,8 @@ class ChooseExamApiClient {
     }
   }
 
-  Future<void> addNewDefaultExam(
-      QuizMatrix quizMatrix, String clientId, String examId) async {
+  Future<void> addNewDefaultExam(QuizMatrix quizMatrix, String clientId,
+      String examId, Homework? homework) async {
     try {
       final body = {
         "id": examId,
@@ -122,6 +123,7 @@ class ChooseExamApiClient {
         "numberOfCorrectAnswer": 0,
         "duration": quizMatrix.defaultDuration,
         "isCustomExam": false,
+        "homeworkId": homework?.id
       };
       final response = await dioClient.dio.post('exams/', data: body);
       print(response);

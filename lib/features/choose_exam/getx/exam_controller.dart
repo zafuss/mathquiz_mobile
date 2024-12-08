@@ -3,6 +3,7 @@ import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_repository.dart';
 import 'package:mathquiz_mobile/features/choose_exam/dtos/ranking_dto.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
+import 'package:mathquiz_mobile/models/classroom_models/homework.dart';
 import 'package:mathquiz_mobile/models/quiz_matrix.dart';
 import 'package:mathquiz_mobile/result_type.dart';
 
@@ -82,7 +83,27 @@ class ExamController extends GetxController {
           currentExamId.value, tempDuration.value, tempNumOfQuiz.value);
     } else {
       await chooseExamRepository.addNewDefaultExam(
-          currentQuizMatrix, clientId!, currentExamId.value);
+          currentQuizMatrix, clientId!, currentExamId.value, null);
+    }
+    await fetchExams();
+    chosenExam.value =
+        examList.firstWhere((element) => element.id == currentExamId.value);
+    isLoading.value = false;
+  }
+
+  addClassroomExam(Homework homework) async {
+    isLoading.value = true;
+
+    final clientId = await localDataController.getClientId();
+    currentExamId.value =
+        'exam${homework.quizMatrix.id}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
+    if (tempDuration.value != homework.quizMatrix.defaultDuration ||
+        tempNumOfQuiz.value != homework.quizMatrix.numOfQuiz) {
+      await chooseExamRepository.addCustomExam(homework.quizMatrix, clientId!,
+          currentExamId.value, tempDuration.value, tempNumOfQuiz.value);
+    } else {
+      await chooseExamRepository.addNewDefaultExam(
+          homework.quizMatrix, clientId!, currentExamId.value, homework);
     }
     await fetchExams();
     chosenExam.value =

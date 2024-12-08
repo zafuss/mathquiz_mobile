@@ -383,8 +383,8 @@ class ClassroomIndexScreen extends StatelessWidget {
                     if (value == null || value.isEmpty) {
                       return 'Trường này không được để trống';
                     }
-                    if (value.length != 6) {
-                      return 'Số ký tự phải là 6';
+                    if (value.length > 8) {
+                      return 'Số ký tự nhiều nhất là 8';
                     }
                     return null; // Trả về null nếu không có lỗi
                   },

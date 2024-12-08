@@ -3,6 +3,7 @@ import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/data/choose_exam_api_client.dart';
 import 'package:mathquiz_mobile/features/choose_exam/dtos/ranking_dto.dart';
 import 'package:mathquiz_mobile/models/chapter.dart';
+import 'package:mathquiz_mobile/models/classroom_models/homework.dart';
 import 'package:mathquiz_mobile/models/exam.dart';
 import 'package:mathquiz_mobile/models/grade.dart';
 import 'package:mathquiz_mobile/models/level.dart';
@@ -143,9 +144,10 @@ class ChooseExamRepository {
     }
   }
 
-  Future<ResultType<bool>>? addNewDefaultExam(
-      QuizMatrix quizMatrix, String clientId, String examId) async {
-    await chooseExamApiClient.addNewDefaultExam(quizMatrix, clientId, examId);
+  Future<ResultType<bool>>? addNewDefaultExam(QuizMatrix quizMatrix,
+      String clientId, String examId, Homework? homework) async {
+    await chooseExamApiClient.addNewDefaultExam(
+        quizMatrix, clientId, examId, homework);
     try {
       return Success(true);
     } catch (e) {

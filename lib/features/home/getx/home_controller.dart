@@ -13,7 +13,7 @@ class HomeController extends GetxController {
 
   final resultController = Get.put(ResultController());
   final localDataControler = Get.put(LocalDataController());
-  final quizMatrixController = Get.put(QuizMatrixController());
+  final quizMatrixController = Get.find<QuizMatrixController>();
 
   @override
   onInit() async {

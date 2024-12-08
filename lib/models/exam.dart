@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:mathquiz_mobile/models/classroom_models/homework.dart';
 
 import 'exam_detail.dart';
 
@@ -13,6 +14,7 @@ class Exam extends Equatable {
   // List<Result>? results;
   final String? clientId;
   final int? quizMatrixId;
+  final Homework? homework;
 
   const Exam(
       {required this.id,
@@ -23,6 +25,7 @@ class Exam extends Equatable {
       this.examDetails,
       required this.isCustomExam,
       // this.results,
+      this.homework,
       required this.clientId,
       required this.quizMatrixId});
   factory Exam.fromJson(Map<String, dynamic> json) => Exam(
@@ -32,6 +35,8 @@ class Exam extends Equatable {
       numberOfCorrectAnswer: json['numberOfCorrectAnswer'],
       duration: json['duration'],
       clientId: json['clientId'],
+      homework:
+          json['homework'] != null ? Homework.fromJson(json['homework']) : null,
       isCustomExam: json['isCustomExam'],
       quizMatrixId: json['quizMatrixId']);
   @override
@@ -45,6 +50,7 @@ class Exam extends Equatable {
         clientId,
         examDetails,
         isCustomExam,
-        quizMatrixId
+        quizMatrixId,
+        homework
       ];
 }

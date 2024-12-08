@@ -34,6 +34,7 @@ class Homework extends Equatable {
       quizMatrix: QuizMatrix.fromJson(json['quizMatrix']),
       classroom: Classroom.fromJson(json['classroom']),
       attempt: json['attempt']);
+
   @override
   // TODO: implement props
   List<Object?> get props => [

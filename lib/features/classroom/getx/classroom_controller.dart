@@ -36,6 +36,7 @@ class ClassroomController extends GetxController {
   Rx<News?> chosenNews = Rx<News?>(null);
   Rx<QuizMatrix?> chosenAssignQuizMatrix = Rx<QuizMatrix?>(null);
   Rx<Chapter?> chosenAssignChapter = Rx<Chapter?>(null);
+  Rx<Homework?> chosenHomework = Rx<Homework?>(null);
 
   RxList<Classroom> myClassrooms = <Classroom>[].obs;
   RxList<Classroom> myJoinedClassrooms = <Classroom>[].obs;
