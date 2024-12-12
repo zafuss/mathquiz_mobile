@@ -671,11 +671,7 @@ class DoExamScreen extends StatelessWidget {
             TextButton(
               onPressed: () async {
                 await doExamController.forceSubmitExam();
-                if (func != null) {
-                  func();
-                } else {
-                  Get.offAndToNamed(Routes.resultScreen);
-                }
+                func();
               },
               child: const Text(
                 'Có',

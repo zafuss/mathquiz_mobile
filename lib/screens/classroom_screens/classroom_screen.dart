@@ -7,6 +7,7 @@ import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
+import 'package:mathquiz_mobile/features/do_exam/getx/result_controller.dart';
 import 'package:mathquiz_mobile/helpers/classroom_datetime_formatter.dart';
 
 import '../../features/classroom/getx/classroom_controller.dart';
@@ -25,6 +26,7 @@ class ClassroomScreen extends StatelessWidget {
     final quizMatrixController = Get.put(QuizMatrixController());
     final chapterController = Get.put(ChapterController());
     final examController = Get.put(ExamController());
+    final resultController = Get.put(ResultController());
     return Scaffold(
         key: customDrawerController.scaffoldKey,
         drawer: CustomDrawer(
@@ -51,7 +53,8 @@ class ClassroomScreen extends StatelessWidget {
                     child: classroomController.isLoading.value ||
                             quizMatrixController.isLoading.value ||
                             chapterController.isLoading.value ||
-                            examController.isLoading.value
+                            examController.isLoading.value ||
+                            resultController.isLoading.value
                         ? const Center(
                             child: CircularProgressIndicator(),
                           )
@@ -366,8 +369,8 @@ class ClassroomScreen extends StatelessWidget {
                                                                                       await examController.fetchRanking(chapterController.chosenChapter.value!.id);
                                                                                       Get.toNamed(Routes.classroomExamStartScreen);
                                                                                     },
-                                                                                    child: const Text(
-                                                                                      'Làm ngay',
+                                                                                    child: Text(
+                                                                                      'Làm ngay ${resultController.homeworkRemainingAttempt(classroomController.homeworkList[index])}',
                                                                                       style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
                                                                                     )),
                                                                               )

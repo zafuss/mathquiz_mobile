@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
+import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
+import 'package:mathquiz_mobile/models/classroom_models/homework.dart';
 import 'package:mathquiz_mobile/models/result.dart';
 
 import '../../../result_type.dart';
@@ -7,11 +9,14 @@ import '../data/do_exam_repository.dart';
 
 class ResultController extends GetxController {
   var isLoading = false.obs;
+  var clientId = ''.obs;
   final DoExamRepository doExamRepository = DoExamRepository();
   final ExamController examController = Get.put(ExamController());
+  final LocalDataController localDataController = LocalDataController();
   @override
   onInit() async {
     await fetchResults();
+    clientId.value = await localDataController.getClientId() ?? "";
     super.onInit();
   }
 
@@ -22,6 +27,7 @@ class ResultController extends GetxController {
 
   fetchResults() async {
     isLoading.value = true;
+    await examController.fetchExams();
     var result = await doExamRepository.getResults();
     isLoading.value = false;
     return (switch (result) {
@@ -56,7 +62,6 @@ class ResultController extends GetxController {
     return listByClient;
   }
 
-
   addResults(Result result) async {
     isLoading.value = true;
 
@@ -72,5 +77,19 @@ class ResultController extends GetxController {
 
     await doExamRepository.updateResult(result);
     isLoading.value = false;
+  }
+
+  int homeworkRemainingAttempt(Homework homework) {
+    int count = 0;
+    for (var exam in examController.examList) {
+      if (exam.homework != null &&
+          exam.quizMatrixId == homework.quizMatrix.id &&
+          exam.clientId! == clientId.value) {
+        if (resultList.firstWhere((r) => r.examId == exam.id).endTime != null) {
+          count++;
+        }
+      }
+    }
+    return homework.attempt - count;
   }
 }
