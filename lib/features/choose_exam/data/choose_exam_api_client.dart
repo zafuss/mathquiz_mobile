@@ -116,7 +116,7 @@ class ChooseExamApiClient {
     try {
       final body = {
         "id": examId,
-        "name": quizMatrix.name,
+        "name": homework != null ? homework.title : quizMatrix.name,
         "quizMatrixId": quizMatrix.id,
         "clientId": clientId,
         "numberOfQuiz": quizMatrix.numOfQuiz,

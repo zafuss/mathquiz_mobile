@@ -96,14 +96,14 @@ class ExamController extends GetxController {
 
     final clientId = await localDataController.getClientId();
     currentExamId.value =
-        'exam${homework.quizMatrix.id}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
-    if (tempDuration.value != homework.quizMatrix.defaultDuration ||
-        tempNumOfQuiz.value != homework.quizMatrix.numOfQuiz) {
-      await chooseExamRepository.addCustomExam(homework.quizMatrix, clientId!,
+        'exam${homework.quizMatrix!.id}${DateTime.now().day}${DateTime.now().month}${DateTime.now().year}${DateTime.now().hour}${DateTime.now().minute}${DateTime.now().microsecond.toString().substring(0, 2)}';
+    if (tempDuration.value != homework.quizMatrix!.defaultDuration ||
+        tempNumOfQuiz.value != homework.quizMatrix!.numOfQuiz) {
+      await chooseExamRepository.addCustomExam(homework.quizMatrix!, clientId!,
           currentExamId.value, tempDuration.value, tempNumOfQuiz.value);
     } else {
       await chooseExamRepository.addNewDefaultExam(
-          homework.quizMatrix, clientId!, currentExamId.value, homework);
+          homework.quizMatrix!, clientId!, currentExamId.value, homework);
     }
     await fetchExams();
     chosenExam.value =

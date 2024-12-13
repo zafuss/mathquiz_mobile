@@ -227,6 +227,7 @@ class DoExamController extends GetxController {
 
   forceSubmitExam() async {
     isGettingResult.value = true;
+    stopTimer();
     await saveNewExamDetailList();
     await examController
         .fetchRanking(chapterController.chosenChapter.value!.id);

@@ -9,8 +9,8 @@ class Homework extends Equatable {
   final DateTime createDate;
   final DateTime handinDate;
   final DateTime expiredDate;
-  final QuizMatrix quizMatrix;
-  final Classroom classroom;
+  final QuizMatrix? quizMatrix;
+  final Classroom? classroom;
   final int attempt;
 
   const Homework(
@@ -20,8 +20,8 @@ class Homework extends Equatable {
       required this.createDate,
       required this.handinDate,
       required this.expiredDate,
-      required this.quizMatrix,
-      required this.classroom,
+      this.quizMatrix,
+      this.classroom,
       required this.attempt});
 
   factory Homework.fromJson(Map<String, dynamic> json) => Homework(
@@ -31,8 +31,12 @@ class Homework extends Equatable {
       createDate: DateTime.parse(json['createDate']),
       handinDate: DateTime.parse(json['handinDate']),
       expiredDate: DateTime.parse(json['expiredDate']),
-      quizMatrix: QuizMatrix.fromJson(json['quizMatrix']),
-      classroom: Classroom.fromJson(json['classroom']),
+      quizMatrix: json['quizMatrix'] != null
+          ? QuizMatrix.fromJson(json['quizMatrix'])
+          : null,
+      classroom: json['classroom'] != null
+          ? Classroom.fromJson(json['classroom'])
+          : null,
       attempt: json['attempt']);
 
   @override

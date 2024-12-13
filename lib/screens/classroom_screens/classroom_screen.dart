@@ -280,6 +280,19 @@ class ClassroomScreen extends StatelessWidget {
                                                       itemBuilder:
                                                           (BuildContext context,
                                                               int index) {
+                                                        var isExpired = DateTime
+                                                                .now()
+                                                            .compareTo(
+                                                                classroomController
+                                                                    .homeworkList[
+                                                                        index]
+                                                                    .expiredDate);
+                                                        int remainingAttempt =
+                                                            resultController
+                                                                .homeworkRemainingAttempt(
+                                                                    classroomController
+                                                                            .homeworkList[
+                                                                        index]);
                                                         return Padding(
                                                           padding: const EdgeInsets
                                                               .only(
@@ -356,23 +369,39 @@ class ClassroomScreen extends StatelessWidget {
                                                                               ),
                                                                               Padding(
                                                                                 padding: const EdgeInsets.symmetric(horizontal: kMinPadding / 2),
-                                                                                child: TextButton(
-                                                                                    style: TextButton.styleFrom(backgroundColor: ColorPalette.backgroundColor),
-                                                                                    onPressed: () async {
-                                                                                      classroomController.chosenHomework.value = classroomController.homeworkList[index];
-                                                                                      chapterController.chosenChapter.value = chapterController.chapterList.firstWhere((e) => e.id == classroomController.homeworkList[index].quizMatrix.chapterId);
-                                                                                      quizMatrixController.chosenQuizMatrix.value = classroomController.homeworkList[index].quizMatrix;
-                                                                                      await examController.fetchExams();
-                                                                                      await examController.fetchExamByQuizMatrixId(quizMatrixController.chosenQuizMatrix.value!.id);
-                                                                                      examController.tempNumOfQuiz.value = quizMatrixController.chosenQuizMatrix.value!.numOfQuiz!;
-                                                                                      examController.tempDuration.value = quizMatrixController.chosenQuizMatrix.value!.defaultDuration!;
-                                                                                      await examController.fetchRanking(chapterController.chosenChapter.value!.id);
-                                                                                      Get.toNamed(Routes.classroomExamStartScreen);
-                                                                                    },
-                                                                                    child: Text(
-                                                                                      'Làm ngay ${resultController.homeworkRemainingAttempt(classroomController.homeworkList[index])}',
-                                                                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                                                                                    )),
+                                                                                child: Column(
+                                                                                  children: [
+                                                                                    TextButton(
+                                                                                        style: TextButton.styleFrom(backgroundColor: ColorPalette.backgroundColor),
+                                                                                        onPressed: () async {
+                                                                                          if (remainingAttempt > 0 && isExpired > -1) {
+                                                                                            classroomController.chosenHomework.value = classroomController.homeworkList[index];
+                                                                                            chapterController.chosenChapter.value = chapterController.chapterList.firstWhere((e) => e.id == classroomController.homeworkList[index].quizMatrix!.chapterId);
+                                                                                            quizMatrixController.chosenQuizMatrix.value = classroomController.homeworkList[index].quizMatrix;
+                                                                                            await examController.fetchExams();
+                                                                                            await examController.fetchExamByQuizMatrixId(quizMatrixController.chosenQuizMatrix.value!.id);
+                                                                                            examController.tempNumOfQuiz.value = quizMatrixController.chosenQuizMatrix.value!.numOfQuiz!;
+                                                                                            examController.tempDuration.value = quizMatrixController.chosenQuizMatrix.value!.defaultDuration!;
+                                                                                            await examController.fetchRanking(chapterController.chosenChapter.value!.id);
+                                                                                            Get.toNamed(Routes.classroomExamStartScreen);
+                                                                                          }
+                                                                                        },
+                                                                                        child: Text(
+                                                                                          isExpired > -1
+                                                                                              ? 'Đã hết hạn'
+                                                                                              : remainingAttempt > 0
+                                                                                                  ? 'Làm ngay'
+                                                                                                  : 'Hết lượt',
+                                                                                          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                                                                                        )),
+                                                                                    remainingAttempt > 0
+                                                                                        ? Text(
+                                                                                            'Còn $remainingAttempt lượt',
+                                                                                            style: const TextStyle(color: Colors.black54, fontSize: 13),
+                                                                                          )
+                                                                                        : const SizedBox(),
+                                                                                  ],
+                                                                                ),
                                                                               )
                                                                             ],
                                                                           ),

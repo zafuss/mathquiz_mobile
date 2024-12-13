@@ -80,7 +80,7 @@ class ClassroomExamStartScreen extends StatelessWidget {
                                               text: classroomController
                                                   .chosenHomework
                                                   .value!
-                                                  .classroom
+                                                  .classroom!
                                                   .name!)
                                         ])),
                                     const SizedBox(

@@ -128,7 +128,10 @@ class ClassroomResultScreen extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                          onPressed: () => Get.offAllNamed(Routes.homeScreen),
+                          onPressed: () {
+                            Get.offAllNamed(Routes.homeScreen);
+                            Get.delete<DoExamController>(force: true);
+                          },
                           child: const Text('Trở về màn hình chính')),
                       Center(
                         child: TextButton(

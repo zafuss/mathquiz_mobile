@@ -47,7 +47,7 @@ class DoExamScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    final doExamController = Get.put(DoExamController());
+    final doExamController = Get.put(DoExamController(), permanent: false);
     return Scaffold(
       body: Stack(
         children: [
@@ -308,11 +308,12 @@ class DoExamScreen extends StatelessWidget {
                                                                   null) {
                                                                 func!();
                                                               } else {
-                                                                Get.offNamed(Routes
-                                                                    .resultScreen);
+                                                                Get.offAndToNamed(
+                                                                    Routes
+                                                                        .resultScreen);
                                                               }
                                                             } else {
-                                                              _submitFailedDialog(
+                                                              await _submitFailedDialog(
                                                                   context,
                                                                   doExamController,
                                                                   func!);
@@ -631,7 +632,7 @@ class DoExamScreen extends StatelessWidget {
     );
   }
 
-  void _submitFailedDialog(
+  _submitFailedDialog(
       BuildContext context, DoExamController doExamController, Function func) {
     showDialog(
       context: context,
