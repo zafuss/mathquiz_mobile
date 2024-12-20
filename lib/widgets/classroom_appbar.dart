@@ -17,7 +17,7 @@ class ClassroomAppBarContainer extends StatelessWidget {
       this.backAction = false,
       this.membersAction = false});
   final CustomDrawerController drawerController;
-  final String title;
+  final Widget title;
   final bool backAction;
   final bool membersAction;
   final localDataController = Get.put(LocalDataController());
@@ -91,15 +91,7 @@ class ClassroomAppBarContainer extends StatelessWidget {
                     const SizedBox(
                       width: kMinPadding / 2,
                     ),
-                    Expanded(
-                      child: Text(
-                        title,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 24),
-                      ),
-                    ),
+                    Expanded(child: title),
                     membersAction
                         ? InkWell(
                             onTap: () async {

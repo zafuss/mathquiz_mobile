@@ -41,6 +41,7 @@ class CustomAppBarContainer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
+                      borderRadius: BorderRadius.circular(defaultBorderRadius),
                       onTap: () => drawerController.openDrawer(),
                       child: Container(
                         height: 45,
@@ -56,6 +57,7 @@ class CustomAppBarContainer extends StatelessWidget {
                       ),
                     ),
                     InkWell(
+                      borderRadius: BorderRadius.circular(defaultBorderRadius),
                       child: localDataController.clientImageUrl.value.isEmpty
                           ? Container(
                               height: 45,

@@ -316,7 +316,10 @@ class DoExamScreen extends StatelessWidget {
                                                               await _submitFailedDialog(
                                                                   context,
                                                                   doExamController,
-                                                                  func!);
+                                                                  func ??
+                                                                      () => Get.offAndToNamed(
+                                                                          Routes
+                                                                              .resultScreen));
                                                             }
                                                           },
                                                           child: doExamController
@@ -633,7 +636,7 @@ class DoExamScreen extends StatelessWidget {
   }
 
   _submitFailedDialog(
-      BuildContext context, DoExamController doExamController, Function func) {
+      BuildContext context, DoExamController doExamController, Function? func) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -672,7 +675,7 @@ class DoExamScreen extends StatelessWidget {
             TextButton(
               onPressed: () async {
                 await doExamController.forceSubmitExam();
-                func();
+                func != null ? func() : null;
               },
               child: const Text(
                 'Có',

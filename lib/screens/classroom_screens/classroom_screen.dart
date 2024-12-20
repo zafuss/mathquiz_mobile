@@ -8,7 +8,7 @@ import 'package:mathquiz_mobile/features/choose_exam/getx/chapter_controller.dar
 import 'package:mathquiz_mobile/features/choose_exam/getx/exam_controller.dart';
 import 'package:mathquiz_mobile/features/choose_exam/getx/quiz_matrix_controller.dart';
 import 'package:mathquiz_mobile/features/do_exam/getx/result_controller.dart';
-import 'package:mathquiz_mobile/helpers/classroom_datetime_formatter.dart';
+import 'package:mathquiz_mobile/widgets/homework_list_widget.dart';
 
 import '../../features/classroom/getx/classroom_controller.dart';
 import '../../features/drawer/drawer_controller.dart';
@@ -38,7 +38,13 @@ class ClassroomScreen extends StatelessWidget {
                 ClassroomAppBarContainer(
                   backAction: true,
                   drawerController: customDrawerController,
-                  title: classroomController.chosenClassroom.value!.name!,
+                  title: Text(
+                    classroomController.chosenClassroom.value!.name!,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24),
+                  ),
                   membersAction: true,
                 ),
                 Expanded(
@@ -62,365 +68,18 @@ class ClassroomScreen extends StatelessWidget {
                             physics: const AlwaysScrollableScrollPhysics(),
                             child: Column(
                               children: [
-                                classroomController.homeworkList.isEmpty
-                                    ? const SizedBox()
-                                    : classroomController.isTeacher.value
-                                        ? Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: kMinPadding),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                  color: Colors.white
-                                                      .withOpacity(0.6)),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal:
-                                                            kDefaultPadding,
-                                                        vertical:
-                                                            kMinPadding / 2),
-                                                child: Column(
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        const Text(
-                                                            'Bài thi đã giao',
-                                                            style: TextStyle(
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600)),
-                                                        InkWell(
-                                                          child: const Text(
-                                                            'Xem tất cả',
-                                                            style: TextStyle(
-                                                                color: ColorPalette
-                                                                    .primaryColor,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                          onTap: () {},
-                                                        )
-                                                      ],
-                                                    ),
-                                                    const SizedBox(
-                                                      height: kMinPadding / 2,
-                                                    ),
-                                                    ListView.builder(
-                                                      shrinkWrap: true,
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              0),
-                                                      itemCount:
-                                                          classroomController
-                                                                      .homeworkList
-                                                                      .length >
-                                                                  1
-                                                              ? 2
-                                                              : 1,
-                                                      physics:
-                                                          const NeverScrollableScrollPhysics(),
-                                                      itemBuilder:
-                                                          (BuildContext context,
-                                                              int index) {
-                                                        return Padding(
-                                                          padding: const EdgeInsets
-                                                              .only(
-                                                              bottom:
-                                                                  kMinPadding),
-                                                          child: InkWell(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        20),
-                                                            onTap: () async {},
-                                                            child: Container(
-                                                              decoration: BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              20),
-                                                                  color: Colors
-                                                                      .white),
-                                                              child: Padding(
-                                                                padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                    vertical:
-                                                                        kMinPadding /
-                                                                            2),
-                                                                child: Column(
-                                                                  children: [
-                                                                    Row(
-                                                                      children: [
-                                                                        const SizedBox(
-                                                                            width:
-                                                                                kMinPadding), // thêm khoảng cách giữa ảnh và văn bản
-                                                                        Expanded(
-                                                                          child:
-                                                                              Column(
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              RichText(
-                                                                                text: TextSpan(
-                                                                                  style: DefaultTextStyle.of(context).style.copyWith(color: Colors.black),
-                                                                                  children: [
-                                                                                    TextSpan(
-                                                                                      text: classroomController.homeworkList[index].title,
-                                                                                      style: const TextStyle(fontWeight: FontWeight.bold), // In đậm
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                maxLines: 2,
-                                                                                overflow: TextOverflow.clip,
-                                                                                softWrap: true,
-                                                                              ),
-                                                                              const SizedBox(
-                                                                                height: 4,
-                                                                              ),
-                                                                              Column(
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                children: [
-                                                                                  Text(
-                                                                                    'Có hiệu lực: ${classroomDateTimeFormatter(classroomController.homeworkList[index].handinDate)}',
-                                                                                    style: const TextStyle(color: Colors.black54, fontSize: 13),
-                                                                                  ),
-                                                                                  Text(
-                                                                                    'Hết hạn: ${classroomDateTimeFormatter(classroomController.homeworkList[index].expiredDate)}',
-                                                                                    style: const TextStyle(color: Colors.black54, fontSize: 13),
-                                                                                  ),
-                                                                                ],
-                                                                              )
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          )
-                                        : Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: kMinPadding),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                  color: Colors.white
-                                                      .withOpacity(0.6)),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal:
-                                                            kDefaultPadding,
-                                                        vertical:
-                                                            kMinPadding / 2),
-                                                child: Column(
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        const Text(
-                                                            'Bài thi được giao',
-                                                            style: TextStyle(
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600)),
-                                                        InkWell(
-                                                          child: const Text(
-                                                            'Xem tất cả',
-                                                            style: TextStyle(
-                                                                color: ColorPalette
-                                                                    .primaryColor,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                          onTap: () {},
-                                                        )
-                                                      ],
-                                                    ),
-                                                    const SizedBox(
-                                                      height: kMinPadding / 2,
-                                                    ),
-                                                    ListView.builder(
-                                                      shrinkWrap: true,
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              0),
-                                                      itemCount:
-                                                          classroomController
-                                                                      .homeworkList
-                                                                      .length >
-                                                                  1
-                                                              ? 2
-                                                              : 1,
-                                                      physics:
-                                                          const NeverScrollableScrollPhysics(),
-                                                      itemBuilder:
-                                                          (BuildContext context,
-                                                              int index) {
-                                                        var isExpired = DateTime
-                                                                .now()
-                                                            .compareTo(
-                                                                classroomController
-                                                                    .homeworkList[
-                                                                        index]
-                                                                    .expiredDate);
-                                                        int remainingAttempt =
-                                                            resultController
-                                                                .homeworkRemainingAttempt(
-                                                                    classroomController
-                                                                            .homeworkList[
-                                                                        index]);
-                                                        return Padding(
-                                                          padding: const EdgeInsets
-                                                              .only(
-                                                              bottom:
-                                                                  kMinPadding),
-                                                          child: InkWell(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        20),
-                                                            onTap: () async {},
-                                                            child: Container(
-                                                              decoration: BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              20),
-                                                                  color: Colors
-                                                                      .white),
-                                                              child: Padding(
-                                                                padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                    vertical:
-                                                                        kMinPadding /
-                                                                            2),
-                                                                child: Column(
-                                                                  children: [
-                                                                    Row(
-                                                                      children: [
-                                                                        const SizedBox(
-                                                                            width:
-                                                                                kMinPadding), // thêm khoảng cách giữa ảnh và văn bản
-                                                                        Expanded(
-                                                                          child:
-                                                                              Row(
-                                                                            children: [
-                                                                              Expanded(
-                                                                                child: Column(
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    RichText(
-                                                                                      text: TextSpan(
-                                                                                        style: DefaultTextStyle.of(context).style.copyWith(color: Colors.black),
-                                                                                        children: [
-                                                                                          TextSpan(
-                                                                                            text: classroomController.homeworkList[index].title,
-                                                                                            style: const TextStyle(fontWeight: FontWeight.bold), // In đậm
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      maxLines: 2,
-                                                                                      overflow: TextOverflow.clip,
-                                                                                      softWrap: true,
-                                                                                    ),
-                                                                                    const SizedBox(
-                                                                                      height: 4,
-                                                                                    ),
-                                                                                    Column(
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                      mainAxisAlignment: MainAxisAlignment.start,
-                                                                                      children: [
-                                                                                        Text(
-                                                                                          'Có hiệu lực: ${classroomDateTimeFormatter(classroomController.homeworkList[index].handinDate)}',
-                                                                                          style: const TextStyle(color: Colors.black54, fontSize: 13),
-                                                                                        ),
-                                                                                        Text(
-                                                                                          'Hết hạn: ${classroomDateTimeFormatter(classroomController.homeworkList[index].expiredDate)}',
-                                                                                          style: const TextStyle(color: Colors.black54, fontSize: 13),
-                                                                                        ),
-                                                                                      ],
-                                                                                    )
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: const EdgeInsets.symmetric(horizontal: kMinPadding / 2),
-                                                                                child: Column(
-                                                                                  children: [
-                                                                                    TextButton(
-                                                                                        style: TextButton.styleFrom(backgroundColor: ColorPalette.backgroundColor),
-                                                                                        onPressed: () async {
-                                                                                          if (remainingAttempt > 0 && isExpired > -1) {
-                                                                                            classroomController.chosenHomework.value = classroomController.homeworkList[index];
-                                                                                            chapterController.chosenChapter.value = chapterController.chapterList.firstWhere((e) => e.id == classroomController.homeworkList[index].quizMatrix!.chapterId);
-                                                                                            quizMatrixController.chosenQuizMatrix.value = classroomController.homeworkList[index].quizMatrix;
-                                                                                            await examController.fetchExams();
-                                                                                            await examController.fetchExamByQuizMatrixId(quizMatrixController.chosenQuizMatrix.value!.id);
-                                                                                            examController.tempNumOfQuiz.value = quizMatrixController.chosenQuizMatrix.value!.numOfQuiz!;
-                                                                                            examController.tempDuration.value = quizMatrixController.chosenQuizMatrix.value!.defaultDuration!;
-                                                                                            await examController.fetchRanking(chapterController.chosenChapter.value!.id);
-                                                                                            Get.toNamed(Routes.classroomExamStartScreen);
-                                                                                          }
-                                                                                        },
-                                                                                        child: Text(
-                                                                                          isExpired > -1
-                                                                                              ? 'Đã hết hạn'
-                                                                                              : remainingAttempt > 0
-                                                                                                  ? 'Làm ngay'
-                                                                                                  : 'Hết lượt',
-                                                                                          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                                                                                        )),
-                                                                                    remainingAttempt > 0
-                                                                                        ? Text(
-                                                                                            'Còn $remainingAttempt lượt',
-                                                                                            style: const TextStyle(color: Colors.black54, fontSize: 13),
-                                                                                          )
-                                                                                        : const SizedBox(),
-                                                                                  ],
-                                                                                ),
-                                                                              )
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
+                                HomeworkListWidget(
+                                  classroomController: classroomController,
+                                  resultController: resultController,
+                                  chapterController: chapterController,
+                                  quizMatrixController: quizMatrixController,
+                                  examController: examController,
+                                  itemCount:
+                                      classroomController.homeworkList.length >
+                                              1
+                                          ? 2
+                                          : 1,
+                                ),
                                 classroomController.isTeacher.value
                                     ? Padding(
                                         padding: const EdgeInsets.symmetric(

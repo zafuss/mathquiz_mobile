@@ -8,7 +8,9 @@ import 'package:mathquiz_mobile/features/classroom/data/comment/comment_reposito
 import 'package:mathquiz_mobile/features/classroom/data/homework/homework_repository.dart';
 import 'package:mathquiz_mobile/features/classroom/data/news/news_repository.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/comment/create_comment_dto.dart';
+import 'package:mathquiz_mobile/features/classroom/dtos/homework/classroom_homework_results_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/homework/create_homework_news_dto.dart';
+import 'package:mathquiz_mobile/features/classroom/dtos/homework/update_homework_news_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/news/create_news_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/news/update_news_dto.dart';
 import 'package:mathquiz_mobile/helpers/data_loading.dart';
@@ -44,6 +46,11 @@ class ClassroomController extends GetxController {
   RxList<News> newsList = <News>[].obs;
   RxList<Comment> commentList = <Comment>[].obs;
   RxList<Homework> homeworkList = <Homework>[].obs;
+  RxList<Homework> availableHomeworkList = <Homework>[].obs;
+  RxList<ClassroomHomeworkResultsDto> resultList =
+      <ClassroomHomeworkResultsDto>[].obs;
+  RxList<ClassroomHomeworkResultsDto> bestResultList =
+      <ClassroomHomeworkResultsDto>[].obs;
 
   ClassroomRepository classroomRepository = ClassroomRepository();
   ClassroomDetailRepository classroomDetailRepository =
@@ -107,6 +114,44 @@ class ClassroomController extends GetxController {
     });
   }
 
+  editHomework(String title, String content, BuildContext context) async {
+    isLoading.value = true;
+    UpdateHomeworkDto homework = UpdateHomeworkDto(
+        id: chosenHomework.value!.id,
+        title: title,
+        content: content,
+        status: 1,
+        handinDate: assignDateTime.value,
+        expiredDate: deadlineDateTime.value,
+        quizMatrixId: chosenHomework.value!.quizMatrix!.id,
+        attempt: homeworkAttempt.value);
+    var result = await homeworkRepository.editHomework(homework);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {await fetchHomeworkList(), Navigator.of(context).pop()},
+      Failure() => Get.snackbar('Lỗi sửa bài tập.', result.message),
+    });
+  }
+
+  changeHomeworkStatus(BuildContext context, int status) async {
+    isLoading.value = true;
+    UpdateHomeworkDto homework = UpdateHomeworkDto(
+        id: chosenHomework.value!.id,
+        title: chosenHomework.value!.title,
+        content: chosenHomework.value!.content,
+        status: status,
+        handinDate: chosenHomework.value!.handinDate,
+        expiredDate: chosenHomework.value!.expiredDate,
+        quizMatrixId: chosenHomework.value!.quizMatrix!.id,
+        attempt: chosenHomework.value!.attempt);
+    var result = await homeworkRepository.editHomework(homework);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {await fetchHomeworkList(), Navigator.of(context).pop()},
+      Failure() => Get.snackbar('Lỗi sửa bài tập.', result.message),
+    });
+  }
+
   fetchHomeworkList() async {
     isLoading.value = true;
     var result =
@@ -115,9 +160,40 @@ class ClassroomController extends GetxController {
     return (switch (result) {
       Success() => {
           homeworkList.value = result.data!,
-          homeworkList.sort((a, b) => b.expiredDate.compareTo(a.expiredDate))
+          homeworkList.sort((a, b) => b.expiredDate.compareTo(a.expiredDate)),
+          availableHomeworkList.value =
+              homeworkList.where((e) => e.status == 1).toList()
         },
       Failure() => Get.snackbar('Lỗi lấy thông tin bài tập.', result.message),
+    });
+  }
+
+  fetchResultList() async {
+    isLoading.value = true;
+    var result = await homeworkRepository.getResults(chosenHomework.value!.id);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {
+          resultList.value = result.data!,
+          resultList.sort(
+              (a, b) => b.student.fullname!.compareTo(a.student.fullname!))
+        },
+      Failure() => Get.snackbar('Lỗi lấy thông tin thống kê.', result.message),
+    });
+  }
+
+  fetchBestResultList() async {
+    isLoading.value = true;
+    var result =
+        await homeworkRepository.getBestResults(chosenHomework.value!.id);
+    isLoading.value = false;
+    return (switch (result) {
+      Success() => {
+          bestResultList.value = result.data!,
+          bestResultList.sort(
+              (a, b) => b.student.fullname!.compareTo(a.student.fullname!))
+        },
+      Failure() => Get.snackbar('Lỗi lấy thông tin thống kê.', result.message),
     });
   }
 
@@ -242,6 +318,35 @@ class ClassroomController extends GetxController {
         },
       Failure() => {dialogLoading.value = true, result}
     });
+  }
+
+  putClassroom(String id, String classroomName, BuildContext context) async {
+    dialogLoading.value = true;
+    var result = await classroomRepository.putClassroom(
+        classroomId: id, classroomName: classroomName);
+    await fetchMyClassrooms();
+    await fetchMyJoinedClassrooms();
+    await fetchChosenClassroom();
+    return (switch (result) {
+      Success() => {
+          dialogMessage.value = result.data,
+          result,
+          dialogLoading.value = false,
+        },
+      Failure() => {dialogLoading.value = false, result}
+    });
+  }
+
+  fetchChosenClassroom() async {
+    isLoading.value = true;
+    var clientId = await localDataController.getClientId();
+    if (chosenClassroom.value!.teacher!.id == clientId) {
+      chosenClassroom.value =
+          myClassrooms.firstWhere((e) => e.id == chosenClassroom.value!.id);
+    } else {
+      myJoinedClassrooms.firstWhere((e) => e.id == chosenClassroom.value!.id);
+    }
+    isLoading.value = false;
   }
 
   Future<Object> changeIsDeletedStatus(String classroomDetailId) async {

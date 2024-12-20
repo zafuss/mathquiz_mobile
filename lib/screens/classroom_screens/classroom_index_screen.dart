@@ -39,7 +39,13 @@ class ClassroomIndexScreen extends StatelessWidget {
               children: [
                 ClassroomAppBarContainer(
                   drawerController: customDrawerController,
-                  title: 'Lớp học',
+                  title: Text(
+                    'Lớp học',
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24),
+                  ),
                 ),
                 !classroomController.isLoading.value
                     ? Flexible(

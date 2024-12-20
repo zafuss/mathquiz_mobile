@@ -27,7 +27,13 @@ class MyJoinedClassroomsScreen extends StatelessWidget {
                 ClassroomAppBarContainer(
                   backAction: true,
                   drawerController: customDrawerController,
-                  title: 'Lớp đang theo học',
+                  title: const Text(
+                    'Lớp đang theo học',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24),
+                  ),
                 ),
                 !classroomController.isLoading.value
                     ? Flexible(

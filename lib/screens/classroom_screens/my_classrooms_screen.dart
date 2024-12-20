@@ -27,7 +27,13 @@ class MyClassroomsScreen extends StatelessWidget {
                 ClassroomAppBarContainer(
                   backAction: true,
                   drawerController: customDrawerController,
-                  title: 'Quản lý lớp học',
+                  title: Text(
+                    'Quản lý lớp học',
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24),
+                  ),
                 ),
                 !classroomController.isLoading.value
                     ? Flexible(

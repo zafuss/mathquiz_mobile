@@ -83,6 +83,7 @@ class ResultController extends GetxController {
     int count = 0;
     for (var exam in examController.examList) {
       if (exam.homework != null &&
+          exam.homework!.id == homework.id &&
           exam.quizMatrixId == homework.quizMatrix!.id &&
           exam.clientId! == clientId.value) {
         var result = resultList.firstWhereOrNull((r) => r.examId == exam.id);

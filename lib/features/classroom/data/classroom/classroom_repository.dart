@@ -66,4 +66,23 @@ class ClassroomRepository {
       return Failure('Unknown error');
     }
   }
+
+  Future<ResultType<String>> putClassroom(
+      {required String classroomId, required String classroomName}) async {
+    try {
+      final result =
+          await classroomApiClient.putClassroom(classroomId, classroomName);
+      if (result is Success<String>) {
+        return Success(result.data);
+      } else if (result is Failure<String>) {
+        // Handle failure
+        return result; // Return the Failure result
+      } else {
+        // Handle other cases
+        return Failure('Unknown error');
+      }
+    } catch (e) {
+      return Failure('Unknown error');
+    }
+  }
 }

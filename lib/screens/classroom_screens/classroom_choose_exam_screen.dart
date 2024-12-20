@@ -41,7 +41,13 @@ class ClassroomChooseExamScreen extends StatelessWidget {
                   ClassroomAppBarContainer(
                     backAction: true,
                     drawerController: customDrawerController,
-                    title: 'Giao bài thi',
+                    title: const Text(
+                      'Giao bài tập',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 24),
+                    ),
                   ),
                   Expanded(
                     child: SingleChildScrollView(

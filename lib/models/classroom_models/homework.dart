@@ -12,6 +12,7 @@ class Homework extends Equatable {
   final QuizMatrix? quizMatrix;
   final Classroom? classroom;
   final int attempt;
+  final int status;
 
   const Homework(
       {required this.id,
@@ -22,6 +23,7 @@ class Homework extends Equatable {
       required this.expiredDate,
       this.quizMatrix,
       this.classroom,
+      required this.status,
       required this.attempt});
 
   factory Homework.fromJson(Map<String, dynamic> json) => Homework(
@@ -37,7 +39,8 @@ class Homework extends Equatable {
       classroom: json['classroom'] != null
           ? Classroom.fromJson(json['classroom'])
           : null,
-      attempt: json['attempt']);
+      attempt: json['attempt'],
+      status: json['status']);
 
   @override
   // TODO: implement props
@@ -49,6 +52,7 @@ class Homework extends Equatable {
         handinDate,
         expiredDate,
         quizMatrix,
-        classroom
+        classroom,
+        status
       ];
 }

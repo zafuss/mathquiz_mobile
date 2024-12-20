@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mathquiz_mobile/config/http_client.dart';
+import 'package:mathquiz_mobile/features/classroom/dtos/homework/classroom_homework_results_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/homework/create_homework_news_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/homework/update_homework_news_dto.dart';
 import 'package:mathquiz_mobile/models/classroom_models/homework.dart';
@@ -18,6 +19,52 @@ class HomeworkApiClient {
 
       final List<dynamic> responseData = response.data;
       return responseData.map((json) => Homework.fromJson(json)).toList();
+    } on DioException catch (e) {
+      print(e);
+      if (e.response != null) {
+        throw Exception(e.response!.data);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<List<ClassroomHomeworkResultsDto>> getResults(
+      String homeworkId) async {
+    try {
+      final response = await dio.get(
+        'homework/getResults/',
+        queryParameters: {'homeworkId': homeworkId},
+      );
+      print(response);
+
+      final List<dynamic> responseData = response.data;
+      return responseData
+          .map((json) => ClassroomHomeworkResultsDto.fromJson(json))
+          .toList();
+    } on DioException catch (e) {
+      print(e);
+      if (e.response != null) {
+        throw Exception(e.response!.data);
+      } else {
+        throw Exception(e.message);
+      }
+    }
+  }
+
+  Future<List<ClassroomHomeworkResultsDto>> getBestResults(
+      String homeworkId) async {
+    try {
+      final response = await dio.get(
+        'homework/getBestResults/',
+        queryParameters: {'homeworkId': homeworkId},
+      );
+      print(response);
+
+      final List<dynamic> responseData = response.data;
+      return responseData
+          .map((json) => ClassroomHomeworkResultsDto.fromJson(json))
+          .toList();
     } on DioException catch (e) {
       print(e);
       if (e.response != null) {
@@ -77,8 +124,9 @@ class HomeworkApiClient {
   Future<ResultType<Homework>> editHomework(
       UpdateHomeworkDto updateHomeworkDto) async {
     try {
-      final response = await dio.put('homeworks/${updateHomeworkDto.id}',
-          data: updateHomeworkDto.toJson());
+      final json = updateHomeworkDto.toJson();
+      final response =
+          await dio.put('homework/${updateHomeworkDto.id}', data: json);
       print(response);
 
       return Success(

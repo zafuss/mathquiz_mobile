@@ -28,6 +28,12 @@ class Routes {
   static String classroomChooseExamScreen = '/classroomChooseExamScreen';
   static String classroomExamStartScreen = '/classroomExamStartScreen';
   static String classroomResultScreen = '/classroomResultScreen';
+  static String classroomHomeworkResultsScreen =
+      '/classroomHomeworkResultsScreen';
+  static String classroomHomeworkBestResultsScreen =
+      '/classroomHomeworkBestResultsScreen';
+  static String classroomHomeworkListScreen = '/classroomHomeworkListScreen';
+  static String classroomEditHomeworkScreen = '/classroomEditHomeworkScreen';
 }
 
 final getPages = [
@@ -80,4 +86,16 @@ final getPages = [
   GetPage(
       name: Routes.classroomResultScreen,
       page: () => const ClassroomResultScreen()),
+  GetPage(
+      name: Routes.classroomHomeworkResultsScreen,
+      page: () => const ClassroomHomeworkResultScreen()),
+  GetPage(
+      name: Routes.classroomHomeworkBestResultsScreen,
+      page: () => const ClassroomHomeworkBestResultScreen()),
+  GetPage(
+      name: Routes.classroomHomeworkListScreen,
+      page: () => const ClassroomHomeworkListScreen()),
+  GetPage(
+      name: Routes.classroomEditHomeworkScreen,
+      page: () => const ClassroomEditHomeworkScreen()),
 ];

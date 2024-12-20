@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/features/auth/data/local_data_controller.dart';
+import 'package:mathquiz_mobile/features/classroom/dtos/homework/classroom_homework_results_dto.dart';
 import 'package:mathquiz_mobile/features/classroom/dtos/homework/update_homework_news_dto.dart';
 
 import '../../../../models/classroom_models/homework.dart';
@@ -14,6 +15,26 @@ class HomeworkRepository {
   Future<ResultType<List<Homework>?>> getByClassroomId(String newsId) async {
     try {
       var result = await homeworkApiClient.getByClassroomId(newsId);
+      return Success(result);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+
+  Future<ResultType<List<ClassroomHomeworkResultsDto>?>> getResults(
+      String homeworkId) async {
+    try {
+      var result = await homeworkApiClient.getResults(homeworkId);
+      return Success(result);
+    } catch (e) {
+      return Failure('$e');
+    }
+  }
+
+  Future<ResultType<List<ClassroomHomeworkResultsDto>?>> getBestResults(
+      String homeworkId) async {
+    try {
+      var result = await homeworkApiClient.getBestResults(homeworkId);
       return Success(result);
     } catch (e) {
       return Failure('$e');
@@ -53,7 +74,7 @@ class HomeworkRepository {
     }
   }
 
-  Future<ResultType<Homework>> editNews(
+  Future<ResultType<Homework>> editHomework(
       UpdateHomeworkDto updateHomeworkDto) async {
     try {
       final result = await homeworkApiClient.editHomework(updateHomeworkDto);

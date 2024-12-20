@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
 import 'package:mathquiz_mobile/config/demension_const.dart';
@@ -30,7 +31,41 @@ class ClassroomMembersScreen extends StatelessWidget {
                 ClassroomAppBarContainer(
                   backAction: true,
                   drawerController: customDrawerController,
-                  title: classroomController.chosenClassroom.value!.name!,
+                  title: classroomController.isTeacher.value
+                      ? InkWell(
+                          onTap: () {
+                            _showEditClassroomDialog(context);
+                          },
+                          child: Row(
+                            children: [
+                              Text(
+                                classroomController
+                                    .chosenClassroom.value!.name!,
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.white,
+                                    fontSize: 24),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const Icon(
+                                Icons.edit,
+                                color: Colors.white,
+                                size: 20,
+                              )
+                            ],
+                          ),
+                        )
+                      : Text(
+                          classroomController.chosenClassroom.value!.name!,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 24),
+                        ),
                 ),
                 !classroomController.isLoading.value
                     ? Flexible(
@@ -48,6 +83,66 @@ class ClassroomMembersScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 20,
                                   ),
+                                  classroomController.isTeacher.value
+                                      ? Column(
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  const Text(
+                                                    'Mã lớp: ',
+                                                    style: TextStyle(
+                                                      fontSize: 24,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    classroomController
+                                                        .chosenClassroom
+                                                        .value!
+                                                        .id,
+                                                    style: const TextStyle(
+                                                      fontSize: 24,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 16),
+                                                  IconButton(
+                                                    color: ColorPalette
+                                                        .primaryColor,
+                                                    icon:
+                                                        const Icon(Icons.copy),
+                                                    onPressed: () {
+                                                      Clipboard.setData(
+                                                          ClipboardData(
+                                                        text:
+                                                            classroomController
+                                                                .chosenClassroom
+                                                                .value!
+                                                                .id,
+                                                      ));
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        const SnackBar(
+                                                            content: Text(
+                                                                'Đã lưu mã lớp vào bộ nhớ tạm!')),
+                                                      );
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 20,
+                                            ),
+                                          ],
+                                        )
+                                      : const SizedBox(),
                                   ClassroomMembersListView(
                                       title:
                                           'Thành viên (${classroomController.classroomDetailList.length})',
@@ -71,6 +166,108 @@ class ClassroomMembersScreen extends StatelessWidget {
                       ),
               ],
             )));
+  }
+
+  void _showEditClassroomDialog(BuildContext context) {
+    final TextEditingController classroomNameController =
+        TextEditingController();
+    final _formKey = GlobalKey<FormState>();
+    final classroomController = Get.find<ClassroomController>();
+
+    classroomNameController.text =
+        classroomController.chosenClassroom.value!.name!;
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          surfaceTintColor: Colors.white,
+          title: const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Chỉnh sửa ',
+                style: TextStyle(
+                    color: ColorPalette.primaryColor,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500),
+              ),
+              Text(
+                'lớp học',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          content: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Trường này không được để trống';
+                    }
+                    return null;
+                  },
+                  controller: classroomNameController,
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.create),
+                    labelText: 'Tên lớp học',
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            // Only wrap the parts that need updating with Obx
+            Obx(
+              () => classroomController.dialogMessage.value.isEmpty
+                  ? TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('Hủy'),
+                    )
+                  : const SizedBox(),
+            ),
+            SizedBox(
+              height: 35,
+              width: 150,
+              child: ElevatedButton(
+                onPressed: () async {
+                  if (_formKey.currentState?.validate() == true) {
+                    await classroomController.putClassroom(
+                        classroomController.chosenClassroom.value!.id,
+                        classroomNameController.text,
+                        context);
+                    // Perform the save operation or state update here
+                    Navigator.of(context).pop();
+                  }
+                },
+                child: Obx(
+                  () => classroomController.dialogLoading.value
+                      ? const Center(
+                          child: SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      : const Text(
+                          'Sửa',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 

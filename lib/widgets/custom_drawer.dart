@@ -285,7 +285,30 @@ class CustomDrawer extends StatelessWidget {
                                       context: context,
                                       builder: (BuildContext context) {
                                         return AlertDialog(
-                                          title: const Text('Đăng xuất'),
+                                          title: const Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Đăng xuất ',
+                                                style: TextStyle(
+                                                    fontSize: 25,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
+                                              Text(
+                                                'tài khoản?',
+                                                style: TextStyle(
+                                                    color: ColorPalette
+                                                        .primaryColor,
+                                                    fontSize: 25,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
+                                            ],
+                                          ),
                                           content: const Text(
                                               'Bạn có chắc chắn muốn đăng xuất không?'),
                                           actions: [

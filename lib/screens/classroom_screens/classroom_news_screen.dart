@@ -29,7 +29,13 @@ class ClassroomNewsScreen extends StatelessWidget {
                 ClassroomAppBarContainer(
                   backAction: true,
                   drawerController: customDrawerController,
-                  title: classroomController.chosenClassroom.value!.name!,
+                  title: Text(
+                    classroomController.chosenClassroom.value!.name!,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24),
+                  ),
                 ),
                 Expanded(
                   // Cuộn nội dung bên dưới

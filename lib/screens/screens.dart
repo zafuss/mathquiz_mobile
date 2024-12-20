@@ -22,3 +22,7 @@ export 'classroom_screens/classroom_news_screen.dart';
 export 'classroom_screens/classroom_choose_exam_screen.dart';
 export 'classroom_screens/classroom_exam_start_screen.dart';
 export 'classroom_screens/classroom_result_screen.dart';
+export 'classroom_screens/classroom_homework_results_screen.dart';
+export 'classroom_screens/classroom_homework_best_results_screen.dart';
+export 'classroom_screens/classroom_homework_list_screen.dart';
+export 'classroom_screens/classroom_edit_homework_screen.dart';

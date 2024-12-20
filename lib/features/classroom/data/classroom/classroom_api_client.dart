@@ -95,4 +95,29 @@ class ClassroomApiClient {
       return Failure('Unknown error', 0);
     }
   }
+
+  Future<ResultType<String>> putClassroom(
+      String classroomId, String classroomName) async {
+    try {
+      final response = await dio.put('classrooms/',
+          queryParameters: {'id': classroomId, 'newName': classroomName});
+      print(response);
+
+      return Success(response.data['classroomId'], 200);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        int statusCode = e.response!.statusCode ?? 500; // Default status code
+        if (statusCode == 400) {
+          return Failure(e.response!.data, statusCode);
+        } else if (statusCode == 401) {
+          return Failure(e.response!.data['id'].toString(), statusCode);
+        }
+        return Failure('Server error', statusCode);
+      } else {
+        return Failure('Network error', 0);
+      }
+    } catch (e) {
+      return Failure('Unknown error', 0);
+    }
+  }
 }
