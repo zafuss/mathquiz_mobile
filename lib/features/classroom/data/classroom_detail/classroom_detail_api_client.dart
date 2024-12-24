@@ -33,7 +33,7 @@ class ClassroomDetailApiClient {
   Future<List<ClassroomDetail>> getMyJoinedClassroomDetails(
       String clientId) async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'classroomDetails/myJoinedClassroomDetails/',
         queryParameters: {'clientId': clientId},
       );
@@ -55,7 +55,7 @@ class ClassroomDetailApiClient {
 
   Future<bool> changeIsDeletedStatus(String classroomDetailId) async {
     try {
-      await dio.put(
+      await dioClient.dio.put(
         'classroomDetails/changeIsDeletedStatus/',
         queryParameters: {'id': classroomDetailId},
       );
@@ -75,7 +75,8 @@ class ClassroomDetailApiClient {
   Future<ResultType<String>> joinClassroomDetail(
       String clientId, String classroomDetailId) async {
     try {
-      final response = await dio.post('classroomDetails/joinClassroomDetail/',
+      final response = await dioClient.dio.post(
+          'classroomDetails/joinClassroomDetail/',
           data: {'clientId': clientId, 'classroomDetailId': classroomDetailId});
       print(response);
 
@@ -100,11 +101,11 @@ class ClassroomDetailApiClient {
   Future<ResultType<String>> createClassroomDetail(
       String clientId, String classroomDetailName) async {
     try {
-      final response = await dio.post('classroomDetails/createClassroomDetail/',
-          data: {
-            'clientId': clientId,
-            'classroomDetailName': classroomDetailName
-          });
+      final response = await dioClient.dio
+          .post('classroomDetails/createClassroomDetail/', data: {
+        'clientId': clientId,
+        'classroomDetailName': classroomDetailName
+      });
       print(response);
 
       return Success(response.data['classroomDetailId'], 200);

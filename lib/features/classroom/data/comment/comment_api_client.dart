@@ -11,7 +11,7 @@ class CommentApiClient {
 
   Future<List<Comment>> getByNews(String newsId) async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'comments/byNews/',
         queryParameters: {'newsId': newsId},
       );
@@ -52,8 +52,8 @@ class CommentApiClient {
   Future<ResultType<Comment>> createNewsComment(
       CreateCommentDto createCommentDto) async {
     try {
-      final response =
-          await dio.post('comments/byNews', data: createCommentDto.toJson());
+      final response = await dioClient.dio
+          .post('comments/byNews', data: createCommentDto.toJson());
       print(response);
 
       return Success(
@@ -77,8 +77,8 @@ class CommentApiClient {
 
   Future<ResultType<News>> editNews(UpdateNewsDto updateNewsDto) async {
     try {
-      final response = await dio.put('news/${updateNewsDto.id}',
-          data: updateNewsDto.toJson());
+      final response = await dioClient.dio
+          .put('news/${updateNewsDto.id}', data: updateNewsDto.toJson());
       print(response);
 
       return Success(News.fromJson(response.data), response.statusCode ?? 200);

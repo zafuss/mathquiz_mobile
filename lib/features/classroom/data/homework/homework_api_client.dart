@@ -11,7 +11,7 @@ class HomeworkApiClient {
 
   Future<List<Homework>> getByClassroomId(String classroomId) async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'homework/byClassroomId/',
         queryParameters: {'classroomId': classroomId},
       );
@@ -32,7 +32,7 @@ class HomeworkApiClient {
   Future<List<ClassroomHomeworkResultsDto>> getResults(
       String homeworkId) async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'homework/getResults/',
         queryParameters: {'homeworkId': homeworkId},
       );
@@ -55,7 +55,7 @@ class HomeworkApiClient {
   Future<List<ClassroomHomeworkResultsDto>> getBestResults(
       String homeworkId) async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'homework/getBestResults/',
         queryParameters: {'homeworkId': homeworkId},
       );
@@ -98,8 +98,8 @@ class HomeworkApiClient {
   Future<ResultType<Homework>> createHomework(
       CreateHomeworkDto createHomeworkDto) async {
     try {
-      final response =
-          await dio.post('homework/', data: createHomeworkDto.toJson());
+      final response = await dioClient.dio
+          .post('homework/', data: createHomeworkDto.toJson());
       print(response);
 
       return Success(
@@ -125,8 +125,8 @@ class HomeworkApiClient {
       UpdateHomeworkDto updateHomeworkDto) async {
     try {
       final json = updateHomeworkDto.toJson();
-      final response =
-          await dio.put('homework/${updateHomeworkDto.id}', data: json);
+      final response = await dioClient.dio
+          .put('homework/${updateHomeworkDto.id}', data: json);
       print(response);
 
       return Success(

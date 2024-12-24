@@ -10,7 +10,7 @@ class NewsApiClient {
 
   Future<List<News>> getNewsByClassroom(String classroomId) async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'news/byClassroomId/',
         queryParameters: {'classroomId': classroomId},
       );
@@ -50,7 +50,8 @@ class NewsApiClient {
 
   Future<ResultType<News>> createNews(CreateNewsDto createNewsDto) async {
     try {
-      final response = await dio.post('news/', data: createNewsDto.toJson());
+      final response =
+          await dioClient.dio.post('news/', data: createNewsDto.toJson());
       print(response);
 
       return Success(News.fromJson(response.data), response.statusCode ?? 200);
@@ -73,8 +74,8 @@ class NewsApiClient {
 
   Future<ResultType<News>> editNews(UpdateNewsDto updateNewsDto) async {
     try {
-      final response = await dio.put('news/${updateNewsDto.id}',
-          data: updateNewsDto.toJson());
+      final response = await dioClient.dio
+          .put('news/${updateNewsDto.id}', data: updateNewsDto.toJson());
       print(response);
 
       return Success(News.fromJson(response.data), response.statusCode ?? 200);

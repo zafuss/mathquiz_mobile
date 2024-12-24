@@ -28,7 +28,7 @@ class ClassroomApiClient {
 
   Future<List<Classroom>> getMyJoinedClassrooms(String clientId) async {
     try {
-      final response = await dio.get(
+      final response = await dioClient.dio.get(
         'classrooms/myJoinedClassrooms/',
         queryParameters: {'clientId': clientId},
       );
@@ -49,7 +49,7 @@ class ClassroomApiClient {
   Future<ResultType<String>> joinClassroom(
       String clientId, String classroomId) async {
     try {
-      final response = await dio.post('classrooms/joinClassroom/',
+      final response = await dioClient.dio.post('classrooms/joinClassroom/',
           data: {'clientId': clientId, 'classroomId': classroomId});
       print(response);
 
@@ -74,7 +74,7 @@ class ClassroomApiClient {
   Future<ResultType<String>> createClassroom(
       String clientId, String classroomName) async {
     try {
-      final response = await dio.post('classrooms/createClassroom/',
+      final response = await dioClient.dio.post('classrooms/createClassroom/',
           data: {'clientId': clientId, 'classroomName': classroomName});
       print(response);
 
@@ -99,7 +99,7 @@ class ClassroomApiClient {
   Future<ResultType<String>> putClassroom(
       String classroomId, String classroomName) async {
     try {
-      final response = await dio.put('classrooms/',
+      final response = await dioClient.dio.put('classrooms/',
           queryParameters: {'id': classroomId, 'newName': classroomName});
       print(response);
 
