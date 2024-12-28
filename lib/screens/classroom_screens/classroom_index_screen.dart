@@ -39,9 +39,9 @@ class ClassroomIndexScreen extends StatelessWidget {
               children: [
                 ClassroomAppBarContainer(
                   drawerController: customDrawerController,
-                  title: Text(
+                  title: const Text(
                     'Lớp học',
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 24),
@@ -83,7 +83,10 @@ class ClassroomIndexScreen extends StatelessWidget {
                                       Get.toNamed(Routes.classroomScreen);
                                     },
                                     seeAllFunc: () =>
-                                        Get.toNamed(Routes.myClassroomsScreen),
+                                        classroomController.myClassrooms.isEmpty
+                                            ? null
+                                            : Get.toNamed(
+                                                Routes.myClassroomsScreen),
                                   ),
                                   const SizedBox(
                                     height: kMinPadding,
@@ -105,8 +108,11 @@ class ClassroomIndexScreen extends StatelessWidget {
                                           .onChooseClassroom(classroom, false);
                                       Get.toNamed(Routes.classroomScreen);
                                     },
-                                    seeAllFunc: () => Get.toNamed(
-                                        Routes.myJoinedClassroomsScreen),
+                                    seeAllFunc: () => classroomController
+                                            .myJoinedClassrooms.isEmpty
+                                        ? null
+                                        : Get.toNamed(
+                                            Routes.myJoinedClassroomsScreen),
                                   ),
                                 ],
                               ),
@@ -297,7 +303,7 @@ class ClassroomIndexScreen extends StatelessWidget {
                           classroomController.dialogMessage.value.isNotEmpty
                               ? 'Đóng'
                               : 'Tạo',
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                 ),
               ),

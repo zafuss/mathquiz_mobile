@@ -26,7 +26,7 @@ class ClassroomHomeworkBestResultScreen extends StatelessWidget {
         ),
         body: Obx(() {
           int numOfStudent = classroomController.bestResultList
-              .where((e) => e.result != null)
+              .where((e) => e.attemptCount! > 0)
               .toList()
               .length;
           return Column(
@@ -146,68 +146,73 @@ class ClassroomHomeworkBestResultsListView extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.circular(defaultBorderRadius),
                             onTap: () {
-                              List<ClassroomHomeworkResultsDto>
-                                  currentStudentResults = classroomController
-                                      .resultList
-                                      .where((e) =>
-                                          e.student ==
-                                          classroomController
-                                              .bestResultList[index].student)
-                                      .toList();
-                              currentStudentResults.sort((a, b) => a
-                                  .result!.endTime!
-                                  .compareTo(b.result!.endTime!));
-                              if (currentStudentResults.isEmpty) {
-                                return; // Không hiển thị nếu danh sách rỗng
-                              }
-                              showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: const Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Kết quả ',
-                                        style: TextStyle(
-                                            color: ColorPalette.primaryColor,
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      Text(
-                                        'bài tập',
-                                        style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-                                  content: SingleChildScrollView(
-                                    child: Column(
+                              if (classroomController
+                                      .bestResultList[index].attemptCount! >
+                                  0) {
+                                List<ClassroomHomeworkResultsDto>
+                                    currentStudentResults = classroomController
+                                        .resultList
+                                        .where((e) =>
+                                            e.student ==
+                                            classroomController
+                                                .bestResultList[index].student)
+                                        .toList();
+                                currentStudentResults.sort((a, b) => a
+                                    .result!.endTime!
+                                    .compareTo(b.result!.endTime!));
+                                if (currentStudentResults.isEmpty) {
+                                  return; // Không hiển thị nếu danh sách rỗng
+                                }
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: currentStudentResults
-                                          .asMap()
-                                          .entries
-                                          .map(
-                                            (entry) => Text(
-                                              'Điểm lần ${entry.key + 1}: ${scoreFormatter(entry.value.result!.score!)}',
-                                            ),
-                                          )
-                                          .toList(),
+                                      children: [
+                                        Text(
+                                          'Kết quả ',
+                                          style: TextStyle(
+                                              color: ColorPalette.primaryColor,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        Text(
+                                          'bài tập',
+                                          style: TextStyle(
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
                                     ),
+                                    content: SingleChildScrollView(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: currentStudentResults
+                                            .asMap()
+                                            .entries
+                                            .map(
+                                              (entry) => Text(
+                                                'Điểm lần ${entry.key + 1}: ${scoreFormatter(entry.value.result!.score!)}',
+                                              ),
+                                            )
+                                            .toList(),
+                                      ),
+                                    ),
+                                    actions: [
+                                      SizedBox(
+                                        child: ElevatedButton(
+                                            onPressed: () => Get.back(),
+                                            child: Text('Đóng')),
+                                      )
+                                    ],
                                   ),
-                                  actions: [
-                                    SizedBox(
-                                      child: ElevatedButton(
-                                          onPressed: () => Get.back(),
-                                          child: Text('Đóng')),
-                                    )
-                                  ],
-                                ),
-                              );
+                                );
+                              }
                             },
                             child: Container(
                               decoration: BoxDecoration(
@@ -322,18 +327,24 @@ class ClassroomHomeworkBestResultsListView extends StatelessWidget {
                                                             MainAxisAlignment
                                                                 .start,
                                                         children: [
-                                                          Row(
-                                                            children: [
-                                                              Text(
-                                                                'Số câu đúng: ${classroomController.bestResultList[index].result!.correctAnswers}/${classroomController.bestResultList[index].result!.totalQuiz}',
-                                                                style: const TextStyle(
-                                                                    color: Colors
-                                                                        .black54,
-                                                                    fontSize:
-                                                                        13),
-                                                              )
-                                                            ],
-                                                          ),
+                                                          classroomController
+                                                                      .bestResultList[
+                                                                          index]
+                                                                      .attemptCount ==
+                                                                  0
+                                                              ? SizedBox()
+                                                              : Row(
+                                                                  children: [
+                                                                    Text(
+                                                                      'Số câu đúng: ${classroomController.bestResultList[index].result!.correctAnswers}/${classroomController.bestResultList[index].result!.totalQuiz}',
+                                                                      style: const TextStyle(
+                                                                          color: Colors
+                                                                              .black54,
+                                                                          fontSize:
+                                                                              13),
+                                                                    )
+                                                                  ],
+                                                                ),
                                                         ],
                                                       )
                                                     : SizedBox(),
@@ -367,8 +378,8 @@ class ClassroomHomeworkBestResultsListView extends StatelessWidget {
                                           ),
                                           if (classroomController
                                                   .bestResultList[index]
-                                                  .result !=
-                                              null)
+                                                  .attemptCount! >
+                                              0)
                                             Column(
                                               children: [
                                                 Text(

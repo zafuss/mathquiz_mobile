@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mathquiz_mobile/config/color_const.dart';
@@ -26,7 +25,6 @@ class ExamStartScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/images/bg_auth.png'),
           SafeArea(
             child: Row(
               children: [
@@ -65,25 +63,25 @@ class ExamStartScreen extends StatelessWidget {
                                     const SizedBox(
                                       height: 100,
                                     ),
-                                    const Text(
-                                      'Đề thi',
-                                      style: TextStyle(
-                                          height: 1,
-                                          fontSize: 30,
-                                          color: ColorPalette.primaryColor,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    AutoSizeText(
-                                      maxLines: 2,
-                                      quizmatrixController
-                                              .chosenQuizMatrix.value!.name ??
-                                          'null',
-                                      style: const TextStyle(
-                                          height: 1.1,
-                                          fontSize: 25,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w600),
-                                    ),
+                                    RichText(
+                                        text: TextSpan(
+                                            text: 'Đề thi: ',
+                                            style: const TextStyle(
+                                                fontSize: 26,
+                                                fontWeight: FontWeight.w600,
+                                                color:
+                                                    ColorPalette.primaryColor),
+                                            children: [
+                                          TextSpan(
+                                            style: const TextStyle(
+                                                color: Colors.black),
+                                            text: quizmatrixController
+                                                    .chosenQuizMatrix
+                                                    .value!
+                                                    .name ??
+                                                'null',
+                                          )
+                                        ])),
                                   ],
                                 ),
                                 Row(
@@ -145,9 +143,19 @@ class ExamStartScreen extends StatelessWidget {
                                 const SizedBox(height: kDefaultPadding),
                                 // _buildExamIntroduction(),
 
-                                rankingWidget(
-                                    examController.ranking as List<RankingDto>,
-                                    3.5),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.5),
+                                      borderRadius: BorderRadius.circular(
+                                          kDefaultPadding)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(kMinPadding),
+                                    child: rankingWidget(
+                                        examController.ranking
+                                            as List<RankingDto>,
+                                        3.5),
+                                  ),
+                                ),
                               ],
                             ),
                           ),

@@ -118,14 +118,26 @@ class AboutScreen extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        'Version 1.1.0',
+                        'Version 2.0.0',
                         style: TextStyle(height: 1.5, fontSize: 16.0),
                       ),
                       const SizedBox(
                         height: kMinPadding,
                       ),
                       const Text(
-                        'Ứng dụng thi trắc nghiệm Toán cho học sinh, sinh viên, được xây dựng và phát triển bởi zafus.',
+                        'Ứng dụng thi trắc nghiệm Toán cho học sinh, được xây dựng và phát triển bởi:',
+                        style: TextStyle(height: 1.5, fontSize: 16.0),
+                      ),
+                      const Text(
+                        '- Phiên bản web: Tấn Phát, Tuấn Kiệt.',
+                        style: TextStyle(height: 1.5, fontSize: 16.0),
+                      ),
+                      const Text(
+                        '- Phiên bản di động: zafus.',
+                        style: TextStyle(height: 1.5, fontSize: 16.0),
+                      ),
+                      const Text(
+                        '- Mobile UI design: Kieukieu.',
                         style: TextStyle(height: 1.5, fontSize: 16.0),
                       ),
                       const SizedBox(height: kMinPadding * 2),

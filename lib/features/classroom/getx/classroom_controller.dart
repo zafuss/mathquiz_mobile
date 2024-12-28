@@ -293,6 +293,7 @@ class ClassroomController extends GetxController {
       Success() => {
           Navigator.of(context).pop(),
           Get.snackbar('Thông báo', "Tham gia lớp học thành công!"),
+          await fetchMyJoinedClassrooms(),
         },
       Failure() => {
           joinClassroomLoading.update((data) {

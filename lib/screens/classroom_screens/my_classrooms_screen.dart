@@ -51,8 +51,7 @@ class MyClassroomsScreen extends StatelessWidget {
                                     height: 20,
                                   ),
                                   ListViewContainer(
-                                      title:
-                                          'Danh sách lớp học bạn đang quản lý',
+                                      title: 'DS lớp đang quản lý',
                                       classroomList:
                                           classroomController.myClassrooms,
                                       numOfItems: classroomController
