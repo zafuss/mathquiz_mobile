@@ -15,7 +15,7 @@ An interactive math quiz application designed for students to practice and impro
 
 ## 🛠️ Technology Stack
 
-- **Backend:** ASP.NET Core
+- **Backend:** ASP.NET Core, SQL Server
 - **Frontend:** Flutter (Figma for design, Firebase, GetX for state management)
 
 ## 🔗 Links
