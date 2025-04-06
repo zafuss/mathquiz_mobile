@@ -1,0 +1,78 @@
+[
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-ldpi_ic_launcher.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/drawable-v21_launch_background.xml.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.zafus.mathquiz.app-merged_res-69:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.zafus.mathquiz.app-main-71:/mipmap-hdpi/ic_launcher_round.png"
+    }
+]

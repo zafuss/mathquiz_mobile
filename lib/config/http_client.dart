@@ -8,14 +8,14 @@ const imgurId = '4dd726d22f92a0a';
 
 final dio = Dio(
   BaseOptions(
-    baseUrl: 'http://onluyentoan.online/api/',
+    baseUrl: 'https://mathquiz.click/api/',
   ),
 );
 
 class DioClient {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://onluyentoan.online/api/',
+      baseUrl: 'https://mathquiz.click/api/',
     ),
   );
 

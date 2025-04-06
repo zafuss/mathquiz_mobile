@@ -1,18 +1,19 @@
-allprojects {
+// Root build.gradle file
+buildscript {
     repositories {
-        google()
-        mavenCentral()
+        ext.kotlin_version = '1.8.10'
+        google()        // This should include Google's Maven repository
+        mavenCentral()  // This should include Maven Central repository
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'
     }
 }
 
-rootProject.buildDir = '../build'
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(':app')
-}
-
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+allprojects {
+    repositories {
+        google()        // Make sure this is also defined here for all subprojects
+        mavenCentral()  // And this for Maven Central
+    }
 }

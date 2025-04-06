@@ -1,0 +1,2 @@
+/Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/.cxx/RelWithDebInfo/6th11323/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/.cxx/RelWithDebInfo/6th11323/armeabi-v7a/CMakeFiles/rebuild_cache.dir

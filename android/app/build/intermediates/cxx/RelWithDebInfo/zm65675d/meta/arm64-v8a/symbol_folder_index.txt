@@ -1,0 +1,1 @@
+/Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/build/intermediates/cxx/RelWithDebInfo/zm65675d/obj/arm64-v8a

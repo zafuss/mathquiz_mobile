@@ -56,7 +56,7 @@ class AboutScreen extends StatelessWidget {
   }
 
   void _launchWebsiteURL() async {
-    const urlString = 'http://onluyentoan.online/';
+    const urlString = 'https://mathquiz.click/';
     final Uri url = Uri.parse(urlString);
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
@@ -118,7 +118,7 @@ class AboutScreen extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        'Version 2.0.0',
+                        'Version 2.0.1',
                         style: TextStyle(height: 1.5, fontSize: 16.0),
                       ),
                       const SizedBox(
@@ -137,7 +137,7 @@ class AboutScreen extends StatelessWidget {
                         style: TextStyle(height: 1.5, fontSize: 16.0),
                       ),
                       const Text(
-                        '- Mobile UI design: Kieukieu.',
+                        '- UX/UI design: Kieukieu.',
                         style: TextStyle(height: 1.5, fontSize: 16.0),
                       ),
                       const SizedBox(height: kMinPadding * 2),
@@ -161,7 +161,7 @@ class AboutScreen extends StatelessWidget {
                               SizedBox(
                                 width: 5,
                               ),
-                              Text('onluyentoan.online'),
+                              Text('mathquiz.click'),
                             ],
                           )),
                       const SizedBox(

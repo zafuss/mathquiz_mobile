@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/zafus/Development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/zafus/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/.cxx/RelWithDebInfo/1f3y5u32/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/zafus/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/.cxx/RelWithDebInfo/1f3y5u32/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

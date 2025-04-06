@@ -1,0 +1,923 @@
+-- Merging decision tree log ---
+application
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:6:5-50:19
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:6:5-50:19
+MERGED from [com.google.android.material:material:1.13.0-alpha04] /Users/zafus/.gradle/caches/transforms-3/e95764fa2dbad0382bf92d9c81009e61/transformed/material-1.13.0-alpha04/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.13.0-alpha04] /Users/zafus/.gradle/caches/transforms-3/e95764fa2dbad0382bf92d9c81009e61/transformed/material-1.13.0-alpha04/AndroidManifest.xml:22:5-20
+MERGED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-17:19
+MERGED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-17:19
+MERGED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-46:19
+MERGED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-46:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/zafus/.gradle/caches/transforms-3/ae088a158a1357b2eb87db14a4acfcf2/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/zafus/.gradle/caches/transforms-3/ae088a158a1357b2eb87db14a4acfcf2/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-32:19
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-32:19
+MERGED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:5-32:19
+MERGED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:5-32:19
+MERGED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-12:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/zafus/.gradle/caches/transforms-3/79c00a484e0016a2b182c3ed25e3bc44/transformed/jetified-firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/zafus/.gradle/caches/transforms-3/79c00a484e0016a2b182c3ed25e3bc44/transformed/jetified-firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/zafus/.gradle/caches/transforms-3/68d175a3bcaa3d382a094344c63e57b0/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/zafus/.gradle/caches/transforms-3/68d175a3bcaa3d382a094344c63e57b0/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/zafus/.gradle/caches/transforms-3/26a8c607f2079b3e2e172e09dcacaaab/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/zafus/.gradle/caches/transforms-3/26a8c607f2079b3e2e172e09dcacaaab/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/zafus/.gradle/caches/transforms-3/b1ab219c9ffc58e835e9abbfbe14eb92/transformed/jetified-integrity-1.3.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/zafus/.gradle/caches/transforms-3/b1ab219c9ffc58e835e9abbfbe14eb92/transformed/jetified-integrity-1.3.0/AndroidManifest.xml:5:5-6:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/zafus/.gradle/caches/transforms-3/2ab4672a03b86e18696ba326860d4255/transformed/jetified-play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/zafus/.gradle/caches/transforms-3/2ab4672a03b86e18696ba326860d4255/transformed/jetified-play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:5:5-7:19
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:5:5-7:19
+MERGED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/zafus/.gradle/caches/transforms-3/2495b0666dc5ff42787cd3a118ad6680/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/zafus/.gradle/caches/transforms-3/2495b0666dc5ff42787cd3a118ad6680/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/zafus/.gradle/caches/transforms-3/5b51580ad60209d8826f0b911d73f955/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/zafus/.gradle/caches/transforms-3/5b51580ad60209d8826f0b911d73f955/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:11:5-19:19
+	android:extractNativeLibs
+		INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:7:9-33
+	android:icon
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:9:9-43
+	android:usesCleartextTraffic
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:10:9-44
+	android:name
+		INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:8:9-42
+manifest
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:1:1-62:12
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:1:1-62:12
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:1:1-62:12
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:1:1-62:12
+MERGED from [:shared_preferences_android] /Users/zafus/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.8/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:webview_flutter_android] /Users/zafus/.pub-cache/hosted/pub.dev/webview_flutter_android-4.3.4/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.13.0-alpha04] /Users/zafus/.gradle/caches/transforms-3/e95764fa2dbad0382bf92d9c81009e61/transformed/material-1.13.0-alpha04/AndroidManifest.xml:17:1-24:12
+MERGED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-15:12
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:17:1-75:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-19:12
+MERGED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-48:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/zafus/.gradle/caches/transforms-3/ae088a158a1357b2eb87db14a4acfcf2/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.preference:preference:1.2.1] /Users/zafus/.gradle/caches/transforms-3/5b3d7beab46e1d7655d17b5b324870ee/transformed/preference-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/zafus/.gradle/caches/transforms-3/954a0be3d6a63b661f225288597fcfb7/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/zafus/.gradle/caches/transforms-3/2f3186cf05f39a6891a2380e6026f4a8/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-34:12
+MERGED from [:flutter_local_notifications] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.0.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-10:12
+MERGED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-34:12
+MERGED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-14:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/zafus/.gradle/caches/transforms-3/542b941440f4f8e1d93d538cb285d9c1/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/zafus/.gradle/caches/transforms-3/1a99983abd089e79b5f1f3086ee44fa3/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/zafus/.gradle/caches/transforms-3/36d86a188b0de914cc9a0a20a5d5f73c/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.5.0] /Users/zafus/.gradle/caches/transforms-3/a4e71e28ac99ae1bf0271ecf60b64c9a/transformed/transition-1.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/zafus/.gradle/caches/transforms-3/1ac062e057506ac0a9a5a69fbc64abb4/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/zafus/.gradle/caches/transforms-3/e537ceca1b4f7d015f0ed040245972a2/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/zafus/.gradle/caches/transforms-3/47150a0acebe86546352364dd21f6947/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/zafus/.gradle/caches/transforms-3/0d690a5f67a1dd3288599b0a43c2f59d/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [:flutter_plugin_android_lifecycle] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:google_sign_in_android] /Users/zafus/.pub-cache/hosted/pub.dev/google_sign_in_android-6.2.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.browser:browser:1.8.0] /Users/zafus/.gradle/caches/transforms-3/bead3ae205739497ff521613dc8ca107/transformed/browser-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/zafus/.gradle/caches/transforms-3/a73f3035c970e9f771ba06e1797b81e2/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.1.0] /Users/zafus/.gradle/caches/transforms-3/119d19dd555d84eacb4031dfaf2dbaba/transformed/media-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/8704569643d8c7aa851406aa895608e2/transformed/jetified-credentials-1.2.0-rc01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/zafus/.gradle/caches/transforms-3/a96f2d4da748b94aa2cb35e202840600/transformed/jetified-play-services-auth-api-phone-18.0.2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/zafus/.gradle/caches/transforms-3/6107847eb476f4d680023ac93a9d6c46/transformed/jetified-play-services-auth-base-18.0.10/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/zafus/.gradle/caches/transforms-3/79c00a484e0016a2b182c3ed25e3bc44/transformed/jetified-firebase-appcheck-interop-17.0.0/AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/zafus/.gradle/caches/transforms-3/68d175a3bcaa3d382a094344c63e57b0/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/zafus/.gradle/caches/transforms-3/26a8c607f2079b3e2e172e09dcacaaab/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/zafus/.gradle/caches/transforms-3/b1ab219c9ffc58e835e9abbfbe14eb92/transformed/jetified-integrity-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/zafus/.gradle/caches/transforms-3/35ea91e87f169f8af240e2b6dcbf350a/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/zafus/.gradle/caches/transforms-3/010f56f5ae14a8a80a9a94e43b09b393/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.1.0] /Users/zafus/.gradle/caches/transforms-3/eeb353bac75bcea03d4b1d89bb6d789e/transformed/loader-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /Users/zafus/.gradle/caches/transforms-3/fd34b96ac44724ba85dd549192322278/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/zafus/.gradle/caches/transforms-3/4ed724c1c887345c018e864b44b48b53/transformed/jetified-activity-ktx-1.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/f54ee42368c6522befe789b9f2d3055e/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/b0e1a50c09721f8a54e61086a8ca0dd1/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/d1b0d9709e5f5457143e5d7ddef583dd/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/zafus/.gradle/caches/transforms-3/f990f89a54452a4faa9bceee33afbf29/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/zafus/.gradle/caches/transforms-3/59733ef1c20ce337a4b30722699d5006/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/zafus/.gradle/caches/transforms-3/830aaac9775cabed9184f9b0071a322d/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/zafus/.gradle/caches/transforms-3/6384807131bebccf7113bb51b801292c/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/zafus/.gradle/caches/transforms-3/79b4138dac444afe2d660b45ca407ee2/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/zafus/.gradle/caches/transforms-3/05da0d5fe0eeca8fb15dd5fbedae6431/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.window:window-java:1.2.0] /Users/zafus/.gradle/caches/transforms-3/1698f437b4c553e016b5c1b0458d1673/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:17:1-21:12
+MERGED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/6ebda589d13116a83d7d3e5e62d63acf/transformed/jetified-datastore-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/248c6a96c0457161d653f2dd05ead8c0/transformed/jetified-datastore-preferences-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/46682db31676e9ce039f84ad40486591/transformed/jetified-datastore-release/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/zafus/.gradle/caches/transforms-3/2ab4672a03b86e18696ba326860d4255/transformed/jetified-play-services-tasks-18.2.0/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/zafus/.gradle/caches/transforms-3/c01416355e92f2c75817c8268f457a40/transformed/fragment-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.3] /Users/zafus/.gradle/caches/transforms-3/f80b84c0979e739655c04cbb5299fc5d/transformed/jetified-activity-1.9.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.webkit:webkit:1.12.1] /Users/zafus/.gradle/caches/transforms-3/029c3cb5610b4d304aa071be060cd498/transformed/webkit-1.12.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/zafus/.gradle/caches/transforms-3/8af1961581d796f938bbdd3c2bf7169d/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/zafus/.gradle/caches/transforms-3/d5015fb5d8e4b719775a02e253fac0e2/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/zafus/.gradle/caches/transforms-3/912708b7394ac5b63eb440ba6afb1c63/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/zafus/.gradle/caches/transforms-3/0677bdbefc4322eaea8999a81314dbd1/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/zafus/.gradle/caches/transforms-3/1c420f0b72748a68aac0501b74b7c3e0/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/zafus/.gradle/caches/transforms-3/382e94886993263fa8a9a7b7898a68e5/transformed/exifinterface-1.3.7/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/zafus/.gradle/caches/transforms-3/63255026ec5f44c4bb731ef7671289cf/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/zafus/.gradle/caches/transforms-3/2495b0666dc5ff42787cd3a118ad6680/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/zafus/.gradle/caches/transforms-3/5b51580ad60209d8826f0b911d73f955/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/zafus/.gradle/caches/transforms-3/cdf45631a0064c54a274a51f9463c09b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/zafus/.gradle/caches/transforms-3/99843d9706845b272df133caf24d66e7/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/zafus/.gradle/caches/transforms-3/af9a92230ec9992369cc8a897b394203/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/zafus/.gradle/caches/transforms-3/0e9002861a930c95d2edf850c7e72ce2/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/zafus/.gradle/caches/transforms-3/e8bf6da3b55b57ef8f7effc517959501/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/zafus/.gradle/caches/transforms-3/7e8ed0adb75fdc05929d5ba1752b645d/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/zafus/.gradle/caches/transforms-3/1f05b6999095c06892df0784cdcb1914/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/zafus/.gradle/caches/transforms-3/8d962f7436a185c45cd0923bac2cb9e3/transformed/jetified-core-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/zafus/.gradle/caches/transforms-3/7f435d0c638faf9bdc1887cc47097a8f/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/zafus/.gradle/caches/transforms-3/b8a960bb48187d22d91d6fd21d12fc69/transformed/jetified-googleid-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/zafus/.gradle/caches/transforms-3/2996e8e1232e8605577daa0cd175bd48/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:2:1-21:12
+	package
+		INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:2:5-67
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:25:5-67
+MERGED from [:google_sign_in_android] /Users/zafus/.pub-cache/hosted/pub.dev/google_sign_in_android-6.2.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-67
+MERGED from [:google_sign_in_android] /Users/zafus/.pub-cache/hosted/pub.dev/google_sign_in_android-6.2.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:2:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:3:5-79
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:3:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:4:5-68
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-68
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-68
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:4:22-65
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:5:5-76
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-77
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-77
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:5:22-74
+queries
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:56:5-61:15
+MERGED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-11:15
+MERGED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-11:15
+intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:57:9-60:18
+action#android.intent.action.PROCESS_TEXT
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:58:13-72
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:58:21-70
+data
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:59:13-50
+	android:mimeType
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:59:19-48
+service#com.zafus.mathquiz.MyService
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:11:9-14:71
+	android:exported
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:13:13-36
+	android:permission
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:14:13-69
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:12:13-38
+activity#com.zafus.mathquiz.MainActivity
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:15:9-35:20
+	android:launchMode
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:18:13-43
+	android:hardwareAccelerated
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:21:13-47
+	android:windowSoftInputMode
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:22:13-55
+	android:exported
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:17:13-36
+	android:configChanges
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:20:13-163
+	android:theme
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:19:13-47
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:16:13-41
+meta-data#io.flutter.embedding.android.NormalTheme
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:27:13-30:17
+	android:resource
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:29:15-52
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:28:15-70
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:31:13-34:29
+action#android.intent.action.MAIN
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:32:17-68
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:32:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:33:17-76
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:33:27-74
+meta-data#flutterEmbedding
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:38:9-40:33
+	android:value
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:40:13-30
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:39:13-44
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:43:9-49:20
+	android:exported
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:45:13-37
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:44:13-101
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:46:13-48:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:47:17-78
+	android:name
+		ADDED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml:47:25-76
+uses-sdk
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+MERGED from [:shared_preferences_android] /Users/zafus/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.8/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] /Users/zafus/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.8/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/zafus/.pub-cache/hosted/pub.dev/webview_flutter_android-4.3.4/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/zafus/.pub-cache/hosted/pub.dev/webview_flutter_android-4.3.4/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.13.0-alpha04] /Users/zafus/.gradle/caches/transforms-3/e95764fa2dbad0382bf92d9c81009e61/transformed/material-1.13.0-alpha04/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.13.0-alpha04] /Users/zafus/.gradle/caches/transforms-3/e95764fa2dbad0382bf92d9c81009e61/transformed/material-1.13.0-alpha04/AndroidManifest.xml:20:5-44
+MERGED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/zafus/.gradle/caches/transforms-3/ae088a158a1357b2eb87db14a4acfcf2/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/zafus/.gradle/caches/transforms-3/ae088a158a1357b2eb87db14a4acfcf2/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.preference:preference:1.2.1] /Users/zafus/.gradle/caches/transforms-3/5b3d7beab46e1d7655d17b5b324870ee/transformed/preference-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.2.1] /Users/zafus/.gradle/caches/transforms-3/5b3d7beab46e1d7655d17b5b324870ee/transformed/preference-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/zafus/.gradle/caches/transforms-3/954a0be3d6a63b661f225288597fcfb7/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/zafus/.gradle/caches/transforms-3/954a0be3d6a63b661f225288597fcfb7/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/zafus/.gradle/caches/transforms-3/2f3186cf05f39a6891a2380e6026f4a8/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/zafus/.gradle/caches/transforms-3/2f3186cf05f39a6891a2380e6026f4a8/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.0.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.0.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:6:5-44
+MERGED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:6:5-44
+MERGED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/zafus/.gradle/caches/transforms-3/542b941440f4f8e1d93d538cb285d9c1/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/zafus/.gradle/caches/transforms-3/542b941440f4f8e1d93d538cb285d9c1/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/zafus/.gradle/caches/transforms-3/1a99983abd089e79b5f1f3086ee44fa3/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/zafus/.gradle/caches/transforms-3/1a99983abd089e79b5f1f3086ee44fa3/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/zafus/.gradle/caches/transforms-3/36d86a188b0de914cc9a0a20a5d5f73c/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/zafus/.gradle/caches/transforms-3/36d86a188b0de914cc9a0a20a5d5f73c/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.5.0] /Users/zafus/.gradle/caches/transforms-3/a4e71e28ac99ae1bf0271ecf60b64c9a/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.5.0] /Users/zafus/.gradle/caches/transforms-3/a4e71e28ac99ae1bf0271ecf60b64c9a/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/zafus/.gradle/caches/transforms-3/1ac062e057506ac0a9a5a69fbc64abb4/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/zafus/.gradle/caches/transforms-3/1ac062e057506ac0a9a5a69fbc64abb4/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/zafus/.gradle/caches/transforms-3/e537ceca1b4f7d015f0ed040245972a2/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/zafus/.gradle/caches/transforms-3/e537ceca1b4f7d015f0ed040245972a2/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/zafus/.gradle/caches/transforms-3/47150a0acebe86546352364dd21f6947/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/zafus/.gradle/caches/transforms-3/47150a0acebe86546352364dd21f6947/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/zafus/.gradle/caches/transforms-3/0d690a5f67a1dd3288599b0a43c2f59d/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/zafus/.gradle/caches/transforms-3/0d690a5f67a1dd3288599b0a43c2f59d/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [:flutter_plugin_android_lifecycle] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:google_sign_in_android] /Users/zafus/.pub-cache/hosted/pub.dev/google_sign_in_android-6.2.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:google_sign_in_android] /Users/zafus/.pub-cache/hosted/pub.dev/google_sign_in_android-6.2.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.browser:browser:1.8.0] /Users/zafus/.gradle/caches/transforms-3/bead3ae205739497ff521613dc8ca107/transformed/browser-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.browser:browser:1.8.0] /Users/zafus/.gradle/caches/transforms-3/bead3ae205739497ff521613dc8ca107/transformed/browser-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/zafus/.gradle/caches/transforms-3/a73f3035c970e9f771ba06e1797b81e2/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/zafus/.gradle/caches/transforms-3/a73f3035c970e9f771ba06e1797b81e2/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] /Users/zafus/.gradle/caches/transforms-3/119d19dd555d84eacb4031dfaf2dbaba/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] /Users/zafus/.gradle/caches/transforms-3/119d19dd555d84eacb4031dfaf2dbaba/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/8704569643d8c7aa851406aa895608e2/transformed/jetified-credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/8704569643d8c7aa851406aa895608e2/transformed/jetified-credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/zafus/.gradle/caches/transforms-3/a96f2d4da748b94aa2cb35e202840600/transformed/jetified-play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/zafus/.gradle/caches/transforms-3/a96f2d4da748b94aa2cb35e202840600/transformed/jetified-play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/zafus/.gradle/caches/transforms-3/6107847eb476f4d680023ac93a9d6c46/transformed/jetified-play-services-auth-base-18.0.10/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/zafus/.gradle/caches/transforms-3/6107847eb476f4d680023ac93a9d6c46/transformed/jetified-play-services-auth-base-18.0.10/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/zafus/.gradle/caches/transforms-3/79c00a484e0016a2b182c3ed25e3bc44/transformed/jetified-firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/zafus/.gradle/caches/transforms-3/79c00a484e0016a2b182c3ed25e3bc44/transformed/jetified-firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/zafus/.gradle/caches/transforms-3/68d175a3bcaa3d382a094344c63e57b0/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/zafus/.gradle/caches/transforms-3/68d175a3bcaa3d382a094344c63e57b0/transformed/jetified-play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/zafus/.gradle/caches/transforms-3/26a8c607f2079b3e2e172e09dcacaaab/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/zafus/.gradle/caches/transforms-3/26a8c607f2079b3e2e172e09dcacaaab/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/zafus/.gradle/caches/transforms-3/b1ab219c9ffc58e835e9abbfbe14eb92/transformed/jetified-integrity-1.3.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/zafus/.gradle/caches/transforms-3/b1ab219c9ffc58e835e9abbfbe14eb92/transformed/jetified-integrity-1.3.0/AndroidManifest.xml:4:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/zafus/.gradle/caches/transforms-3/35ea91e87f169f8af240e2b6dcbf350a/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/zafus/.gradle/caches/transforms-3/35ea91e87f169f8af240e2b6dcbf350a/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/zafus/.gradle/caches/transforms-3/010f56f5ae14a8a80a9a94e43b09b393/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/zafus/.gradle/caches/transforms-3/010f56f5ae14a8a80a9a94e43b09b393/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.1.0] /Users/zafus/.gradle/caches/transforms-3/eeb353bac75bcea03d4b1d89bb6d789e/transformed/loader-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.1.0] /Users/zafus/.gradle/caches/transforms-3/eeb353bac75bcea03d4b1d89bb6d789e/transformed/loader-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /Users/zafus/.gradle/caches/transforms-3/fd34b96ac44724ba85dd549192322278/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /Users/zafus/.gradle/caches/transforms-3/fd34b96ac44724ba85dd549192322278/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/zafus/.gradle/caches/transforms-3/4ed724c1c887345c018e864b44b48b53/transformed/jetified-activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/zafus/.gradle/caches/transforms-3/4ed724c1c887345c018e864b44b48b53/transformed/jetified-activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/f54ee42368c6522befe789b9f2d3055e/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/f54ee42368c6522befe789b9f2d3055e/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/b0e1a50c09721f8a54e61086a8ca0dd1/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/b0e1a50c09721f8a54e61086a8ca0dd1/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/d1b0d9709e5f5457143e5d7ddef583dd/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/zafus/.gradle/caches/transforms-3/d1b0d9709e5f5457143e5d7ddef583dd/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/zafus/.gradle/caches/transforms-3/f990f89a54452a4faa9bceee33afbf29/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/zafus/.gradle/caches/transforms-3/f990f89a54452a4faa9bceee33afbf29/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/zafus/.gradle/caches/transforms-3/59733ef1c20ce337a4b30722699d5006/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/zafus/.gradle/caches/transforms-3/59733ef1c20ce337a4b30722699d5006/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/zafus/.gradle/caches/transforms-3/830aaac9775cabed9184f9b0071a322d/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/zafus/.gradle/caches/transforms-3/830aaac9775cabed9184f9b0071a322d/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/zafus/.gradle/caches/transforms-3/6384807131bebccf7113bb51b801292c/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/zafus/.gradle/caches/transforms-3/6384807131bebccf7113bb51b801292c/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/zafus/.gradle/caches/transforms-3/79b4138dac444afe2d660b45ca407ee2/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/zafus/.gradle/caches/transforms-3/79b4138dac444afe2d660b45ca407ee2/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/zafus/.gradle/caches/transforms-3/05da0d5fe0eeca8fb15dd5fbedae6431/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/zafus/.gradle/caches/transforms-3/05da0d5fe0eeca8fb15dd5fbedae6431/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window-java:1.2.0] /Users/zafus/.gradle/caches/transforms-3/1698f437b4c553e016b5c1b0458d1673/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.window:window-java:1.2.0] /Users/zafus/.gradle/caches/transforms-3/1698f437b4c553e016b5c1b0458d1673/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/6ebda589d13116a83d7d3e5e62d63acf/transformed/jetified-datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/6ebda589d13116a83d7d3e5e62d63acf/transformed/jetified-datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/248c6a96c0457161d653f2dd05ead8c0/transformed/jetified-datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/248c6a96c0457161d653f2dd05ead8c0/transformed/jetified-datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/46682db31676e9ce039f84ad40486591/transformed/jetified-datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.3] /Users/zafus/.gradle/caches/transforms-3/46682db31676e9ce039f84ad40486591/transformed/jetified-datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/zafus/.gradle/caches/transforms-3/2ab4672a03b86e18696ba326860d4255/transformed/jetified-play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/zafus/.gradle/caches/transforms-3/2ab4672a03b86e18696ba326860d4255/transformed/jetified-play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:3:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/zafus/.gradle/caches/transforms-3/c01416355e92f2c75817c8268f457a40/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/zafus/.gradle/caches/transforms-3/c01416355e92f2c75817c8268f457a40/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.3] /Users/zafus/.gradle/caches/transforms-3/f80b84c0979e739655c04cbb5299fc5d/transformed/jetified-activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.3] /Users/zafus/.gradle/caches/transforms-3/f80b84c0979e739655c04cbb5299fc5d/transformed/jetified-activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.12.1] /Users/zafus/.gradle/caches/transforms-3/029c3cb5610b4d304aa071be060cd498/transformed/webkit-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.webkit:webkit:1.12.1] /Users/zafus/.gradle/caches/transforms-3/029c3cb5610b4d304aa071be060cd498/transformed/webkit-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/zafus/.gradle/caches/transforms-3/8af1961581d796f938bbdd3c2bf7169d/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/zafus/.gradle/caches/transforms-3/8af1961581d796f938bbdd3c2bf7169d/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/zafus/.gradle/caches/transforms-3/d5015fb5d8e4b719775a02e253fac0e2/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/zafus/.gradle/caches/transforms-3/d5015fb5d8e4b719775a02e253fac0e2/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /Users/zafus/.gradle/caches/transforms-3/912708b7394ac5b63eb440ba6afb1c63/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/zafus/.gradle/caches/transforms-3/912708b7394ac5b63eb440ba6afb1c63/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/zafus/.gradle/caches/transforms-3/0677bdbefc4322eaea8999a81314dbd1/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/zafus/.gradle/caches/transforms-3/0677bdbefc4322eaea8999a81314dbd1/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/zafus/.gradle/caches/transforms-3/1c420f0b72748a68aac0501b74b7c3e0/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/zafus/.gradle/caches/transforms-3/1c420f0b72748a68aac0501b74b7c3e0/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/zafus/.gradle/caches/transforms-3/382e94886993263fa8a9a7b7898a68e5/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/zafus/.gradle/caches/transforms-3/382e94886993263fa8a9a7b7898a68e5/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/zafus/.gradle/caches/transforms-3/63255026ec5f44c4bb731ef7671289cf/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/zafus/.gradle/caches/transforms-3/63255026ec5f44c4bb731ef7671289cf/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/zafus/.gradle/caches/transforms-3/2495b0666dc5ff42787cd3a118ad6680/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/zafus/.gradle/caches/transforms-3/2495b0666dc5ff42787cd3a118ad6680/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/zafus/.gradle/caches/transforms-3/5b51580ad60209d8826f0b911d73f955/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/zafus/.gradle/caches/transforms-3/5b51580ad60209d8826f0b911d73f955/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/zafus/.gradle/caches/transforms-3/cdf45631a0064c54a274a51f9463c09b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/zafus/.gradle/caches/transforms-3/cdf45631a0064c54a274a51f9463c09b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/zafus/.gradle/caches/transforms-3/99843d9706845b272df133caf24d66e7/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/zafus/.gradle/caches/transforms-3/99843d9706845b272df133caf24d66e7/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/zafus/.gradle/caches/transforms-3/af9a92230ec9992369cc8a897b394203/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/zafus/.gradle/caches/transforms-3/af9a92230ec9992369cc8a897b394203/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/zafus/.gradle/caches/transforms-3/0e9002861a930c95d2edf850c7e72ce2/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/zafus/.gradle/caches/transforms-3/0e9002861a930c95d2edf850c7e72ce2/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/zafus/.gradle/caches/transforms-3/e8bf6da3b55b57ef8f7effc517959501/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/zafus/.gradle/caches/transforms-3/e8bf6da3b55b57ef8f7effc517959501/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/zafus/.gradle/caches/transforms-3/7e8ed0adb75fdc05929d5ba1752b645d/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/zafus/.gradle/caches/transforms-3/7e8ed0adb75fdc05929d5ba1752b645d/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/zafus/.gradle/caches/transforms-3/1f05b6999095c06892df0784cdcb1914/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/zafus/.gradle/caches/transforms-3/1f05b6999095c06892df0784cdcb1914/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/zafus/.gradle/caches/transforms-3/8d962f7436a185c45cd0923bac2cb9e3/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/zafus/.gradle/caches/transforms-3/8d962f7436a185c45cd0923bac2cb9e3/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/zafus/.gradle/caches/transforms-3/7f435d0c638faf9bdc1887cc47097a8f/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/zafus/.gradle/caches/transforms-3/7f435d0c638faf9bdc1887cc47097a8f/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/zafus/.gradle/caches/transforms-3/b8a960bb48187d22d91d6fd21d12fc69/transformed/jetified-googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/zafus/.gradle/caches/transforms-3/b8a960bb48187d22d91d6fd21d12fc69/transformed/jetified-googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/zafus/.gradle/caches/transforms-3/2996e8e1232e8605577daa0cd175bd48/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/zafus/.gradle/caches/transforms-3/2996e8e1232e8605577daa0cd175bd48/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:23:9-148
+	android:targetSdkVersion
+		INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/zafus/Development/project/dacs/mathquiz_mobile/android/app/src/main/AndroidManifest.xml
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:68:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar
+ADDED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_auth] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_auth-5.5.2/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:17-124
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
+ADDED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_core] /Users/zafus/.pub-cache/hosted/pub.dev/firebase_core-3.13.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:17-124
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:35:13-45:29
+action#android.intent.action.VIEW
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:36:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:39:27-75
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:53:13-63:29
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/zafus/.gradle/caches/transforms-3/127b70b8ad8352a2acde7dd5096f629c/transformed/jetified-firebase-auth-23.2.0/AndroidManifest.xml:70:17-109
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/zafus/.gradle/caches/transforms-3/3ce93f87d2fad940ac57c85b8bf84a0a/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+provider#com.sidlatau.flutteremailsender.FlutterEmailSenderFileProvider
+ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-65
+	android:exported
+		ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-90
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-15:61
+	android:resource
+		ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:17-58
+	android:name
+		ADDED from [:flutter_email_sender] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_email_sender-6.0.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:17-67
+intent#action:name:android.support.customtabs.action.CustomTabsService
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-10:18
+action#android.support.customtabs.action.CustomTabsService
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-90
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:21-87
+activity#com.pichillilorenzo.flutter_inappwebview_android.in_app_browser.InAppBrowserActivity
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:9-18:47
+	android:exported
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-37
+	android:configChanges
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-137
+	android:theme
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-44
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-112
+activity#com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.ChromeCustomTabsActivity
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:9-22:55
+	android:exported
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-37
+	android:theme
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-52
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-120
+activity#com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.TrustedWebActivity
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:9-26:55
+	android:exported
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-52
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-114
+activity#com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.ChromeCustomTabsActivitySingleInstance
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:9-31:55
+	android:launchMode
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-48
+	android:exported
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-37
+	android:theme
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-52
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-134
+activity#com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.TrustedWebActivitySingleInstance
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:32:9-36:55
+	android:launchMode
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:35:13-48
+	android:exported
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:13-37
+	android:theme
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:36:13-52
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:33:13-128
+receiver#com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.ActionBroadcastReceiver
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:38:9-41:40
+	android:enabled
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-35
+	android:exported
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:13-37
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:39:13-119
+meta-data#io.flutter.embedded_views_preview
+ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:43:9-45:36
+	android:value
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:45:13-33
+	android:name
+		ADDED from [:flutter_inappwebview_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.1.3/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:44:13-61
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:22-78
+service#id.flutter.flutter_background_service.BackgroundService
+ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:9-16:44
+	android:enabled
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-35
+	android:exported
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-36
+	android:stopWithTask
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-41
+	android:name
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-83
+receiver#id.flutter.flutter_background_service.WatchdogReceiver
+ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:9-21:39
+	android:enabled
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-35
+	android:exported
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-36
+	android:name
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-82
+receiver#id.flutter.flutter_background_service.BootReceiver
+ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:9-31:20
+	android:enabled
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-35
+	android:exported
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-78
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-30:29
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-82
+	android:name
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-79
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:17-84
+	android:name
+		ADDED from [:flutter_background_service_android] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_background_service_android-6.3.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:25-81
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.0.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.0.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:22-63
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from [:flutter_local_notifications] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.0.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:5-77
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/zafus/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.0.0/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:22-74
+provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
+ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:9-17:20
+	android:grantUriPermissions
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-47
+	android:authorities
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-74
+	android:exported
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-37
+	android:name
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-82
+service#com.google.android.gms.metadata.ModuleDependencies
+ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:9-31:19
+	android:enabled
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-36
+	android:exported
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-37
+	tools:ignore
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-40
+	android:name
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-78
+intent-filter#action:name:com.google.android.gms.metadata.MODULE_DEPENDENCIES
+ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-26:29
+action#com.google.android.gms.metadata.MODULE_DEPENDENCIES
+ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:17-94
+	android:name
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:25-91
+meta-data#photopicker_activity:0:required
+ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-30:36
+	android:value
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:17-33
+	android:name
+		ADDED from [:image_picker_android] /Users/zafus/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+22/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:17-63
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher_android] /Users/zafus/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-74
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/zafus/.gradle/caches/transforms-3/d3d05af8267219aa2ab0463c7941eb03/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:35:13-76
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] /Users/zafus/.gradle/caches/transforms-3/ba4cfc2875ef456a781dd912c27978f1/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:34:13-89
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/zafus/.gradle/caches/transforms-3/fb95b6a0cf132e9db98cdff3bc6ddf67/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/zafus/.gradle/caches/transforms-3/9ab38ecab0b1c8ac21a193a15d398d18/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:9:5-98
+	android:name
+		ADDED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/zafus/.gradle/caches/transforms-3/c2b5af074f61ea278b006311e7d1150f/transformed/jetified-recaptcha-18.6.1/AndroidManifest.xml:9:22-95
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/zafus/.gradle/caches/transforms-3/5b51580ad60209d8826f0b911d73f955/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/zafus/.gradle/caches/transforms-3/5b51580ad60209d8826f0b911d73f955/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/zafus/.gradle/caches/transforms-3/7f5ea79e4db826e83c0fe304ea30654a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/zafus/.gradle/caches/transforms-3/839691fb8290183e00c1fa345a337f99/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /Users/zafus/.gradle/caches/transforms-3/ad0d353916cc7828260e6621853059a8/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] /Users/zafus/.gradle/caches/transforms-3/9750673bbd51f7a366c27ad29d4c9ec0/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.zafus.mathquiz.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.zafus.mathquiz.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/zafus/.gradle/caches/transforms-3/fa089a2e710337f576f50a1548e819ab/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/zafus/.gradle/caches/transforms-3/e6710a9408d9571bb53e174abad4a5c0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+activity#com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+ADDED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:14:9-18:65
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:17:13-42
+	android:exported
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:16:13-37
+	android:theme
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:18:13-62
+	android:name
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/zafus/.gradle/caches/transforms-3/481f76ec9b095d44709af2ba5c46cd62/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:15:13-93
